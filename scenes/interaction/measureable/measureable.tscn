@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://chpxdsgs08ep5"]
+
+[ext_resource type="Script" uid="uid://httlcyw8ycet" path="res://scenes/interaction/measureable/measureable.gd" id="1_80h56"]
+
+[node name="Measureable" type="Node3D" unique_id=1180068611]
+script = ExtResource("1_80h56")

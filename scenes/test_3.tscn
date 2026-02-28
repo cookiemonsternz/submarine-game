@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://diyd2q37aur87"]
+
+[ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="1_6517d"]
+[ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="1_xq3ns"]
+[ext_resource type="Script" uid="uid://db77b6crbdmy7" path="res://scenes/csg_box_3d.gd" id="3_sia6j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sia6j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8du8f"]
+sky_material = SubResource("ProceduralSkyMaterial_sia6j")
+
+[sub_resource type="Environment" id="Environment_3qpud"]
+background_mode = 2
+sky = SubResource("Sky_8du8f")
+tonemap_mode = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_18mdm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6517d"]
+
+[node name="Node3D" type="Node3D" unique_id=1290044561]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=979736202]
+environment = SubResource("Environment_3qpud")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=744456429]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1166080561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Measureable" parent="RigidBody3D" unique_id=1180068611 node_paths=PackedStringArray("drag_body", "joint") instance=ExtResource("1_xq3ns")]
+drag_body = NodePath("..")
+joint = NodePath("../../JoltHingeJoint3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1768368773]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.17039514)
+mesh = SubResource("CapsuleMesh_18mdm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=695115861]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_6517d")
+
+[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="." unique_id=1532818381]
+limit_enabled = true
+limit_upper = 0.5532693728822022
+limit_lower = -1.8465583486100006
+motor_enabled = true
+motor_target_velocity = 0.08726646259971647
+node_a = NodePath("../RigidBody3D")
+transform = Transform3D(1.9106853e-15, 4.3711385e-08, 1, 0.99999994, -4.3711385e-08, 0, 4.3711385e-08, 0.99999994, -4.371139e-08, 0, 0, 0)
+
+[node name="Player" parent="." unique_id=2008127875 instance=ExtResource("1_6517d")]
+transform = Transform3D(1, 0, 0, 0, 0.9382819, 0.34587145, 0, -0.34587145, 0.9382819, -0.30780554, 1.1947243, 1.9680746)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1809829627]
+size = Vector3(0.1, 0.1, 0.1)
+script = ExtResource("3_sia6j")

@@ -1,5 +1,7 @@
 class_name Draggable extends Node3D
 
+@export var drag_strength: float = 500.0
+
 @export var rigidbody: RigidBody3D
 @export var mouse_target: MouseTarget
 
@@ -19,7 +21,7 @@ func _process(delta: float) -> void:
 		var pos = plane.intersects_ray(from, camera.project_ray_normal(mouse_pos) * 4096.0)
 		if pos is Vector3:
 			#print((global_position - pos).normalized() * -1.0)
-			var vec = (pos - rigidbody.global_position).normalized() * 500.0
+			var vec = (pos - rigidbody.global_position).normalized() * drag_strength
 			rigidbody.apply_central_force(vec * delta)
 
 func _on_mouse_target_pressed() -> void:
