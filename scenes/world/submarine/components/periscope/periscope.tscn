@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bsk6863pnp7hu"]
+
+[ext_resource type="PackedScene" uid="uid://b37h1k34r5psf" path="res://assets/periscope.fbx" id="1_ytaqb"]
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="2_r3mf3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3mf3"]
+radius = 0.30078125
+height = 0.9439087
+
+[node name="periscope" unique_id=981972346 instance=ExtResource("1_ytaqb")]
+
+[node name="Periscope" parent="." index="0" unique_id=1564287416]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, -4.8242006, -1.0428739)
+
+[node name="MouseTarget" parent="Periscope/View/Handle" parent_id_path=PackedInt32Array(902807175) index="0" unique_id=532023496 node_paths=PackedStringArray("outline_object") instance=ExtResource("2_r3mf3")]
+transform = Transform3D(9.302911e-09, -6.201941e-09, -0.052025653, 0.0066157063, -0.060285486, 8.369572e-09, -0.009937403, -0.0035909975, -1.3488661e-09, -6.4200205e-05, 8.25855e-05, -0.0049858335)
+outline_object = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Periscope/View/Handle/MouseTarget" index="0" unique_id=551521700]
+transform = Transform3D(-0.11923577, -0.992866, 0, 0.992866, -0.11923577, 0, 0, 0, 1, -0.6077981, -0.059210233, 0)
+shape = SubResource("CapsuleShape3D_r3mf3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Periscope/View/Handle/MouseTarget" index="1" unique_id=1749467640]
+transform = Transform3D(0.19839299, -0.9801225, 0, 0.9801225, 0.19839299, 0, 0, 0, 1, 0.5613348, -0.091592126, 0)
+shape = SubResource("CapsuleShape3D_r3mf3")

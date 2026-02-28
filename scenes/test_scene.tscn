@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bbtc8y524tqgf"]
+
+[ext_resource type="Script" uid="uid://blei84s0utde8" path="res://scenes/test_scene.gd" id="1_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://51ptaxd3lby1" path="res://scenes/interaction/look_target/look_target.tscn" id="2_nd71p"]
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="3_7ddre"]
+[ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="3_nd71p"]
+[ext_resource type="PackedScene" uid="uid://bsk6863pnp7hu" path="res://scenes/world/submarine/components/periscope/periscope.tscn" id="5_qjeyg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ddre"]
+radius = 0.49404526
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ddre"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qjeyg"]
+noise = SubResource("FastNoiseLite_7ddre")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qnke"]
+albedo_texture = SubResource("NoiseTexture2D_qjeyg")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qjeyg"]
+
+[sub_resource type="Sky" id="Sky_3qnke"]
+sky_material = SubResource("ProceduralSkyMaterial_qjeyg")
+
+[sub_resource type="Environment" id="Environment_wtsjf"]
+background_mode = 2
+background_camera_feed_id = 2
+sky = SubResource("Sky_3qnke")
+ssao_enabled = true
+glow_intensity = 0.0
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_rnaij"]
+
+[node name="Test Scene" type="Node3D" unique_id=1168862798]
+script = ExtResource("1_j8ivh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=828915861]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=113747039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4706213, 1.5471687, -0.72537506)
+
+[node name="MouseTarget" parent="CSGSphere3D" unique_id=532023496 node_paths=PackedStringArray("outline_object") instance=ExtResource("3_7ddre")]
+outline_object = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGSphere3D/MouseTarget" unique_id=2127490771]
+shape = SubResource("SphereShape3D_7ddre")
+
+[node name="LookTarget" parent="CSGSphere3D" unique_id=534519409 node_paths=PackedStringArray("camera_position", "right") instance=ExtResource("2_nd71p")]
+camera_position = NodePath("../../Cam Pos")
+right = NodePath("../../CSGSphere3D2/LookTarget2")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1590891587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4706213, 1.5471687, -2.5153599)
+
+[node name="LookTarget2" parent="CSGSphere3D2" unique_id=1014770237 node_paths=PackedStringArray("camera_position", "left", "right", "up") instance=ExtResource("2_nd71p")]
+camera_position = NodePath("../../Cam Pos")
+left = NodePath("../../CSGSphere3D/LookTarget")
+right = NodePath("../../CSGSphere3D3/LookTarget3")
+up = NodePath("../../CSGSphere3D4/LookTarget4")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="." unique_id=712683394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4706213, 1.5471687, -4.3259144)
+
+[node name="LookTarget3" parent="CSGSphere3D3" unique_id=2064984570 node_paths=PackedStringArray("camera_position", "left") instance=ExtResource("2_nd71p")]
+camera_position = NodePath("../../Cam Pos")
+left = NodePath("../../CSGSphere3D2/LookTarget2")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="." unique_id=437856136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4706213, 3.2293212, -2.5258985)
+
+[node name="LookTarget4" parent="CSGSphere3D4" unique_id=2104218569 node_paths=PackedStringArray("camera_position", "down") instance=ExtResource("2_nd71p")]
+camera_position = NodePath("../../Cam Pos")
+down = NodePath("../../CSGSphere3D2/LookTarget2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1609714172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02722168, 0, -2.541748)
+size = Vector3(7.278076, 1, 6.083496)
+material = SubResource("StandardMaterial3D_3qnke")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2132781859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -3)
+visible = false
+omni_range = 214.759
+
+[node name="Cam Pos" type="Marker3D" parent="." unique_id=1305263553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7596924, 1.9037659, -2.425036)
+
+[node name="Player" parent="." unique_id=2008127875 instance=ExtResource("3_nd71p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9997101, 0, -2.42973)
+
+[node name="periscope" parent="." unique_id=981972346 instance=ExtResource("5_qjeyg")]
+transform = Transform3D(0.030765284, 0, -0.9995266, 0, 1, 0, 0.9995266, 0, 0.030765284, -1.346273, 1.6546819, -2.43863)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=191606698]
+environment = SubResource("Environment_wtsjf")
+camera_attributes = SubResource("CameraAttributesPractical_rnaij")

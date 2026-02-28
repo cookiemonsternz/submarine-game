@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://51ptaxd3lby1"]
+
+[ext_resource type="Script" uid="uid://cniw2up0q8vla" path="res://scenes/interaction/look_target/look_target.gd" id="1_ayc1m"]
+
+[node name="LookTarget" type="Marker3D" unique_id=534519409]
+script = ExtResource("1_ayc1m")

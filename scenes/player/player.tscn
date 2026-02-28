@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dcdfxqwqee6wc"]
+
+[ext_resource type="Script" uid="uid://ctyx2wv2yd5wa" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="Shader" uid="uid://csxoqjnur55gm" path="res://assets/shaders/highlight_effect_viewport.gdshader" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="2_lvxji"]
+[ext_resource type="Shader" uid="uid://bxul4v14bwvhu" path="res://assets/shaders/highlight_effect.gdshader" id="4_p47bc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75vfm"]
+resource_local_to_scene = true
+render_priority = -1
+shader = ExtResource("2_dovo2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0owmy"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lvxji"]
+viewport_path = NodePath("HighlightViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gtgg"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_p47bc")
+shader_parameter/depth_testing = true
+shader_parameter/width_outline = 1
+shader_parameter/color_inner = Color(0.9098039, 0.4627451, 0.5921569, 0)
+shader_parameter/color_outline = Color(1, 1, 1, 0.5803922)
+shader_parameter/highlighted_depth_tex = SubResource("ViewportTexture_lvxji")
+
+[sub_resource type="QuadMesh" id="QuadMesh_h17s1"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="Player" type="Node3D" unique_id=2008127875]
+script = ExtResource("1_8afob")
+
+[node name="HighlightViewport" type="SubViewport" parent="." unique_id=152582382]
+transparent_bg = true
+handle_input_locally = false
+use_hdr_2d = true
+render_target_update_mode = 4
+script = ExtResource("2_lvxji")
+
+[node name="HighlightCamera3D" type="Camera3D" parent="HighlightViewport" unique_id=1470345296]
+cull_mask = 1024
+
+[node name="HighlightEffectDepth" type="MeshInstance3D" parent="HighlightViewport/HighlightCamera3D" unique_id=1558645486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
+visible = false
+layers = 1024
+material_override = SubResource("ShaderMaterial_75vfm")
+mesh = SubResource("QuadMesh_0owmy")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1937451210 groups=["player_camera"]]
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D" unique_id=1549060398]
+remote_path = NodePath("../../HighlightViewport/HighlightCamera3D")
+
+[node name="HighlightEffect" type="MeshInstance3D" parent="Camera3D" unique_id=1756079120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
+visible = false
+material_override = SubResource("ShaderMaterial_5gtgg")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+ignore_occlusion_culling = true
+gi_mode = 0
+mesh = SubResource("QuadMesh_h17s1")
+skeleton = NodePath("../../../HighlightViewport")

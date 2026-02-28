@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dl5vs0xto10ct"]
+
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="1_kde15"]
+[ext_resource type="Script" uid="uid://cnl82ftwou43m" path="res://scenes/rigid_body_3d.gd" id="1_kjmiq"]
+[ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="2_8i2nt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kjmiq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8mc82"]
+sky_material = SubResource("ProceduralSkyMaterial_kjmiq")
+
+[sub_resource type="Environment" id="Environment_qu37g"]
+background_mode = 2
+sky = SubResource("Sky_8mc82")
+tonemap_mode = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kjmiq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kde15"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8i2nt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kjmiq"]
+radius = 1.173
+
+[node name="Node3D" type="Node3D" unique_id=21127815]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1539116139]
+environment = SubResource("Environment_qu37g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1639097079]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1928487201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3106315, 0)
+physics_material_override = SubResource("PhysicsMaterial_kjmiq")
+script = ExtResource("1_kjmiq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1269771803]
+mesh = SubResource("SphereMesh_kde15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=986887033]
+shape = SubResource("SphereShape3D_8i2nt")
+
+[node name="MouseTarget" parent="RigidBody3D" unique_id=532023496 node_paths=PackedStringArray("outline_object") instance=ExtResource("1_kde15")]
+outline_object = NodePath("../MeshInstance3D")
+selectable = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/MouseTarget" unique_id=780380491]
+shape = SubResource("SphereShape3D_kjmiq")
+
+[node name="SliderJoint3D" type="SliderJoint3D" parent="." unique_id=513145146]
+transform = Transform3D(0.99998933, -0.004625185, 0, 0.004625185, 0.99998933, 0, 0, 0, 1, 0, 1.3420155, 0)
+node_a = NodePath("../RigidBody3D")
+linear_limit/upper_distance = 2.5
+linear_limit/lower_distance = -2.5
+linear_limit/restitution = 1.01
+linear_motion/softness = 0.3
+linear_motion/damping = 0.01
+
+[node name="Player" parent="." unique_id=2008127875 instance=ExtResource("2_8i2nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003591776, 1.3413626, 2.519326)
+
+[connection signal="pressed" from="RigidBody3D/MouseTarget" to="RigidBody3D" method="_on_mouse_target_pressed"]
+[connection signal="released" from="RigidBody3D/MouseTarget" to="RigidBody3D" method="_on_mouse_target_released"]

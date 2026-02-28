@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://7qgry4rw36cu"]
+
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="1_8gvfd"]
+[ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="2_meejf"]
+[ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="3_meejf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kitsk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5w5ri"]
+radius = 0.6548281
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tk2tp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11w5v"]
+size = Vector3(1, 0.29492188, 1)
+
+[node name="Lever" type="Node3D" unique_id=424322314]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=404819209]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1409803162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
+mesh = SubResource("CapsuleMesh_kitsk")
+
+[node name="MouseTarget" parent="RigidBody3D/MeshInstance3D" unique_id=532023496 node_paths=PackedStringArray("outline_object") instance=ExtResource("1_8gvfd")]
+outline_object = NodePath("..")
+selectable = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/MeshInstance3D/MouseTarget" unique_id=1806052713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5681813, 0)
+shape = SubResource("SphereShape3D_5w5ri")
+
+[node name="Draggable" parent="RigidBody3D/MeshInstance3D" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("2_meejf")]
+rigidbody = NodePath("../..")
+mouse_target = NodePath("../MouseTarget")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1858927460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0023901, 0)
+shape = SubResource("CapsuleShape3D_tk2tp")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=398492675]
+node_a = NodePath("../StaticBody3D")
+node_b = NodePath("../RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 0.9023352
+angular_limit/lower = -0.9599311
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1366491410]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=151513120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1587594, 0)
+shape = SubResource("BoxShape3D_11w5v")
+
+[node name="Player" parent="." unique_id=2008127875 instance=ExtResource("3_meejf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)

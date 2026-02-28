@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dcq3q4hiqfoxj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh8mv"]
+albedo_color = Color(0.7960594, 0.43725258, 0.9717317, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er88w"]
+albedo_color = Color(0.4164484, 0.55640775, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elrrf"]
+albedo_color = Color(0.82745576, 0.6762118, 0.2722123, 1)
+
+[node name="Submarine" type="Node3D" unique_id=1595359744]
+
+[node name="Blockout" type="Node3D" parent="." unique_id=509129367]
+
+[node name="ControlRoom" type="CSGBox3D" parent="Blockout" unique_id=1194359131]
+size = Vector3(4, 1, 5)
+material = SubResource("StandardMaterial3D_gh8mv")
+
+[node name="Mess" type="CSGBox3D" parent="Blockout" unique_id=1114112221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5)
+size = Vector3(4, 1, 6)
+material = SubResource("StandardMaterial3D_er88w")
+
+[node name="CaptainsCabinCutout" type="CSGBox3D" parent="Blockout/Mess" unique_id=410283557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, -2)
+operation = 2
+size = Vector3(1.5, 1, 2)
+
+[node name="CaptainsCabin" type="CSGBox3D" parent="Blockout" unique_id=21310176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, 3.5)
+size = Vector3(1.5, 1, 2)
+material = SubResource("StandardMaterial3D_elrrf")

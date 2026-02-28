@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bhv8cjuyvan2e"]
+
+[ext_resource type="Script" uid="uid://wx5gk2s58c1n" path="res://scenes/interaction/mouse_target/mouse_target.gd" id="1_142w7"]
+
+[node name="MouseTarget" type="Area3D" unique_id=532023496]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_142w7")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
