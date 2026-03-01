@@ -16,7 +16,7 @@ radius = 0.6548281
 [node name="Lever" type="Node3D" unique_id=424322314]
 script = ExtResource("1_5w5ri")
 drag_strength = 2000.0
-snap_out_threshold = 0.25
+snap_out_threshold = 1.0
 detent_equation = "(pow(1.5, 5 * x) * 2) - 2"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=404819209]
