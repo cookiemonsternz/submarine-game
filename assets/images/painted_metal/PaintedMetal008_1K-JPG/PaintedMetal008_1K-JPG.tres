@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="acg_97hx3fet"]
+
+[ext_resource type="Texture2D" uid="uid://acg_0x6yk5bl" id="Color" path="./PaintedMetal008_1K-JPG_Color.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_e6ftg2kv" id="AmbientOcclusion" path="./PaintedMetal008_1K-JPG_AmbientOcclusion.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_ps3hwakt" id="Metalness" path="./PaintedMetal008_1K-JPG_Metalness.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_4oh26ezs" id="Displacement" path="./PaintedMetal008_1K-JPG_Displacement.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_1pd5wa9k" id="Roughness" path="./PaintedMetal008_1K-JPG_Roughness.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_6lnvxi5r" id="NormalGL" path="./PaintedMetal008_1K-JPG_NormalGL.jpg"]
+[resource]
+albedo_texture = ExtResource("Color")
+ao_enabled = true
+ao_texture = ExtResource("AmbientOcclusion")
+ao_texture_channel = 4
+metallic_texture = ExtResource("Metalness")
+metallic = 1.0
+metallic_texture_channel = 4
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_texture = ExtResource("NormalGL")
+normal_enabled = true
+heightmap_texture = ExtResource("Displacement")
+heightmap_scale = 1.0
+heightmap_enabled = true
