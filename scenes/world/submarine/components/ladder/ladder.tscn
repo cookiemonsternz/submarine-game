@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dt5r6gyyyku05"]
+
+[ext_resource type="PackedScene" uid="uid://8najafvml3v0" path="res://assets/ladder.fbx" id="1_d4a6p"]
+
+[node name="ladder" unique_id=351658799 instance=ExtResource("1_d4a6p")]
