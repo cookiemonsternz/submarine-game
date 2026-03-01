@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://br8c0hdvigko7"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/submarine/control_room_blockout.tscn" id="1_errir"]
+[ext_resource type="Material" uid="uid://dm157s57mfhfe" path="res://addons/kenney_prototype_tools/materials/dark/material_02.tres" id="2_hmn8g"]
+[ext_resource type="Material" uid="uid://dv8yeslwdnoa7" path="res://addons/kenney_prototype_tools/materials/orange/material_08.tres" id="2_m2uhk"]
+[ext_resource type="Material" uid="uid://d0gmvf62uyhd0" path="res://addons/kenney_prototype_tools/materials/red/material_01.tres" id="3_f3ok3"]
+[ext_resource type="Material" uid="uid://dnpe42osrwakk" path="res://addons/kenney_prototype_tools/materials/orange/material_11.tres" id="3_r7u5v"]
+[ext_resource type="Material" uid="uid://bx6qeabdhq2s" path="res://addons/kenney_prototype_tools/materials/dark/material_01.tres" id="4_d7p6i"]
+[ext_resource type="Material" uid="uid://djayvm8cmomrq" path="res://addons/kenney_prototype_tools/materials/dark/material_11.tres" id="4_oc218"]
+[ext_resource type="Material" uid="uid://dxlnifhgft6h5" path="res://addons/kenney_prototype_tools/materials/green/material_01.tres" id="7_oc218"]
+[ext_resource type="Material" uid="uid://dxpt3h0t7ug6" path="res://addons/kenney_prototype_tools/materials/light/material_11.tres" id="9_maxbi"]
+[ext_resource type="Material" uid="uid://ddal25jay8fq1" path="res://addons/kenney_prototype_tools/materials/purple/material_01.tres" id="10_maxbi"]
+
+[node name="BlockOut" type="Node3D" unique_id=1586682933]
+
+[node name="ControlRoomBlockout" parent="." unique_id=1395407479 instance=ExtResource("1_errir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22415465, 0, 0.70040715)
+
+[node name="Map Table2" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=1784491573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3705032, 1.6364998, -4.0882335)
+material_override = ExtResource("2_m2uhk")
+use_collision = true
+size = Vector3(1.2199218, 0.65815127, 0.001)
+material = ExtResource("3_r7u5v")
+
+[node name="Map Table4" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=1454534284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.364749, 1.3444946, -7.3371925)
+material_override = ExtResource("2_m2uhk")
+use_collision = true
+size = Vector3(1.8208984, 1.2421615, 0.001)
+material = ExtResource("3_r7u5v")
+
+[node name="Map Table5" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=333615541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.364749, 0.7270028, -7.187726)
+material_override = ExtResource("2_m2uhk")
+use_collision = true
+size = Vector3(1.8208984, 0.016842455, 0.2999326)
+material = ExtResource("3_r7u5v")
+
+[node name="Map Table6" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=457723205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.364749, 0.9540635, -7.187726)
+material_override = ExtResource("2_m2uhk")
+use_collision = true
+size = Vector3(1.8208984, 0.016842455, 0.2999326)
+material = ExtResource("3_r7u5v")
+
+[node name="Map Table7" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=750927724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.364749, 1.2131286, -7.187726)
+material_override = ExtResource("2_m2uhk")
+use_collision = true
+size = Vector3(1.8208984, 0.016842455, 0.2999326)
+material = ExtResource("3_r7u5v")
+
+[node name="Map Table8" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=1985240138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.364749, 1.4552827, -7.187726)
+material_override = ExtResource("2_m2uhk")
+use_collision = true
+size = Vector3(1.8208984, 0.016842455, 0.2999326)
+material = ExtResource("3_r7u5v")
+
+[node name="Map Table9" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=2041532399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.364749, 1.7358496, -7.187726)
+material_override = ExtResource("2_m2uhk")
+use_collision = true
+size = Vector3(1.8208984, 0.016842455, 0.2999326)
+material = ExtResource("3_r7u5v")
+
+[node name="Map Table3" type="CSGBox3D" parent="ControlRoomBlockout" unique_id=513497134]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.516179, 1.1435761, -6.0398865)
+material_override = ExtResource("4_oc218")
+use_collision = true
+size = Vector3(1.2199218, 0.68344575, 0.001)
+material = ExtResource("3_r7u5v")
+
+[node name="Wall" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="0" unique_id=2131639884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15, 3.5356903, -0.2836914)
+size = Vector3(0.3, 6.0713806, 7.567383)
+
+[node name="Wall7" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="1" unique_id=2052454711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4244077, 3.5356903, -3.7194824)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(2.3011107, 6.0713806, 0.6958008)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall9" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="2" unique_id=187703363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8098843, 3.5356903, -7.3791447)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(5.5225434, 6.0713806, 0.6958008)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall8" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="3" unique_id=714009062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8872385, 3.5356903, -5.6106567)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(0.6575119, 6.0713806, 4.4781494)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall3" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="4" unique_id=1101011303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 2, -4.328662)
+size = Vector3(4.6, 3, 1.6573242)
+
+[node name="Wall11" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="5" unique_id=2017326906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6276946, 2, -3.2484064)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(4.6, 3, 1.6573242)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall12" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="6" unique_id=878611233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4913177, 2, -7.6398864)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(4.872754, 3, 0.59123534)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall17" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="7" unique_id=1731654797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.422519, 2, -9.370369)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(0.7351563, 3, 2.8791108)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall20" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="8" unique_id=1863203850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4544675, 2, -14.050143)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(2.6067321, 3, 2.8791108)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall18" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="9" unique_id=1108327237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5252386, 2, -9.230448)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(0.7125733, 3, 3.046041)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall21" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="10" unique_id=1845149145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19780654, 2, -10.229192)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(0.7125733, 3, 5.0435286)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall22" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="11" unique_id=1006007076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.096464, 2, -10.229192)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(0.7125733, 3, 5.0435286)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall23" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="12" unique_id=304773460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4887185, 3.0311327, -10.229192)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(3.9280639, 1.4451904, 5.0435286)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall19" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="13" unique_id=626358714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3780339, 2.881485, -10.275248)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(1.6831543, 1.23703, 5.1356406)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall16" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="14" unique_id=1131699360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.678012, 2, -5.743728)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(0.49936533, 3, 3.4149597)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall4" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="15" unique_id=1635394250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 3.5404053, 3.6500006)
+size = Vector3(4.6, 6.0808105, 0.3)
+
+[node name="Wall6" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="16" unique_id=2122474592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 5.2504883, 0.52223027)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(4.6, 2.6606445, 0.3)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall2" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="17" unique_id=1430787981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1960344, 1.9452114, -0.69625425)
+size = Vector3(0.3, 3.894638, 8.7734375)
+
+[node name="Wall5" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="18" unique_id=131957669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0269182, 5.8210983, -2.327663)
+material_override = ExtResource("2_hmn8g")
+size = Vector3(2.6382325, 3.894638, 5.51062)
+material = ExtResource("2_hmn8g")
+
+[node name="Wall10" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="19" unique_id=1335002161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0825963, 5.8210983, -6.282268)
+material_override = ExtResource("3_f3ok3")
+size = Vector3(0.36794436, 3.894638, 2.6054382)
+material = ExtResource("3_f3ok3")
+
+[node name="Wall13" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="20" unique_id=672815858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3083773, 1.1319332, -6.021338)
+material_override = ExtResource("3_f3ok3")
+size = Vector3(1.5608581, 1.2807751, 1.8442307)
+material = ExtResource("3_f3ok3")
+
+[node name="Wall15" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="21" unique_id=672373839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.962982, 2.4659526, -5.6136703)
+material_override = ExtResource("3_f3ok3")
+size = Vector3(0.4236229, 1.2807751, 0.3601985)
+material = ExtResource("3_f3ok3")
+
+[node name="Wall14" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="22" unique_id=1057820152]
+transform = Transform3D(0.74635947, 0.665543, 0, -0.665543, 0.74635947, 0, 0, 0, 1, 6.300347, 1.9191719, -6.021338)
+material_override = ExtResource("3_f3ok3")
+size = Vector3(0.9742905, 1.2807751, 1.8442307)
+material = ExtResource("3_f3ok3")
+
+[node name="Floor" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="23" unique_id=422036502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.019921, 2.7462764, -4.644272)
+size = Vector3(1.046814, 0.32617188, 1.1018372)
+
+[node name="Floor6" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="24" unique_id=1661373091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0023427, 1.9105592, -6.6452994)
+use_collision = true
+size = Vector3(1.0116577, 0.32617188, 1.1576233)
+material = ExtResource("4_d7p6i")
+
+[node name="Floor5" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="25" unique_id=499467872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.234375, 0, -5.4610596)
+use_collision = true
+size = Vector3(16.417969, 1, 17.92212)
+material = ExtResource("4_d7p6i")
+
+[node name="Floor3" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="26" unique_id=307849064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8020935, 6.450907, -2.4838867)
+use_collision = true
+size = Vector3(7.701599, 0.2520752, 11.967773)
+material = ExtResource("4_d7p6i")
+
+[node name="Floor2" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="27" unique_id=1102627018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4657593, 3.7, -2.2357025)
+size = Vector3(8.931519, 0.4, 11.471405)
+
+[node name="Floor4" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="28" unique_id=2014574481]
+transform = Transform3D(0.00016134363, -0.00010408253, -1, 0.5420896, 0.8403207, 0, 0.8403207, -0.5420896, 0.00019200245, -4.019128, 2.3171628, -5.720662)
+use_collision = true
+size = Vector3(1.503519, 0.4, 1.0314865)
+material = ExtResource("4_d7p6i")
+
+[node name="Floor8" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="29" unique_id=856900596]
+transform = Transform3D(-0.8402991, 0.54207563, 0.0071732067, 0.54208964, 0.8403208, 7.275958e-12, -0.0060278103, 0.0038884957, -0.9999743, -2.3311174, 1.0752834, -6.6886315)
+use_collision = true
+size = Vector3(3.1003923, 0.4, 1.0314865)
+material = ExtResource("4_d7p6i")
+
+[node name="Floor7" type="CSGBox3D" parent="ControlRoomBlockout/Walls" parent_id_path=PackedInt32Array(1395407479, 823754296) index="30" unique_id=1157739261]
+transform = Transform3D(0.8403207, -0.5420896, 0, 0.5420896, 0.8403207, 0, 0, 0, 1, -2.6319127, 3.243294, -4.6231995)
+use_collision = true
+size = Vector3(1.8361397, 0.4, 1.0405121)
+material = ExtResource("4_d7p6i")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1673116132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6849155, 0.69916606, -3.6334827)
+material_override = ExtResource("7_oc218")
+size = Vector3(2.3532715, 0.3852539, 0.52319336)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=876009559]
+transform = Transform3D(1, 0, 0, 0, 0.8745774, 0.48488593, 0, -0.48488593, 0.8745774, 3.4618669, 0.7198384, -3.5689695)
+material_override = ExtResource("9_maxbi")
+size = Vector3(2.336792, 0.3852539, 0.52319336)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1435603101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4549944, 0.69916606, -3.8155417)
+material_override = ExtResource("9_maxbi")
+size = Vector3(2.3532715, 0.3852539, 0.93963623)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=606422888]
+transform = Transform3D(1, 0, 0, 0, 0.8745774, 0.48488593, 0, -0.48488593, 0.8745774, -3.6698034, 0.8535558, -3.5689695)
+material_override = ExtResource("7_oc218")
+size = Vector3(2.3532715, 0.3852539, 0.52319336)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=2106010560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2520573, 0.031149626, -11.013344)
+material_override = ExtResource("10_maxbi")
+size = Vector3(2.6218262, 1, 1.7539063)
+
+[editable path="ControlRoomBlockout"]
