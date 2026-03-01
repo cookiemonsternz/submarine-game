@@ -12,28 +12,6 @@ extends Node3D
 @export_custom(PROPERTY_HINT_EXPRESSION, "Detent Equation") var detent_equation: String \
 	= "pow(1.5, 5 * x) * 2"
 
-#@export_group("Shape")
-#@export_subgroup("Handle")
-#
-#@export var handle_length: float = 1.0:
-	#get(): return handle_length
-	#set(value): 
-		#handle_length = value
-		#try_set_handle_length(value)
-#
-#@export var handle_radius: float = 1.0:
-	#get(): return handle_radius
-	#set(value): 
-		#handle_radius = value
-		#try_set_handle_radius(value)
-#
-#@export_subgroup("End")
-#@export var end_scale: float = 1.0:
-	#get(): return end_scale
-	#set(value): 
-		#end_scale = value
-		#try_set_end_scale(value)
-
 var dragging = false
 var selected_detent = 0.0
 var detent_expression = Expression.new()
@@ -41,28 +19,6 @@ var detent_expression = Expression.new()
 func try_set_draggable(value):
 	if has_node("%Draggable"):
 		%Draggable.drag_strength = value
-
-#func try_set_handle_length(value):
-	#if !is_node_ready(): return
-#
-	#%HandleMesh.position.y = handle_length / 2
-	#%HandleMesh.mesh.height = handle_length
-	#%HandleCollisionShape.position.y = handle_length / 2
-	#%HandleCollisionShape.shape.height = handle_length
-	#%EndMesh.position.y = handle_length
-	#%EndCollisionShape.position.y = handle_length
-#
-#func try_set_handle_radius(value):
-	#if !is_node_ready(): return
-#
-	#%HandleMesh.mesh.radius = handle_radius
-	#%HandleCollisionShape.shape.radius = handle_radius
-#
-#func try_set_end_scale(value):
-	#if !is_node_ready(): return
-	#
-	#%EndMesh.scale = Vector3.ONE * end_scale
-	#%EndCollisionShape.scale = Vector3.ONE * end_scale
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -86,18 +42,15 @@ func do_detents():
 	var difference = current_value - selected_detent
 	var factor = sign(difference) * detent_expression.execute([abs(difference)])
 	
-	%RigidBody3D.apply_central_force(%JoltHingeJoint3D.global_basis.y * factor)
+	%RigidBody3D.apply_central_force(%JoltSliderJoint3D.global_basis.y * factor)
 
 func _on_mouse_target_pressed() -> void:
 	dragging = true
-	
-	#%JoltHingeJoint3D.motor_enabled = false
 
 func _on_mouse_target_released() -> void:
 	dragging = false
 	
 	selected_detent = get_closest_detent()
-	#%JoltHingeJoint3D.motor_enabled = true
 
 func get_closest_detent() -> float:
 	var current_value = %Measureable.get_value()

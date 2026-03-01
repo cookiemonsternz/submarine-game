@@ -42,8 +42,8 @@ shadow_enabled = true
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=113747039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4706213, 1.5471687, -0.72537506)
 
-[node name="MouseTarget" parent="CSGSphere3D" unique_id=532023496 node_paths=PackedStringArray("outline_object") instance=ExtResource("3_7ddre")]
-outline_object = NodePath("..")
+[node name="MouseTarget" parent="CSGSphere3D" unique_id=532023496 node_paths=PackedStringArray("outline_objects") instance=ExtResource("3_7ddre")]
+outline_objects = [NodePath("..")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGSphere3D/MouseTarget" unique_id=2127490771]
 shape = SubResource("SphereShape3D_7ddre")

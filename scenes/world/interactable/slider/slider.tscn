@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://7qgry4rw36cu"]
+[gd_scene format=3 uid="uid://dmjh272vvfge3"]
 
-[ext_resource type="Script" uid="uid://dvulpdtrjjau0" path="res://scenes/world/interactable/lever/lever.gd" id="1_5w5ri"]
-[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="1_8gvfd"]
-[ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="2_meejf"]
-[ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="3_kitsk"]
+[ext_resource type="Script" uid="uid://bwwajjkq3jwkg" path="res://scenes/world/interactable/slider/slider.gd" id="1_vh7io"]
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="2_ahe7m"]
+[ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="3_vqis2"]
+[ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="4_vtbfk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsk"]
 radius = 0.25
@@ -21,10 +21,9 @@ height = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tk2tp"]
 
-[node name="Lever" type="Node3D" unique_id=424322314]
-script = ExtResource("1_5w5ri")
-drag_strength = 2000.0
-detent_equation = "(pow(1.5, 5 * x) * 2) - 2"
+[node name="Slider" type="Node3D" unique_id=424322314]
+script = ExtResource("1_vh7io")
+detents = 3
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=404819209]
 unique_name_in_owner = true
@@ -33,7 +32,7 @@ linear_damp = 2.0
 
 [node name="Components" type="Node3D" parent="RigidBody3D" unique_id=1516316377]
 
-[node name="MouseTarget" parent="RigidBody3D/Components" unique_id=532023496 node_paths=PackedStringArray("outline_objects") instance=ExtResource("1_8gvfd")]
+[node name="MouseTarget" parent="RigidBody3D/Components" unique_id=532023496 node_paths=PackedStringArray("outline_objects") instance=ExtResource("2_ahe7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
 outline_objects = [NodePath("../../HandleMesh"), NodePath("../../EndMesh")]
 selectable = true
@@ -42,18 +41,18 @@ selectable = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
 shape = SubResource("CapsuleShape3D_kitsk")
 
-[node name="Draggable" parent="RigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("2_meejf")]
+[node name="Draggable" parent="RigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("3_vqis2")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
-drag_strength = 1000.0
+drag_strength = 2000.0
 rigidbody = NodePath("../..")
 mouse_target = NodePath("../MouseTarget")
 
-[node name="Measureable" parent="RigidBody3D/Components" unique_id=1180068611 node_paths=PackedStringArray("drag_body", "joint") instance=ExtResource("3_kitsk")]
+[node name="Measureable" parent="RigidBody3D/Components" unique_id=1180068611 node_paths=PackedStringArray("drag_body", "joint") instance=ExtResource("4_vtbfk")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
 drag_body = NodePath("../..")
-joint = NodePath("../../../JoltHingeJoint3D")
+joint = NodePath("../../../JoltSliderJoint3D")
 
 [node name="HandleMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=1409803162]
 unique_name_in_owner = true
@@ -75,16 +74,15 @@ unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
 shape = SubResource("SphereShape3D_tk2tp")
 
-[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="." unique_id=1628645323]
+[node name="JoltSliderJoint3D" type="JoltSliderJoint3D" parent="." unique_id=1404569318]
 limit_enabled = true
-limit_upper = 0.6981317007977318
-limit_lower = -0.6981317007977318
+limit_upper = 1.0
+limit_lower = -1.0
 limit_spring_enabled = true
 limit_spring_frequency = 10.0
 limit_spring_damping = 0.1
 node_b = NodePath("../RigidBody3D")
 unique_name_in_owner = true
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]
 [connection signal="released" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_released"]

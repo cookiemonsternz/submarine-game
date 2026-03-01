@@ -5,8 +5,8 @@ class_name measureable extends Node3D
 
 func get_value() -> float:
 	if joint is JoltSliderJoint3D:
-		var start = joint.global_position + joint.global_basis.z * joint.limit_lower
-		var end = joint.global_position + joint.global_basis.z * joint.limit_upper
+		var start = joint.global_position + joint.global_basis.x * joint.limit_lower
+		var end = joint.global_position + joint.global_basis.x * joint.limit_upper
 		var len_sq = (end - start).length_squared()
 		return (start - drag_body.global_position).length_squared() / len_sq
 	elif joint is JoltHingeJoint3D:
