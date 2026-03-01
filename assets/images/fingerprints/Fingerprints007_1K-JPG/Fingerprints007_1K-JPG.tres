@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="acg_pd2jrlf5"]
+
+[ext_resource type="Texture2D" uid="uid://acg_6xs4mzpg" id="Color" path="./Fingerprints007_1K-JPG_Color.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_wi4e7kqv" id="Displacement" path="./Fingerprints007_1K-JPG_Displacement.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_i0xb9fmr" id="Roughness" path="./Fingerprints007_1K-JPG_Roughness.jpg"]
+[ext_resource type="Texture2D" uid="uid://acg_psngab2h" id="NormalGL" path="./Fingerprints007_1K-JPG_NormalGL.jpg"]
+[resource]
+albedo_texture = ExtResource("Color")
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_texture = ExtResource("NormalGL")
+normal_enabled = true
+heightmap_texture = ExtResource("Displacement")
+heightmap_scale = 1.0
+heightmap_enabled = true
