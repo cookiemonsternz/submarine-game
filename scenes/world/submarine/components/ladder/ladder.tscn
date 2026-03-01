@@ -1,5 +1,16 @@
 [gd_scene format=3 uid="uid://dt5r6gyyyku05"]
 
 [ext_resource type="PackedScene" uid="uid://8najafvml3v0" path="res://assets/ladder.fbx" id="1_d4a6p"]
+[ext_resource type="Material" path="res://assets/images/metals/Metal061B_1K-JPG/Metal061B_1K-JPG.tres" id="2_fgfsx"]
+[ext_resource type="Material" path="res://assets/images/metal_walkways/MetalWalkway010_1K-JPG/MetalWalkway010_1K-JPG.tres" id="3_47vrj"]
 
-[node name="ladder" unique_id=351658799 instance=ExtResource("1_d4a6p")]
+[node name="ladder" unique_id=1687273499 instance=ExtResource("1_d4a6p")]
+
+[node name="Left Tube" parent="Ladder" parent_id_path=PackedInt32Array(337696667) index="0" unique_id=1582342141]
+material_override = ExtResource("2_fgfsx")
+
+[node name="Right Tube" parent="Ladder" parent_id_path=PackedInt32Array(337696667) index="1" unique_id=1499519273]
+material_override = ExtResource("2_fgfsx")
+
+[node name="Steps" parent="Ladder" parent_id_path=PackedInt32Array(337696667) index="2" unique_id=1101596080]
+material_override = ExtResource("3_47vrj")
