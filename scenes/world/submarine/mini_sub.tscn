@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bmpul1k5ewsat"]
+[gd_scene format=3 uid="uid://cjfqik06mj55u"]
 
-[ext_resource type="Script" path="res://scenes/world/submarine/character_body_3d.gd" id="1_fslak"]
+[ext_resource type="Script" uid="uid://c7cayvhexkc7s" path="res://scenes/world/submarine/character_body_3d.gd" id="1_fslak"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6gk7m"]
 size = Vector3(1, 1, 2)
