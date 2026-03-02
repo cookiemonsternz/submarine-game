@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://8d6d6j3u25lp"]
+
+[ext_resource type="Script" uid="uid://bkoehrv78wuqx" path="res://scenes/interaction/engine/gear.gd" id="1_32ax4"]
+
+[resource]
+script = ExtResource("1_32ax4")

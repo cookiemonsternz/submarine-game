@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bi2txyxs1vwl8"]
+
+[ext_resource type="Script" uid="uid://bkoehrv78wuqx" path="res://scenes/interaction/engine/gear.gd" id="2_km56a"]
+[ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="2_xsn6y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsn6y"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.6392157)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_km56a"]
+material = SubResource("StandardMaterial3D_xsn6y")
+radius = 10.0
+height = 50.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ta0vh"]
+radius = 10.0
+height = 50.0
+
+[sub_resource type="Resource" id="Resource_ta0vh"]
+script = ExtResource("2_km56a")
+water_coefficient = 90.0
+gear_ratio = 10.0
+metadata/_custom_type_script = "uid://bkoehrv78wuqx"
+
+[sub_resource type="Resource" id="Resource_s4rgi"]
+script = ExtResource("2_km56a")
+water_coefficient = 20.0
+gear_ratio = 7.0
+metadata/_custom_type_script = "uid://bkoehrv78wuqx"
+
+[sub_resource type="Resource" id="Resource_xsn6y"]
+script = ExtResource("2_km56a")
+water_coefficient = 1.5
+gear_ratio = 4.0
+metadata/_custom_type_script = "uid://bkoehrv78wuqx"
+
+[sub_resource type="Resource" id="Resource_km56a"]
+script = ExtResource("2_km56a")
+water_coefficient = 0.115
+gear_ratio = 2.0
+metadata/_custom_type_script = "uid://bkoehrv78wuqx"
+
+[node name="Node3D" type="Node3D" unique_id=732262231]
+
+[node name="Boat" type="RigidBody3D" parent="." unique_id=1314790280]
+mass = 800000.0
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boat" unique_id=1583467399]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_km56a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boat" unique_id=1981411331]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ta0vh")
+
+[node name="Engine" parent="Boat" unique_id=2015758239 node_paths=PackedStringArray("boat", "engine_pos") instance=ExtResource("2_xsn6y")]
+boat = NodePath("..")
+engine_pos = NodePath("../Marker3D")
+gears = Array[ExtResource("2_km56a")]([SubResource("Resource_ta0vh"), SubResource("Resource_s4rgi"), SubResource("Resource_xsn6y"), SubResource("Resource_km56a")])
+
+[node name="Marker3D" type="Marker3D" parent="Boat" unique_id=1227248450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1010473072]
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, -33, 0, 0)

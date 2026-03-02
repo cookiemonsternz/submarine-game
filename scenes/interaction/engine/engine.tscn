@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bdr74337u3qlu"]
+
+[ext_resource type="Script" uid="uid://cx2406db6b7ew" path="res://scenes/interaction/engine/engine.gd" id="1_43gny"]
+[ext_resource type="Script" uid="uid://bkoehrv78wuqx" path="res://scenes/interaction/engine/gear.gd" id="2_sct7k"]
+
+[sub_resource type="Resource" id="Resource_puxtk"]
+script = ExtResource("2_sct7k")
+trans_rpm = 300.0
+metadata/_custom_type_script = "uid://bkoehrv78wuqx"
+
+[sub_resource type="Resource" id="Resource_oeyum"]
+script = ExtResource("2_sct7k")
+trans_rpm = 800.0
+metadata/_custom_type_script = "uid://bkoehrv78wuqx"
+
+[node name="Engine" type="Node3D" unique_id=2015758239]
+script = ExtResource("1_43gny")
+gears = Array[ExtResource("2_sct7k")]([SubResource("Resource_puxtk"), SubResource("Resource_oeyum")])
