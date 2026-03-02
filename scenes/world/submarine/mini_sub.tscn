@@ -1,30 +1,85 @@
-[gd_scene format=3 uid="uid://cjfqik06mj55u"]
+[gd_scene format=3 uid="uid://bmpul1k5ewsat"]
 
-[ext_resource type="Script" uid="uid://c7cayvhexkc7s" path="res://scenes/world/submarine/character_body_3d.gd" id="1_fslak"]
+[ext_resource type="Script" uid="uid://c7cayvhexkc7s" path="res://scripts/mini_sub_basic_controls.gd" id="1_fslak"]
+[ext_resource type="Script" uid="uid://bw8h82fvu7b2s" path="res://scenes/world/submarine/minisub/claw.gd" id="2_vmgfb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vmgfb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_62bga"]
+sky_material = SubResource("ProceduralSkyMaterial_vmgfb")
+
+[sub_resource type="Environment" id="Environment_ydde0"]
+background_mode = 2
+sky = SubResource("Sky_62bga")
+tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6gk7m"]
 size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fslak"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_62bga"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ydde0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqc16"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_vmgfb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vmgfb"]
+size = Vector3(1, 2.4400024, 1)
 
 [node name="Main" type="Node3D" unique_id=1222444474]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1011879966]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=145308137]
+environment = SubResource("Environment_ydde0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=587683527]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MiniSub" type="RigidBody3D" parent="." unique_id=1011879966]
 gravity_scale = 0.0
 linear_damp = 2.809
 script = ExtResource("1_fslak")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=999970100]
+[node name="Collision" type="CollisionShape3D" parent="MiniSub" unique_id=999970100]
 shape = SubResource("BoxShape3D_6gk7m")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=820767272]
+[node name="Mesh" type="MeshInstance3D" parent="MiniSub" unique_id=820767272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("BoxMesh_fslak")
 
-[node name="Camera3D" type="Camera3D" parent="RigidBody3D" unique_id=672170499]
+[node name="Camera3D" type="Camera3D" parent="MiniSub" unique_id=672170499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9209833, -0.6287632)
+
+[node name="Target" type="Area3D" parent="MiniSub/Camera3D" unique_id=676705845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.600667)
+
+[node name="Mesh" type="MeshInstance3D" parent="MiniSub/Camera3D/Target" unique_id=688340792]
+transform = Transform3D(0.21089573, 0, 0, 0, 0.21715456, 0, 0, 0, 0.20597112, 0, 0, 0)
+mesh = SubResource("BoxMesh_62bga")
+
+[node name="Claw" type="MeshInstance3D" parent="MiniSub" unique_id=1569188217]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -1.7889452)
+mesh = SubResource("BoxMesh_ydde0")
+script = ExtResource("2_vmgfb")
+
+[node name="Claw2" type="Area3D" parent="MiniSub/Claw" unique_id=777918472]
+transform = Transform3D(5.885, 0, 0, 0, 5.885, 0, 0, 0, 5.885, 0, 0, -0.010010123)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiniSub/Claw/Claw2" unique_id=717524786]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_hqc16")
+
+[node name="OriginalPos" type="Area3D" parent="MiniSub" unique_id=18842076]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -1.7889452)
+
+[node name="CollisionPos" type="CollisionShape3D" parent="MiniSub/OriginalPos" unique_id=1145993238]
+transform = Transform3D(0.29999998, 0, 0, 0, 0.29999998, 0, 0, 0, 0.29999998, 0, 0, -0.010010242)
+shape = SubResource("BoxShape3D_hqc16")
 
 [node name="BoxesForReference" type="Node3D" parent="." unique_id=1461596354]
 
@@ -43,3 +98,55 @@ mesh = SubResource("BoxMesh_vmgfb")
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="BoxesForReference" unique_id=250835965]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45372868, -4.584845, -9.044851)
 mesh = SubResource("BoxMesh_vmgfb")
+
+[node name="GrabTest" type="Area3D" parent="BoxesForReference" unique_id=519787734 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.1902611)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxesForReference/GrabTest" unique_id=1186878765 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
+shape = SubResource("BoxShape3D_vmgfb")
+
+[node name="GrabTest2" type="Area3D" parent="BoxesForReference" unique_id=779276856 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5671668, 0, -4.319815)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxesForReference/GrabTest2" unique_id=2105599571 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
+shape = SubResource("BoxShape3D_vmgfb")
+
+[node name="GrabTest3" type="Area3D" parent="BoxesForReference" unique_id=666207482 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3962517, 0, -2.6225576)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxesForReference/GrabTest3" unique_id=200577899 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
+shape = SubResource("BoxShape3D_vmgfb")
+
+[node name="GrabTest4" type="Area3D" parent="BoxesForReference" unique_id=1233862532 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3962517, 3.572874, -4.056352)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxesForReference/GrabTest4" unique_id=819390949 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
+shape = SubResource("BoxShape3D_vmgfb")
+
+[node name="GrabTest5" type="Area3D" parent="BoxesForReference" unique_id=999377940 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5381098, 3.572874, -4.056352)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxesForReference/GrabTest5" unique_id=987028292 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
+shape = SubResource("BoxShape3D_vmgfb")
+
+[node name="GrabTest6" type="Area3D" parent="BoxesForReference" unique_id=2100344530 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16432118, 3.572874, -8.233736)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxesForReference/GrabTest6" unique_id=737817870 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
+shape = SubResource("BoxShape3D_vmgfb")
+
+[node name="GrabTest7" type="Area3D" parent="BoxesForReference" unique_id=360674771 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16432118, 3.572874, 0.91567516)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxesForReference/GrabTest7" unique_id=1514975202 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
+shape = SubResource("BoxShape3D_vmgfb")
+
+[connection signal="area_entered" from="MiniSub/Claw/Claw2" to="MiniSub/Claw" method="_on_claw_2_area_entered"]
+[connection signal="body_entered" from="MiniSub/Claw/Claw2" to="MiniSub/Claw" method="_on_claw_2_body_entered"]

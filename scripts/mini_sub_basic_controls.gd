@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	if mouse_since_moved > mouse_stopped_move:
 		angular_velocity = angular_velocity.lerp(Vector3.ZERO, 7.50 * delta)
 	
-	print(mouse_since_moved)
 	var directional_vel = Input.get_vector("left", "right", "up", "down")
 	
 	var vertical_direction = Input.get_axis("lower", "rise")
