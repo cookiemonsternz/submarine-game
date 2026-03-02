@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bmpul1k5ewsat"]
+
+[ext_resource type="Script" path="res://scenes/world/submarine/character_body_3d.gd" id="1_fslak"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6gk7m"]
+size = Vector3(1, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fslak"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vmgfb"]
+
+[node name="Main" type="Node3D" unique_id=1222444474]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1011879966]
+gravity_scale = 0.0
+linear_damp = 2.809
+script = ExtResource("1_fslak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=999970100]
+shape = SubResource("BoxShape3D_6gk7m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=820767272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_fslak")
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D" unique_id=672170499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9209833, -0.6287632)
+
+[node name="BoxesForReference" type="Node3D" parent="." unique_id=1461596354]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="BoxesForReference" unique_id=2094248243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6908536, 0, -5.2549133)
+mesh = SubResource("BoxMesh_vmgfb")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="BoxesForReference" unique_id=540780600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5509796, 2.2062974, -5.2549133)
+mesh = SubResource("BoxMesh_vmgfb")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="BoxesForReference" unique_id=1889693777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9758925, 0.273345, -3.5207353)
+mesh = SubResource("BoxMesh_vmgfb")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="BoxesForReference" unique_id=250835965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45372868, -4.584845, -9.044851)
+mesh = SubResource("BoxMesh_vmgfb")
