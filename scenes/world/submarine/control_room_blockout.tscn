@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bx6qeabdhq2s" path="res://addons/kenney_prototype_tools/materials/dark/material_01.tres" id="1_eksu8"]
 [ext_resource type="Material" uid="uid://bhvnpiqj75ju8" path="res://addons/kenney_prototype_tools/materials/green/material_12.tres" id="2_1ko2y"]
-[ext_resource type="PackedScene" uid="uid://oc5jb7iyc3h7" path="res://CharacterScene.tscn" id="2_5kqom"]
+[ext_resource type="PackedScene" uid="uid://oc5jb7iyc3h7" path="res://scenes/player/player.tscn" id="2_5kqom"]
 [ext_resource type="PackedScene" uid="uid://bsk6863pnp7hu" path="res://scenes/world/submarine/components/periscope/periscope.tscn" id="4_uyrnb"]
 [ext_resource type="Material" uid="uid://dnpe42osrwakk" path="res://addons/kenney_prototype_tools/materials/orange/material_11.tres" id="5_rc87o"]
 [ext_resource type="Material" uid="uid://ddal25jay8fq1" path="res://addons/kenney_prototype_tools/materials/purple/material_01.tres" id="6_fceh2"]

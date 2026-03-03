@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="3_kitsk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsk"]
-radius = 0.25
-height = 1.25
+radius = 0.07324219
+height = 1.0715332
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5w5ri"]
 radius = 0.025
@@ -28,6 +28,8 @@ detent_equation = "(pow(1.5, 5 * x) * 2) - 2"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=404819209]
 unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 0
 gravity_scale = 0.1
 linear_damp = 2.0
 
@@ -39,13 +41,13 @@ outline_objects = [NodePath("../../HandleMesh"), NodePath("../../EndMesh")]
 selectable = true
 
 [node name="MouseTargetCollisionShape" type="CollisionShape3D" parent="RigidBody3D/Components/MouseTarget" unique_id=1806052713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4642334, 0)
 shape = SubResource("CapsuleShape3D_kitsk")
 
 [node name="Draggable" parent="RigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("2_meejf")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
-drag_strength = 1000.0
+drag_strength = 2000.0
 rigidbody = NodePath("../..")
 mouse_target = NodePath("../MouseTarget")
 
@@ -86,5 +88,7 @@ node_b = NodePath("../RigidBody3D")
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
+[connection signal="hovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_hovered"]
 [connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]
 [connection signal="released" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_released"]
+[connection signal="unhovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_unhovered"]

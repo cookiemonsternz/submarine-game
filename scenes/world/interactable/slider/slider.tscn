@@ -27,8 +27,10 @@ detents = 3
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=404819209]
 unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 0
 gravity_scale = 0.1
-linear_damp = 2.0
+linear_damp = 5.0
 
 [node name="Components" type="Node3D" parent="RigidBody3D" unique_id=1516316377]
 
@@ -44,7 +46,6 @@ shape = SubResource("CapsuleShape3D_kitsk")
 [node name="Draggable" parent="RigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("3_vqis2")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
-drag_strength = 2000.0
 rigidbody = NodePath("../..")
 mouse_target = NodePath("../MouseTarget")
 
@@ -84,5 +85,7 @@ limit_spring_damping = 0.1
 node_b = NodePath("../RigidBody3D")
 unique_name_in_owner = true
 
+[connection signal="hovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_hovered"]
 [connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]
 [connection signal="released" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_released"]
+[connection signal="unhovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_unhovered"]

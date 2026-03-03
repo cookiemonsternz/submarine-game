@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dw3obd567rsux"]
+
+[ext_resource type="PackedScene" uid="uid://b0oqly6r5y1ph" path="res://scenes/world/submarine/components/dial/dial.tscn" id="1_8hq1j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8hq1j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4r0fc"]
+sky_material = SubResource("ProceduralSkyMaterial_8hq1j")
+
+[sub_resource type="Environment" id="Environment_3f85b"]
+background_mode = 2
+sky = SubResource("Sky_4r0fc")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D" unique_id=945160428]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1435947984]
+environment = SubResource("Environment_3f85b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=791468421]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1682038273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Dial" parent="." unique_id=1011791800 node_paths=PackedStringArray("node") instance=ExtResource("1_8hq1j")]
+transform = Transform3D(1, 4.371139e-08, 1.59578e-37, -7.301438e-30, 1.9106857e-15, -1, -4.371139e-08, 1, 1.9106855e-15, 0, 0, 0)
+node = NodePath("../Marker3D")
+property = "gizmo_extents"
+max_value = 5.0
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1095947999]
+gizmo_extents = 0.0

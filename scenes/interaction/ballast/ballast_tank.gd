@@ -50,12 +50,14 @@ func _physics_process(delta: float) -> void:
 	var u = p_term + i_term + d_term
 	u = clamp(u, -1, 1)
 	
+	pid["prev_error"] = error
+	
 	if u > 0:
 		water_volume += (u * flood_rate) / 1000
 	else:
 		water_volume += (u * pump_rate) / 1000
 	
-	power -= pump_power_draw * abs(u) * delta
+	power.remaining_capacity -= pump_power_draw * abs(u) * delta
 	
 	water_volume = clamp(water_volume, 0, volume)
 	

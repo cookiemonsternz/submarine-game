@@ -1,4 +1,4 @@
-class_name measureable extends Node3D
+class_name Measureable extends Node3D
 
 @export var drag_body: RigidBody3D
 @export var joint: JoltJoint3D
@@ -7,8 +7,8 @@ func get_value() -> float:
 	if joint is JoltSliderJoint3D:
 		var start = joint.global_position + joint.global_basis.x * joint.limit_lower
 		var end = joint.global_position + joint.global_basis.x * joint.limit_upper
-		var len_sq = (end - start).length_squared()
-		return (start - drag_body.global_position).length_squared() / len_sq
+		var length = (end - start).length()
+		return (start - drag_body.global_position).length() / length
 	elif joint is JoltHingeJoint3D:
 		var hinge_axis: Vector3 = joint.global_basis.z
 		var reference: Vector3 = joint.global_basis.x
