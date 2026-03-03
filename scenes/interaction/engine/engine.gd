@@ -19,7 +19,6 @@ extends Node3D
 
 @export_group("Power")
 @export_custom(PROPERTY_HINT_NONE, "suffix:nm") var min_torque: float = 0
-@export_custom(PROPERTY_HINT_NONE, "suffix:nm") var max_torque: float = 50000
 @export_group("RPM")
 @export_custom(PROPERTY_HINT_NONE, "suffix:RPM") var min_rpm: float = 0
 @export_custom(PROPERTY_HINT_NONE, "suffix:RPM") var max_rpm: float = 1800
@@ -45,7 +44,7 @@ var prop_rpm = 0
 func _physics_process(delta: float) -> void:
 	var current_gear = gears[gear]
 	
-	var engine_torque = lerp(min_torque, max_torque, throttle)
+	var engine_torque = lerp(min_torque, current_gear.max_torque, throttle)
 	var prop_load = current_gear.water_coefficient * (prop_rpm ** 2)
 	
 	var effective_prop_inertia = prop_mass * current_gear.gear_ratio ** 2
