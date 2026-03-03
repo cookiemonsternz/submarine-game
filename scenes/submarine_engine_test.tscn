@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bkoehrv78wuqx" path="res://scenes/interaction/engine/gear.gd" id="2_km56a"]
 [ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="2_xsn6y"]
+[ext_resource type="Script" uid="uid://cpgcfntwdomn5" path="res://scenes/interaction/ballast/ballast.gd" id="3_ta0vh"]
+[ext_resource type="Script" uid="uid://b0tqvvoirkp63" path="res://scenes/interaction/ballast/ballast_tank.gd" id="4_s4rgi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsn6y"]
 transparency = 1
@@ -37,6 +39,9 @@ max_torque = 50000.0
 gear_ratio = 4.0
 metadata/_custom_type_script = "uid://bkoehrv78wuqx"
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4enrk"]
+size = Vector3(8, 8, 16)
+
 [node name="Node3D" type="Node3D" unique_id=732262231]
 
 [node name="Boat" type="RigidBody3D" parent="." unique_id=1314790280]
@@ -54,13 +59,24 @@ shape = SubResource("CapsuleShape3D_ta0vh")
 [node name="Engine" parent="Boat" unique_id=2015758239 node_paths=PackedStringArray("boat", "engine_pos") instance=ExtResource("2_xsn6y")]
 boat = NodePath("..")
 engine_pos = NodePath("../Marker3D")
-throttle = 1.0
 rpm_force_ratio = 1000.0
 gears = Array[ExtResource("2_km56a")]([SubResource("Resource_ta0vh"), SubResource("Resource_s4rgi"), SubResource("Resource_km56a")])
 gear = 2
 
 [node name="Marker3D" type="Marker3D" parent="Boat" unique_id=1227248450]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="Ballast" type="Node3D" parent="Boat" unique_id=1396673588 node_paths=PackedStringArray("boat")]
+script = ExtResource("3_ta0vh")
+boat = NodePath("..")
+metadata/_custom_type_script = "uid://cpgcfntwdomn5"
+
+[node name="BallastTank" type="CollisionShape3D" parent="Boat/Ballast" unique_id=761932456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+shape = SubResource("BoxShape3D_4enrk")
+script = ExtResource("4_s4rgi")
+ratio = 0.5
+metadata/_custom_type_script = "uid://b0tqvvoirkp63"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1010473072]
 transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, -33, 0, 0)

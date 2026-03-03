@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dkvqky8abid8c"]
+
+[ext_resource type="Script" uid="uid://b0tqvvoirkp63" path="res://scenes/interaction/ballast/ballast_tank.gd" id="1_67jlw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vshjo"]
+
+[node name="BallastTank" type="CollisionShape3D" unique_id=127419626]
+shape = SubResource("BoxShape3D_vshjo")
+script = ExtResource("1_67jlw")

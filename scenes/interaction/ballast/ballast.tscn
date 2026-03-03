@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ddxlhji54j4mv"]
+
+[ext_resource type="Script" uid="uid://cpgcfntwdomn5" path="res://scenes/interaction/ballast/ballast.gd" id="1_hv21g"]
+
+[node name="Ballast" type="Node3D" unique_id=1946304380]
+script = ExtResource("1_hv21g")
