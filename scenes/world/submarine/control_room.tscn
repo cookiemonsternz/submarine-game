@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://ckxtkycbrguer"]
+
+[ext_resource type="Material" uid="uid://dm157s57mfhfe" path="res://addons/kenney_prototype_tools/materials/dark/material_02.tres" id="1_8pado"]
+[ext_resource type="Material" uid="uid://bx6qeabdhq2s" path="res://addons/kenney_prototype_tools/materials/dark/material_01.tres" id="2_ybg0h"]
+[ext_resource type="Material" uid="uid://bhvnpiqj75ju8" path="res://addons/kenney_prototype_tools/materials/green/material_12.tres" id="3_uxgus"]
+[ext_resource type="PackedScene" uid="uid://b0oqly6r5y1ph" path="res://scenes/world/submarine/components/dial/dial.tscn" id="4_uxgus"]
+[ext_resource type="PackedScene" uid="uid://7qgry4rw36cu" path="res://scenes/world/interactable/lever/lever.tscn" id="5_uf0n3"]
+[ext_resource type="PackedScene" uid="uid://dmjh272vvfge3" path="res://scenes/world/interactable/slider/slider.tscn" id="6_uf0n3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uf0n3"]
+radius = 0.025
+height = 0.15
+
+[sub_resource type="SphereMesh" id="SphereMesh_gfl3u"]
+
+[node name="ControlRoom" type="Node3D" unique_id=957836708]
+
+[node name="Walls" type="CSGCombiner3D" parent="." unique_id=1171395099]
+visible = false
+use_collision = true
+collision_mask = 17
+
+[node name="Wall" type="CSGBox3D" parent="Walls" unique_id=1968535742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15, 2, 0)
+material_override = ExtResource("1_8pado")
+size = Vector3(0.3, 3, 7)
+material = ExtResource("1_8pado")
+
+[node name="Wall3" type="CSGBox3D" parent="Walls" unique_id=385608764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 2, -3.6499999)
+material_override = ExtResource("1_8pado")
+size = Vector3(4.6, 3, 0.3)
+material = ExtResource("1_8pado")
+
+[node name="Wall4" type="CSGBox3D" parent="Walls" unique_id=281207081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 2, 3.6500003)
+material_override = ExtResource("1_8pado")
+size = Vector3(4.6, 3, 0.3)
+material = ExtResource("1_8pado")
+
+[node name="Wall2" type="CSGBox3D" parent="Walls" unique_id=598468355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15, 2, 0)
+material_override = ExtResource("1_8pado")
+size = Vector3(0.3, 3, 7)
+material = ExtResource("1_8pado")
+
+[node name="Floor" type="CSGBox3D" parent="Walls" unique_id=1229742764]
+use_collision = true
+size = Vector3(4, 1, 7)
+material = ExtResource("2_ybg0h")
+
+[node name="Floor2" type="CSGBox3D" parent="Walls" unique_id=2003436363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7, 0)
+use_collision = true
+size = Vector3(4, 0.4, 7)
+material = ExtResource("2_ybg0h")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Walls" unique_id=1471338659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 4, -1.1999999)
+operation = 2
+
+[node name="Main Console" type="CSGBox3D" parent="." unique_id=1923150011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7881393e-07, 1, 3)
+use_collision = true
+collision_mask = 17
+size = Vector3(4, 1, 1)
+material = ExtResource("3_uxgus")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Main Console" unique_id=1053301896]
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.9659258, 0, 0.9659258, 0.258819, 0, 0.87059045, -0.08296275)
+operation = 2
+use_collision = true
+size = Vector3(4, 2, 1)
+material = ExtResource("3_uxgus")
+
+[node name="Side Console" type="CSGBox3D" parent="Main Console" unique_id=1116699252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6500001, -0.13226318, -1.25)
+use_collision = true
+size = Vector3(0.7, 0.73547363, 1.5)
+material = ExtResource("3_uxgus")
+
+[node name="Side Console2" type="CSGBox3D" parent="Main Console" unique_id=1918141859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6499999, -0.13226318, -1.25)
+use_collision = true
+size = Vector3(0.7, 0.73547363, 1.5)
+material = ExtResource("3_uxgus")
+
+[node name="EngineControls" type="Node3D" parent="." unique_id=251038954]
+
+[node name="EngineRpmDial" parent="EngineControls" unique_id=1011791800 instance=ExtResource("4_uxgus")]
+transform = Transform3D(-1, 3.821371e-15, -8.742278e-08, 2.2626683e-08, 0.9659258, -0.25881904, 8.444392e-08, -0.25881904, -0.9659258, 1.8, 1.4000001, 3)
+property = "engine_rpm"
+
+[node name="PropRpmDial" parent="EngineControls" unique_id=166305391 instance=ExtResource("4_uxgus")]
+transform = Transform3D(-1, 3.821371e-15, -8.742278e-08, 2.2626683e-08, 0.9659258, -0.25881904, 8.444392e-08, -0.25881904, -0.9659258, 1.5, 1.4000001, 3)
+property = "prop_rpm"
+
+[node name="EngineTempDial" parent="EngineControls" unique_id=1853869677 instance=ExtResource("4_uxgus")]
+transform = Transform3D(-1, 3.821371e-15, -8.742278e-08, 2.2626683e-08, 0.9659258, -0.25881904, 8.444392e-08, -0.25881904, -0.9659258, 1.65, 1.4776456, 3.2897778)
+property = "temp"
+
+[node name="ThrottleLever" parent="EngineControls" unique_id=424322314 instance=ExtResource("5_uf0n3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.8, 0.6, 1.7)
+property_name = "throttle"
+
+[node name="GearLever" parent="EngineControls" unique_id=551308029 instance=ExtResource("5_uf0n3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 0.6, 1.7)
+property_name = "gear"
+values = Array[int]([0, 1, 2])
+
+[node name="Slider" parent="EngineControls" unique_id=1062975164 instance=ExtResource("6_uf0n3")]
+transform = Transform3D(-1, 1.7763568e-15, 8.742278e-08, -2.262668e-08, 0.96592593, -0.25881904, -8.444392e-08, -0.25881904, -0.9659258, 1.6, 1.219067, 2.7448287)
+property_name = "mode"
+values = Array[int]([0, 1, 2])
+
+[node name="MouseTarget" parent="EngineControls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="0" unique_id=532023496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
+
+[node name="MouseTargetCollisionShape" parent="EngineControls/Slider/RigidBody3D/Components/MouseTarget" index="0" unique_id=1806052713]
+transform = Transform3D(1, 2.3092639e-14, -2.046363e-12, 2.6645353e-14, 0.9999994, -1.4901161e-08, -7.1054274e-15, 1.4901161e-08, 0.9999994, 0, 0.13749981, 2.3841858e-07)
+
+[node name="Draggable" parent="EngineControls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="1" unique_id=898455505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
+
+[node name="Measureable" parent="EngineControls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="2" unique_id=1180068611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
+
+[node name="HandleMesh" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="1" unique_id=1409803162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+mesh = SubResource("CapsuleMesh_uf0n3")
+
+[node name="EndMesh" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="2" unique_id=206053944]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 0)
+mesh = SubResource("SphereMesh_gfl3u")
+
+[node name="HandleCollisionShape" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="3" unique_id=1858927460]
+transform = Transform3D(1, 2.3092639e-14, -2.3732127e-12, 2.6645353e-14, 0.9999994, -1.4901161e-08, -7.1054274e-15, 1.4901161e-08, 0.9999994, 0, 0.0750007, 7.1525574e-07)
+
+[node name="EndCollisionShape" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="4" unique_id=51651539]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.14999996, 0)
+
+[node name="JoltSliderJoint3D" parent="EngineControls/Slider" index="1" unique_id=1404569318]
+limit_upper = 0.25
+limit_lower = -0.25
+
+[editable path="EngineControls/Slider"]

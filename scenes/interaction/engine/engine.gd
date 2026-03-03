@@ -37,6 +37,7 @@ extends Node3D
 @export_group("Gears")
 @export var gears: Array[Gear]
 @export var gear: int = 0
+@export var mode: int = 2 # 0 - reverse, 1 - neutral, 2 - forward
 
 var engine_rpm = 0
 var prop_rpm = 0
@@ -64,6 +65,13 @@ func _physics_process(delta: float) -> void:
 	temp += temp_delta
 	
 	power.remaining_capacity -= (engine_torque / 1000) * delta
-	#print(engine_rpm, " : ", prop_rpm, " : ", snapped(temp, 0.01))
 	
-	boat.apply_force(engine_pos.global_basis.z * prop_rpm * rpm_force_ratio, boat.global_position - engine_pos.global_position)
+	if mode == 1: return
+	
+	if mode == 2:
+		boat.apply_force(engine_pos.global_basis.z * prop_rpm * rpm_force_ratio, boat.global_position - engine_pos.global_position)
+		return
+	
+	if mode == 0:
+		boat.apply_force(-engine_pos.global_basis.z * prop_rpm * rpm_force_ratio, boat.global_position - engine_pos.global_position)
+		return

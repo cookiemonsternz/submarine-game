@@ -1,33 +1,137 @@
 [gd_scene format=3 uid="uid://dcq3q4hiqfoxj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh8mv"]
-albedo_color = Color(0.7960594, 0.43725258, 0.9717317, 1)
+[ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="1_er88w"]
+[ext_resource type="PackedScene" uid="uid://byqs7yxjs0y64" path="res://scenes/interaction/power/power.tscn" id="2_mfyhc"]
+[ext_resource type="PackedScene" uid="uid://ddxlhji54j4mv" path="res://scenes/interaction/ballast/ballast.tscn" id="3_f8iv4"]
+[ext_resource type="Script" uid="uid://b0tqvvoirkp63" path="res://scenes/interaction/ballast/ballast_tank.gd" id="4_ahbpp"]
+[ext_resource type="PackedScene" uid="uid://ckxtkycbrguer" path="res://scenes/world/submarine/control_room.tscn" id="5_f8iv4"]
+[ext_resource type="PackedScene" uid="uid://oc5jb7iyc3h7" path="res://scenes/player/player.tscn" id="6_ahbpp"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er88w"]
-albedo_color = Color(0.4164484, 0.55640775, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ahbpp"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0snpr"]
+sky_material = SubResource("ProceduralSkyMaterial_ahbpp")
+
+[sub_resource type="Environment" id="Environment_r13nx"]
+background_mode = 2
+sky = SubResource("Sky_0snpr")
+tonemap_white = 7.81
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gh8mv"]
+radius = 10.0
+height = 50.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elrrf"]
-albedo_color = Color(0.82745576, 0.6762118, 0.2722123, 1)
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.2509804)
 
-[node name="Submarine" type="Node3D" unique_id=1595359744]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r48yj"]
+radius = 10.0
+height = 50.0
 
-[node name="Blockout" type="Node3D" parent="." unique_id=509129367]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahbpp"]
 
-[node name="ControlRoom" type="CSGBox3D" parent="Blockout" unique_id=1194359131]
-size = Vector3(4, 1, 5)
-material = SubResource("StandardMaterial3D_gh8mv")
+[sub_resource type="BoxShape3D" id="BoxShape3D_0snpr"]
 
-[node name="Mess" type="CSGBox3D" parent="Blockout" unique_id=1114112221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5)
-size = Vector3(4, 1, 6)
-material = SubResource("StandardMaterial3D_er88w")
+[node name="Submarine" type="RigidBody3D" unique_id=1368706397]
+collision_layer = 2
+collision_mask = 0
+mass = 800000.0
+gravity_scale = 0.0
 
-[node name="CaptainsCabinCutout" type="CSGBox3D" parent="Blockout/Mess" unique_id=410283557]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, -2)
-operation = 2
-size = Vector3(1.5, 1, 2)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=602957522]
+environment = SubResource("Environment_r13nx")
 
-[node name="CaptainsCabin" type="CSGBox3D" parent="Blockout" unique_id=21310176]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, 3.5)
-size = Vector3(1.5, 1, 2)
-material = SubResource("StandardMaterial3D_elrrf")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=939746692]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="ExternalCollider" type="CollisionShape3D" parent="." unique_id=334731923]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_gh8mv")
+
+[node name="ExternalMesh" type="MeshInstance3D" parent="." unique_id=1754426362]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+layers = 0
+material_override = SubResource("StandardMaterial3D_elrrf")
+mesh = SubResource("CapsuleMesh_r48yj")
+
+[node name="Components" type="Node3D" parent="." unique_id=2076655185]
+
+[node name="Engine" parent="Components" unique_id=2015758239 node_paths=PackedStringArray("boat", "power", "engine_pos") instance=ExtResource("1_er88w")]
+boat = NodePath("../..")
+power = NodePath("../Power")
+engine_pos = NodePath("../../EnginePos")
+
+[node name="Power" parent="Components" unique_id=862768865 instance=ExtResource("2_mfyhc")]
+
+[node name="Ballast" parent="Components" unique_id=1946304380 node_paths=PackedStringArray("boat") instance=ExtResource("3_f8iv4")]
+boat = NodePath("../..")
+
+[node name="BallastTankForward" type="CollisionShape3D" parent="Components/Ballast" unique_id=2075468091 node_paths=PackedStringArray("power")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+shape = SubResource("BoxShape3D_ahbpp")
+script = ExtResource("4_ahbpp")
+power = NodePath("../../Power")
+ratio = 0.5
+desired_ratio = 0.5
+metadata/_custom_type_script = "uid://b0tqvvoirkp63"
+
+[node name="BallastTankRear" type="CollisionShape3D" parent="Components/Ballast" unique_id=278520866 node_paths=PackedStringArray("power")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+shape = SubResource("BoxShape3D_0snpr")
+script = ExtResource("4_ahbpp")
+power = NodePath("../../Power")
+ratio = 0.5
+desired_ratio = 0.5
+metadata/_custom_type_script = "uid://b0tqvvoirkp63"
+
+[node name="EnginePos" type="Marker3D" parent="." unique_id=1071058582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="ControlRoom" parent="." unique_id=957836708 instance=ExtResource("5_f8iv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 10)
+
+[node name="Walls" parent="ControlRoom" index="0" unique_id=1171395099]
+visible = true
+
+[node name="EngineRpmDial" parent="ControlRoom/EngineControls" parent_id_path=PackedInt32Array(957836708, 251038954) index="0" unique_id=1011791800 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/Engine")
+max_value = 1800.0
+
+[node name="PropRpmDial" parent="ControlRoom/EngineControls" parent_id_path=PackedInt32Array(957836708, 251038954) index="1" unique_id=166305391 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/Engine")
+max_value = 1000.0
+
+[node name="EngineTempDial" parent="ControlRoom/EngineControls" parent_id_path=PackedInt32Array(957836708, 251038954) index="2" unique_id=1853869677 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/Engine")
+max_value = 120.0
+
+[node name="ThrottleLever" parent="ControlRoom/EngineControls" parent_id_path=PackedInt32Array(957836708, 251038954) index="3" unique_id=424322314 node_paths=PackedStringArray("node", "boat")]
+node = NodePath("../../../Components/Engine")
+boat = NodePath("../../..")
+
+[node name="GearLever" parent="ControlRoom/EngineControls" parent_id_path=PackedInt32Array(957836708, 251038954) index="4" unique_id=551308029 node_paths=PackedStringArray("node", "boat")]
+detents = 3
+node = NodePath("../../../Components/Engine")
+boat = NodePath("../../..")
+
+[node name="Slider" parent="ControlRoom/EngineControls" parent_id_path=PackedInt32Array(957836708, 251038954) index="5" unique_id=1062975164 node_paths=PackedStringArray("node", "boat")]
+drag_strength = 250.0
+detent_equation = "pow(16, 4 * x) * 0.05"
+node = NodePath("../../../Components/Engine")
+boat = NodePath("../../..")
+
+[node name="Draggable" parent="ControlRoom/EngineControls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(957836708, 1062975164, 1516316377) index="1" unique_id=898455505]
+drag_strength = 250.0
+
+[node name="JoltSliderJoint3D" parent="ControlRoom/EngineControls/Slider" index="1" unique_id=1404569318]
+node_a = NodePath("/root/@EditorNode@18066/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9318/@VSplitContainer@9101/@HSplitContainer@9103/@HSplitContainer@9105/@Control@9106/@SubViewportContainer@9107/@SubViewport@9108/Submarine")
+
+[node name="Player" parent="." unique_id=108593082 instance=ExtResource("6_ahbpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 11)
+
+[editable path="ControlRoom"]
+[editable path="ControlRoom/EngineControls/Slider"]

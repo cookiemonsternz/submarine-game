@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b6pjexq7v87qn"]
+
+[ext_resource type="PackedScene" uid="uid://oc5jb7iyc3h7" path="res://scenes/player/player.tscn" id="1_1qajc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ogtw3"]
+
+[node name="HighlightScene" type="Node3D" unique_id=1442026084]
+
+[node name="Boxes" type="Node3D" parent="." unique_id=383158802]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Boxes" unique_id=1319894397]
+transform = Transform3D(-0.112384, 0.792998, -0.598769, -0.394297, 0.517525, 0.759406, 0.912085, 0.321438, 0.254516, 0, 2, 0)
+
+[node name="Box" type="MeshInstance3D" parent="Boxes" unique_id=2025771698]
+transform = Transform3D(2.0864, -0.261539, 0, 0.261539, 2.0864, 0, 0, 0, 0.815946, 0.661451, -0.918167, 0)
+mesh = SubResource("BoxMesh_ogtw3")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Box2" type="MeshInstance3D" parent="Boxes" unique_id=891519934]
+transform = Transform3D(3.56291, -2.50221, 0, 0.990878, 5.53275, 0.50632, -0.784094, -4.37813, 0.639849, -0.765313, -0.21022, -2.93756)
+mesh = SubResource("BoxMesh_ogtw3")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="BoxHighlighted" type="MeshInstance3D" parent="Boxes" unique_id=1504887143]
+transform = Transform3D(1.3076, 0.578138, -0.382804, -0.270395, 1.17759, 0.854852, 0.638489, -0.685305, 1.14599, 1.22932, 0.288137, -1.36719)
+layers = 1024
+mesh = SubResource("BoxMesh_ogtw3")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=108593082 instance=ExtResource("1_1qajc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.136831, 0, 3.988803)
