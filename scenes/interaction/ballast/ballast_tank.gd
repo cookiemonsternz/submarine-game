@@ -1,8 +1,12 @@
 @tool
 class_name BallastTank extends CollisionShape3D
 
-@export_custom(PROPERTY_HINT_NONE, "suffix: l/s") var flood_rate: float = 3000
-@export_custom(PROPERTY_HINT_NONE, "suffix: l/s") var pump_rate: float = 1000
+@export var power: Power
+
+@export_custom(PROPERTY_HINT_NONE, "suffix:l/s") var flood_rate: float = 3000
+@export_custom(PROPERTY_HINT_NONE, "suffix:l/s") var pump_rate: float = 1000
+
+@export_custom(PROPERTY_HINT_NONE, "suffix:kw") var pump_power_draw: float = 5
 
 @export_group("PID")
 @export var p: float = 0.1
@@ -50,6 +54,8 @@ func _physics_process(delta: float) -> void:
 		water_volume += (u * flood_rate) / 1000
 	else:
 		water_volume += (u * pump_rate) / 1000
+	
+	power -= pump_power_draw * abs(u) * delta
 	
 	water_volume = clamp(water_volume, 0, volume)
 	

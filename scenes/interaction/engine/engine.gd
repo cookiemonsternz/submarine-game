@@ -11,6 +11,7 @@ extends Node3D
 # Engine Torque - Load -> RPM acceleration
 
 @export var boat: RigidBody3D
+@export var power: Power
 @export var engine_pos: Marker3D
 
 @export_category("Motor")
@@ -62,6 +63,7 @@ func _physics_process(delta: float) -> void:
 	var temp_delta = power_heat * delta - power_dissipation_scale * 0.05 * (temp - ambient_temp) * delta
 	temp += temp_delta
 	
+	power.remaining_capacity -= (engine_torque / 1000) * delta
 	#print(engine_rpm, " : ", prop_rpm, " : ", snapped(temp, 0.01))
 	
 	boat.apply_force(engine_pos.global_basis.z * prop_rpm * rpm_force_ratio, boat.global_position - engine_pos.global_position)
