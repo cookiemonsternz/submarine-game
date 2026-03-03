@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://byqs7yxjs0y64"]
+
+[ext_resource type="Script" uid="uid://chuilkelkbw6f" path="res://scenes/interaction/power/power.gd" id="1_4lvmb"]
+
+[node name="Power" type="Node3D" unique_id=862768865]
+script = ExtResource("1_4lvmb")
