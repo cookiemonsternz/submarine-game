@@ -19,25 +19,22 @@ height = 50.0
 [sub_resource type="Resource" id="Resource_ta0vh"]
 script = ExtResource("2_km56a")
 water_coefficient = 90.0
+max_torque = 100000.0
 gear_ratio = 10.0
 metadata/_custom_type_script = "uid://bkoehrv78wuqx"
 
 [sub_resource type="Resource" id="Resource_s4rgi"]
 script = ExtResource("2_km56a")
 water_coefficient = 20.0
+max_torque = 70000.0
 gear_ratio = 7.0
-metadata/_custom_type_script = "uid://bkoehrv78wuqx"
-
-[sub_resource type="Resource" id="Resource_xsn6y"]
-script = ExtResource("2_km56a")
-water_coefficient = 1.5
-gear_ratio = 4.0
 metadata/_custom_type_script = "uid://bkoehrv78wuqx"
 
 [sub_resource type="Resource" id="Resource_km56a"]
 script = ExtResource("2_km56a")
-water_coefficient = 0.115
-gear_ratio = 2.0
+water_coefficient = 1.0
+max_torque = 50000.0
+gear_ratio = 4.0
 metadata/_custom_type_script = "uid://bkoehrv78wuqx"
 
 [node name="Node3D" type="Node3D" unique_id=732262231]
@@ -57,7 +54,10 @@ shape = SubResource("CapsuleShape3D_ta0vh")
 [node name="Engine" parent="Boat" unique_id=2015758239 node_paths=PackedStringArray("boat", "engine_pos") instance=ExtResource("2_xsn6y")]
 boat = NodePath("..")
 engine_pos = NodePath("../Marker3D")
-gears = Array[ExtResource("2_km56a")]([SubResource("Resource_ta0vh"), SubResource("Resource_s4rgi"), SubResource("Resource_xsn6y"), SubResource("Resource_km56a")])
+throttle = 1.0
+rpm_force_ratio = 1000.0
+gears = Array[ExtResource("2_km56a")]([SubResource("Resource_ta0vh"), SubResource("Resource_s4rgi"), SubResource("Resource_km56a")])
+gear = 2
 
 [node name="Marker3D" type="Marker3D" parent="Boat" unique_id=1227248450]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
