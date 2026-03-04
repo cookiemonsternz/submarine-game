@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bpng65e53ijod"]
+
+[ext_resource type="PackedScene" uid="uid://boa4hat7xf0t2" path="res://scenes/interaction/aux_engine/aux_engine.tscn" id="1_adulg"]
+[ext_resource type="Script" uid="uid://rnxgiexhdxkl" path="res://scenes/interaction/aux_engine/aux_engine_test.gd" id="1_gypbl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gypbl"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6v65h"]
+sky_material = SubResource("ProceduralSkyMaterial_gypbl")
+
+[sub_resource type="Environment" id="Environment_s6v3k"]
+background_mode = 2
+sky = SubResource("Sky_6v65h")
+tonemap_mode = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gypbl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6v65h"]
+
+[node name="AuxEngineTest" type="Node3D" unique_id=141223605]
+script = ExtResource("1_gypbl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=119755486]
+environment = SubResource("Environment_s6v3k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=312411593]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=662723177]
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=570448783]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_gypbl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=962416293]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_6v65h")
+
+[node name="AuxEngine" parent="RigidBody3D" unique_id=1965373193 node_paths=PackedStringArray("boat") instance=ExtResource("1_adulg")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.5, 0, -0.5)
+boat = NodePath("..")
+
+[node name="AuxEngine2" parent="RigidBody3D" unique_id=793575814 node_paths=PackedStringArray("boat") instance=ExtResource("1_adulg")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+boat = NodePath("..")
+
+[node name="AuxEngine3" parent="RigidBody3D" unique_id=1349938959 node_paths=PackedStringArray("boat") instance=ExtResource("1_adulg")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.5, 0, 0.5)
+boat = NodePath("..")
+
+[node name="AuxEngine4" parent="RigidBody3D" unique_id=1281378675 node_paths=PackedStringArray("boat") instance=ExtResource("1_adulg")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+boat = NodePath("..")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=700566039]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.867786, 0)

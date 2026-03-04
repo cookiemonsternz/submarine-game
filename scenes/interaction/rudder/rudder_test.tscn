@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b18lccfg2v8vo"]
+
+[ext_resource type="PackedScene" uid="uid://boa4hat7xf0t2" path="res://scenes/interaction/aux_engine/aux_engine.tscn" id="1_w12oo"]
+[ext_resource type="PackedScene" uid="uid://dvgvi5656gbed" path="res://scenes/interaction/rudder/rudder.tscn" id="2_phjkc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_phjkc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eobic"]
+
+[node name="RudderTest" type="Node3D" unique_id=1131683842]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=2097390961]
+gravity_scale = 0.0
+linear_damp = 5.0
+angular_damp = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=559367945]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_phjkc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1756465726]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_eobic")
+
+[node name="AuxEngine" parent="RigidBody3D" unique_id=1965373193 node_paths=PackedStringArray("boat") instance=ExtResource("1_w12oo")]
+unique_name_in_owner = true
+transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, 0, 0, 1)
+boat = NodePath("..")
+force = -100.0
+
+[node name="Rudder" parent="RigidBody3D" unique_id=1259838862 node_paths=PackedStringArray("boat") instance=ExtResource("2_phjkc")]
+boat = NodePath("..")
+angle = 1.0
+force_scale = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=685996410]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.867786, 0)
