@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b5knlv4ssm6cb"]
+
+[ext_resource type="PackedScene" uid="uid://1o8q02qj0m8m" path="res://assets/rock.fbx" id="1_2a0af"]
+[ext_resource type="Material" path="res://assets/Rock058_2K-PNG/Rock058_2K-PNG.tres" id="2_oa5lr"]
+
+[node name="rock" unique_id=690362121 instance=ExtResource("1_2a0af")]
+
+[node name="Sphere" parent="." index="0" unique_id=1350744430]
+material_override = ExtResource("2_oa5lr")
