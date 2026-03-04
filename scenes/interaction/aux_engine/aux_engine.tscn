@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://boa4hat7xf0t2"]
+
+[ext_resource type="Script" uid="uid://bwwy3rmeyju5b" path="res://scenes/interaction/aux_engine/aux_engine.gd" id="1_68q3n"]
+
+[node name="AuxEngine" type="Node3D" unique_id=1965373193]
+script = ExtResource("1_68q3n")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1866634338]
+process_mode = 4
+enabled = false
+target_position = Vector3(1, 0, 0)

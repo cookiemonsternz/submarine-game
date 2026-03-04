@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dvgvi5656gbed"]
+
+[ext_resource type="Script" uid="uid://bsulcw3y4g7k8" path="res://scenes/interaction/rudder/rudder.gd" id="1_w4qlu"]
+
+[node name="Rudder" type="Node3D" unique_id=1259838862]
+script = ExtResource("1_w4qlu")
