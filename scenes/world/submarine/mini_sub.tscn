@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c7cayvhexkc7s" path="res://scripts/mini_sub_basic_controls.gd" id="1_fslak"]
 [ext_resource type="Script" uid="uid://bw8h82fvu7b2s" path="res://scenes/world/submarine/minisub/claw.gd" id="2_vmgfb"]
+[ext_resource type="PackedScene" uid="uid://4secbajga318" path="res://scenes/world/submarine/environment/rock_and_fragments.tscn" id="3_62bga"]
+[ext_resource type="Script" uid="uid://dexrrhiqg3pvk" path="res://scenes/world/submarine/drill.gd" id="3_ydde0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vmgfb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,10 +28,17 @@ size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hqc16"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_hqc16"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymg54"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_vmgfb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vmgfb"]
 size = Vector3(1, 2.4400024, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ymg54"]
+radius = 0.9548683
 
 [node name="Main" type="Node3D" unique_id=1222444474]
 
@@ -41,6 +50,8 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="MiniSub" type="RigidBody3D" parent="." unique_id=1011879966]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 gravity_scale = 0.0
 linear_damp = 2.809
 script = ExtResource("1_fslak")
@@ -63,7 +74,7 @@ transform = Transform3D(0.21089573, 0, 0, 0, 0.21715456, 0, 0, 0, 0.20597112, 0,
 mesh = SubResource("BoxMesh_62bga")
 
 [node name="Claw" type="MeshInstance3D" parent="MiniSub" unique_id=1569188217]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -1.7889452)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.9007003, 0, -0.75572383)
 mesh = SubResource("BoxMesh_ydde0")
 script = ExtResource("2_vmgfb")
 
@@ -78,8 +89,21 @@ shape = SubResource("BoxShape3D_hqc16")
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -1.7889452)
 
 [node name="CollisionPos" type="CollisionShape3D" parent="MiniSub/OriginalPos" unique_id=1145993238]
-transform = Transform3D(0.29999998, 0, 0, 0, 0.29999998, 0, 0, 0, 0.29999998, 0, 0, -0.010010242)
+transform = Transform3D(0.29999992, 0, 0, 0, 0.29999992, 0, 0, 0, 0.29999992, 3.0023336, 0, 3.4340603)
 shape = SubResource("BoxShape3D_hqc16")
+
+[node name="Drill" type="MeshInstance3D" parent="MiniSub" unique_id=1179573870]
+transform = Transform3D(0.7076494, 0, 0, 0, 0.7161915, 0, 0, 0, 0.7078549, 0, 0, -1.5802679)
+mesh = SubResource("BoxMesh_hqc16")
+script = ExtResource("3_ydde0")
+
+[node name="DrillArea" type="Area3D" parent="MiniSub/Drill" unique_id=445099595]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiniSub/Drill/DrillArea" unique_id=765215185]
+shape = SubResource("BoxShape3D_ymg54")
+
+[node name="DrillTimer" type="Timer" parent="MiniSub/Drill" unique_id=14843005]
 
 [node name="BoxesForReference" type="Node3D" parent="." unique_id=1461596354]
 
@@ -148,5 +172,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16432118, 3.572874, 0.9156
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.098628, -0.29995728, 0)
 shape = SubResource("BoxShape3D_vmgfb")
 
+[node name="TestObjects" type="Node3D" parent="." unique_id=813473315]
+
+[node name="Area3D" type="Area3D" parent="TestObjects" unique_id=494892385 groups=["breakable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.838804)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Area3D" unique_id=1288577151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.012983, 0, -7.770841)
+shape = SubResource("SphereShape3D_ymg54")
+
+[node name="RockAndFragments" parent="." unique_id=343521588 instance=ExtResource("3_62bga")]
+transform = Transform3D(-0.872385, 0, 0.48881906, 0, 0.9999998, 0, -0.48881906, 0, -0.872385, 5.61962, 0, -2.8885884)
+
 [connection signal="area_entered" from="MiniSub/Claw/Claw2" to="MiniSub/Claw" method="_on_claw_2_area_entered"]
 [connection signal="body_entered" from="MiniSub/Claw/Claw2" to="MiniSub/Claw" method="_on_claw_2_body_entered"]
+[connection signal="area_entered" from="MiniSub/Drill/DrillArea" to="MiniSub/Drill" method="_on_drill_area_area_entered"]
+[connection signal="area_entered" from="TestObjects/Area3D" to="TestObjects/Area3D" method="_on_area_entered"]
+[connection signal="area_exited" from="TestObjects/Area3D" to="MiniSub/Drill" method="_on_area_3d_area_exited"]
+[connection signal="area_exited" from="TestObjects/Area3D" to="TestObjects/Area3D" method="_on_area_exited"]

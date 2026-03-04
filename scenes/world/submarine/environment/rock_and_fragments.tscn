@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://4secbajga318"]
+
+[ext_resource type="PackedScene" uid="uid://b5knlv4ssm6cb" path="res://assets/models/rock.tscn" id="1_bjtg8"]
+[ext_resource type="Script" uid="uid://b0dx33emjhyje" path="res://scenes/world/submarine/environment/rock_and_fragments.gd" id="1_dsng1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjtg8"]
+radius = 1.4980469
+height = 4.0301514
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dsng1"]
+radius = 1.5088522
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hlm45"]
+radius = 0.40457955
+
+[node name="RockAndFragments" type="Node3D" unique_id=343521588]
+transform = Transform3D(-0.87238514, 0, 0.48881915, 0, 1, 0, -0.48881915, 0, -0.87238514, 0, 0, 0)
+script = ExtResource("1_dsng1")
+
+[node name="Fragments" type="Node3D" parent="." unique_id=942412369]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1455791547]
+gravity_scale = 0.0
+freeze = true
+
+[node name="rock" parent="RigidBody3D" unique_id=690362121 instance=ExtResource("1_bjtg8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1189516343]
+transform = Transform3D(0.11524146, -0.98798305, 0.102998495, 0.8712617, 0.050732315, -0.48818973, 0.47709778, 0.14599812, 0.8666384, -0.73651195, 0.16800565, 0.2872535)
+shape = SubResource("CapsuleShape3D_bjtg8")
+
+[node name="RockHitBox" type="Area3D" parent="." unique_id=1222787789 groups=["breakable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RockHitBox" unique_id=2092825134]
+transform = Transform3D(0.11524146, -0.98798305, 0.102998495, 0.8712617, 0.050732315, -0.48818973, 0.47709778, 0.14599812, 0.8666384, -0.73651195, 0.16800565, 0.2872535)
+shape = SubResource("CapsuleShape3D_bjtg8")
+
+[node name="FragmentsFirst" type="Node3D" parent="." unique_id=1976802443]
+
+[node name="Frag1" type="RigidBody3D" parent="FragmentsFirst" unique_id=1849970828 groups=["grabbable"]]
+gravity_scale = 0.0
+freeze = true
+
+[node name="fragment" parent="FragmentsFirst/Frag1" unique_id=925832201 groups=["grabbable"] instance=ExtResource("1_bjtg8")]
+transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
+
+[node name="Area3D" type="Area3D" parent="FragmentsFirst/Frag1" unique_id=1474787514 groups=["grabbable"]]
+transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FragmentsFirst/Frag1/Area3D" unique_id=533562049]
+transform = Transform3D(0.9999999, 0, 2.9802322e-07, 0, 0.9999995, 0, -2.9802322e-08, 0, 0.99999946, -0.27484125, 0, 0.2250538)
+shape = SubResource("SphereShape3D_dsng1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FragmentsFirst/Frag1" unique_id=588957182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.09939164)
+shape = SubResource("SphereShape3D_hlm45")
+
+[node name="Frag2" type="RigidBody3D" parent="FragmentsFirst" unique_id=534254474 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6920435, 0, 0.45887962)
+gravity_scale = 0.0
+freeze = true
+
+[node name="fragment" parent="FragmentsFirst/Frag2" unique_id=1916387490 groups=["grabbable"] instance=ExtResource("1_bjtg8")]
+transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
+
+[node name="Area3D" type="Area3D" parent="FragmentsFirst/Frag2" unique_id=1823953660 groups=["grabbable"]]
+transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FragmentsFirst/Frag2/Area3D" unique_id=252568130]
+transform = Transform3D(0.9999999, 0, 2.9802322e-07, 0, 0.9999995, 0, -2.9802322e-08, 0, 0.99999946, -0.27484125, 0, 0.2250538)
+shape = SubResource("SphereShape3D_dsng1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FragmentsFirst/Frag2" unique_id=1689106915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.09939164)
+shape = SubResource("SphereShape3D_hlm45")
+
+[node name="Frag3" type="RigidBody3D" parent="FragmentsFirst" unique_id=440824975 groups=["grabbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.688549, 0.1823658, 0.8001895)
+gravity_scale = 0.0
+freeze = true
+
+[node name="fragment" parent="FragmentsFirst/Frag3" unique_id=1912202832 groups=["grabbable"] instance=ExtResource("1_bjtg8")]
+transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
+
+[node name="Area3D" type="Area3D" parent="FragmentsFirst/Frag3" unique_id=1083553936 groups=["grabbable"]]
+transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FragmentsFirst/Frag3/Area3D" unique_id=1089426074]
+transform = Transform3D(0.9999999, 0, 2.9802322e-07, 0, 0.9999995, 0, -2.9802322e-08, 0, 0.99999946, -0.27484125, 0, 0.2250538)
+shape = SubResource("SphereShape3D_dsng1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FragmentsFirst/Frag3" unique_id=1562533442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.09939164)
+shape = SubResource("SphereShape3D_hlm45")
+
+[connection signal="area_entered" from="RockHitBox" to="." method="_on_rock_hit_box_area_entered"]
