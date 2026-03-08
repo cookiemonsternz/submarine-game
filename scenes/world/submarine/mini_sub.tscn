@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://c7cayvhexkc7s" path="res://scripts/mini_sub_basic_controls.gd" id="1_fslak"]
 [ext_resource type="Script" uid="uid://bw8h82fvu7b2s" path="res://scenes/world/submarine/minisub/claw.gd" id="2_vmgfb"]
 [ext_resource type="PackedScene" uid="uid://4secbajga318" path="res://scenes/world/submarine/environment/rock_and_fragments.tscn" id="3_62bga"]
-[ext_resource type="Script" uid="uid://dexrrhiqg3pvk" path="res://scenes/world/submarine/drill.gd" id="3_ydde0"]
-[ext_resource type="Script" uid="uid://b6olv2h6vbcmt" path="res://scenes/world/submarine/storage.gd" id="4_hqc16"]
-[ext_resource type="Script" uid="uid://bjiqtygvsu62x" path="res://scenes/world/submarine/store_test.gd" id="5_ymg54"]
+[ext_resource type="Script" path="res://scenes/world/submarine/drill.gd" id="3_ydde0"]
+[ext_resource type="Script" path="res://scenes/world/submarine/storage.gd" id="4_hqc16"]
+[ext_resource type="Script" path="res://scenes/world/submarine/store_test.gd" id="5_ymg54"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vmgfb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
