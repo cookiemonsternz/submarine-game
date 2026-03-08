@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bd4uiglfc2fen"]
+
+[ext_resource type="PackedScene" uid="uid://bdoriyo1ven0x" path="res://assets/models/lever.fbx" id="1_sqsc1"]
+[ext_resource type="Texture2D" uid="uid://bo0dniget4mda" path="res://assets/images/lever/HandleAlbedo.png" id="2_ohebq"]
+[ext_resource type="Texture2D" uid="uid://c7b6mwnpbs8k4" path="res://assets/images/lever/HandleAO.png" id="3_uu7nk"]
+[ext_resource type="Texture2D" uid="uid://d088i1c0sgbbc" path="res://assets/images/lever/HandleMetal.png" id="4_4wmfm"]
+[ext_resource type="Texture2D" uid="uid://xmrat7bop3ol" path="res://assets/images/lever/HandleNormal.png" id="5_jyfoa"]
+[ext_resource type="Texture2D" uid="uid://iiggqwtshlxg" path="res://assets/images/lever/HandleRough.png" id="6_4oc70"]
+[ext_resource type="Texture2D" uid="uid://cjbgmrivs7jhl" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Color.jpg" id="7_ohebq"]
+[ext_resource type="Texture2D" uid="uid://n62vass3jkml" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Displacement.jpg" id="8_uu7nk"]
+[ext_resource type="Texture2D" uid="uid://b2g1gr6om7dxm" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Metalness.jpg" id="9_4wmfm"]
+[ext_resource type="Texture2D" uid="uid://s4lli6b6d4cl" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_NormalGL.jpg" id="10_jyfoa"]
+[ext_resource type="Texture2D" uid="uid://citxnbw2d1lyg" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Roughness.jpg" id="11_4oc70"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75wtv"]
+albedo_texture = ExtResource("2_ohebq")
+metallic = 1.0
+metallic_texture = ExtResource("4_4wmfm")
+roughness_texture = ExtResource("6_4oc70")
+normal_enabled = true
+normal_texture = ExtResource("5_jyfoa")
+ao_enabled = true
+ao_texture = ExtResource("3_uu7nk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_culfd"]
+albedo_texture = ExtResource("7_ohebq")
+metallic = 1.0
+metallic_texture = ExtResource("9_4wmfm")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("11_4oc70")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("10_jyfoa")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("8_uu7nk")
+uv1_scale = Vector3(0.185, 1.625, 0.115)
+uv1_triplanar = true
+
+[node name="lever" unique_id=1216858430 instance=ExtResource("1_sqsc1")]
+
+[node name="Handle" parent="." index="0" unique_id=410424668]
+material_override = SubResource("StandardMaterial3D_75wtv")
+
+[node name="Shaft" parent="." index="1" unique_id=1658910081]
+material_override = SubResource("StandardMaterial3D_culfd")

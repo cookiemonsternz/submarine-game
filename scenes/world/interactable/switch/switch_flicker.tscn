@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c30rgw5jeegbd"]
+
+[ext_resource type="PackedScene" uid="uid://kbp1cbs6xwx8" path="res://assets/models/switch.fbx" id="1_qkqqb"]
+[ext_resource type="Texture2D" uid="uid://bs8buy23iccoo" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Color.jpg" id="2_3pvs6"]
+[ext_resource type="Texture2D" uid="uid://cl8cjw52xmgnu" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Displacement.jpg" id="3_0t8ko"]
+[ext_resource type="Texture2D" uid="uid://dycvikjc26h6k" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Metalness.jpg" id="4_nojxj"]
+[ext_resource type="Texture2D" uid="uid://rr3kkpbd5wu4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_NormalGL.jpg" id="5_enqow"]
+[ext_resource type="Texture2D" uid="uid://b6aut4ralvrh4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Roughness.jpg" id="6_163v0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2n1f"]
+albedo_texture = ExtResource("2_3pvs6")
+metallic = 1.0
+metallic_texture = ExtResource("4_nojxj")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_163v0")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_enqow")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_0t8ko")
+uv1_scale = Vector3(9.535, 9.535, 9.535)
+uv1_triplanar = true
+
+[node name="switch" unique_id=1019615477 instance=ExtResource("1_qkqqb")]
+
+[node name="Switch" parent="." index="0" unique_id=1224593555]
+material_override = SubResource("StandardMaterial3D_b2n1f")

@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://4muggwxyc8b8"]
+
+[ext_resource type="Script" uid="uid://doxhwaijbn20r" path="res://scenes/world/interactable/wheel/wheel.gd" id="1_fl7al"]
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="1_or2eg"]
+[ext_resource type="Script" uid="uid://ydrhanq13lcq" path="res://scenes/world/interactable/wheel/wheel_class.gd" id="2_fl7al"]
+[ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="2_srtmy"]
+[ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="3_fl7al"]
+[ext_resource type="PackedScene" uid="uid://c6gqpsq1jmyhq" path="res://scenes/world/interactable/wheel/wheel_mesh.tscn" id="6_g4err"]
+[ext_resource type="Material" uid="uid://b2yqa4ve78e50" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG.tres" id="7_mh137"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_srtmy"]
+radius = 0.075
+height = 0.2
+radial_segments = 16
+rings = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_srtmy"]
+radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g4err"]
+height = 0.1
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rqgi7"]
+height = 0.1
+radius = 1.0
+
+[node name="Wheel" type="Node3D" unique_id=765100319]
+script = ExtResource("1_fl7al")
+value_min = null
+value_max = null
+
+[node name="DragRigidBody3D" type="RigidBody3D" parent="." unique_id=625295086]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_layer = 8
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("2_fl7al")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DragRigidBody3D" unique_id=1303356208]
+visible = false
+mesh = SubResource("SphereMesh_srtmy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DragRigidBody3D" unique_id=751994925]
+shape = SubResource("SphereShape3D_srtmy")
+
+[node name="WheelRigidBody3D" type="RigidBody3D" parent="." unique_id=368735785]
+collision_layer = 8
+collision_mask = 0
+gravity_scale = 0.0
+angular_damp = 10.0
+script = ExtResource("2_fl7al")
+
+[node name="Components" type="Node3D" parent="WheelRigidBody3D" unique_id=1959114622]
+
+[node name="MouseTarget" parent="WheelRigidBody3D/Components" unique_id=532023496 node_paths=PackedStringArray("outline_objects") instance=ExtResource("1_or2eg")]
+outline_objects = [NodePath("../../WheelMesh/Ring"), NodePath("../../WheelMesh/MeshInstance3D")]
+selectable = true
+
+[node name="MouseTargetCollisionShape" type="CollisionShape3D" parent="WheelRigidBody3D/Components/MouseTarget" unique_id=825290960]
+shape = SubResource("CylinderShape3D_g4err")
+
+[node name="Draggable" parent="WheelRigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("2_srtmy")]
+unique_name_in_owner = true
+rigidbody = NodePath("../../../DragRigidBody3D")
+mouse_target = NodePath("../MouseTarget")
+
+[node name="Measureable" parent="WheelRigidBody3D/Components" unique_id=1180068611 node_paths=PackedStringArray("drag_body", "joint") instance=ExtResource("3_fl7al")]
+unique_name_in_owner = true
+drag_body = NodePath("../..")
+joint = NodePath("../../../JoltHingeJoint3D")
+
+[node name="WheelCollisionShape" type="CollisionShape3D" parent="WheelRigidBody3D" unique_id=719802381]
+shape = SubResource("CylinderShape3D_rqgi7")
+
+[node name="WheelMesh" parent="WheelRigidBody3D" unique_id=374831287 instance=ExtResource("6_g4err")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRigidBody3D/WheelMesh" unique_id=981987551]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1, 0, 0)
+material_override = ExtResource("7_mh137")
+mesh = SubResource("SphereMesh_srtmy")
+
+[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="." unique_id=1399436]
+limit_enabled = true
+limit_upper = 2.443460952792061
+limit_lower = -2.443460952792061
+node_b = NodePath("../WheelRigidBody3D")
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="JoltPinJoint3D" type="JoltGeneric6DOFJoint3D" parent="." unique_id=804832951]
+node_a = NodePath("../WheelRigidBody3D")
+node_b = NodePath("../DragRigidBody3D")
+
+[connection signal="hovered" from="WheelRigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_hovered"]
+[connection signal="pressed" from="WheelRigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]
+[connection signal="pressed" from="WheelRigidBody3D/Components/MouseTarget" to="DragRigidBody3D" method="_on_mouse_target_pressed"]
+[connection signal="pressed" from="WheelRigidBody3D/Components/MouseTarget" to="WheelRigidBody3D" method="_on_mouse_target_pressed"]
+[connection signal="released" from="WheelRigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_released"]
+[connection signal="released" from="WheelRigidBody3D/Components/MouseTarget" to="DragRigidBody3D" method="_on_mouse_target_released"]
+[connection signal="released" from="WheelRigidBody3D/Components/MouseTarget" to="WheelRigidBody3D" method="_on_mouse_target_released"]
+[connection signal="unhovered" from="WheelRigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_unhovered"]
+
+[editable path="WheelRigidBody3D/WheelMesh"]

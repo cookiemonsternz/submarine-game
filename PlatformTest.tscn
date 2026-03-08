@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i2eri3vr6x1p"]
 
-[ext_resource type="PackedScene" uid="uid://oc5jb7iyc3h7" path="res://CharacterScene.tscn" id="1_0bmhw"]
+[ext_resource type="PackedScene" uid="uid://oc5jb7iyc3h7" path="res://scenes/player/player.tscn" id="1_0bmhw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ae57s"]
 size = Vector3(12.617249, 1, 9.0251465)

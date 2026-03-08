@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b0oqly6r5y1ph"]
+
+[ext_resource type="Script" uid="uid://nkulg6684h65" path="res://scenes/world/submarine/components/dial/dial.gd" id="1_c1m00"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c1m00"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.05
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a8sny"]
+radius = 0.01
+height = 0.1
+
+[node name="Dial" type="Node3D" unique_id=1011791800]
+script = ExtResource("1_c1m00")
+
+[node name="CaseMesh" type="MeshInstance3D" parent="." unique_id=393264420]
+mesh = SubResource("CylinderMesh_c1m00")
+
+[node name="Indicator" type="Node3D" parent="." unique_id=179435]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0, 0)
+
+[node name="IndicatorMesh" type="MeshInstance3D" parent="Indicator" unique_id=1283930164]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.05, 0.031, 0)
+mesh = SubResource("CapsuleMesh_a8sny")

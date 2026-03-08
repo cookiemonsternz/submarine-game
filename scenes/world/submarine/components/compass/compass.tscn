@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dms83r5ovibj8"]
+
+[ext_resource type="PackedScene" uid="uid://rhv45q0h8me0" path="res://assets/models/compass.fbx" id="1_so5tu"]
+[ext_resource type="Script" uid="uid://dycndasdu2qw2" path="res://scenes/world/submarine/components/compass/compass.gd" id="2_78qut"]
+[ext_resource type="Material" path="res://assets/images/metals/Metal036_1K-JPG/Metal036_1K-JPG.tres" id="3_wwgi7"]
+[ext_resource type="Material" uid="uid://dd7p045nid5pr" path="res://assets/images/compass/compass.tres" id="4_m4txp"]
+[ext_resource type="Material" uid="uid://du5ony7v4my4b" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG.tres" id="5_6pclw"]
+[ext_resource type="Texture2D" uid="uid://c3gm1ljlkmtv3" path="res://assets/images/painted_metal/PaintedMetal008_1K-JPG/PaintedMetal008_1K-JPG_Color.jpg" id="6_lafqy"]
+[ext_resource type="Texture2D" uid="uid://dbjxe7khx2rqc" path="res://assets/images/painted_metal/PaintedMetal008_1K-JPG/PaintedMetal008_1K-JPG_AmbientOcclusion.jpg" id="7_ewevw"]
+[ext_resource type="Texture2D" uid="uid://bcdq0rctcp2y8" path="res://assets/images/painted_metal/PaintedMetal008_1K-JPG/PaintedMetal008_1K-JPG_Displacement.jpg" id="8_07mny"]
+[ext_resource type="Texture2D" uid="uid://cg65o6hi4lo2o" path="res://assets/images/painted_metal/PaintedMetal008_1K-JPG/PaintedMetal008_1K-JPG_Metalness.jpg" id="9_t6yym"]
+[ext_resource type="Texture2D" uid="uid://bhl6467v0bkth" path="res://assets/images/painted_metal/PaintedMetal008_1K-JPG/PaintedMetal008_1K-JPG_NormalGL.jpg" id="10_p1ioa"]
+[ext_resource type="Texture2D" uid="uid://567jti25n87a" path="res://assets/images/painted_metal/PaintedMetal008_1K-JPG/PaintedMetal008_1K-JPG_Roughness.jpg" id="11_vp4wj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mu7q"]
+albedo_texture = ExtResource("6_lafqy")
+metallic = 1.0
+metallic_texture = ExtResource("9_t6yym")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("11_vp4wj")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("10_p1ioa")
+ao_enabled = true
+ao_texture = ExtResource("7_ewevw")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("8_07mny")
+uv1_scale = Vector3(0.01, 2.735, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_78qut"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 1.0
+
+[node name="compass" unique_id=711501194 instance=ExtResource("1_so5tu")]
+script = ExtResource("2_78qut")
+
+[node name="Case" parent="." index="0" unique_id=319189678]
+material_override = ExtResource("3_wwgi7")
+
+[node name="Compass" parent="." index="1" unique_id=1224799954]
+unique_name_in_owner = true
+material_override = ExtResource("4_m4txp")
+
+[node name="Handle" parent="." index="2" unique_id=816412954]
+material_override = ExtResource("5_6pclw")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="3" unique_id=115607013 groups=["sub_instr_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, -0.9834831, 0.18099982, 0, -0.18099982, -0.9834831, 0, 0.53596973, -1.3533498)
+light_color = Color(1, 0.50281507, 0.50025666, 1)
+light_energy = 16.0
+light_indirect_energy = 1.76
+light_specular = 0.0
+shadow_enabled = true
+spot_range = 1.0
+spot_angle = 45.427773
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="4" unique_id=1123442676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.9)
+material_override = SubResource("StandardMaterial3D_2mu7q")
+mesh = SubResource("CylinderMesh_78qut")

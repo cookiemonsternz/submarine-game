@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cmwhq1rb6wm3o"]
+
+[ext_resource type="Shader" uid="uid://ssgjrxftjgua" path="res://assets/shaders/glass.gdshader" id="1_1ank1"]
+[ext_resource type="Texture2D" uid="uid://cigroubpgayuu" path="res://assets/images/fingerprints/Fingerprints005_1K-JPG/Fingerprints005_1K-JPG_Albedo_w_transparency.png" id="2_hnm5d"]
+[ext_resource type="Texture2D" uid="uid://d2r3fc0wsv57y" path="res://assets/images/fingerprints/Fingerprints005_1K-JPG/Fingerprints005_1K-JPG_NormalGL.jpg" id="3_giwdr"]
+[ext_resource type="Texture2D" uid="uid://pprekl8tdfn5" path="res://assets/images/fingerprints/Fingerprints005_1K-JPG/Fingerprints005_1K-JPG_Roughness.jpg" id="4_1wm41"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1ank1")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("2_hnm5d")
+shader_parameter/roughness = 1.0
+shader_parameter/roughness_texture = ExtResource("4_1wm41")
+shader_parameter/normal_strength = 1.0
+shader_parameter/normal_map = ExtResource("3_giwdr")
+shader_parameter/edge_color = Color(0, 0, 0, 1)

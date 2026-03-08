@@ -1,69 +1,99 @@
 [gd_scene format=3 uid="uid://dcdfxqwqee6wc"]
 
-[ext_resource type="Script" uid="uid://ctyx2wv2yd5wa" path="res://scenes/player/player.gd" id="1_8afob"]
-[ext_resource type="Shader" uid="uid://csxoqjnur55gm" path="res://assets/shaders/highlight_effect_viewport.gdshader" id="2_dovo2"]
-[ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="2_lvxji"]
-[ext_resource type="Shader" uid="uid://bxul4v14bwvhu" path="res://assets/shaders/highlight_effect.gdshader" id="4_p47bc"]
+[ext_resource type="Script" uid="uid://cfgadg7urxl7g" path="res://scenes/player/player.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="2_hqtel"]
+[ext_resource type="Shader" uid="uid://csxoqjnur55gm" path="res://assets/shaders/highlight_effect_viewport.gdshader" id="3_sweqy"]
+[ext_resource type="Shader" uid="uid://bxul4v14bwvhu" path="res://assets/shaders/highlight_effect.gdshader" id="4_2hs0m"]
+[ext_resource type="Script" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
+[ext_resource type="Shader" uid="uid://jsthpa2vaaf7" path="res://assets/shaders/flat_white.gdshader" id="6_75vfm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_75vfm"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcfqm"]
+height = 2.0028152
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vsgbe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvxji"]
 resource_local_to_scene = true
 render_priority = -1
-shader = ExtResource("2_dovo2")
+shader = ExtResource("3_sweqy")
 
-[sub_resource type="QuadMesh" id="QuadMesh_0owmy"]
+[sub_resource type="QuadMesh" id="QuadMesh_p47bc"]
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lvxji"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_75vfm"]
 viewport_path = NodePath("HighlightViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gtgg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0owmy"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("4_p47bc")
+shader = ExtResource("4_2hs0m")
 shader_parameter/depth_testing = true
 shader_parameter/width_outline = 1
-shader_parameter/color_inner = Color(0.9098039, 0.4627451, 0.5921569, 0)
-shader_parameter/color_outline = Color(1, 1, 1, 0.5803922)
-shader_parameter/highlighted_depth_tex = SubResource("ViewportTexture_lvxji")
+shader_parameter/color_inner = Color(1, 1, 1, 0.142)
+shader_parameter/color_outline = Color(1, 1, 1, 1)
+shader_parameter/highlighted_depth_tex = SubResource("ViewportTexture_75vfm")
 
-[sub_resource type="QuadMesh" id="QuadMesh_h17s1"]
+[sub_resource type="QuadMesh" id="QuadMesh_qek5x"]
 flip_faces = true
 size = Vector2(2, 2)
 
-[node name="Player" type="Node3D" unique_id=2008127875]
-script = ExtResource("1_8afob")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qek5x"]
+render_priority = 0
+shader = ExtResource("6_75vfm")
 
-[node name="HighlightViewport" type="SubViewport" parent="." unique_id=152582382]
+[sub_resource type="QuadMesh" id="QuadMesh_5gtgg"]
+material = SubResource("ShaderMaterial_qek5x")
+size = Vector2(0.01, 0.01)
+
+[node name="Player" type="CharacterBody3D" unique_id=108593082]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_xhfnw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1896404139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0567226, 0)
+shape = SubResource("CapsuleShape3D_pcfqm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1554237219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0581303, 0)
+mesh = SubResource("CapsuleMesh_vsgbe")
+
+[node name="HighlightViewport" type="SubViewport" parent="." unique_id=289417358]
 transparent_bg = true
 handle_input_locally = false
 use_hdr_2d = true
-render_target_update_mode = 4
-script = ExtResource("2_lvxji")
+script = ExtResource("2_hqtel")
 
-[node name="HighlightCamera3D" type="Camera3D" parent="HighlightViewport" unique_id=1470345296]
+[node name="HighlightCamera3D" type="Camera3D" parent="HighlightViewport" unique_id=1690707640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7160988, 0)
 cull_mask = 1024
 
-[node name="HighlightEffectDepth" type="MeshInstance3D" parent="HighlightViewport/HighlightCamera3D" unique_id=1558645486]
+[node name="HighlightEffectDepth" type="MeshInstance3D" parent="HighlightViewport/HighlightCamera3D" unique_id=1278249440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
 visible = false
 layers = 1024
-material_override = SubResource("ShaderMaterial_75vfm")
-mesh = SubResource("QuadMesh_0owmy")
+material_override = SubResource("ShaderMaterial_lvxji")
+mesh = SubResource("QuadMesh_p47bc")
 skeleton = NodePath("../..")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1937451210 groups=["player_camera"]]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=395660298 groups=["player_camera"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7160988, 0)
+script = ExtResource("4_p47bc")
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D" unique_id=1549060398]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D" unique_id=1017953178]
 remote_path = NodePath("../../HighlightViewport/HighlightCamera3D")
 
-[node name="HighlightEffect" type="MeshInstance3D" parent="Camera3D" unique_id=1756079120]
+[node name="HighlightEffect" type="MeshInstance3D" parent="Camera3D" unique_id=1309437487]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
 visible = false
-material_override = SubResource("ShaderMaterial_5gtgg")
+material_override = SubResource("ShaderMaterial_0owmy")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 ignore_occlusion_culling = true
-gi_mode = 0
-mesh = SubResource("QuadMesh_h17s1")
+mesh = SubResource("QuadMesh_qek5x")
 skeleton = NodePath("../../../HighlightViewport")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D" unique_id=1635031995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.93790436)
+mesh = SubResource("QuadMesh_5gtgg")

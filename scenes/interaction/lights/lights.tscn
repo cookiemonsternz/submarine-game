@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cku8ve432egue"]
+
+[ext_resource type="Script" uid="uid://cvi7qavhfw7lu" path="res://scenes/interaction/lights/lights.gd" id="1_h5tgb"]
+
+[node name="Lights" type="Node3D" unique_id=1347795887]
+script = ExtResource("1_h5tgb")

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://kpy7ouunh21"]
+
+[ext_resource type="Texture2D" uid="uid://cigroubpgayuu" path="res://assets/images/fingerprints/Fingerprints005_1K-JPG/Fingerprints005_1K-JPG_Albedo_w_transparency.png" id="1_j6fgg"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_j6fgg")
+albedo_texture_force_srgb = true
+roughness = 0.12
+clearcoat_roughness = 0.48

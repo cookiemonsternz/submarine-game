@@ -4,22 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="1_8gvfd"]
 [ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="2_meejf"]
 [ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="3_kitsk"]
+[ext_resource type="PackedScene" uid="uid://bd4uiglfc2fen" path="res://scenes/world/interactable/lever/lever_mesh.tscn" id="5_5w5ri"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsk"]
-radius = 0.25
-height = 1.25
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_5w5ri"]
-radius = 0.025
-height = 1.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_5w5ri"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5w5ri"]
+height = 0.23345947
+radius = 0.060546875
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5w5ri"]
 radius = 0.025
 height = 1.0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_tk2tp"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tk2tp"]
+height = 1.6665039
 
 [node name="Lever" type="Node3D" unique_id=424322314]
 script = ExtResource("1_5w5ri")
@@ -28,24 +24,26 @@ detent_equation = "(pow(1.5, 5 * x) * 2) - 2"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=404819209]
 unique_name_in_owner = true
-gravity_scale = 0.1
+collision_layer = 8
+collision_mask = 0
+gravity_scale = 0.0
 linear_damp = 2.0
 
 [node name="Components" type="Node3D" parent="RigidBody3D" unique_id=1516316377]
 
 [node name="MouseTarget" parent="RigidBody3D/Components" unique_id=532023496 node_paths=PackedStringArray("outline_objects") instance=ExtResource("1_8gvfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
-outline_objects = [NodePath("../../HandleMesh"), NodePath("../../EndMesh")]
+outline_objects = [NodePath("../../lever/Handle")]
 selectable = true
 
 [node name="MouseTargetCollisionShape" type="CollisionShape3D" parent="RigidBody3D/Components/MouseTarget" unique_id=1806052713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
-shape = SubResource("CapsuleShape3D_kitsk")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.07815781)
+shape = SubResource("CylinderShape3D_5w5ri")
 
 [node name="Draggable" parent="RigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("2_meejf")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
-drag_strength = 1000.0
+drag_strength = 2000.0
 rigidbody = NodePath("../..")
 mouse_target = NodePath("../MouseTarget")
 
@@ -55,15 +53,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
 drag_body = NodePath("../..")
 joint = NodePath("../../../JoltHingeJoint3D")
 
-[node name="HandleMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=1409803162]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CapsuleMesh_5w5ri")
-
-[node name="EndMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=206053944]
-unique_name_in_owner = true
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
-mesh = SubResource("SphereMesh_5w5ri")
+[node name="lever" parent="RigidBody3D" unique_id=1216858430 instance=ExtResource("5_5w5ri")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 
 [node name="HandleCollisionShape" type="CollisionShape3D" parent="RigidBody3D" unique_id=1858927460]
 unique_name_in_owner = true
@@ -72,8 +63,8 @@ shape = SubResource("CapsuleShape3D_5w5ri")
 
 [node name="EndCollisionShape" type="CollisionShape3D" parent="RigidBody3D" unique_id=51651539]
 unique_name_in_owner = true
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
-shape = SubResource("SphereShape3D_tk2tp")
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 1, 0.06820599)
+shape = SubResource("CylinderShape3D_tk2tp")
 
 [node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="." unique_id=1628645323]
 limit_enabled = true
@@ -86,5 +77,11 @@ node_b = NodePath("../RigidBody3D")
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
+[connection signal="hovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_hovered"]
 [connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]
+[connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="RigidBody3D" method="_on_mouse_target_pressed"]
 [connection signal="released" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_released"]
+[connection signal="released" from="RigidBody3D/Components/MouseTarget" to="RigidBody3D" method="_on_mouse_target_released"]
+[connection signal="unhovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_unhovered"]
+
+[editable path="RigidBody3D/lever"]

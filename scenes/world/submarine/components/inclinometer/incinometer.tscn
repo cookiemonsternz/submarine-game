@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://de6lvnrep2qyb"]
+
+[ext_resource type="PackedScene" uid="uid://6eyvgffa2jc" path="res://assets/models/incinometer.fbx" id="1_stko0"]
+[ext_resource type="Texture2D" uid="uid://djah2br5k7bqa" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Color.jpg" id="2_y83c1"]
+[ext_resource type="Texture2D" uid="uid://b0gvn5rcoqof3" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_AmbientOcclusion.jpg" id="3_367dh"]
+[ext_resource type="Texture2D" uid="uid://beqv0yugpaw7e" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Displacement.jpg" id="4_f1yj6"]
+[ext_resource type="Texture2D" uid="uid://4vduijrf2qro" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Metalness.jpg" id="5_3u25h"]
+[ext_resource type="Texture2D" uid="uid://cyaa143035nfb" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_NormalGL.jpg" id="6_rltvl"]
+[ext_resource type="Texture2D" uid="uid://cqceftc7ft4p" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Roughness.jpg" id="7_oaobg"]
+[ext_resource type="Texture2D" uid="uid://dglw2ijqq3r38" path="res://assets/images/metals/Metal008_1K-JPG/Metal008_1K-JPG_Color.jpg" id="8_6dd2k"]
+[ext_resource type="Texture2D" uid="uid://h5rp4q0wcso3" path="res://assets/images/metals/Metal008_1K-JPG/Metal008_1K-JPG_Displacement.jpg" id="9_o6dkf"]
+[ext_resource type="Texture2D" uid="uid://1r8rpit7ujhy" path="res://assets/images/metals/Metal008_1K-JPG/Metal008_1K-JPG_Metalness.jpg" id="10_n6hv4"]
+[ext_resource type="Texture2D" uid="uid://bnrjcgyb5ak0m" path="res://assets/images/metals/Metal008_1K-JPG/Metal008_1K-JPG_NormalGL.jpg" id="11_ydd7p"]
+[ext_resource type="Texture2D" uid="uid://c0ww2bqdoqkgd" path="res://assets/images/metals/Metal008_1K-JPG/Metal008_1K-JPG_Roughness.jpg" id="12_mphea"]
+[ext_resource type="Texture2D" uid="uid://ct2on35mpabsv" path="res://assets/images/metals/Metal062C_1K-JPG/Metal062C_1K-JPG_Color.jpg" id="13_urcv5"]
+[ext_resource type="Texture2D" uid="uid://b04xu6pth76pv" path="res://assets/images/metals/Metal062C_1K-JPG/Metal062C_1K-JPG_Displacement.jpg" id="14_ojjdx"]
+[ext_resource type="Texture2D" uid="uid://2mu3av32l2be" path="res://assets/images/metals/Metal062C_1K-JPG/Metal062C_1K-JPG_Metalness.jpg" id="15_k1c08"]
+[ext_resource type="Texture2D" uid="uid://ylc2mcppfahi" path="res://assets/images/metals/Metal062C_1K-JPG/Metal062C_1K-JPG_NormalGL.jpg" id="16_6x8pp"]
+[ext_resource type="Texture2D" uid="uid://ujkmlkqu8i5g" path="res://assets/images/metals/Metal062C_1K-JPG/Metal062C_1K-JPG_Roughness.jpg" id="17_612v5"]
+[ext_resource type="PackedScene" uid="uid://c6e3uhj5qx1ul" path="res://scenes/world/submarine/components/inclinometer/arrow.tscn" id="18_y83c1"]
+[ext_resource type="Texture2D" uid="uid://bs8buy23iccoo" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Color.jpg" id="19_oaobg"]
+[ext_resource type="Texture2D" uid="uid://cl8cjw52xmgnu" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Displacement.jpg" id="20_6dd2k"]
+[ext_resource type="Texture2D" uid="uid://dycvikjc26h6k" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Metalness.jpg" id="21_o6dkf"]
+[ext_resource type="Texture2D" uid="uid://rr3kkpbd5wu4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_NormalGL.jpg" id="22_n6hv4"]
+[ext_resource type="Texture2D" uid="uid://b6aut4ralvrh4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Roughness.jpg" id="23_ydd7p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gn4p"]
+albedo_texture = ExtResource("2_y83c1")
+metallic = 1.0
+metallic_texture = ExtResource("5_3u25h")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("7_oaobg")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("6_rltvl")
+ao_enabled = true
+ao_texture = ExtResource("3_367dh")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_f1yj6")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hmy8"]
+albedo_texture = ExtResource("8_6dd2k")
+metallic = 1.0
+metallic_texture = ExtResource("10_n6hv4")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("12_mphea")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("11_ydd7p")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("9_o6dkf")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkw2x"]
+albedo_texture = ExtResource("13_urcv5")
+metallic = 1.0
+metallic_texture = ExtResource("15_k1c08")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("17_612v5")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("16_6x8pp")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("14_ojjdx")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mphea"]
+albedo_texture = ExtResource("19_oaobg")
+metallic = 1.0
+metallic_texture = ExtResource("21_o6dkf")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("23_ydd7p")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("22_n6hv4")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("20_6dd2k")
+uv1_scale = Vector3(4.3, 4.3, 4.3)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_urcv5"]
+size = Vector3(0.01, 0.075, 0.005)
+
+[node name="Inclinometer" unique_id=1486642658 instance=ExtResource("1_stko0")]
+
+[node name="Inclinometer" parent="." index="0" unique_id=1929260498]
+surface_material_override/0 = SubResource("StandardMaterial3D_5gn4p")
+surface_material_override/1 = SubResource("StandardMaterial3D_4hmy8")
+surface_material_override/2 = SubResource("StandardMaterial3D_dkw2x")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="1" unique_id=2075579200]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.6, 0)
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.5, 0)
+can_sleep = false
+angular_damp = 0.1
+
+[node name="arrow" parent="RigidBody3D" index="0" unique_id=514434741 instance=ExtResource("18_y83c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -0.005)
+
+[node name="PinJoint3D" type="PinJoint3D" parent="." index="2" unique_id=1618728072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+node_b = NodePath("../RigidBody3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=1044570647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325, 0)
+material_override = SubResource("StandardMaterial3D_mphea")
+mesh = SubResource("BoxMesh_urcv5")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="4" unique_id=2085252387 groups=["sub_instr_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0, 0.5, 1)
+light_energy = 0.25
+light_indirect_energy = 2.557
+spot_range = 1.6
+spot_angle = 25.585613
+spot_angle_attenuation = 2.6390157
