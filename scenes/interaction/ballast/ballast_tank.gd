@@ -9,7 +9,7 @@ class_name BallastTank extends CollisionShape3D
 @export_custom(PROPERTY_HINT_NONE, "suffix:kw") var pump_power_draw: float = 5
 
 @export_group("PID")
-@export var p: float = 0.1
+@export var p: float = 1.0
 @export var i: float = 0.1
 @export var d: float = 0.1
 
@@ -27,9 +27,6 @@ var water_volume = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Engine.is_editor_hint():
-		shape = BoxShape3D.new()
-	
 	var box: BoxShape3D = shape
 	volume = box.size.x * box.size.y * box.size.z
 	water_volume = volume * ratio
@@ -37,7 +34,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
 	
-	var error = desired_ratio - ratio
+	var error = 0.0
+	
+	if (desired_ratio < 0.65 and desired_ratio > 0.35): error = 0.5 - ratio
+	else: error = desired_ratio - ratio
 	
 	var p_term = p * error
 	
@@ -62,3 +62,4 @@ func _physics_process(delta: float) -> void:
 	water_volume = clamp(water_volume, 0, volume)
 	
 	ratio = water_volume / volume
+	#print(u, " : ", water_volume, " : ", volume, " : ", error)

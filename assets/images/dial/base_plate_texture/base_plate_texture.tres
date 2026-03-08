@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2nf73p1ging5"]
+
+[ext_resource type="Texture2D" uid="uid://db7tje3jpej7a" path="res://assets/images/dial/base_plate_texture/base_plate_albedo.png" id="1_lsqk6"]
+[ext_resource type="Texture2D" uid="uid://deldncqyb5s3a" path="res://assets/images/dial/base_plate_texture/base_plate_metal.png" id="2_a32xb"]
+[ext_resource type="Texture2D" uid="uid://b3nxnwvtu2o6a" path="res://assets/images/dial/base_plate_texture/base_plate_normal.png" id="3_jtbre"]
+[ext_resource type="Texture2D" uid="uid://c4x73xo3x2pai" path="res://assets/images/dial/base_plate_texture/base_plate_rough.png" id="4_owtf4"]
+
+[resource]
+albedo_texture = ExtResource("1_lsqk6")
+metallic = 1.0
+metallic_texture = ExtResource("2_a32xb")
+roughness_texture = ExtResource("4_owtf4")
+normal_enabled = true
+normal_texture = ExtResource("3_jtbre")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsk6863pnp7hu"]
 
-[ext_resource type="PackedScene" uid="uid://b37h1k34r5psf" path="res://assets/periscope.fbx" id="1_ytaqb"]
+[ext_resource type="PackedScene" uid="uid://b37h1k34r5psf" path="res://assets/models/periscope.fbx" id="1_ytaqb"]
 [ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="2_r3mf3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r3mf3"]

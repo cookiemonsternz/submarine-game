@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 @export var node: Node
@@ -8,10 +9,22 @@ extends Node3D
 
 @export var dial_speed = 2
 
+@export_group("Display")
+@export var unit: String = "RPM": 
+	get(): return unit
+	set(value): 
+		%UnitLabel.text = value
+		unit = value
+@export var label: String = "Prop RPM":
+	get(): return label
+	set(value): 
+		%DialLabel.text = value
+		label = value
+
 @export_category("PID")
 @export var p: float = 0.05
 @export var i: float = 0.01
-@export var d: float = 0
+@export var d: float = 0	
 
 var pid = {
 	"prev_error": 0,
@@ -20,15 +33,20 @@ var pid = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set("unit", unit)
+	set("label", label)
+	if Engine.is_editor_hint(): return
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint(): return
+	
 	var target_value = node.get(property)
 	
 	var target_weight = remap(target_value, min_value, max_value, 0, 1)
-	var target_angle = remap(target_weight, 0, 1, 30, -220)
+	var target_angle = remap(target_weight, 0, 1, 10, -250)
 	
 	var indicator: Node3D = $Indicator
 	var indicator_angle = indicator.rotation_degrees.y

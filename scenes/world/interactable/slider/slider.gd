@@ -65,8 +65,6 @@ func do_detents():
 func _input(event: InputEvent) -> void:
 	if !is_hovered: return
 	
-	print("HI")
-	
 	if Input.is_action_just_pressed("control_increase"):
 		selected_detent = get_closest_detent()
 	if Input.is_action_just_pressed("control_decrease"):

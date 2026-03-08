@@ -47,3 +47,21 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * look_sensitivity)
 		camera.rotate_x(-event.relative.y * look_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+	
+	if event.is_action_pressed("zoom"):
+		var tween = get_tree().create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property($Camera3D, "fov", 40, 0.25)
+		
+		var tween2 = get_tree().create_tween()
+		tween2.set_trans(Tween.TRANS_QUAD)
+		tween2.tween_property($HighlightViewport/HighlightCamera3D, "fov", 40, 0.25)
+	
+	if event.is_action_released("zoom"):
+		var tween = get_tree().create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property($Camera3D, "fov", 75, 0.25)
+		
+		var tween2 = get_tree().create_tween()
+		tween2.set_trans(Tween.TRANS_QUAD)
+		tween2.tween_property($HighlightViewport/HighlightCamera3D, "fov", 75, 0.25)

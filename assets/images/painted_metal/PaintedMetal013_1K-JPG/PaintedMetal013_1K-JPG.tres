@@ -1,23 +1,24 @@
-[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="acg_7rkmixtn"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://djirh51xyux8c"]
 
-[ext_resource type="Texture2D" uid="uid://acg_s4omexgl" id="Color" path="./PaintedMetal013_1K-JPG_Color.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_qb7meo6a" id="AmbientOcclusion" path="./PaintedMetal013_1K-JPG_AmbientOcclusion.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_xncfogwt" id="Metalness" path="./PaintedMetal013_1K-JPG_Metalness.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_b05x9hsi" id="Displacement" path="./PaintedMetal013_1K-JPG_Displacement.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_airyg1px" id="Roughness" path="./PaintedMetal013_1K-JPG_Roughness.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_mekyi4wp" id="NormalGL" path="./PaintedMetal013_1K-JPG_NormalGL.jpg"]
+[ext_resource type="Texture2D" uid="uid://b0gvn5rcoqof3" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_AmbientOcclusion.jpg" id="AmbientOcclusion"]
+[ext_resource type="Texture2D" uid="uid://djah2br5k7bqa" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://beqv0yugpaw7e" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://4vduijrf2qro" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Metalness.jpg" id="Metalness"]
+[ext_resource type="Texture2D" uid="uid://cyaa143035nfb" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://cqceftc7ft4p" path="res://assets/images/painted_metal/PaintedMetal013_1K-JPG/PaintedMetal013_1K-JPG_Roughness.jpg" id="Roughness"]
+
 [resource]
 albedo_texture = ExtResource("Color")
-ao_enabled = true
-ao_texture = ExtResource("AmbientOcclusion")
-ao_texture_channel = 4
-metallic_texture = ExtResource("Metalness")
 metallic = 1.0
+metallic_texture = ExtResource("Metalness")
 metallic_texture_channel = 4
 roughness_texture = ExtResource("Roughness")
 roughness_texture_channel = 4
-normal_texture = ExtResource("NormalGL")
 normal_enabled = true
-heightmap_texture = ExtResource("Displacement")
-heightmap_scale = 1.0
+normal_texture = ExtResource("NormalGL")
+ao_enabled = true
+ao_texture = ExtResource("AmbientOcclusion")
+ao_texture_channel = 4
 heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")

@@ -9,6 +9,11 @@ func get_value() -> float:
 		var end = joint.global_position + joint.global_basis.x * joint.limit_upper
 		var length = (end - start).length()
 		return (start - drag_body.global_position).length() / length
+	elif joint is JoltHingeJoint3D and drag_body is Wheel:
+		var angle = rad_to_deg(drag_body.rotation.y)
+		var lower = rad_to_deg(joint.limit_lower)
+		var upper = rad_to_deg(joint.limit_upper)
+		return clamp(inverse_lerp(lower, upper, angle), 0.0, 1.0)
 	elif joint is JoltHingeJoint3D:
 		var hinge_axis: Vector3 = joint.global_basis.z
 		var reference: Vector3 = joint.global_basis.x
@@ -18,6 +23,8 @@ func get_value() -> float:
 		
 		var lower = rad_to_deg(joint.limit_lower)
 		var upper = rad_to_deg(joint.limit_upper)
+		
+		#print(clamp(inverse_lerp(lower, upper, angle), 0.0, 1.0))
 
 		return clamp(inverse_lerp(lower, upper, angle), 0.0, 1.0)
 	elif joint is JoltConeTwistJoint3D:
@@ -25,6 +32,3 @@ func get_value() -> float:
 		return 0.0
 	assert(false, "Unsupported joint type")
 	return 0.0
-
-func _process(delta: float) -> void:
-	get_value()

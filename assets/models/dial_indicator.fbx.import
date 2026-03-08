@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8najafvml3v0"
-path="res://.godot/imported/ladder.fbx-cf96a8af88c8d6940fff15f2ef4feca0.scn"
+uid="uid://b0uti2lflfjyn"
+path="res://.godot/imported/dial_indicator.fbx-4083a3d3f696469e3f6b2de1f0af3fa2.scn"
 
 [deps]
 
-source_file="res://assets/ladder.fbx"
-dest_files=["res://.godot/imported/ladder.fbx-cf96a8af88c8d6940fff15f2ef4feca0.scn"]
+source_file="res://assets/models/dial_indicator.fbx"
+dest_files=["res://.godot/imported/dial_indicator.fbx-4083a3d3f696469e3f6b2de1f0af3fa2.scn"]
 
 [params]
 

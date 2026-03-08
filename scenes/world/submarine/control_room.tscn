@@ -1,11 +1,20 @@
-[gd_scene format=3 uid="uid://ckxtkycbrguer"]
+[gd_scene format=3 uid="uid://dagde6k68jla8"]
 
 [ext_resource type="Material" uid="uid://dm157s57mfhfe" path="res://addons/kenney_prototype_tools/materials/dark/material_02.tres" id="1_8pado"]
 [ext_resource type="Material" uid="uid://bx6qeabdhq2s" path="res://addons/kenney_prototype_tools/materials/dark/material_01.tres" id="2_ybg0h"]
 [ext_resource type="Material" uid="uid://bhvnpiqj75ju8" path="res://addons/kenney_prototype_tools/materials/green/material_12.tres" id="3_uxgus"]
-[ext_resource type="PackedScene" uid="uid://b0oqly6r5y1ph" path="res://scenes/world/submarine/components/dial/dial.tscn" id="4_uxgus"]
+[ext_resource type="Material" uid="uid://cbkp07231tgqp" path="res://addons/kenney_prototype_tools/materials/green/material_07.tres" id="4_5trww"]
+[ext_resource type="Material" uid="uid://06vclpgwwyc8" path="res://addons/kenney_prototype_tools/materials/dark/material_07.tres" id="5_6hhi4"]
 [ext_resource type="PackedScene" uid="uid://7qgry4rw36cu" path="res://scenes/world/interactable/lever/lever.tscn" id="5_uf0n3"]
+[ext_resource type="Material" uid="uid://c4urka6ybrmhm" path="res://addons/kenney_prototype_tools/materials/dark/material_13.tres" id="6_6hhi4"]
 [ext_resource type="PackedScene" uid="uid://dmjh272vvfge3" path="res://scenes/world/interactable/slider/slider.tscn" id="6_uf0n3"]
+[ext_resource type="PackedScene" uid="uid://ci138ltswilxq" path="res://scenes/world/submarine/components/aux_props_control/aux_props_control.tscn" id="7_gfl3u"]
+[ext_resource type="PackedScene" uid="uid://4muggwxyc8b8" path="res://scenes/world/interactable/wheel/wheel.tscn" id="8_defw0"]
+[ext_resource type="PackedScene" uid="uid://dms83r5ovibj8" path="res://scenes/world/submarine/components/compass/compass.tscn" id="9_7qicd"]
+[ext_resource type="PackedScene" uid="uid://8140x1b3amdd" path="res://scenes/world/submarine/components/dial/dial.tscn" id="9_vgbi5"]
+[ext_resource type="PackedScene" uid="uid://de6lvnrep2qyb" path="res://scenes/world/submarine/components/inclinometer/incinometer.tscn" id="10_toyfb"]
+[ext_resource type="PackedScene" uid="uid://buheyt3ufx4qf" path="res://scenes/world/interactable/switch/switch.tscn" id="14_ky6vx"]
+[ext_resource type="Material" uid="uid://csfdcdo2s8jaw" path="res://addons/kenney_prototype_tools/materials/orange/material_04.tres" id="15_ymtvn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uf0n3"]
 radius = 0.025
@@ -16,7 +25,6 @@ height = 0.15
 [node name="ControlRoom" type="Node3D" unique_id=957836708]
 
 [node name="Walls" type="CSGCombiner3D" parent="." unique_id=1171395099]
-visible = false
 use_collision = true
 collision_mask = 17
 
@@ -60,87 +68,203 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 4, -1.1999999)
 operation = 2
 
 [node name="Main Console" type="CSGBox3D" parent="." unique_id=1923150011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7881393e-07, 1, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7881393e-07, 1.25, 3)
 use_collision = true
 collision_mask = 17
-size = Vector3(4, 1, 1)
+size = Vector3(4, 1.5, 1)
 material = ExtResource("3_uxgus")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Main Console" unique_id=1053301896]
-transform = Transform3D(1, 0, 0, 0, 0.258819, -0.9659258, 0, 0.9659258, 0.258819, 0, 0.87059045, -0.08296275)
+transform = Transform3D(1, 0, 0, 0, 0.6427876, -0.7660444, 0, 0.7660444, 0.6427876, 0, 0.974, -0.099999905)
 operation = 2
 use_collision = true
 size = Vector3(4, 2, 1)
 material = ExtResource("3_uxgus")
 
 [node name="Side Console" type="CSGBox3D" parent="Main Console" unique_id=1116699252]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6500001, -0.13226318, -1.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6500001, -0.38226318, -1.7)
 use_collision = true
-size = Vector3(0.7, 0.73547363, 1.5)
+size = Vector3(0.7, 0.73547363, 2.4)
 material = ExtResource("3_uxgus")
 
 [node name="Side Console2" type="CSGBox3D" parent="Main Console" unique_id=1918141859]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6499999, -0.13226318, -1.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7499998, -0.38226318, -1.25)
 use_collision = true
-size = Vector3(0.7, 0.73547363, 1.5)
+size = Vector3(0.5, 0.73547363, 1.5)
 material = ExtResource("3_uxgus")
 
-[node name="EngineControls" type="Node3D" parent="." unique_id=251038954]
+[node name="CSGBox3D" type="CSGBox3D" parent="Main Console" unique_id=771869621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8000001, 0.5, 0)
+operation = 2
+material = ExtResource("4_5trww")
 
-[node name="EngineRpmDial" parent="EngineControls" unique_id=1011791800 instance=ExtResource("4_uxgus")]
-transform = Transform3D(-1, 3.821371e-15, -8.742278e-08, 2.2626683e-08, 0.9659258, -0.25881904, 8.444392e-08, -0.25881904, -0.9659258, 1.8, 1.4000001, 3)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Main Console" unique_id=1900624218]
+transform = Transform3D(0.6427876, -0.7660444, 0, 0.7660444, 0.6427876, 0, 0, 0, 1, -1.1525077, 0.94300836, 0)
+operation = 2
+size = Vector3(1.65, 1, 1)
+material = ExtResource("4_5trww")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Main Console" unique_id=2020178667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6499999, 1.4000001, 0.20000005)
+radius = 0.1
+height = 3.0
+material = ExtResource("5_6hhi4")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Main Console" unique_id=511980769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6499999, 1.1920929e-07, -0.39999998)
+radius = 0.25
+height = 0.2
+material = ExtResource("6_6hhi4")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Main Console" unique_id=1150096310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12, 0.25, -0.125)
+size = Vector3(0.2, 0.25, 0.26)
+material = ExtResource("3_uxgus")
+
+[node name="Controls" type="Node3D" parent="." unique_id=251038954]
+
+[node name="EngineRpmDial" parent="Controls" unique_id=78350822 instance=ExtResource("9_vgbi5")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.8, 1.5312482, 2.83843)
 property = "engine_rpm"
+max_value = 1800.0
+label = "Engine RPM"
 
-[node name="PropRpmDial" parent="EngineControls" unique_id=166305391 instance=ExtResource("4_uxgus")]
-transform = Transform3D(-1, 3.821371e-15, -8.742278e-08, 2.2626683e-08, 0.9659258, -0.25881904, 8.444392e-08, -0.25881904, -0.9659258, 1.5, 1.4000001, 3)
+[node name="BatteryRemainingDial" parent="Controls" unique_id=260681569 instance=ExtResource("9_vgbi5")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.59999996, 1.5312482, 2.83843)
+property = "remaining_capacity"
+max_value = 1800.0
+unit = "kWh"
+label = "Battery"
+
+[node name="BatteryDrawDial" parent="Controls" unique_id=1722389638 instance=ExtResource("9_vgbi5")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.5999999, 1.7240845, 3.0682433)
+property = "discharge_rate"
+max_value = 0.001
+unit = "kW"
+label = "Power Draw"
+
+[node name="PropRpmDial" parent="Controls" unique_id=728733975 instance=ExtResource("9_vgbi5")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.42, 1.5312482, 2.83843)
 property = "prop_rpm"
+max_value = 1000.0
 
-[node name="EngineTempDial" parent="EngineControls" unique_id=1853869677 instance=ExtResource("4_uxgus")]
-transform = Transform3D(-1, 3.821371e-15, -8.742278e-08, 2.2626683e-08, 0.9659258, -0.25881904, 8.444392e-08, -0.25881904, -0.9659258, 1.65, 1.4776456, 3.2897778)
+[node name="EngineCoolantDial" parent="Controls" unique_id=798528329 instance=ExtResource("9_vgbi5")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.1199999, 1.7240845, 3.0682433)
+property = "power_dissipation_scale"
+min_value = 0.25
+max_value = 1.75
+unit = "L/s"
+label = "Coolant Rate"
+
+[node name="EngineCoolantPowerDial" parent="Controls" unique_id=170566442 instance=ExtResource("9_vgbi5")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.8599999, 1.6340942, 2.960997)
+property = "coolant_power"
+max_value = 0.0013
+unit = "kW"
+label = "Coolant Power"
+
+[node name="TempDial" parent="Controls" unique_id=1978487299 instance=ExtResource("9_vgbi5")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.6099999, 1.6442955, 2.9801922)
 property = "temp"
+max_value = 120.0
+unit = "°C"
+label = "Engine Temp"
 
-[node name="ThrottleLever" parent="EngineControls" unique_id=424322314 instance=ExtResource("5_uf0n3")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.8, 0.6, 1.7)
+[node name="ThrottleLever" parent="Controls" unique_id=424322314 instance=ExtResource("5_uf0n3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.9, 0.6, 1.7)
+drag_strength = 1000.0
 property_name = "throttle"
 
-[node name="GearLever" parent="EngineControls" unique_id=551308029 instance=ExtResource("5_uf0n3")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5, 0.6, 1.7)
+[node name="GearLever" parent="Controls" unique_id=551308029 instance=ExtResource("5_uf0n3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.6, 0.6, 1.7)
+drag_strength = 1000.0
 property_name = "gear"
 values = Array[int]([0, 1, 2])
 
-[node name="Slider" parent="EngineControls" unique_id=1062975164 instance=ExtResource("6_uf0n3")]
-transform = Transform3D(-1, 1.7763568e-15, 8.742278e-08, -2.262668e-08, 0.96592593, -0.25881904, -8.444392e-08, -0.25881904, -0.9659258, 1.6, 1.219067, 2.7448287)
+[node name="Slider" parent="Controls" unique_id=1062975164 instance=ExtResource("6_uf0n3")]
+transform = Transform3D(-1, -5.619428e-08, -6.696973e-08, 0, 0.76604456, -0.6427876, 8.742278e-08, -0.64278764, -0.76604444, 1.75, 1.306, 2.695)
 property_name = "mode"
 values = Array[int]([0, 1, 2])
 
-[node name="MouseTarget" parent="EngineControls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="0" unique_id=532023496]
+[node name="MouseTarget" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="0" unique_id=532023496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
 
-[node name="MouseTargetCollisionShape" parent="EngineControls/Slider/RigidBody3D/Components/MouseTarget" index="0" unique_id=1806052713]
+[node name="MouseTargetCollisionShape" parent="Controls/Slider/RigidBody3D/Components/MouseTarget" index="0" unique_id=1806052713]
 transform = Transform3D(1, 2.3092639e-14, -2.046363e-12, 2.6645353e-14, 0.9999994, -1.4901161e-08, -7.1054274e-15, 1.4901161e-08, 0.9999994, 0, 0.13749981, 2.3841858e-07)
 
-[node name="Draggable" parent="EngineControls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="1" unique_id=898455505]
+[node name="Draggable" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="1" unique_id=898455505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
 
-[node name="Measureable" parent="EngineControls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="2" unique_id=1180068611]
+[node name="Measureable" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="2" unique_id=1180068611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
 
-[node name="HandleMesh" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="1" unique_id=1409803162]
+[node name="HandleMesh" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="1" unique_id=1409803162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 mesh = SubResource("CapsuleMesh_uf0n3")
 
-[node name="EndMesh" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="2" unique_id=206053944]
+[node name="EndMesh" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="2" unique_id=206053944]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 0)
 mesh = SubResource("SphereMesh_gfl3u")
 
-[node name="HandleCollisionShape" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="3" unique_id=1858927460]
+[node name="HandleCollisionShape" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="3" unique_id=1858927460]
 transform = Transform3D(1, 2.3092639e-14, -2.3732127e-12, 2.6645353e-14, 0.9999994, -1.4901161e-08, -7.1054274e-15, 1.4901161e-08, 0.9999994, 0, 0.0750007, 7.1525574e-07)
 
-[node name="EndCollisionShape" parent="EngineControls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="4" unique_id=51651539]
+[node name="EndCollisionShape" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="4" unique_id=51651539]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.14999996, 0)
 
-[node name="JoltSliderJoint3D" parent="EngineControls/Slider" index="1" unique_id=1404569318]
-limit_upper = 0.25
-limit_lower = -0.25
+[node name="JoltSliderJoint3D" parent="Controls/Slider" index="1" unique_id=1404569318]
+limit_upper = 0.15
+limit_lower = -0.15
 
-[editable path="EngineControls/Slider"]
+[node name="AuxPropsControl" parent="Controls" unique_id=341946135 instance=ExtResource("7_gfl3u")]
+transform = Transform3D(1.3113416e-07, 0, 0.99999994, 0, 0.99999994, 0, -1, 0, 1.3113416e-07, -1.6499999, 1.2520001, 1.314)
+
+[node name="WheelForwards" parent="Controls" unique_id=765100319 instance=ExtResource("8_defw0")]
+transform = Transform3D(1.0927848e-08, 0.25, 3.774895e-08, 0.25, -1.0927847e-08, -5.8873666e-09, -5.887365e-09, 3.774895e-08, -0.25, -1.92, 1.6005212, 1.9401274)
+drag_strength = 100.0
+detents = 5
+property_name = "ratio"
+value_min = 0.0
+value_max = 1.0
+
+[node name="WheelRear" parent="Controls" unique_id=917075109 instance=ExtResource("8_defw0")]
+transform = Transform3D(1.0927848e-08, 0.25, 3.774895e-08, 0.25, -1.0927847e-08, -5.8873666e-09, -5.887365e-09, 3.774895e-08, -0.25, -1.92, 1.6005212, 0.9651274)
+drag_strength = 100.0
+detents = 5
+property_name = "ratio"
+value_min = 0.0
+value_max = 1.0
+
+[node name="Compass" parent="Controls" unique_id=821894870 instance=ExtResource("9_7qicd")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.65, 1.36, 2.6)
+
+[node name="Inclinometer" parent="Controls" unique_id=1486642658 instance=ExtResource("10_toyfb")]
+transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -1.975, 1.45, 1.45)
+
+[node name="CoolantWheel" parent="Controls" unique_id=1067580951 instance=ExtResource("8_defw0")]
+transform = Transform3D(1.9106854e-16, 4.371139e-09, -0.10000001, 0.1, -4.371139e-09, 0, -4.371139e-09, -0.1, -4.371139e-09, 1.1200001, 1.5427691, 2.7109404)
+drag_strength = 100.0
+detents = 5
+property_name = "desired_coolant_scale"
+value_min = 1.75
+value_max = 0.25
+
+[node name="Fuses" type="Node3D" parent="." unique_id=1840428445]
+
+[node name="EngineFuseSwitch" parent="Fuses" unique_id=1765839595 instance=ExtResource("14_ky6vx")]
+transform = Transform3D(-3.2783543e-09, 0.075, 5.7320567e-16, -0.075, -3.2783543e-09, 1.3113417e-08, 1.3113417e-08, 0, 0.075, -1.7, 1.7750001, -2.1499996)
+
+[node name="CoolantFuseSwitch" parent="Fuses" unique_id=631891455 instance=ExtResource("14_ky6vx")]
+transform = Transform3D(-3.2783543e-09, 0.075, 5.7320567e-16, -0.075, -3.2783543e-09, 1.3113417e-08, 1.3113417e-08, 0, 0.075, -1.7, 1.7750001, -2.3524995)
+
+[node name="InstrLightsSwitch" parent="Fuses" unique_id=654817452 instance=ExtResource("14_ky6vx")]
+transform = Transform3D(3.2783543e-09, 0.075, -2.8660284e-16, 0.075, -3.2783543e-09, -6.5567085e-09, -6.5567085e-09, 0, -0.075, -1.7, 2.15, -2.1574996)
+state = true
+property = "instr_lights"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1202345114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85, 1.65, -2.75)
+material_override = ExtResource("15_ymtvn")
+size = Vector3(0.3, 2.3, 1.5)
+
+[editable path="Controls/Slider"]

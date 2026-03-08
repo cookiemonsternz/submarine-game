@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dd7p045nid5pr"]
+
+[ext_resource type="Texture2D" uid="uid://l6dn8l7nnbdm" path="res://assets/images/compass/CompassBallAlbedo.png" id="1_nkf2k"]
+[ext_resource type="Texture2D" uid="uid://kiyedg7rmqli" path="res://assets/images/compass/CompassBallRough.png" id="2_6jpqq"]
+
+[resource]
+albedo_texture = ExtResource("1_nkf2k")
+roughness = 0.79
+roughness_texture = ExtResource("2_6jpqq")
+normal_enabled = true

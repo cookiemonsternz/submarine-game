@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://oc5jb7iyc3h7"]
+[gd_scene format=3 uid="uid://dcdfxqwqee6wc"]
 
 [ext_resource type="Script" uid="uid://cfgadg7urxl7g" path="res://scenes/player/player.gd" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="2_hqtel"]
 [ext_resource type="Shader" uid="uid://csxoqjnur55gm" path="res://assets/shaders/highlight_effect_viewport.gdshader" id="3_sweqy"]
 [ext_resource type="Shader" uid="uid://bxul4v14bwvhu" path="res://assets/shaders/highlight_effect.gdshader" id="4_2hs0m"]
-[ext_resource type="Script" uid="uid://vbede7pon67t" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
+[ext_resource type="Script" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
 [ext_resource type="Shader" uid="uid://jsthpa2vaaf7" path="res://assets/shaders/flat_white.gdshader" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcfqm"]
@@ -29,9 +29,9 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_2hs0m")
 shader_parameter/depth_testing = true
-shader_parameter/width_outline = 3
-shader_parameter/color_inner = Color(0.909804, 0.462745, 0.592157, 0.282353)
-shader_parameter/color_outline = Color(1, 0, 1, 1)
+shader_parameter/width_outline = 1
+shader_parameter/color_inner = Color(1, 1, 1, 0.142)
+shader_parameter/color_outline = Color(1, 1, 1, 1)
 shader_parameter/highlighted_depth_tex = SubResource("ViewportTexture_75vfm")
 
 [sub_resource type="QuadMesh" id="QuadMesh_qek5x"]

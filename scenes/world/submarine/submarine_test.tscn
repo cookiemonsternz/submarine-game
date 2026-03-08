@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://kogdlc35psyx"]
+
+[ext_resource type="PackedScene" uid="uid://dcq3q4hiqfoxj" path="res://scenes/world/submarine/submarine.tscn" id="1_wwxcu"]
+[ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="2_f5f5i"]
+
+[node name="SubmarineTest" type="Node3D" unique_id=2091228691]
+
+[node name="Submarine" parent="." unique_id=1368706397 instance=ExtResource("1_wwxcu")]
+
+[node name="Player" parent="." unique_id=108593082 instance=ExtResource("2_f5f5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 11)

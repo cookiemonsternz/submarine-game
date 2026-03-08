@@ -8,6 +8,6 @@ class_name Power extends Node3D
 var discharge_rate
 
 func _physics_process(delta: float) -> void:
-	discharge_rate = (remaining_capacity - prev_remaining_capacity) * delta
+	discharge_rate = (prev_remaining_capacity - remaining_capacity) * delta
 	
 	prev_remaining_capacity = remaining_capacity

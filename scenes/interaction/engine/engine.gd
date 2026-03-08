@@ -10,6 +10,9 @@ extends Node3D
 # Water Resistance -> Reflected Load -> Engine
 # Engine Torque - Load -> RPM acceleration
 
+signal engine_fuse_blown
+signal coolant_pump_fuse_blown
+
 @export var boat: RigidBody3D
 @export var power: Power
 @export var engine_pos: Marker3D
@@ -34,6 +37,7 @@ extends Node3D
 @export var ambient_temp = 25.0
 @export var power_heat_scale: float = 1.0
 @export var power_dissipation_scale: float = 1.0
+@export var coolant_pump_max_power: float = 0.00125
 @export_group("Gears")
 @export var gears: Array[Gear]
 @export var gear: int = 0
@@ -41,16 +45,24 @@ extends Node3D
 
 var engine_rpm = 0
 var prop_rpm = 0
+var coolant_power = 0
+var is_engine_fuse_blown = false
+var is_coolant_fuse_blown = false
+var desired_coolant_scale = 0.0
 @onready var temp = ambient_temp
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	var current_gear = gears[gear]
 	
 	var engine_torque = lerp(min_torque, current_gear.max_torque, throttle)
+	if is_engine_fuse_blown: engine_torque = 0
 	var prop_load = current_gear.water_coefficient * (prop_rpm ** 2)
 	
 	var effective_prop_inertia = prop_mass * current_gear.gear_ratio ** 2
 	var engine_load = prop_load / current_gear.gear_ratio
+	
+	if is_engine_fuse_blown: engine_load *= 500
+	if mode == 1: engine_load *= 0.05
 	
 	var net_inertia = engine_mass + effective_prop_inertia
 	var friction_torque = engine_friction_coefficient * engine_rpm if throttle < 0.1 else 0.0
@@ -58,13 +70,32 @@ func _physics_process(delta: float) -> void:
 	var alpha = net_torque / net_inertia
 	engine_rpm += alpha * 60.0 / (2 * PI) * delta
 	engine_rpm = max(min_rpm, engine_rpm)
-	prop_rpm = engine_rpm / current_gear.gear_ratio
+	if mode == 1:
+		prop_rpm = 0
+	else:
+		prop_rpm = engine_rpm / current_gear.gear_ratio
 	
-	var power_heat = power_heat_scale * abs(engine_torque) * 0.0001
+	var power_heat = power_heat_scale * abs(engine_torque) * 0.0001 * gear
 	var temp_delta = power_heat * delta - power_dissipation_scale * 0.05 * (temp - ambient_temp) * delta
 	temp += temp_delta
 	
-	power.remaining_capacity -= (engine_torque / 1000) * delta
+	if temp > max_temp or engine_rpm > max_rpm:
+		is_engine_fuse_blown = true
+		engine_fuse_blown.emit()
+	
+	power.remaining_capacity -= ((engine_torque * engine_rpm * 2 * PI) / (60 * 1000 * 3600)) * delta
+	if !is_coolant_fuse_blown:
+		power_dissipation_scale = desired_coolant_scale
+		coolant_power = (power_dissipation_scale * engine_rpm / 36000) * delta
+	else:
+		coolant_power = 0
+		power_dissipation_scale = 0.25
+	power.remaining_capacity -= coolant_power
+	
+	if coolant_power > coolant_pump_max_power:
+		is_coolant_fuse_blown = true
+		
+		coolant_pump_fuse_blown.emit()
 	
 	if mode == 1: return
 	
