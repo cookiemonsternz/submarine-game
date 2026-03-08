@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	
 	for child in self.get_children():
 		if child is RigidBody3D:
+			
 			child.freeze = true
 			child.global_position = self.global_position
 	
@@ -44,16 +45,19 @@ func claw_sequence() -> void:
 	
 func _on_claw_2_area_entered(area: Area3D) -> void:
 	if area.is_in_group("grabbable") and is_instance_valid(area):
-		if area.get_parent() is RigidBody3D:
-			print("zamn")
+		print("Printtwice?")
+		if area.get_parent() is RigidBody3D and area.get_parent().is_in_group("rock_ore"):
+			print(area.monitorable)
+			print(area.get_parent().name)
+			%"Storage".add_ore(area.name)
+			area.process_mode = Node.PROCESS_MODE_DISABLED
 			area.get_parent().reparent(self)
 			rigid_grab = true
-		
-		
 		var saved_transform = area.global_transform
 		
 		area.reparent(self)
 		area.global_transform = saved_transform
+		
 		
 		await get_tree().create_timer(0.9).timeout
 		if is_instance_valid(area):

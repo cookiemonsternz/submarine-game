@@ -23,6 +23,7 @@ import/blender/enabled=false
 player_camera=""
 breakable=""
 grabbable=""
+rock_ore=""
 sub_lights=""
 sub_instr_lights=""
 
