@@ -3,9 +3,36 @@
 [ext_resource type="PackedScene" uid="uid://dcq3q4hiqfoxj" path="res://scenes/world/submarine/submarine.tscn" id="1_wwxcu"]
 [ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="2_f5f5i"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wwxcu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0snpr"]
+sky_material = SubResource("ProceduralSkyMaterial_wwxcu")
+
+[sub_resource type="Environment" id="Environment_f5f5i"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_0snpr")
+ambient_light_source = 2
+ambient_light_color = Color(0.30374652, 0.39570716, 0.37244323, 1)
+ambient_light_energy = 0.26
+fog_light_color = Color(0.6789437, 0.6789437, 0.6789436, 1)
+adjustment_enabled = true
+adjustment_contrast = 0.9
+
 [node name="SubmarineTest" type="Node3D" unique_id=2091228691]
 
 [node name="Submarine" parent="." unique_id=1368706397 instance=ExtResource("1_wwxcu")]
 
 [node name="Player" parent="." unique_id=108593082 instance=ExtResource("2_f5f5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 11)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=946791203]
+environment = SubResource("Environment_f5f5i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1420032541]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+shadow_enabled = true
+editor_only = true

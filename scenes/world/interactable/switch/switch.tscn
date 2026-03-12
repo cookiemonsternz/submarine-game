@@ -2,16 +2,36 @@
 
 [ext_resource type="Script" uid="uid://b6pl3iv35l43b" path="res://scenes/world/interactable/switch/switch.gd" id="1_3tee4"]
 [ext_resource type="PackedScene" uid="uid://dgj3eje38kvr4" path="res://scenes/world/interactable/switch/switch_base.tscn" id="2_v82jb"]
+[ext_resource type="Material" uid="uid://q1x4i1e3bova" path="res://assets/images/metals/Metal008_1K-JPG/Metal008_1K-JPG.tres" id="3_6a3ml"]
 [ext_resource type="PackedScene" uid="uid://c30rgw5jeegbd" path="res://scenes/world/interactable/switch/switch_flicker.tscn" id="3_qssfk"]
 [ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="4_6a3ml"]
+[ext_resource type="FontFile" uid="uid://kufkyf7vrp8" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-400-normal.ttf" id="4_cdjdd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3b14w"]
+size = Vector3(0.5, 0.25, 1.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3tee4"]
 height = 2.3
 
 [node name="Switch" type="Node3D" unique_id=1765839595]
 script = ExtResource("1_3tee4")
+label = null
 
 [node name="switch_base" parent="." unique_id=1564546337 instance=ExtResource("2_v82jb")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="switch_base" unique_id=954948493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+material_override = ExtResource("3_6a3ml")
+mesh = SubResource("BoxMesh_3b14w")
+
+[node name="Label3D" type="Label3D" parent="switch_base" unique_id=1353388709]
+transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e-08, 1, 1, 0, -4.371139e-08, -2.035972, 0.12727204, 0)
+sorting_offset = 50.0
+shaded = true
+text = "asdasd"
+font = ExtResource("4_cdjdd")
+font_size = 36
+outline_size = 0
 
 [node name="switch" parent="." unique_id=1019615477 instance=ExtResource("3_qssfk")]
 unique_name_in_owner = true

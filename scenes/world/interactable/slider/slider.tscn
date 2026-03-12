@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwwajjkq3jwkg" path="res://scenes/world/interactable/slider/slider.gd" id="1_vh7io"]
 [ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="2_ahe7m"]
+[ext_resource type="Script" uid="uid://4b3k3yda04fe" path="res://scenes/world/interactable/slider/rigid_body_3d.gd" id="2_vqis2"]
 [ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="3_vqis2"]
 [ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="4_vtbfk"]
 
@@ -23,6 +24,7 @@ height = 1.0
 
 [node name="Slider" type="Node3D" unique_id=424322314]
 script = ExtResource("1_vh7io")
+drag_strength = 800.0
 detents = 3
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=404819209]
@@ -31,6 +33,7 @@ collision_layer = 8
 collision_mask = 0
 gravity_scale = 0.1
 linear_damp = 5.0
+script = ExtResource("2_vqis2")
 
 [node name="Components" type="Node3D" parent="RigidBody3D" unique_id=1516316377]
 
@@ -46,6 +49,7 @@ shape = SubResource("CapsuleShape3D_kitsk")
 [node name="Draggable" parent="RigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("3_vqis2")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
+drag_strength = 800.0
 rigidbody = NodePath("../..")
 mouse_target = NodePath("../MouseTarget")
 
@@ -87,5 +91,7 @@ unique_name_in_owner = true
 
 [connection signal="hovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_hovered"]
 [connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]
+[connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="RigidBody3D" method="_on_mouse_target_pressed"]
 [connection signal="released" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_released"]
+[connection signal="released" from="RigidBody3D/Components/MouseTarget" to="RigidBody3D" method="_on_mouse_target_released"]
 [connection signal="unhovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_unhovered"]

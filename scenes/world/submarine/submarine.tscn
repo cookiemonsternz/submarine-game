@@ -7,19 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://boa4hat7xf0t2" path="res://scenes/interaction/aux_engine/aux_engine.tscn" id="5_0snpr"]
 [ext_resource type="PackedScene" uid="uid://dagde6k68jla8" path="res://scenes/world/submarine/control_room.tscn" id="5_f8iv4"]
 [ext_resource type="PackedScene" uid="uid://cku8ve432egue" path="res://scenes/interaction/lights/lights.tscn" id="6_r13nx"]
-[ext_resource type="Script" uid="uid://c5rudc3ctoy6c" path="res://scripts/debug_print.gd" id="8_r13nx"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ahbpp"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_0snpr"]
-sky_material = SubResource("ProceduralSkyMaterial_ahbpp")
-
-[sub_resource type="Environment" id="Environment_r13nx"]
-background_mode = 2
-sky = SubResource("Sky_0snpr")
-tonemap_white = 7.81
+[ext_resource type="PackedScene" uid="uid://dvgvi5656gbed" path="res://scenes/interaction/rudder/rudder.tscn" id="7_r13nx"]
+[ext_resource type="Script" uid="uid://ci0baspndls6j" path="res://scripts/property_relay.gd" id="8_ceh3h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gh8mv"]
 radius = 10.0
@@ -38,26 +27,19 @@ size = Vector3(10, 10, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceh3h"]
 size = Vector3(10, 10, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_r13nx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ceh3h"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ceh3h"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehoni"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_r13nx")
+albedo_texture = SubResource("ViewportTexture_ceh3h")
 
 [node name="Submarine" type="RigidBody3D" unique_id=1368706397]
 collision_layer = 2
 collision_mask = 0
 mass = 800000.0
 gravity_scale = 0.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=602957522]
-environment = SubResource("Environment_r13nx")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=939746692]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="ExternalCollider" type="CollisionShape3D" parent="." unique_id=334731923]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
@@ -100,27 +82,45 @@ ratio = 0.5
 desired_ratio = 0.5
 metadata/_custom_type_script = "uid://b0tqvvoirkp63"
 
-[node name="AuxEngineRearLeft" parent="Components" unique_id=1965373193 node_paths=PackedStringArray("boat", "power") instance=ExtResource("5_0snpr")]
+[node name="AuxEngineRearLeft" parent="Components" unique_id=1965373193 node_paths=PackedStringArray("boat", "aux_props_control", "power") instance=ExtResource("5_0snpr")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -10, 0, 15)
 boat = NodePath("../..")
+aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
 power = NodePath("../Power")
 
-[node name="AuxEngineRearRight" parent="Components" unique_id=1804078283 node_paths=PackedStringArray("boat", "power") instance=ExtResource("5_0snpr")]
+[node name="AuxEngineRearRight" parent="Components" unique_id=1804078283 node_paths=PackedStringArray("boat", "aux_props_control", "power") instance=ExtResource("5_0snpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15)
 boat = NodePath("../..")
+aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
 power = NodePath("../Power")
 
-[node name="AuxEngineForwLeft" parent="Components" unique_id=491753843 node_paths=PackedStringArray("boat", "power") instance=ExtResource("5_0snpr")]
+[node name="AuxEngineForwLeft" parent="Components" unique_id=491753843 node_paths=PackedStringArray("boat", "aux_props_control", "power") instance=ExtResource("5_0snpr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -15)
 boat = NodePath("../..")
+aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
 power = NodePath("../Power")
 
-[node name="AuxEngineForwRight" parent="Components" unique_id=287101377 node_paths=PackedStringArray("boat", "power") instance=ExtResource("5_0snpr")]
+[node name="AuxEngineForwRight" parent="Components" unique_id=287101377 node_paths=PackedStringArray("boat", "aux_props_control", "power") instance=ExtResource("5_0snpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -15)
 boat = NodePath("../..")
+aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
 power = NodePath("../Power")
 
-[node name="Lights" parent="Components" unique_id=1347795887 instance=ExtResource("6_r13nx")]
+[node name="Lights" parent="Components" unique_id=1347795887 node_paths=PackedStringArray("power") instance=ExtResource("6_r13nx")]
+power = NodePath("../Power")
+
+[node name="Rudder" parent="Components" unique_id=1259838862 node_paths=PackedStringArray("boat") instance=ExtResource("7_r13nx")]
+boat = NodePath("../..")
+size = Vector2(4, 8)
+force_scale = 100000.0
+
+[node name="PropertyRelay" type="Node3D" parent="Components" unique_id=1155343069 node_paths=PackedStringArray("node")]
+script = ExtResource("8_ceh3h")
+from_max = 1.0
+to_min = 1.0
+to_max = -1.0
+node = NodePath("../Rudder")
+property = "angle"
 
 [node name="EnginePos" type="Marker3D" parent="." unique_id=1071058582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
@@ -138,32 +138,60 @@ max_value = 1500.0
 [node name="BatteryDrawDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="2" unique_id=1722389638 node_paths=PackedStringArray("node")]
 node = NodePath("../../../Components/Power")
 
-[node name="PropRpmDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="3" unique_id=728733975 node_paths=PackedStringArray("node")]
+[node name="BallastPowerDrawDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="3" unique_id=864433847 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/Ballast")
+
+[node name="PropRpmDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="4" unique_id=728733975 node_paths=PackedStringArray("node")]
 node = NodePath("../../../Components/Engine")
 
-[node name="EngineCoolantDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="4" unique_id=798528329 node_paths=PackedStringArray("node")]
+[node name="EngineCoolantDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="5" unique_id=798528329 node_paths=PackedStringArray("node")]
 node = NodePath("../../../Components/Engine")
 
-[node name="EngineCoolantPowerDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="5" unique_id=170566442 node_paths=PackedStringArray("node")]
+[node name="EngineCoolantPowerDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="6" unique_id=170566442 node_paths=PackedStringArray("node")]
 node = NodePath("../../../Components/Engine")
 
-[node name="TempDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="6" unique_id=1978487299 node_paths=PackedStringArray("node")]
+[node name="TempDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="7" unique_id=1978487299 node_paths=PackedStringArray("node")]
 node = NodePath("../../../Components/Engine")
 
-[node name="ThrottleLever" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="7" unique_id=424322314 node_paths=PackedStringArray("node", "boat")]
+[node name="RudderAngleDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="8" unique_id=1049871239 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/Rudder")
+min_value = 1.25
+max_value = -1.25
+
+[node name="AuxPropsForceFLDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="9" unique_id=373962133 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/AuxEngineForwLeft")
+
+[node name="AuxPropsForceFRDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="10" unique_id=1136213191 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/AuxEngineForwRight")
+
+[node name="AuxPropsForceRLDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="11" unique_id=511266341 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/AuxEngineRearLeft")
+
+[node name="AuxPropsForceRRDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="12" unique_id=1941776276 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/AuxEngineRearRight")
+
+[node name="ThrottleLever" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="13" unique_id=424322314 node_paths=PackedStringArray("node", "boat")]
 node = NodePath("../../../Components/Engine")
 boat = NodePath("../../..")
 
-[node name="GearLever" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="8" unique_id=551308029 node_paths=PackedStringArray("node", "boat")]
+[node name="RudderLever" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="14" unique_id=322694500 node_paths=PackedStringArray("node", "boat")]
+node = NodePath("../../../Components/PropertyRelay")
+property_name = "value"
+boat = NodePath("../../..")
+
+[node name="GearLever" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="15" unique_id=551308029 node_paths=PackedStringArray("node", "boat")]
 detents = 3
 node = NodePath("../../../Components/Engine")
 boat = NodePath("../../..")
 
-[node name="Slider" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="9" unique_id=1062975164 node_paths=PackedStringArray("node", "boat")]
+[node name="Slider" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="16" unique_id=1062975164 node_paths=PackedStringArray("node", "boat")]
 drag_strength = 250.0
 detent_equation = "pow(16, 4 * x) * 0.05"
 node = NodePath("../../../Components/Engine")
 boat = NodePath("../../..")
+
+[node name="RigidBody3D" parent="ControlRoom/Controls/Slider" index="0" unique_id=404819209 node_paths=PackedStringArray("boat")]
+boat = NodePath("../../../..")
 
 [node name="Draggable" parent="ControlRoom/Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(957836708, 1062975164, 1516316377) index="1" unique_id=898455505]
 drag_strength = 250.0
@@ -179,22 +207,22 @@ from = NodePath("../../../../../Components/Ballast/BallastTankForward")
 
 [node name="RightRearParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="0" unique_id=2134781917 node_paths=PackedStringArray("to_node")]
 to_node = NodePath("../../../../../../Components/AuxEngineRearRight")
-property_scale = 4000000.0
+property_scale = 1000000.0
 
 [node name="RightForwardParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="1" unique_id=802558758 node_paths=PackedStringArray("to_node")]
 to_node = NodePath("../../../../../../Components/AuxEngineForwRight")
-property_scale = 4000000.0
+property_scale = 1000000.0
 
 [node name="LeftRearParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="2" unique_id=587701637 node_paths=PackedStringArray("to_node")]
 to_node = NodePath("../../../../../../Components/AuxEngineRearLeft")
-property_scale = 4000000.0
+property_scale = 1000000.0
 
 [node name="LeftForwardParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="3" unique_id=1779613706 node_paths=PackedStringArray("to_node")]
 to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
-property_scale = 4000000.0
+property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
-material_override = SubResource("StandardMaterial3D_ceh3h")
+material_override = SubResource("StandardMaterial3D_ehoni")
 
 [node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
@@ -202,7 +230,7 @@ boat = NodePath("../../../..")
 [node name="Draggable" parent="ControlRoom/Controls/AuxPropsControl/Target" index="2" unique_id=898455505]
 drag_strength = 800.0
 
-[node name="WheelForwards" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="11" unique_id=765100319 node_paths=PackedStringArray("node", "boat")]
+[node name="WheelForwards" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="18" unique_id=765100319 node_paths=PackedStringArray("node", "boat")]
 node = NodePath("../../../Components/Ballast/BallastTankForward")
 property_name = "desired_ratio"
 boat = NodePath("../../..")
@@ -213,16 +241,13 @@ boat = NodePath("../../../..")
 [node name="WheelRigidBody3D" parent="ControlRoom/Controls/WheelForwards" index="1" unique_id=368735785 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
 
-[node name="MouseTarget" parent="ControlRoom/Controls/WheelForwards/WheelRigidBody3D/Components" parent_id_path=PackedInt32Array(957836708, 765100319, 1959114622) index="0" unique_id=532023496 node_paths=PackedStringArray("outline_objects")]
-outline_objects = [NodePath("../../WheelMesh/Ring"), NodePath("../../../DragRigidBody3D/MeshInstance3D")]
-
 [node name="Draggable" parent="ControlRoom/Controls/WheelForwards/WheelRigidBody3D/Components" parent_id_path=PackedInt32Array(957836708, 765100319, 1959114622) index="1" unique_id=898455505]
 drag_strength = 100.0
 
 [node name="JoltHingeJoint3D" parent="ControlRoom/Controls/WheelForwards" index="2" unique_id=1399436]
 node_a = NodePath("/root/@EditorNode@18066/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9318/@VSplitContainer@9101/@HSplitContainer@9103/@HSplitContainer@9105/@Control@9106/@SubViewportContainer@9107/@SubViewport@9108/Submarine")
 
-[node name="WheelRear" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="12" unique_id=917075109 node_paths=PackedStringArray("node", "boat")]
+[node name="WheelRear" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="19" unique_id=917075109 node_paths=PackedStringArray("node", "boat")]
 node = NodePath("../../../Components/Ballast/BallastTankRear")
 property_name = "desired_ratio"
 boat = NodePath("../../..")
@@ -233,22 +258,19 @@ boat = NodePath("../../../..")
 [node name="WheelRigidBody3D" parent="ControlRoom/Controls/WheelRear" index="1" unique_id=368735785 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
 
-[node name="MouseTarget" parent="ControlRoom/Controls/WheelRear/WheelRigidBody3D/Components" parent_id_path=PackedInt32Array(957836708, 917075109, 1959114622) index="0" unique_id=532023496 node_paths=PackedStringArray("outline_objects")]
-outline_objects = [NodePath("../../WheelMesh/Ring"), NodePath("../../../DragRigidBody3D/MeshInstance3D")]
-
 [node name="Draggable" parent="ControlRoom/Controls/WheelRear/WheelRigidBody3D/Components" parent_id_path=PackedInt32Array(957836708, 917075109, 1959114622) index="1" unique_id=898455505]
 drag_strength = 100.0
 
 [node name="JoltHingeJoint3D" parent="ControlRoom/Controls/WheelRear" index="2" unique_id=1399436]
 node_a = NodePath("/root/@EditorNode@18066/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9318/@VSplitContainer@9101/@HSplitContainer@9103/@HSplitContainer@9105/@Control@9106/@SubViewportContainer@9107/@SubViewport@9108/Submarine")
 
-[node name="Compass" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="13" unique_id=821894870 node_paths=PackedStringArray("boat")]
+[node name="Compass" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="20" unique_id=821894870 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../..")
 
 [node name="PinJoint3D" parent="ControlRoom/Controls/Inclinometer" parent_id_path=PackedInt32Array(957836708, 1486642658) index="2" unique_id=1618728072]
 node_a = NodePath("../../../..")
 
-[node name="CoolantWheel" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="15" unique_id=1067580951 node_paths=PackedStringArray("node", "boat")]
+[node name="CoolantWheel" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="22" unique_id=1067580951 node_paths=PackedStringArray("node", "boat")]
 node = NodePath("../../../Components/Engine")
 boat = NodePath("../../..")
 
@@ -264,23 +286,49 @@ drag_strength = 100.0
 [node name="JoltHingeJoint3D" parent="ControlRoom/Controls/CoolantWheel" index="2" unique_id=1399436]
 node_a = NodePath("/root/@EditorNode@18066/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9318/@VSplitContainer@9101/@HSplitContainer@9103/@HSplitContainer@9105/@Control@9106/@SubViewportContainer@9107/@SubViewport@9108/Submarine")
 
-[node name="EngineFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="0" unique_id=1765839595 node_paths=PackedStringArray("node")]
+[node name="EngineFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="0" unique_id=1765839595 node_paths=PackedStringArray("node", "power")]
 node = NodePath("../../../Components/Engine")
-property = "is_engine_fuse_blown"
+property = "is_engine_good"
+power = NodePath("../../../Components/Power")
 
-[node name="CoolantFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="1" unique_id=631891455 node_paths=PackedStringArray("node")]
+[node name="CoolantFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="1" unique_id=631891455 node_paths=PackedStringArray("node", "power")]
 node = NodePath("../../../Components/Engine")
-property = "is_coolant_fuse_blown"
+property = "is_coolant_good"
+power = NodePath("../../../Components/Power")
 
-[node name="InstrLightsSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="2" unique_id=654817452 node_paths=PackedStringArray("node")]
+[node name="AuxPropsFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="2" unique_id=1398153128 node_paths=PackedStringArray("node", "power")]
+node = NodePath("../../Controls/AuxPropsControl")
+power = NodePath("../../../Components/Power")
+
+[node name="BallastFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="3" unique_id=545962359 node_paths=PackedStringArray("node", "power")]
+node = NodePath("../../../Components/Ballast")
+power = NodePath("../../../Components/Power")
+
+[node name="InstrLightsSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="4" unique_id=654817452 node_paths=PackedStringArray("node", "power")]
 node = NodePath("../../../Components/Lights")
+power = NodePath("../../../Components/Power")
 
-[node name="Node" type="Node" parent="." unique_id=573916243]
-process_mode = 4
-script = ExtResource("8_r13nx")
+[node name="SubInternalLightsSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="5" unique_id=564730294 node_paths=PackedStringArray("node", "power")]
+node = NodePath("../../../Components/Lights")
+power = NodePath("../../../Components/Power")
+
+[node name="BatteryFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="6" unique_id=1684608767 node_paths=PackedStringArray("node")]
+node = NodePath("../../../Components/Power")
+
+[node name="Collisions" parent="ControlRoom" index="3" unique_id=1769083413 node_paths=PackedStringArray("boat")]
+boat = NodePath("../..")
+
+[node name="JoltHingeJoint3D" parent="ControlRoom" index="6" unique_id=313285124]
+node_a = NodePath("../..")
 
 [connection signal="coolant_pump_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/CoolantFuseSwitch" method="set_true"]
 [connection signal="engine_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_true"]
+[connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_false"]
+[connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/CoolantFuseSwitch" method="set_false"]
+[connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/AuxPropsFuseSwitch" method="set_false"]
+[connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/BallastFuseSwitch" method="set_false"]
+[connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/InstrLightsSwitch" method="set_false"]
+[connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/SubInternalLightsSwitch" method="set_false"]
 
 [editable path="ControlRoom"]
 [editable path="ControlRoom/Controls/Slider"]
@@ -293,3 +341,4 @@ script = ExtResource("8_r13nx")
 [editable path="ControlRoom/Controls/Inclinometer"]
 [editable path="ControlRoom/Controls/CoolantWheel"]
 [editable path="ControlRoom/Controls/CoolantWheel/WheelRigidBody3D/WheelMesh"]
+[editable path="ControlRoom/CupboardDoor/CupboardDoorMesh"]

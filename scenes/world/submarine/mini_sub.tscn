@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://c7cayvhexkc7s" path="res://scripts/mini_sub_basic_controls.gd" id="1_fslak"]
 [ext_resource type="Script" uid="uid://bw8h82fvu7b2s" path="res://scenes/world/submarine/minisub/claw.gd" id="2_vmgfb"]
 [ext_resource type="PackedScene" uid="uid://4secbajga318" path="res://scenes/world/submarine/environment/rock_and_fragments.tscn" id="3_62bga"]
-[ext_resource type="Script" uid="uid://dexrrhiqg3pvk" path="res://scenes/world/submarine/drill.gd" id="3_ydde0"]
+[ext_resource type="Script" path="res://scenes/world/submarine/drill.gd" id="3_ydde0"]
+[ext_resource type="Script" path="res://scenes/world/submarine/storage.gd" id="4_hqc16"]
+[ext_resource type="Script" path="res://scenes/world/submarine/store_test.gd" id="5_ymg54"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vmgfb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -105,6 +107,10 @@ shape = SubResource("BoxShape3D_ymg54")
 
 [node name="DrillTimer" type="Timer" parent="MiniSub/Drill" unique_id=14843005]
 
+[node name="Storage" type="Node3D" parent="MiniSub" unique_id=571607641]
+unique_name_in_owner = true
+script = ExtResource("4_hqc16")
+
 [node name="BoxesForReference" type="Node3D" parent="." unique_id=1461596354]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="BoxesForReference" unique_id=2094248243]
@@ -181,6 +187,9 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Area3D" unique_id=1288577151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.012983, 0, -7.770841)
 shape = SubResource("SphereShape3D_ymg54")
+
+[node name="storeTest" type="Node3D" parent="TestObjects" unique_id=2074605849]
+script = ExtResource("5_ymg54")
 
 [node name="RockAndFragments" parent="." unique_id=343521588 instance=ExtResource("3_62bga")]
 transform = Transform3D(-0.872385, 0, 0.48881906, 0, 0.9999998, 0, -0.48881906, 0, -0.872385, 5.61962, 0, -2.8885884)

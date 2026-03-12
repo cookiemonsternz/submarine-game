@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dodhynppdxb7w"]
+
+[ext_resource type="PackedScene" uid="uid://dsholmd6jfs3y" path="res://assets/models/cupboard_door.fbx" id="1_0lr4v"]
+[ext_resource type="Texture2D" uid="uid://77lwd8mcbbse" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Color.jpg" id="2_y581b"]
+[ext_resource type="Texture2D" uid="uid://ccpww6hal1fae" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Displacement.jpg" id="3_juu5v"]
+[ext_resource type="Texture2D" uid="uid://b05dsxag2ptur" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Metalness.jpg" id="4_amysf"]
+[ext_resource type="Texture2D" uid="uid://ujlpgtutuqe0" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_NormalGL.jpg" id="5_737dl"]
+[ext_resource type="Texture2D" uid="uid://dyj2n6l31pvtu" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Roughness.jpg" id="6_qjruy"]
+[ext_resource type="Texture2D" uid="uid://dnjqtv74astv" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Color.jpg" id="7_euror"]
+[ext_resource type="Texture2D" uid="uid://b145oi2kgqg7t" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Displacement.jpg" id="8_s4n14"]
+[ext_resource type="Texture2D" uid="uid://bvknfdf0n0l14" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_NormalGL.jpg" id="9_4mmkf"]
+[ext_resource type="Texture2D" uid="uid://cxlsmwlmh1veo" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Roughness.jpg" id="10_g121c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rivrk"]
+albedo_texture = ExtResource("2_y581b")
+metallic = 1.0
+metallic_texture = ExtResource("4_amysf")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_qjruy")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_737dl")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_juu5v")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sueru"]
+albedo_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+albedo_texture = ExtResource("7_euror")
+roughness_texture = ExtResource("10_g121c")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("9_4mmkf")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("8_s4n14")
+uv1_scale = Vector3(500, 5, 500)
+uv1_triplanar = true
+
+[node name="cupboard_door" unique_id=66583398 instance=ExtResource("1_0lr4v")]
+
+[node name="CupboardDoor" parent="." index="0" unique_id=1520227361]
+transform = Transform3D(75, 0, 0, 0, -1.0927846e-07, 149.99998, 0, -2.4999998, -6.5567074e-06, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_rivrk")
+surface_material_override/1 = SubResource("StandardMaterial3D_sueru")

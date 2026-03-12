@@ -1,4 +1,6 @@
-extends Node3D
+class_name AuxPropsControl extends Node3D
+
+var is_good =  true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,6 +9,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if !is_good:
+		$SubViewport/Particles/LeftForwardParticles.amount_ratio = 0
+		$SubViewport/Particles/LeftRearParticles.amount_ratio = 0
+		$SubViewport/Particles/RightForwardParticles.amount_ratio = 0
+		$SubViewport/Particles/RightRearParticles.amount_ratio = 0
+		return
+	
 	var value: Vector2 = $Target.get_value()
 	var posX = remap(value.x, 0.2, 0.67, 681, 1663)
 	var posY = remap(value.y, 0, 1, 189, 320)

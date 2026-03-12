@@ -19,12 +19,25 @@ extends Node3D
 @export var node: Node3D
 @export var property: String
 
+@export var label: String:
+	get(): return label
+	set(value):
+		label = value
+		$switch_base/Label3D.text = value
+
+@export var power: Power
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#set("state", state)
 	pass
 
 func _on_mouse_target_pressed() -> void:
+	if !power: 
+		state = !state
+		return
+	if !power.has_capacity(): return
+	
 	state = !state
 
 

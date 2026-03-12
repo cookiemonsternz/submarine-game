@@ -37,11 +37,11 @@ shape = SubResource("CapsuleShape3D_bjtg8")
 
 [node name="FragmentsFirst" type="Node3D" parent="." unique_id=1976802443]
 
-[node name="Frag1" type="RigidBody3D" parent="FragmentsFirst" unique_id=1849970828 groups=["grabbable"]]
+[node name="Frag1" type="RigidBody3D" parent="FragmentsFirst" unique_id=1849970828 groups=["rock_ore"]]
 gravity_scale = 0.0
 freeze = true
 
-[node name="fragment" parent="FragmentsFirst/Frag1" unique_id=925832201 groups=["grabbable"] instance=ExtResource("1_bjtg8")]
+[node name="fragment" parent="FragmentsFirst/Frag1" unique_id=925832201 instance=ExtResource("1_bjtg8")]
 transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
 
 [node name="Area3D" type="Area3D" parent="FragmentsFirst/Frag1" unique_id=1474787514 groups=["grabbable"]]
@@ -55,12 +55,12 @@ shape = SubResource("SphereShape3D_dsng1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.09939164)
 shape = SubResource("SphereShape3D_hlm45")
 
-[node name="Frag2" type="RigidBody3D" parent="FragmentsFirst" unique_id=534254474 groups=["grabbable"]]
+[node name="Frag2" type="RigidBody3D" parent="FragmentsFirst" unique_id=534254474 groups=["rock_ore"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6920435, 0, 0.45887962)
 gravity_scale = 0.0
 freeze = true
 
-[node name="fragment" parent="FragmentsFirst/Frag2" unique_id=1916387490 groups=["grabbable"] instance=ExtResource("1_bjtg8")]
+[node name="fragment" parent="FragmentsFirst/Frag2" unique_id=1916387490 instance=ExtResource("1_bjtg8")]
 transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
 
 [node name="Area3D" type="Area3D" parent="FragmentsFirst/Frag2" unique_id=1823953660 groups=["grabbable"]]
@@ -74,12 +74,12 @@ shape = SubResource("SphereShape3D_dsng1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.09939164)
 shape = SubResource("SphereShape3D_hlm45")
 
-[node name="Frag3" type="RigidBody3D" parent="FragmentsFirst" unique_id=440824975 groups=["grabbable"]]
+[node name="Frag3" type="RigidBody3D" parent="FragmentsFirst" unique_id=440824975 groups=["rock_ore"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.688549, 0.1823658, 0.8001895)
 gravity_scale = 0.0
 freeze = true
 
-[node name="fragment" parent="FragmentsFirst/Frag3" unique_id=1912202832 groups=["grabbable"] instance=ExtResource("1_bjtg8")]
+[node name="fragment" parent="FragmentsFirst/Frag3" unique_id=1912202832 instance=ExtResource("1_bjtg8")]
 transform = Transform3D(0.19107342, 0, -2.9802322e-08, 0, 0.3414543, 0, 0, 0, -0.33939263, 0, 0.25515494, 0)
 
 [node name="Area3D" type="Area3D" parent="FragmentsFirst/Frag3" unique_id=1083553936 groups=["grabbable"]]
