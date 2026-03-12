@@ -27,8 +27,6 @@ radius = 1.0
 
 [node name="Wheel" type="Node3D" unique_id=765100319]
 script = ExtResource("1_fl7al")
-value_min = null
-value_max = null
 
 [node name="DragRigidBody3D" type="RigidBody3D" parent="." unique_id=625295086]
 unique_name_in_owner = true

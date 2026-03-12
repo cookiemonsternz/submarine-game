@@ -60,7 +60,7 @@ func do_detents():
 	
 	#print(factor, " : ", selected_detent)
 	
-	%RigidBody3D.apply_central_force(to_global(Vector3.RIGHT) * factor)
+	%RigidBody3D.apply_central_force(Vector3.RIGHT * factor)
 
 func _input(event: InputEvent) -> void:
 	if !is_hovered: return

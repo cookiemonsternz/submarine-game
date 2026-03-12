@@ -69,7 +69,7 @@ shape = SubResource("CylinderShape3D_tk2tp")
 [node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="." unique_id=1628645323]
 limit_enabled = true
 limit_upper = 0.6981317007977318
-limit_lower = -0.6981317007977318
+limit_lower = -0.6108652381980153
 limit_spring_enabled = true
 limit_spring_frequency = 10.0
 limit_spring_damping = 0.1

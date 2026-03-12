@@ -46,8 +46,8 @@ signal coolant_pump_fuse_blown
 var engine_rpm = 0
 var prop_rpm = 0
 var coolant_power = 0
-var is_engine_fuse_blown = false
-var is_coolant_fuse_blown = false
+var is_engine_good = true
+var is_coolant_good = true
 var desired_coolant_scale = 0.0
 @onready var temp = ambient_temp
 
@@ -55,13 +55,13 @@ func _physics_process(delta: float) -> void:
 	var current_gear = gears[gear]
 	
 	var engine_torque = lerp(min_torque, current_gear.max_torque, throttle)
-	if is_engine_fuse_blown: engine_torque = 0
+	if !is_engine_good: engine_torque = 0
 	var prop_load = current_gear.water_coefficient * (prop_rpm ** 2)
 	
 	var effective_prop_inertia = prop_mass * current_gear.gear_ratio ** 2
 	var engine_load = prop_load / current_gear.gear_ratio
 	
-	if is_engine_fuse_blown: engine_load *= 500
+	if !is_engine_good: engine_load *= 500
 	if mode == 1: engine_load *= 0.05
 	
 	var net_inertia = engine_mass + effective_prop_inertia
@@ -80,20 +80,22 @@ func _physics_process(delta: float) -> void:
 	temp += temp_delta
 	
 	if temp > max_temp or engine_rpm > max_rpm:
-		is_engine_fuse_blown = true
+		is_engine_good = false
 		engine_fuse_blown.emit()
 	
-	power.remaining_capacity -= ((engine_torque * engine_rpm * 2 * PI) / (60 * 1000 * 3600)) * delta
-	if !is_coolant_fuse_blown:
+	if power.has_capacity() and is_engine_good:
+		power.remaining_capacity -= ((engine_torque * engine_rpm * 2 * PI) / (60 * 1000 * 3600)) * delta
+	if is_coolant_good:
 		power_dissipation_scale = desired_coolant_scale
 		coolant_power = (power_dissipation_scale * engine_rpm / 36000) * delta
 	else:
 		coolant_power = 0
 		power_dissipation_scale = 0.25
-	power.remaining_capacity -= coolant_power
+	if power.has_capacity() and is_coolant_good:
+		power.remaining_capacity -= coolant_power
 	
 	if coolant_power > coolant_pump_max_power:
-		is_coolant_fuse_blown = true
+		is_coolant_good = true
 		
 		coolant_pump_fuse_blown.emit()
 	

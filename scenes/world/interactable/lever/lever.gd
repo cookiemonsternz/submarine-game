@@ -17,6 +17,8 @@ extends Node3D
 @export var property_name: String
 @export var values: Array[int]
 
+@export var default_detent: float = 0.0
+
 @export var boat: PhysicsBody3D
 
 var dragging = false
@@ -36,6 +38,8 @@ func _ready() -> void:
 	%Draggable.drag_strength = drag_strength
 	
 	%JoltHingeJoint3D.node_a = boat.get_path()
+	
+	selected_detent = default_detent
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return

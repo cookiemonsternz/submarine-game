@@ -7,12 +7,17 @@ class_name Ballast extends Node3D
 @export var force_scale = 10
 
 var tanks: Array[BallastTank] = []
+var power_draw = 0.0
+var is_good = true
 
 func _ready() -> void:
 	get_tanks()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
+	power_draw = 0.0
 	for tank in tanks:
+		power_draw += tank.power_draw
+		
 		var pos = tank.global_position
 		var water_force = tank.water_volume * water_mass * 1000
 		var air_force = (tank.volume - tank.water_volume) * air_bouyancy * 1000
