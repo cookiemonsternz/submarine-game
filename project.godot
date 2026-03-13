@@ -27,6 +27,7 @@ sub_lights=""
 sub_instr_lights=""
 rock_ore=""
 sub_general_lights=""
+draggable_ore=""
 
 [input]
 

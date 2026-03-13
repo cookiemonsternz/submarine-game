@@ -1,19 +1,21 @@
-[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="acg_kmf3txby"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://djbkv2536y5st"]
 
-[ext_resource type="Texture2D" uid="uid://acg_sg3aquw6" id="Color" path="./MetalWalkway012_1K-JPG_Color.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_12qj50hb" id="Metalness" path="./MetalWalkway012_1K-JPG_Metalness.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_e2pk4u6v" id="Displacement" path="./MetalWalkway012_1K-JPG_Displacement.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_c3abptl9" id="Roughness" path="./MetalWalkway012_1K-JPG_Roughness.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_s1ky9ug4" id="NormalGL" path="./MetalWalkway012_1K-JPG_NormalGL.jpg"]
+[ext_resource type="Texture2D" uid="uid://c6hdq8nr66g6h" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://c8asj1yq6kcpx" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://dv5dyo3fvkhqd" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Metalness.jpg" id="Metalness"]
+[ext_resource type="Texture2D" uid="uid://uwhhtjcbpsn5" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://d0ff03wyhobos" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Roughness.jpg" id="Roughness"]
+
 [resource]
 albedo_texture = ExtResource("Color")
-metallic_texture = ExtResource("Metalness")
 metallic = 1.0
+metallic_texture = ExtResource("Metalness")
 metallic_texture_channel = 4
 roughness_texture = ExtResource("Roughness")
 roughness_texture_channel = 4
-normal_texture = ExtResource("NormalGL")
 normal_enabled = true
-heightmap_texture = ExtResource("Displacement")
-heightmap_scale = 1.0
+normal_texture = ExtResource("NormalGL")
 heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")
+uv1_triplanar = true

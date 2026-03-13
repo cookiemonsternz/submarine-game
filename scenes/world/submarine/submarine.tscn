@@ -321,6 +321,9 @@ boat = NodePath("../..")
 [node name="JoltHingeJoint3D" parent="ControlRoom" index="6" unique_id=313285124]
 node_a = NodePath("../..")
 
+[node name="SliderJoint3D" parent="ControlRoom/Upper/Furnace" parent_id_path=PackedInt32Array(957836708, 138935279) index="2" unique_id=572925107]
+node_a = NodePath("../../../..")
+
 [connection signal="coolant_pump_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/CoolantFuseSwitch" method="set_true"]
 [connection signal="engine_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_true"]
 [connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_false"]
@@ -341,4 +344,6 @@ node_a = NodePath("../..")
 [editable path="ControlRoom/Controls/Inclinometer"]
 [editable path="ControlRoom/Controls/CoolantWheel"]
 [editable path="ControlRoom/Controls/CoolantWheel/WheelRigidBody3D/WheelMesh"]
-[editable path="ControlRoom/CupboardDoor/CupboardDoorMesh"]
+[editable path="ControlRoom/CupboardDoor/cupboard_door"]
+[editable path="ControlRoom/Upper/Furnace"]
+[editable path="ControlRoom/Upper/Furnace/RigidBody3D/furnace_gate"]

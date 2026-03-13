@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cwrf44o6g5pyt"]
+
+[ext_resource type="PackedScene" uid="uid://87jd1mofh7b6" path="res://assets/models/control_room_roof.fbx" id="1_lk051"]
+[ext_resource type="Texture2D" uid="uid://yp1w3o2hkip" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Color.jpg" id="2_wpt7g"]
+[ext_resource type="Texture2D" uid="uid://c2fxdlc674ewl" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_AmbientOcclusion.jpg" id="3_byq3r"]
+[ext_resource type="Texture2D" uid="uid://drafemraojdcd" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Displacement.jpg" id="4_boypa"]
+[ext_resource type="Texture2D" uid="uid://02etn80dopch" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Metalness.jpg" id="5_oq2pp"]
+[ext_resource type="Texture2D" uid="uid://btk7m7xrkkyhg" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_NormalGL.jpg" id="6_lgqkp"]
+[ext_resource type="Texture2D" uid="uid://b440vxa8lhcom" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Roughness.jpg" id="7_t5hql"]
+[ext_resource type="Texture2D" uid="uid://cl0pt0kjbtaol" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Color.jpg" id="8_6pubm"]
+[ext_resource type="Texture2D" uid="uid://bsy6b6v5exhiu" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Displacement.jpg" id="9_3stn6"]
+[ext_resource type="Texture2D" uid="uid://bbhijx4ot6ujh" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Metalness.jpg" id="10_v2ium"]
+[ext_resource type="Texture2D" uid="uid://dp6dvly75e11a" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_NormalGL.jpg" id="11_bj7ev"]
+[ext_resource type="Texture2D" uid="uid://cwc4cxuedw71k" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Roughness.jpg" id="12_kkf1y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e530b"]
+albedo_texture = ExtResource("2_wpt7g")
+metallic = 1.0
+metallic_texture = ExtResource("5_oq2pp")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("7_t5hql")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("6_lgqkp")
+ao_enabled = true
+ao_texture = ExtResource("3_byq3r")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_boypa")
+uv1_scale = Vector3(50, 50, 50)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oo8ed"]
+albedo_texture = ExtResource("8_6pubm")
+metallic = 1.0
+metallic_texture = ExtResource("10_v2ium")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("12_kkf1y")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("11_bj7ev")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("9_3stn6")
+uv1_scale = Vector3(75, 75, 75)
+uv1_triplanar = true
+
+[node name="control_room_roof" unique_id=1825596253 instance=ExtResource("1_lk051")]
+
+[node name="Floor_001" parent="." index="0" unique_id=904901614]
+transform = Transform3D(100, 0, 0, 0, -1.9073486e-05, -99.999985, 0, 99.999985, -1.9073486e-05, 0, 3, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_e530b")
+surface_material_override/1 = SubResource("StandardMaterial3D_oo8ed")

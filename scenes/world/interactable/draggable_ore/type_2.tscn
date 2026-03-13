@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dfwhdixbxiifd"]
+
+[ext_resource type="PackedScene" uid="uid://drbnqmi3x48p" path="res://assets/models/rocks/type-2.fbx" id="1_n1vj5"]
+[ext_resource type="Material" uid="uid://ci6semcpyr3m" path="res://assets/images/rocks/Rock061_1K-JPG/Rock061_1K-JPG.tres" id="2_g4fwk"]
+
+[node name="type-2" unique_id=1686117550 instance=ExtResource("1_n1vj5")]
+
+[node name="Type 2" parent="." index="0" unique_id=1254523997]
+material_override = ExtResource("2_g4fwk")

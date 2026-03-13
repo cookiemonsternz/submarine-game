@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bbjf0fb3cnics"]
+
+[ext_resource type="PackedScene" uid="uid://deecblf56nqcm" path="res://assets/models/furnace_gate.fbx" id="1_oui3m"]
+[ext_resource type="Texture2D" uid="uid://ddetaynw37wml" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Color.jpg" id="2_6toy3"]
+[ext_resource type="Texture2D" uid="uid://bgikl1fjg1ju7" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Displacement.jpg" id="3_ckmrf"]
+[ext_resource type="Texture2D" uid="uid://clb4iptrcn8s1" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Metalness.jpg" id="4_6q0mq"]
+[ext_resource type="Texture2D" uid="uid://c2kbqfbf5jccw" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_NormalGL.jpg" id="5_vvtgj"]
+[ext_resource type="Texture2D" uid="uid://cii40exodjsqd" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Roughness.jpg" id="6_bycy4"]
+[ext_resource type="Texture2D" uid="uid://dke5sv05xulk2" path="res://assets/images/metals/Metal049B_1K-JPG/Metal049B_1K-JPG_Color.jpg" id="7_4phbf"]
+[ext_resource type="Texture2D" uid="uid://drke3xtiva8ag" path="res://assets/images/metals/Metal049B_1K-JPG/Metal049B_1K-JPG_Displacement.jpg" id="8_upvmv"]
+[ext_resource type="Texture2D" uid="uid://b2wmu0ojv3rpd" path="res://assets/images/metals/Metal049B_1K-JPG/Metal049B_1K-JPG_Metalness.jpg" id="9_rv67c"]
+[ext_resource type="Texture2D" uid="uid://cs6mu1l8oy307" path="res://assets/images/metals/Metal049B_1K-JPG/Metal049B_1K-JPG_NormalGL.jpg" id="10_ic8tu"]
+[ext_resource type="Texture2D" uid="uid://dfyxc4nitrk6n" path="res://assets/images/metals/Metal049B_1K-JPG/Metal049B_1K-JPG_Roughness.jpg" id="11_jne3v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pep0n"]
+albedo_color = Color(0.53218395, 0.5601982, 0.46351326, 1)
+albedo_texture = ExtResource("2_6toy3")
+metallic = 1.0
+metallic_texture = ExtResource("4_6q0mq")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_bycy4")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_vvtgj")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_ckmrf")
+uv1_scale = Vector3(50, 50, 50)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtp4l"]
+albedo_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
+albedo_texture = ExtResource("7_4phbf")
+metallic = 1.0
+metallic_texture = ExtResource("9_rv67c")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("11_jne3v")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("10_ic8tu")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("8_upvmv")
+uv1_scale = Vector3(50, 25, 50)
+uv1_triplanar = true
+
+[node name="furnace_gate" unique_id=2031065400 instance=ExtResource("1_oui3m")]
+
+[node name="Cube_005" parent="." index="0" unique_id=767773909]
+transform = Transform3D(10.000002, 0, 0, 0, -1.847744e-05, 99.99999, 0, -154.99998, -1.1920929e-05, 0, -0.003942311, 0)
+material_override = SubResource("StandardMaterial3D_pep0n")
+
+[node name="Cylinder" parent="." index="1" unique_id=1944602245]
+transform = Transform3D(7.500002, 0, 0, 0, -8.940699e-07, 199.99998, 0, -7.5000014, -2.3841858e-05, 0, 2.2564297, 1.4)
+material_override = SubResource("StandardMaterial3D_rtp4l")
+
+[node name="Cylinder_001" parent="." index="2" unique_id=1939660455]
+transform = Transform3D(7.500002, 0, 0, 0, -8.940699e-07, 199.99998, 0, -7.5000014, -2.3841858e-05, 0, 2.2564297, -1.4)
+material_override = SubResource("StandardMaterial3D_rtp4l")

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c8rmmqs7jqkr5"]
+
+[ext_resource type="PackedScene" uid="uid://c07e58gcpglux" path="res://assets/models/upper_room.fbx" id="1_touom"]
+[ext_resource type="Material" uid="uid://vo55a3ql64wh" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG.tres" id="2_e33j7"]
+[ext_resource type="Texture2D" uid="uid://77lwd8mcbbse" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Color.jpg" id="3_yy2m3"]
+[ext_resource type="Texture2D" uid="uid://ccpww6hal1fae" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Displacement.jpg" id="4_cncth"]
+[ext_resource type="Texture2D" uid="uid://b05dsxag2ptur" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Metalness.jpg" id="5_ebn1s"]
+[ext_resource type="Texture2D" uid="uid://ujlpgtutuqe0" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_NormalGL.jpg" id="6_o54vm"]
+[ext_resource type="Texture2D" uid="uid://dyj2n6l31pvtu" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Roughness.jpg" id="7_4yjgt"]
+[ext_resource type="Texture2D" uid="uid://cbgrfmuljdlxb" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Color_Opacity.png" id="8_pycgv"]
+[ext_resource type="Texture2D" uid="uid://c8asj1yq6kcpx" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Displacement.jpg" id="9_012sf"]
+[ext_resource type="Texture2D" uid="uid://dv5dyo3fvkhqd" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Metalness.jpg" id="10_b0mbv"]
+[ext_resource type="Texture2D" uid="uid://uwhhtjcbpsn5" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_NormalGL.jpg" id="11_gvbxp"]
+[ext_resource type="Texture2D" uid="uid://d0ff03wyhobos" path="res://assets/images/metal_walkways/MetalWalkway012_1K-JPG/MetalWalkway012_1K-JPG_Roughness.jpg" id="12_7qcf6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtrst"]
+albedo_texture = ExtResource("3_yy2m3")
+metallic = 1.0
+metallic_texture = ExtResource("5_ebn1s")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("7_4yjgt")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("6_o54vm")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_cncth")
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q63y7"]
+transparency = 1
+albedo_texture = ExtResource("8_pycgv")
+metallic = 1.0
+metallic_texture = ExtResource("10_b0mbv")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("12_7qcf6")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("11_gvbxp")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("9_012sf")
+uv1_scale = Vector3(50, 50, 50)
+uv1_triplanar = true
+
+[node name="upper_room" unique_id=961274989 instance=ExtResource("1_touom")]
+
+[node name="Floor 2" parent="." index="0" unique_id=256883185]
+material_override = ExtResource("2_e33j7")
+
+[node name="Furnace" parent="." index="1" unique_id=145048181]
+visible = false
+
+[node name="Railing" parent="." index="3" unique_id=1013654413]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_qtrst")
+
+[node name="Walkway" parent="." index="4" unique_id=1620241825]
+material_override = SubResource("StandardMaterial3D_q63y7")

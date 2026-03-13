@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cnv4b1uqn0bwt"]
+
+[ext_resource type="Script" uid="uid://banchdb3j3yx7" path="res://scenes/world/interactable/draggable_ore/draggable_ore.gd" id="1_jjf67"]
+[ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="1_jqp1p"]
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="2_jjf67"]
+[ext_resource type="PackedScene" uid="uid://cjaylceuknq2w" path="res://scenes/world/interactable/draggable_ore/type_1.tscn" id="4_0vjwe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0vjwe"]
+radius = 1.2026068
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_73bf7"]
+radius = 1.6803714
+
+[node name="DraggableOre" type="RigidBody3D" unique_id=1541507272 groups=["draggable_ore"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+collision_mask = 25
+mass = 0.15
+gravity_scale = 0.5
+script = ExtResource("1_jjf67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=648781018]
+shape = SubResource("SphereShape3D_0vjwe")
+
+[node name="Draggable" parent="." unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("1_jqp1p")]
+drag_strength = 150.0
+rigidbody = NodePath("..")
+mouse_target = NodePath("../MouseTarget")
+
+[node name="MouseTarget" parent="." unique_id=532023496 instance=ExtResource("2_jjf67")]
+selectable = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseTarget" unique_id=61812678]
+shape = SubResource("SphereShape3D_73bf7")
+
+[node name="type-1" parent="." unique_id=878879872 instance=ExtResource("4_0vjwe")]
+
+[node name="Timer" type="Timer" parent="." unique_id=905111508]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
