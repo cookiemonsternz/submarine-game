@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bgf75bpa2bi1x"]
+
+[ext_resource type="PackedScene" uid="uid://l8gpcb65cpbo" path="res://assets/models/rockspike.fbx" id="1_xnoq2"]
+[ext_resource type="Texture2D" uid="uid://cbqe2wgu56obq" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG_Color.png" id="2_rujgt"]
+[ext_resource type="Texture2D" uid="uid://dyreujma3s8gl" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG_AmbientOcclusion.png" id="3_4uooi"]
+[ext_resource type="Texture2D" uid="uid://ccfv6smob1ys4" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG_Displacement.png" id="4_qumrv"]
+[ext_resource type="Texture2D" uid="uid://dm27x76nli5p1" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG_NormalGL.png" id="5_un8sr"]
+[ext_resource type="Texture2D" uid="uid://x3qawxkrojan" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG_Roughness.png" id="6_kfaey"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riup4"]
+albedo_texture = ExtResource("2_rujgt")
+roughness_texture = ExtResource("6_kfaey")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_un8sr")
+ao_enabled = true
+ao_texture = ExtResource("3_4uooi")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_qumrv")
+uv1_scale = Vector3(-3.265, -3.265, -3.265)
+
+[node name="rockspike" unique_id=2126040187 instance=ExtResource("1_xnoq2")]
+
+[node name="Cylinder" parent="." index="0" unique_id=1151809781]
+material_override = SubResource("StandardMaterial3D_riup4")

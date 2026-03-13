@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dp4hdh8p7y54p"]
+
+[ext_resource type="PackedScene" uid="uid://bqesm1lymifrk" path="res://assets/models/biggerrock.fbx" id="1_sqxh1"]
+[ext_resource type="Material" uid="uid://xkhhtg3m5x2w" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG.tres" id="2_1drjk"]
+
+[node name="biggerrock" unique_id=418321988 instance=ExtResource("1_sqxh1")]
+
+[node name="Sphere" parent="." index="0" unique_id=1060716867]
+material_override = ExtResource("2_1drjk")

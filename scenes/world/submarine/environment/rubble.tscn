@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bbq6jyhabpld5"]
+
+[ext_resource type="PackedScene" uid="uid://cmxiv5i0rg5kk" path="res://assets/models/rubble.fbx" id="1_cf8mt"]
+[ext_resource type="Texture2D" uid="uid://m7235sm5iokr" path="res://assets/Rock058_2K-PNG/Rock058_2K-PNG_Color.png" id="2_jlo1h"]
+[ext_resource type="Texture2D" uid="uid://xc641ryhwsbn" path="res://assets/Rock058_2K-PNG/Rock058_2K-PNG_AmbientOcclusion.png" id="3_hxcg0"]
+[ext_resource type="Texture2D" uid="uid://l83wak640ugg" path="res://assets/Rock058_2K-PNG/Rock058_2K-PNG_Displacement.png" id="4_cpy5x"]
+[ext_resource type="Texture2D" uid="uid://wetvre051ba6" path="res://assets/Rock058_2K-PNG/Rock058_2K-PNG_NormalGL.png" id="5_1r4wq"]
+[ext_resource type="Texture2D" uid="uid://cy53rc88a1guo" path="res://assets/Rock058_2K-PNG/Rock058_2K-PNG_Roughness.png" id="6_errl8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cux5y"]
+albedo_color = Color(0.52906674, 0.5290667, 0.5290667, 1)
+albedo_texture = ExtResource("2_jlo1h")
+roughness_texture = ExtResource("6_errl8")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_1r4wq")
+ao_enabled = true
+ao_texture = ExtResource("3_hxcg0")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_cpy5x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83ewl"]
+next_pass = SubResource("StandardMaterial3D_cux5y")
+
+[node name="rubble" unique_id=2024655813 instance=ExtResource("1_cf8mt")]
+
+[node name="Pile_of_rubble_03" parent="Scan Pile of rubble" parent_id_path=PackedInt32Array(542463232) index="0" unique_id=2066377864]
+material_override = SubResource("StandardMaterial3D_83ewl")

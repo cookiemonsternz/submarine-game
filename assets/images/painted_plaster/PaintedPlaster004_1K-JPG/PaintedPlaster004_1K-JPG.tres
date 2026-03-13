@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vm0y2ggdgfy0"]
+
+[ext_resource type="Texture2D" uid="uid://6lli6c6rw1os" path="res://assets/images/painted_plaster/PaintedPlaster004_1K-JPG/PaintedPlaster004_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://bvxqd8xeow648" path="res://assets/images/painted_plaster/PaintedPlaster004_1K-JPG/PaintedPlaster004_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://byai2yannpn42" path="res://assets/images/painted_plaster/PaintedPlaster004_1K-JPG/PaintedPlaster004_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://bgwu514ln6lki" path="res://assets/images/painted_plaster/PaintedPlaster004_1K-JPG/PaintedPlaster004_1K-JPG_Roughness.jpg" id="Roughness"]
+
+[resource]
+albedo_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
+albedo_texture = ExtResource("Color")
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("NormalGL")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")
+uv1_scale = Vector3(28.165, 6.785, 6.785)
+uv1_triplanar = true
