@@ -3,6 +3,7 @@ render_mode cull_disabled, unshaded, shadows_disabled, fog_disabled;
 
 uniform bool depth_testing = true;
 uniform int width_outline = 1;
+uniform float d_max = 500;
 uniform vec4 color_inner : source_color = vec4(1.0, 1.0, 1.0, 0.5);
 uniform vec4 color_outline : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform sampler2D highlighted_depth_tex : repeat_disable;
@@ -25,7 +26,7 @@ void fragment() {
 	float d_h = unpack_float(highlighted_depth_tex, suv);
 	vec4 ss = texture(screen_tex, suv);
 	
-	bool is_inner = depth_testing ? d < d_h && ss.a > 0.0 : d_h > 0.001;
+	bool is_inner = depth_testing ? d < d_h && ss.a > 0.0 && d < d_max: d_h > 0.001;
 	bool is_outline = false; // = n > 0.0 && !is_inner;
 	
 	if (!is_inner) {

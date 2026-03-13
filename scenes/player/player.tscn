@@ -8,7 +8,8 @@
 [ext_resource type="Shader" uid="uid://7vcv88koox1t" path="res://assets/shaders/invert_behind.gdshader" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcfqm"]
-height = 2.0028152
+radius = 0.16601563
+height = 0.90060616
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vsgbe"]
 
@@ -26,10 +27,11 @@ viewport_path = NodePath("HighlightViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0owmy"]
 resource_local_to_scene = true
-render_priority = 0
+render_priority = -10
 shader = ExtResource("4_2hs0m")
 shader_parameter/depth_testing = true
 shader_parameter/width_outline = 1
+shader_parameter/d_max = 500.0
 shader_parameter/color_inner = Color(1, 1, 1, 0.142)
 shader_parameter/color_outline = Color(1, 1, 1, 1)
 shader_parameter/highlighted_depth_tex = SubResource("ViewportTexture_75vfm")
@@ -47,10 +49,11 @@ bg_color = Color(1, 1, 1, 0)
 [node name="Player" type="CharacterBody3D" unique_id=108593082]
 collision_layer = 16
 collision_mask = 17
+floor_max_angle = 1.3962634
 script = ExtResource("1_xhfnw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1896404139]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0567226, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5056181, 0)
 shape = SubResource("CapsuleShape3D_pcfqm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1554237219]
@@ -78,6 +81,7 @@ skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=395660298 groups=["player_camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7160988, 0)
+cull_mask = 1047551
 script = ExtResource("4_p47bc")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D" unique_id=1017953178]
