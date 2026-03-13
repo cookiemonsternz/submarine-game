@@ -5,6 +5,7 @@ var is_active = false
 
 @onready var drill_hitbox: Area3D = $DrillArea
 @onready var drill_timer: Timer = $DrillTimer
+@onready var animation_drill = $"../minisubrevamp2/clawsub/AnimationPlayer"
 
 func _ready():
 	drill_hitbox.monitoring = false
@@ -14,6 +15,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and not is_active:
+		animation_drill.play("clawScoop")
 		is_active = true
 		drill_hitbox.monitoring = true
 		drill_timer.start()

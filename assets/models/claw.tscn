@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dwklrdujulh67"]
+
+[ext_resource type="PackedScene" uid="uid://cnp1oe52fd34h" path="res://assets/models/claw.fbx" id="1_pb02g"]
+[ext_resource type="Texture2D" uid="uid://ddetaynw37wml" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Color.jpg" id="2_p3vav"]
+[ext_resource type="Texture2D" uid="uid://bgikl1fjg1ju7" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Displacement.jpg" id="3_wbep0"]
+[ext_resource type="Texture2D" uid="uid://clb4iptrcn8s1" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Metalness.jpg" id="4_dpvfw"]
+[ext_resource type="Texture2D" uid="uid://c2kbqfbf5jccw" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_NormalGL.jpg" id="5_wvxa1"]
+[ext_resource type="Texture2D" uid="uid://cii40exodjsqd" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Roughness.jpg" id="6_1vnac"]
+[ext_resource type="Material" uid="uid://uac0gfoaeglb" path="res://assets/images/metals/Leaking012C_1K-JPG/Leaking012C_1K-JPG.tres" id="7_35vdb"]
+[ext_resource type="Material" path="res://assets/images/painted_metal/PaintedMetal001_1K-JPG/PaintedMetal001_1K-JPG.tres" id="8_4amje"]
+[ext_resource type="Texture2D" uid="uid://bs8buy23iccoo" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Color.jpg" id="9_hf403"]
+[ext_resource type="Texture2D" uid="uid://cl8cjw52xmgnu" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Displacement.jpg" id="10_lbc36"]
+[ext_resource type="Texture2D" uid="uid://dycvikjc26h6k" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Metalness.jpg" id="11_x22pk"]
+[ext_resource type="Texture2D" uid="uid://rr3kkpbd5wu4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_NormalGL.jpg" id="12_40g2k"]
+[ext_resource type="Texture2D" uid="uid://b6aut4ralvrh4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Roughness.jpg" id="13_m47sb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xotkq"]
+albedo_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
+albedo_texture = ExtResource("2_p3vav")
+metallic = 1.0
+metallic_texture = ExtResource("4_dpvfw")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_1vnac")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_wvxa1")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_wbep0")
+uv1_scale = Vector3(9.48, 9.48, 9.48)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjh3g"]
+albedo_texture = ExtResource("9_hf403")
+metallic = 1.0
+metallic_texture = ExtResource("11_x22pk")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("13_m47sb")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("12_40g2k")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("10_lbc36")
+uv1_scale = Vector3(-15.98, -15.98, -15.98)
+uv1_triplanar = true
+
+[node name="claw" unique_id=987859598 instance=ExtResource("1_pb02g")]
+
+[node name="Cube" parent="." index="0" unique_id=1499815426]
+material_override = SubResource("StandardMaterial3D_xotkq")
+
+[node name="Cube_001" parent="." index="1" unique_id=453172171]
+material_override = ExtResource("7_35vdb")
+
+[node name="Cube_008" parent="." index="2" unique_id=1895111084]
+material_override = ExtResource("8_4amje")
+
+[node name="Sphere_001" parent="." index="3" unique_id=567588285]
+material_override = SubResource("StandardMaterial3D_cjh3g")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bunvpwfk7g24b"]
+
+[ext_resource type="PackedScene" uid="uid://cwps3ax822xya" path="res://assets/models/rock2.fbx" id="1_sedn8"]
+[ext_resource type="Material" uid="uid://xkhhtg3m5x2w" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG.tres" id="2_yr6la"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q33v8"]
+next_pass = ExtResource("2_yr6la")
+
+[node name="rock2" unique_id=1200663575 instance=ExtResource("1_sedn8")]
+
+[node name="Sphere" parent="." index="0" unique_id=1696620818]
+material_override = SubResource("StandardMaterial3D_q33v8")

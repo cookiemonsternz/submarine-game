@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://wiod8uejtcku"]
+
+[ext_resource type="PackedScene" uid="uid://brw5n0fwcbinm" path="res://assets/models/clawsub.fbx" id="1_ylaha"]
+[ext_resource type="Material" path="res://assets/images/metals/Metal052A_1K-JPG/Metal052A_1K-JPG.tres" id="2_wevah"]
+[ext_resource type="Material" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG.tres" id="3_nyvnx"]
+
+[node name="clawsub" unique_id=909300579 instance=ExtResource("1_ylaha")]
+
+[node name="Cube_005" parent="." index="0" unique_id=780453811]
+transform = Transform3D(-12.037589, 3.2407313e-06, 3.7975923e-07, 3.922345e-06, 9.945733, 1.1654726, 1.7106443e-13, -25.341444, 0.45741197, 0.01899159, 0.16885793, -0.28083888)
+material_override = ExtResource("2_wevah")
+
+[node name="Cube_006" parent="." index="1" unique_id=673097126]
+transform = Transform3D(-9.478206, 2.5516986e-06, 2.9901625e-07, 3.088391e-06, 7.8311105, 0.91767436, 4.040802e-13, -19.953445, 0.36015883, 0.01899159, 0.14608705, -0.28083888)
+
+[node name="Cube_007" parent="." index="2" unique_id=1940046549]
+transform = Transform3D(-0.02576752, 1.4608485e-05, -8.943389, -2.7250588, 5.216429, 0.007873839, 8.518112, 1.6688061, -0.024535066, 0.5353117, 1.5494648, -0.92937803)
+material_override = ExtResource("3_nyvnx")
+
+[node name="Cylinder_023" parent="." index="3" unique_id=2096191885]
+transform = Transform3D(-1.8465297, 1.0496306e-13, -3.2170938e-06, 7.190652e-07, 3.3018523e-07, -8.261363, 2.6240766e-14, -1.8465296, -9.848313e-07, 0.11133289, -0.006610334, -0.05215457)
+material_override = ExtResource("2_wevah")
+
+[node name="Cylinder_024" parent="." index="4" unique_id=562873183]
+transform = Transform3D(-1.8465297, 1.0496306e-13, -3.2170938e-06, 7.190652e-07, 3.3018523e-07, -8.261363, 2.6240766e-14, -1.8465296, -9.848313e-07, -0.07252669, -0.006610334, -0.05215457)
+material_override = ExtResource("2_wevah")
