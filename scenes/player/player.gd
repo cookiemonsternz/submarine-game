@@ -27,9 +27,13 @@ func _physics_process(delta: float) -> void:
 		if awake == true:
 			awake = false
 			camera.current = false
+			$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.hide()
+			$Camera3D/HighlightEffect.hide()
 		elif awake == false:
 			awake = true
 			camera.current = true
+			$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.show()
+			$Camera3D/HighlightEffect.show()
 	
 	if Engine.is_editor_hint():
 		$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.hide()
