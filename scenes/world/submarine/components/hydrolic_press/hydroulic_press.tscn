@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dlvfd0ddy2245"]
+
+[ext_resource type="PackedScene" uid="uid://bko2rv4g47q4k" path="res://scenes/world/submarine/components/hydrolic_press/hydrolicpresspiston.tscn" id="1_vc4bq"]
+[ext_resource type="PackedScene" uid="uid://b4jwxvehvmn36" path="res://assets/models/hydrolicpress.tscn" id="2_l11iw"]
+
+[node name="HydroulicPress" type="Node3D" unique_id=1433679527]
+
+[node name="hydrolicpresspiston" parent="." unique_id=1175917628 instance=ExtResource("1_vc4bq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06570709, 0.9400892, 0)
+
+[node name="hydrolicpress" parent="." unique_id=198073424 instance=ExtResource("2_l11iw")]

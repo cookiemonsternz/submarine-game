@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bewn6kyqashrk"]
+
+[ext_resource type="PackedScene" uid="uid://b70dfiiqu6hko" path="res://assets/models/volcano2.fbx" id="1_ilpdv"]
+[ext_resource type="Material" path="res://assets/images/Rock061_1K-JPG/Rock061_1K-JPG.tres" id="2_f4ktj"]
+
+[node name="volcano2" unique_id=1639117531 instance=ExtResource("1_ilpdv")]
+
+[node name="Cylinder" parent="." index="0" unique_id=117542946]
+material_override = ExtResource("2_f4ktj")

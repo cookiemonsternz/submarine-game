@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c7cayvhexkc7s" path="res://scripts/mini_sub_basic_controls.gd" id="1_fslak"]
 [ext_resource type="Script" uid="uid://bw8h82fvu7b2s" path="res://scenes/world/submarine/minisub/claw.gd" id="2_vmgfb"]
-[ext_resource type="PackedScene" uid="uid://4secbajga318" path="res://scenes/world/submarine/environment/rock_and_fragments.tscn" id="3_62bga"]
 [ext_resource type="Script" uid="uid://dexrrhiqg3pvk" path="res://scenes/world/submarine/drill.gd" id="3_ydde0"]
 [ext_resource type="Script" uid="uid://b6olv2h6vbcmt" path="res://scenes/world/submarine/storage.gd" id="4_hqc16"]
 [ext_resource type="Script" uid="uid://f87c00beu0xc" path="res://scenes/world/submarine/oxygen.gd" id="6_scp5g"]
@@ -89,6 +88,9 @@ _data = {
 &"RESET": SubResource("Animation_j5ktf"),
 &"clawScoop": SubResource("Animation_1laog")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5ibd"]
+size = Vector3(3.0048218, 2.6601563, 3.6469116)
 
 [node name="Main" type="Node3D" unique_id=1222444474]
 
@@ -178,8 +180,11 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 1.358495, 0.8
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MiniSub/minisubrevamp2/clawsub" unique_id=996613566]
 libraries/ = SubResource("AnimationLibrary_t4sup")
 
-[node name="RockAndFragments" parent="." unique_id=343521588 instance=ExtResource("3_62bga")]
-transform = Transform3D(-0.872385, 0, 0.48881906, 0, 0.9999998, 0, -0.48881906, 0, -0.872385, 5.61962, 0, -2.8885884)
+[node name="MiniSubHitbox" type="Area3D" parent="MiniSub" unique_id=1342475294]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiniSub/MiniSubHitbox" unique_id=178940739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03262329, -0.4638672, 0.13833618)
+shape = SubResource("BoxShape3D_r5ibd")
 
 [connection signal="area_entered" from="MiniSub/Claw/Claw2" to="MiniSub/Claw" method="_on_claw_2_area_entered"]
 [connection signal="body_entered" from="MiniSub/Claw/Claw2" to="MiniSub/Claw" method="_on_claw_2_body_entered"]

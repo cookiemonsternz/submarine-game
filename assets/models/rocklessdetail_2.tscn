@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://jxxa3d2c6ue8"]
+
+[ext_resource type="PackedScene" uid="uid://d3dk2ouxx7007" path="res://assets/models/rocks/rocklessdetail2.fbx" id="1_62ppj"]
+[ext_resource type="Material" uid="uid://xkhhtg3m5x2w" path="res://assets/Rock050_1K-PNG/Rock050_1K-PNG.tres" id="2_12gbf"]
+
+[node name="rocklessdetail2" unique_id=189763372 instance=ExtResource("1_62ppj")]
+
+[node name="Sphere" parent="." index="0" unique_id=181861879]
+material_override = ExtResource("2_12gbf")

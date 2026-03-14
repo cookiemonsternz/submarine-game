@@ -10,6 +10,8 @@ var look_sensitivity = ProjectSettings.get_setting("player/look_sensitivity")
 
 var vel_y = 0
 
+var awake = true
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -18,13 +20,27 @@ func _ready() -> void:
 	$Camera3D/HighlightEffect.show()
 
 func _physics_process(delta: float) -> void:
+	print(awake)
+	
+	if Input.is_action_just_pressed("mini_sub"):
+		print("pressed T")
+		if awake == true:
+			awake = false
+			camera.current = false
+		elif awake == false:
+			awake = true
+			camera.current = true
+	
 	if Engine.is_editor_hint():
 		$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.hide()
 		$Camera3D/HighlightEffect.hide()
 		return
 	
 	var horizontal_vel = Input.get_vector("left", "right", "up", "down").normalized()
-	velocity = (horizontal_vel.x * global_transform.basis.x + horizontal_vel.y * global_transform.basis.z) * speed
+	if awake:
+		velocity = (horizontal_vel.x * global_transform.basis.x + horizontal_vel.y * global_transform.basis.z) * speed
+	else:
+		velocity = Vector3(0,0,0)
 	
 	if is_on_floor():
 		vel_y = 0

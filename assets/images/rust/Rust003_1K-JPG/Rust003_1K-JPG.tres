@@ -1,19 +1,21 @@
-[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="acg_7ltp1kow"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://14it81xcr33l"]
 
-[ext_resource type="Texture2D" uid="uid://acg_2m7knao8" id="Color" path="./Rust003_1K-JPG_Color.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_mq04utwz" id="Metalness" path="./Rust003_1K-JPG_Metalness.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_dk5qa3vt" id="Displacement" path="./Rust003_1K-JPG_Displacement.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_mdqkcf14" id="Roughness" path="./Rust003_1K-JPG_Roughness.jpg"]
-[ext_resource type="Texture2D" uid="uid://acg_4cegx9ot" id="NormalGL" path="./Rust003_1K-JPG_NormalGL.jpg"]
+[ext_resource type="Texture2D" uid="uid://b42sgy1jjsboi" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://b51p6agpd7utc" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://b57u0b0fw87q4" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG_Metalness.jpg" id="Metalness"]
+[ext_resource type="Texture2D" uid="uid://chsilw1830ccv" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://b1jc6pvcb6kas" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG_Roughness.jpg" id="Roughness"]
+
 [resource]
+albedo_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
 albedo_texture = ExtResource("Color")
-metallic_texture = ExtResource("Metalness")
 metallic = 1.0
+metallic_texture = ExtResource("Metalness")
 metallic_texture_channel = 4
 roughness_texture = ExtResource("Roughness")
 roughness_texture_channel = 4
-normal_texture = ExtResource("NormalGL")
 normal_enabled = true
-heightmap_texture = ExtResource("Displacement")
-heightmap_scale = 1.0
+normal_texture = ExtResource("NormalGL")
 heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")

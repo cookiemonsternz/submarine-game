@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://b4jwxvehvmn36"]
+
+[ext_resource type="PackedScene" uid="uid://bbcivoi7f3yho" path="res://assets/models/hydrolicpress.fbx" id="1_horm0"]
+[ext_resource type="Material" path="res://assets/images/metals/Metal038_1K-JPG/Metal038_1K-JPG.tres" id="2_bamgx"]
+[ext_resource type="Texture2D" uid="uid://ddetaynw37wml" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Color.jpg" id="3_btmun"]
+[ext_resource type="Texture2D" uid="uid://bgikl1fjg1ju7" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Displacement.jpg" id="4_nit3b"]
+[ext_resource type="Texture2D" uid="uid://clb4iptrcn8s1" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Metalness.jpg" id="5_1ul8l"]
+[ext_resource type="Texture2D" uid="uid://c2kbqfbf5jccw" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_NormalGL.jpg" id="6_3xwls"]
+[ext_resource type="Texture2D" uid="uid://cii40exodjsqd" path="res://assets/images/painted_metal/PaintedMetal002_1K-JPG/PaintedMetal002_1K-JPG_Roughness.jpg" id="7_vpv75"]
+[ext_resource type="Texture2D" uid="uid://bs8buy23iccoo" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Color.jpg" id="8_fqo80"]
+[ext_resource type="Texture2D" uid="uid://cl8cjw52xmgnu" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Displacement.jpg" id="9_wbttr"]
+[ext_resource type="Texture2D" uid="uid://dycvikjc26h6k" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Metalness.jpg" id="10_4ur4n"]
+[ext_resource type="Texture2D" uid="uid://rr3kkpbd5wu4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_NormalGL.jpg" id="11_q60vm"]
+[ext_resource type="Texture2D" uid="uid://b6aut4ralvrh4" path="res://assets/images/painted_metal/PaintedMetal004_1K-JPG/PaintedMetal004_1K-JPG_Roughness.jpg" id="12_45ido"]
+[ext_resource type="Texture2D" uid="uid://c0riogkf262dm" path="res://assets/images/HazardStripes.jpg" id="13_pfa1d"]
+[ext_resource type="Texture2D" uid="uid://blkyf6mc8jfao" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Color.jpg" id="14_nc1cs"]
+[ext_resource type="Texture2D" uid="uid://sjwqeyvxivoj" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_AmbientOcclusion.jpg" id="15_63cwe"]
+[ext_resource type="Texture2D" uid="uid://2b53plp8s2kc" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Displacement.jpg" id="16_yhiqj"]
+[ext_resource type="Texture2D" uid="uid://cpivu71lr3xa8" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Metalness.jpg" id="17_eu4v0"]
+[ext_resource type="Texture2D" uid="uid://dap60qu3ejm36" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_NormalGL.jpg" id="18_4muuy"]
+[ext_resource type="Texture2D" uid="uid://dwujmvjumofjh" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Roughness.jpg" id="19_h3h8b"]
+[ext_resource type="Material" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG.tres" id="21_ugiup"]
+[ext_resource type="Material" uid="uid://bxdjoyiwti5ej" path="res://assets/images/painted_plastic/Plastic016A_1K-JPG/Plastic016A_1K-JPG.tres" id="24_7s362"]
+[ext_resource type="Material" uid="uid://crcy6fmi25n5m" path="res://assets/images/metal_walkways/MetalWalkway010_1K-JPG/MetalWalkway010_1K-JPG.tres" id="25_vpxmm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdkcl"]
+albedo_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+albedo_texture = ExtResource("3_btmun")
+metallic = 1.0
+metallic_texture = ExtResource("5_1ul8l")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("7_vpv75")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("6_3xwls")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_nit3b")
+uv1_scale = Vector3(-18.26, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0p1q"]
+albedo_color = Color(0.72464263, 0.7246426, 0.7246426, 1)
+albedo_texture = ExtResource("8_fqo80")
+metallic = 1.0
+metallic_texture = ExtResource("10_4ur4n")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("12_45ido")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("11_q60vm")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("9_wbttr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfqat"]
+albedo_texture = ExtResource("13_pfa1d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqtwj"]
+albedo_texture = ExtResource("14_nc1cs")
+metallic = 1.0
+metallic_texture = ExtResource("17_eu4v0")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("19_h3h8b")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("18_4muuy")
+ao_enabled = true
+ao_texture = ExtResource("15_63cwe")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("16_yhiqj")
+uv1_scale = Vector3(-50.515, -50.515, -314.665)
+uv1_triplanar = true
+
+[node name="hydrolicpress" unique_id=198073424 instance=ExtResource("1_horm0")]
+
+[node name="Cube_009" parent="." index="0" unique_id=1288562415]
+transform = Transform3D(14.907962, 0, 0, 0, -1.2365898e-06, 20.710163, 0, -10.373266, -2.468844e-06, 1.5658026, 1.5267102, 0.537073)
+material_override = ExtResource("2_bamgx")
+
+[node name="Cube_010" parent="." index="1" unique_id=455646215]
+transform = Transform3D(163.8548, 0, 0, 0, -1.7375804e-06, 4.1835823, 0, -14.57588, -4.9872193e-07, 0.0584898, -2.2377012, -0.53942794)
+material_override = SubResource("StandardMaterial3D_wdkcl")
+
+[node name="Cube_012" parent="." index="2" unique_id=1643637487]
+transform = Transform3D(115.806725, 0, 0, 0, -1.1920929e-05, 11.532096, 0, -99.99999, -1.3747331e-06, 0.0584898, 0.42606866, 0)
+material_override = SubResource("StandardMaterial3D_p0p1q")
+
+[node name="Cube_015" parent="." index="3" unique_id=1552972446]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 24.324965, 0, -99.99999, -2.899762e-06, 0.0584898, 3.8821304, 0)
+material_override = SubResource("StandardMaterial3D_dfqat")
+
+[node name="Cube_017" parent="." index="4" unique_id=625717904]
+transform = Transform3D(20.090487, 0, 0, 0, -1.1991815e-06, 186.03697, 0, -10.059463, -2.2177337e-05, -1.2964954, 1.774816, 0.5364171)
+material_override = SubResource("StandardMaterial3D_mqtwj")
+
+[node name="Cylinder_009" parent="." index="5" unique_id=1854624106]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 7.0367093, 0, -99.99999, -8.388412e-07, 0.0584898, 1.6811309, 0)
+material_override = ExtResource("21_ugiup")
+
+[node name="Plane_002" parent="." index="6" unique_id=495619906]
+transform = Transform3D(13.009446, -4.5200927e-06, 35.615654, -35.615654, -4.5200927e-06, 13.009446, 2.2600464e-06, -37.917286, -4.5200927e-06, 1.7827592, 1.8791871, 0.5424186)
+material_override = ExtResource("24_7s362")
+
+[node name="Plane_003" parent="." index="7" unique_id=1514113361]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.0584898, 5.008336, 0)
+material_override = ExtResource("25_vpxmm")
