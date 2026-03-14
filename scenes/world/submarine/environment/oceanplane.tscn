@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://i7j4vpj1a14g"]
+
+[ext_resource type="PackedScene" uid="uid://b7t8o1epa0rg6" path="res://assets/models/oceanplane.fbx" id="1_lf7kh"]
+[ext_resource type="Material" uid="uid://cmxbpe3g30fhl" path="res://assets/images/Ground054_2K-JPG/Ground054_2K-JPG.tres" id="2_aju1v"]
+
+[node name="oceanplane" unique_id=919018445 instance=ExtResource("1_lf7kh")]
+transform = Transform3D(16.31, 0, 0, 0, 16.31, 0, 0, 0, 16.31, 0, 7.9902344, 0)
+
+[node name="Plane" parent="." index="0" unique_id=1965597215]
+transform = Transform3D(5000, 0, 0, 0, -0.00021855695, 5000, 0, -5000, -0.00021855695, 0, 0, 0)
+material_override = ExtResource("2_aju1v")

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bko2rv4g47q4k"]
+
+[ext_resource type="PackedScene" uid="uid://dm2rq0nu0srwm" path="res://assets/models/hydrolicpresspiston.fbx" id="1_2m5ny"]
+[ext_resource type="Texture2D" uid="uid://77lwd8mcbbse" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Color.jpg" id="2_b4l0b"]
+[ext_resource type="Texture2D" uid="uid://ccpww6hal1fae" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Displacement.jpg" id="3_hd8pf"]
+[ext_resource type="Texture2D" uid="uid://b05dsxag2ptur" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Metalness.jpg" id="4_sqi8v"]
+[ext_resource type="Texture2D" uid="uid://ujlpgtutuqe0" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_NormalGL.jpg" id="5_bwj30"]
+[ext_resource type="Texture2D" uid="uid://dyj2n6l31pvtu" path="res://assets/images/metals/Metal011_1K-JPG/Metal011_1K-JPG_Roughness.jpg" id="6_d7e60"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygkj2"]
+albedo_texture = ExtResource("2_b4l0b")
+metallic = 1.0
+metallic_texture = ExtResource("4_sqi8v")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_d7e60")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_bwj30")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_hd8pf")
+uv1_scale = Vector3(0.805, 0.805, 0.805)
+uv1_triplanar = true
+
+[node name="hydrolicpresspiston" unique_id=1175917628 instance=ExtResource("1_2m5ny")]
+
+[node name="Cylinder_015" parent="." index="0" unique_id=1124405728]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 7.0367093, 0, -99.99999, -8.388412e-07, -0.0020637512, 0.15726686, 0)
+material_override = SubResource("StandardMaterial3D_ygkj2")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dd6l6hjcqam4g"]
+
+[ext_resource type="PackedScene" uid="uid://7ab8exmko212" path="res://assets/models/submarineassets2.fbx" id="1_vajm3"]
+[ext_resource type="Material" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG.tres" id="2_nh5b1"]
+[ext_resource type="Material" path="res://assets/images/rust/Rust004_1K-JPG/Rust004_1K-JPG.tres" id="3_gcujg"]
+
+[node name="submarineassets2" unique_id=1681593821 instance=ExtResource("1_vajm3")]
+
+[node name="Cylinder_001" parent="." index="0" unique_id=1070068009]
+material_override = ExtResource("2_nh5b1")
+
+[node name="Cylinder_002" parent="." index="1" unique_id=1065071107]
+material_override = ExtResource("3_gcujg")
+
+[node name="Cylinder_003" parent="." index="2" unique_id=1789155243]
+material_override = ExtResource("3_gcujg")
+
+[node name="Cylinder_004" parent="." index="3" unique_id=977303523]
+material_override = ExtResource("3_gcujg")
+
+[node name="Cylinder_005" parent="." index="4" unique_id=1002832506]
+material_override = ExtResource("3_gcujg")

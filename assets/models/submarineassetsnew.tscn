@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cywp87l1igipg"]
+
+[ext_resource type="PackedScene" uid="uid://ccxq6j8nssuf7" path="res://assets/models/submarineassets.fbx" id="1_4qkp6"]
+[ext_resource type="Texture2D" uid="uid://q8w1qo3j1cd4" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Color.jpg" id="2_jvcw3"]
+[ext_resource type="Texture2D" uid="uid://bro5bentoicxv" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Displacement.jpg" id="3_wfgyy"]
+[ext_resource type="Texture2D" uid="uid://qpvpih2nrsqp" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Metalness.jpg" id="4_2yf60"]
+[ext_resource type="Texture2D" uid="uid://cnusshm2no116" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_NormalGL.jpg" id="5_xib44"]
+[ext_resource type="Texture2D" uid="uid://klljwf6p6ddr" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Roughness.jpg" id="6_hicu1"]
+[ext_resource type="Material" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG.tres" id="7_skrf1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjh72"]
+albedo_texture = ExtResource("2_jvcw3")
+metallic = 1.0
+metallic_texture = ExtResource("4_2yf60")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_hicu1")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_xib44")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_wfgyy")
+uv1_scale = Vector3(7.215, 7.215, 7.215)
+uv1_triplanar = true
+
+[node name="submarineassets" unique_id=370067113 instance=ExtResource("1_4qkp6")]
+
+[node name="Cube" parent="." index="0" unique_id=261582701]
+material_override = SubResource("StandardMaterial3D_tjh72")
+
+[node name="Cylinder" parent="." index="1" unique_id=1854340600]
+material_override = ExtResource("7_skrf1")

@@ -16,6 +16,9 @@ uniform sampler2D normal_map : hint_normal;
 group_uniforms misc;
 uniform vec4 edge_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 
+group_uniforms uv;
+uniform vec2 uv_scale = vec2(1.0, 1.0);
+
 float SchlickFresnel(float u) {
 	float m = 1.0 - u;
 	float m2 = m * m;
@@ -23,13 +26,14 @@ float SchlickFresnel(float u) {
 }
 
 void fragment() {
+	vec2 uv_scaled = UV * uv_scale;
 	// calculate fresnel values
 	float VdotN = dot(VIEW, NORMAL);
 	float fresnel = clamp(SchlickFresnel(VdotN), 0.0, 1.0);
 	
 	// sample and mix textures
-	vec4 _albedo = texture(albedo_texture, UV) * albedo;
-	float _roughness = texture(roughness_texture, UV).r * roughness;
+	vec4 _albedo = texture(albedo_texture, uv_scaled) * albedo;
+	float _roughness = texture(roughness_texture, uv_scaled).r * roughness;
 	
 	// apply glass look
 	float a = mix(0.001, 1.0, _albedo.a);
@@ -37,7 +41,7 @@ void fragment() {
 	ALBEDO = mix(edge_color.rgb * edge_color.a, _albedo.rgb, a);
 	
 	ROUGHNESS = _roughness;
-	NORMAL_MAP = texture(normal_map, UV).xyz;
+	NORMAL_MAP = texture(normal_map, uv_scaled).xyz;
 	NORMAL_MAP_DEPTH = normal_strength;
 	
 	// function to compensate specular for alpha blend

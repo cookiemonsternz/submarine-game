@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b5h3mrqgx5dlp"]
+
+[ext_resource type="PackedScene" uid="uid://b7t8o1epa0rg6" path="res://assets/models/oceanplane.fbx" id="1_xqtgw"]
+
+[node name="Ocean" type="Node3D" unique_id=116083747]
+
+[node name="oceanplane" parent="." unique_id=919018445 instance=ExtResource("1_xqtgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.703804, 42.43196, 5.8375688)
