@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://djpcxd4es1b3x"]
+
+[ext_resource type="Script" uid="uid://b5chnt7gb3rvy" path="res://scenes/interaction/money/money.gd" id="1_dvnvf"]
+
+[node name="Money" type="Node3D" unique_id=720812995]
+script = ExtResource("1_dvnvf")
