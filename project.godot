@@ -106,6 +106,7 @@ mini_sub={
 
 [layer_names]
 
+3d_render/layer_2="RadarObjects"
 3d_physics/layer_1="Submarine Internal"
 3d_physics/layer_2="Submarine"
 3d_physics/layer_3="PlayerOnlyCollisions"

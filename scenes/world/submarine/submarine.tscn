@@ -384,6 +384,10 @@ transform = Transform3D(-9.878774e-08, 0, -2.26, 0, 2.26, 0, 2.26, 0, -9.878774e
 transform = Transform3D(-1.2020632e-07, 0, -2.75, 0, 2.75, 0, 2.75, 0, -1.2020632e-07, 1.0785542, -3.5428622, -0.51050043)
 mini_sub_storage = NodePath("../Main/MiniSub/Storage")
 
+[node name="RadarCamera" type="Camera3D" parent="." unique_id=1594919138]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 248, 0)
+cull_mask = 2
+
 [connection signal="coolant_pump_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/CoolantFuseSwitch" method="set_true"]
 [connection signal="engine_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_true"]
 [connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_false"]

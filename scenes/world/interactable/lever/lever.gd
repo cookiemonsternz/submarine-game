@@ -10,7 +10,7 @@ extends Node3D
 @export var detents = 7
 @export var snap_out_threshold = 0.5
 @export_custom(PROPERTY_HINT_EXPRESSION, "Detent Equation") var detent_equation: String \
-	= "pow(1.5, 5 * x) * 2"
+	= "pow(1.5, 5 * x) * 10"
 
 @export_group("")
 @export var node: Node

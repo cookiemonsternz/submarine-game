@@ -350,17 +350,20 @@ label = "Prop Force RR"
 [node name="ThrottleLever" parent="Controls" unique_id=424322314 instance=ExtResource("5_uf0n3")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.9, 0.6, 1.7)
 drag_strength = 1000.0
+detent_equation = "(pow(2, 5 * x) * 10) - 10"
 property_name = "throttle"
 
 [node name="RudderLever" parent="Controls" unique_id=322694500 instance=ExtResource("5_uf0n3")]
 transform = Transform3D(-1, 0, 8.742278e-08, -5.0143647e-08, 0.81915206, -0.57357645, -7.161255e-08, -0.57357645, -0.81915206, -0.100000024, 0.90000004, 3)
 drag_strength = 1000.0
+detent_equation = "(pow(2, 5 * x) * 10) - 10"
 property_name = "throttle"
 default_detent = 0.5
 
 [node name="GearLever" parent="Controls" unique_id=551308029 instance=ExtResource("5_uf0n3")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.6, 0.6, 1.7)
 drag_strength = 1000.0
+detent_equation = "(pow(2, 5 * x) * 10) - 10"
 property_name = "gear"
 values = Array[int]([0, 1, 2])
 
