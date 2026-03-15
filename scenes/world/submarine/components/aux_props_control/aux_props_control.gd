@@ -37,6 +37,10 @@ func _physics_process(delta: float) -> void:
 		
 		$SubViewport/Particles/RightForwardParticles.amount_ratio = dist_forward / sum
 		$SubViewport/Particles/RightRearParticles.amount_ratio = dist_rear / sum
+		
+		if value.x < 0.4 or value.x > 0.5:
+			$SubViewport/Particles/LeftRearParticles.amount_ratio = dist_forward / sum
+			$SubViewport/Particles/LeftForwardParticles.amount_ratio = dist_rear / sum
 	elif value.y > 0.5:
 		$SubViewport/Particles/RightForwardParticles.amount_ratio = 0
 		$SubViewport/Particles/RightRearParticles.amount_ratio = 0
@@ -46,3 +50,7 @@ func _physics_process(delta: float) -> void:
 		var sum = dist_forward + dist_rear
 		$SubViewport/Particles/LeftForwardParticles.amount_ratio = dist_forward / sum
 		$SubViewport/Particles/LeftRearParticles.amount_ratio = dist_rear / sum
+		
+		if value.x < 0.4 or value.x > 0.5:
+			$SubViewport/Particles/RightRearParticles.amount_ratio = dist_forward / sum
+			$SubViewport/Particles/RightForwardParticles.amount_ratio = dist_rear / sum

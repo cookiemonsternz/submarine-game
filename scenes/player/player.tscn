@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="2_hqtel"]
 [ext_resource type="Shader" uid="uid://csxoqjnur55gm" path="res://assets/shaders/highlight_effect_viewport.gdshader" id="3_sweqy"]
 [ext_resource type="Script" uid="uid://vbede7pon67t" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
-[ext_resource type="Shader" uid="uid://2gqeblfi7vhk" path="res://assets/shaders/mega_shader.gdshader" id="5_75vfm"]
+[ext_resource type="Shader" path="res://assets/shaders/mega_shader.gdshader" id="5_75vfm"]
 [ext_resource type="Shader" uid="uid://7vcv88koox1t" path="res://assets/shaders/invert_behind.gdshader" id="6_75vfm"]
 [ext_resource type="AudioStream" uid="uid://b5h7b0a74ytkk" path="res://assets/sounds/sfx/walking.mp3" id="7_0owmy"]
 
@@ -97,7 +97,7 @@ skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=395660298 groups=["player_camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7160988, 0)
-cull_mask = 1047551
+cull_mask = 1047549
 current = true
 script = ExtResource("4_p47bc")
 

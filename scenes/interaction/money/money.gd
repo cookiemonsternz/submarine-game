@@ -23,3 +23,7 @@ func add_commas_to_number(input_number : int) -> String:
 		if (last_index - index) % 3 == 0 and index != last_index:
 			output_string = output_string + ","
 	return output_string
+
+func _process(delta: float) -> void:
+	if money >= max_money:
+		get_tree().change_scene_to_file("res://end_screen.tscn")

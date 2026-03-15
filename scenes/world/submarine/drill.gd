@@ -3,6 +3,8 @@ extends MeshInstance3D
 var is_in_breakable_object = false
 var is_active = false
 
+@onready var particles_scene := preload("res://scenes/world/submarine/minisub/rock_break_particles.tscn")
+
 @onready var drill_hitbox: Area3D = $DrillArea
 @onready var drill_timer: Timer = $DrillTimer
 @onready var animation_drill = $"../minisubrevamp2/clawsub/AnimationPlayer"
@@ -27,6 +29,11 @@ func _on_drill_timer_timeout():
 
 func _on_drill_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("breakable") and is_active:
+		var particles = particles_scene.instantiate()
+		get_tree().root.add_child(particles)
+		particles.global_position = area.global_position
+		particles.restart()
+		%RockBreakAudio.play()
 		area.get_parent().rock_destroy()
 		area.queue_free() 
 

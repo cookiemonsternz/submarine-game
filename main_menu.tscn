@@ -1,0 +1,246 @@
+[gd_scene format=3 uid="uid://cnave7a7tubdr"]
+
+[ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="1_7vrkn"]
+[ext_resource type="FontFile" uid="uid://ckk05ju3yjidm" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-300-normal.ttf" id="1_glbon"]
+[ext_resource type="PackedScene" uid="uid://cl2j14j1nkoat" path="res://scenes/world/submarine/control_room_visuals_only.tscn" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://cfbo73q6yqkc5" path="res://main_menu.gd" id="2_nlkkf"]
+[ext_resource type="Shader" uid="uid://bd0bq8emwtu37" path="res://assets/shaders/blur.gdshader" id="3_fu7sn"]
+[ext_resource type="Script" uid="uid://dex8mofosux3b" path="res://scripts/ease_in.gd" id="4_jix8l"]
+[ext_resource type="FontFile" uid="uid://xofw3rvja4x7" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-800-normal.ttf" id="6_dy7ct"]
+[ext_resource type="AudioStream" uid="uid://v2schkfkn5as" path="res://assets/sounds/sfx/waves.mp3" id="7_qe12f"]
+[ext_resource type="Script" uid="uid://bg3jt60iqw5u1" path="res://scripts/ease_in_audio.gd" id="8_8qtwp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
+bg_color = Color(0.25202772, 0.25202763, 0.25202757, 0.8784314)
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+expand_margin_left = 12.0
+expand_margin_right = 68.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0.15594886, 0.15594886, 0.15594886, 0.88000005)
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+expand_margin_left = 12.0
+expand_margin_right = 68.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe12f"]
+bg_color = Color(0.08855995, 0.0885599, 0.08855987, 0.8784314)
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+expand_margin_left = 12.0
+expand_margin_right = 68.0
+
+[sub_resource type="Theme" id="Theme_nlkkf"]
+default_font = ExtResource("1_glbon")
+default_font_size = 32
+MainButton/base_type = &"Button"
+MainButton/colors/font_color = Color(1, 1, 1, 1)
+MainButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+MainButton/constants/outline_size = 0
+MainButton/font_sizes/font_size = 64
+MainButton/styles/hover = SubResource("StyleBoxFlat_nlkkf")
+MainButton/styles/normal = SubResource("StyleBoxFlat_glbon")
+MainButton/styles/pressed = SubResource("StyleBoxFlat_qe12f")
+
+[sub_resource type="Environment" id="Environment_jix8l"]
+ambient_light_energy = 0.0
+glow_enabled = true
+glow_intensity = 3.34
+glow_bloom = 0.18
+fog_enabled = true
+fog_light_color = Color(0.6114781, 0.5342511, 0.46902508, 1)
+fog_light_energy = 1.29
+fog_density = 0.005
+adjustment_enabled = true
+adjustment_brightness = 0.87
+adjustment_contrast = 1.065
+adjustment_saturation = 1.12
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_glbon"]
+viewport_path = NodePath("ViewportFitter")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jix8l"]
+shader = ExtResource("3_fu7sn")
+shader_parameter/strength = 3.3
+shader_parameter/mix_percentage = 0.3
+
+[node name="MainMenu" type="Control" unique_id=1169994102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nlkkf")
+script = ExtResource("2_nlkkf")
+
+[node name="ViewportFitter" type="SubViewport" parent="." unique_id=1675074139]
+script = ExtResource("1_7vrkn")
+metadata/_custom_type_script = "uid://dmmdva1abpn24"
+
+[node name="Camera3D" type="Camera3D" parent="ViewportFitter" unique_id=1099249504]
+transform = Transform3D(-0.9659259, -2.8786834e-08, 0.25881898, 0.12940949, 0.8660254, 0.48296297, -0.22414385, 0.50000006, -0.83651626, 1.5, 5, -5)
+fov = 32.3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ViewportFitter" unique_id=1682115454]
+environment = SubResource("Environment_jix8l")
+
+[node name="ControlRoom" parent="ViewportFitter" unique_id=957836708 instance=ExtResource("2_7vrkn")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=778676569]
+texture = SubResource("ViewportTexture_glbon")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1161845838]
+material = SubResource("ShaderMaterial_jix8l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Main" type="MarginContainer" parent="." unique_id=1000542994]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=1870929613]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="PlayButton" type="Button" parent="Main/VBoxContainer" unique_id=1328360170]
+layout_mode = 2
+theme_type_variation = &"MainButton"
+text = "Play"
+alignment = 0
+
+[node name="TutorialButton" type="Button" parent="Main/VBoxContainer" unique_id=735250450]
+layout_mode = 2
+theme_type_variation = &"MainButton"
+text = "Tutorial"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="Main/VBoxContainer" unique_id=1153471208]
+layout_mode = 2
+theme_type_variation = &"MainButton"
+text = "Quit"
+alignment = 0
+
+[node name="Tutorial" type="MarginContainer" parent="." unique_id=1906420075]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial" unique_id=694970617]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/PanelContainer" unique_id=510783311]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorial/PanelContainer/VBoxContainer" unique_id=579764402]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/bold_font = ExtResource("6_dy7ct")
+bbcode_enabled = true
+text = "[font_size=48]Welcome to the [b]Exploration the Deep[/b] submarine guide.[/font_size]
+
+[img]res://assets/tutorial/image4.png[/img]
+
+The throttle is on the left side beside the gear control. Higher gears increase top speed but reduce acceleration. The mode controller in front selects reverse, idle, or forwards (From left to right).
+
+[img]res://assets/tutorial/image3.png[/img]
+
+The rudder lever in the center controls the submarine’s rotation while moving.
+
+[img]res://assets/tutorial/image2.png[/img]
+
+On the right are the main ballast tanks. Each wheel controls the water level in its tank, shown on the display. More water in the rear tank tilts the Sub down, and more water in the forward tank tilts the Sub up. Have both indicators at center for neutral bouyancy.
+
+The white dot on the display adjusts the auxilery thrusters. Moving it toward a thruster pushes the submarine in the opposite direction. Keeping it centered applies no thrust. You can also move this to the middle of one side in order to strafe.
+
+[img]res://assets/tutorial/image1.png[/img]
+
+[font_size=40]Managing Power[/font_size]
+
+All submarine systems consume power. The only way to restore it is by harvesting ore.
+
+[img]res://assets/tutorial/image8.png[/img]
+
+To avoid engine overheating, use the cooling wheel on the middle-left. Cooling prevents overheating but uses significant power. Monitor the Power Draw dial to avoid excessive consumption. The Engine Temp dial on the far left helps track heat levels.
+
+[img]res://assets/tutorial/image5.png[/img]
+
+If something stops working, a fuse may have tripped from pushing the dials into the [b]red zone[/b]. Reset the corresponding fuse in the fuse box at the back-right of the control room.
+
+[font_size=40]Harvesting Ore and Mini Sub[/font_size]
+
+Press T to toggle between player and Mini Sub view.
+
+[img]res://assets/tutorial/image7.png[/img]
+
+Press SPACE to activate the Mini Sub drill. Use it near highlighted ore (visible in Mini Sub view or on the control room radar) to break rocks into smaller pieces. Collect the pieces with LEFT MOUSE.
+
+After harvesting ore, return to the main submarine through the bottom hatch.
+
+[img]res://assets/tutorial/image6.png[/img]
+
+Upstairs in the main submarine, use the collection pipe at the end of the room to retrieve ore from the Mini Sub. Press the funnel button to extract it.
+
+Before crushing, ore must be softened. Open the furnace hatch and place ore inside. After ~5 seconds, it will darken and become ready.
+
+Move the ore to the hydraulic press and press the button to crush it.
+
+Congratulations—you’re one step closer to escaping the meat grinder!"
+
+[node name="BackButton" type="Button" parent="Tutorial/PanelContainer/VBoxContainer" unique_id=687444798]
+layout_mode = 2
+text = "Back"
+
+[node name="EaseIn" type="ColorRect" parent="." unique_id=1506822940]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_jix8l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=699787922]
+stream = ExtResource("7_qe12f")
+volume_db = -80.0
+pitch_scale = 0.41
+autoplay = true
+bus = &"Reverb"
+script = ExtResource("8_8qtwp")
+
+[connection signal="pressed" from="Main/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Tutorial/PanelContainer/VBoxContainer/BackButton" to="." method="_on_tutorial_button_pressed"]

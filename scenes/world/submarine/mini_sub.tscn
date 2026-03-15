@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://wiod8uejtcku" path="res://scenes/world/submarine/minisub/clawsub.tscn" id="8_lmao8"]
 [ext_resource type="AudioStream" uid="uid://dadwow1g0fucq" path="res://assets/sounds/sfx/engine_up.mp3" id="9_j5ktf"]
 [ext_resource type="AudioStream" uid="uid://djxa4am0iefma" path="res://assets/sounds/sfx/engine_down.mp3" id="10_1laog"]
+[ext_resource type="AudioStream" uid="uid://i4fhgd1g0tts" path="res://assets/sounds/sfx/rock_break.mp3" id="11_1laog"]
+[ext_resource type="AudioStream" uid="uid://djrgub34o5hem" path="res://assets/sounds/sfx/grab.mp3" id="12_t4sup"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6gk7m"]
 margin = 0.602
@@ -92,7 +94,7 @@ loop = true
 [node name="MiniSub" type="RigidBody3D" parent="." unique_id=1011879966]
 unique_name_in_owner = true
 collision_layer = 32
-collision_mask = 32
+collision_mask = 160
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
@@ -110,6 +112,7 @@ mesh = SubResource("BoxMesh_fslak")
 
 [node name="Camera3D" type="Camera3D" parent="MiniSub" unique_id=672170499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030317008, 1.1277194, 0.93116903)
+cull_mask = 1047549
 
 [node name="Target" type="Area3D" parent="MiniSub/Camera3D" unique_id=676705845]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.600667)
@@ -218,6 +221,25 @@ unique_name_in_owner = true
 stream = ExtResource("10_1laog")
 volume_db = -6.0
 max_distance = 10.0
+bus = &"Underwater"
+
+[node name="RockBreakAudio" type="AudioStreamPlayer3D" parent="MiniSub" unique_id=1691026711]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.529148, -3.299676)
+stream = ExtResource("11_1laog")
+volume_db = -20.0
+pitch_scale = 0.5
+max_distance = 20.0
+bus = &"Underwater"
+
+[node name="GrabAudio" type="AudioStreamPlayer3D" parent="MiniSub" unique_id=1166598005]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.529148, -3.299676)
+stream = ExtResource("12_t4sup")
+volume_db = -15.0
+pitch_scale = 0.7
+max_distance = 20.0
+max_polyphony = 3
 bus = &"Underwater"
 
 [connection signal="area_entered" from="MiniSub/Claw/Claw2" to="MiniSub/Claw" method="_on_claw_2_area_entered"]

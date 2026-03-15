@@ -11,6 +11,8 @@ var discharge_rate
 var is_good = true
 
 func _physics_process(delta: float) -> void:
+	if remaining_capacity > max_capacity: remaining_capacity = max_capacity
+	
 	discharge_rate = (prev_remaining_capacity - remaining_capacity) * delta
 	
 	prev_remaining_capacity = remaining_capacity

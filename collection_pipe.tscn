@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://kvg72cqrxsmw" path="res://assets/fonts/ButtonClick.mp3" id="13_1h3y3"]
 [ext_resource type="AudioStream" uid="uid://dv7hvw8rx2tdj" path="res://assets/sounds/sfx/pop.mp3" id="14_x7yy3"]
 [ext_resource type="AudioStream" uid="uid://bdo5cvqnwwa1p" path="res://assets/sounds/sfx/metal_pipe.mp3" id="15_ybm6x"]
+[ext_resource type="AudioStream" uid="uid://dik3arfx4h2pe" path="res://assets/sounds/sfx/error.mp3" id="16_73qgr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmhv6"]
 albedo_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
@@ -39,13 +40,13 @@ heightmap_texture = ExtResource("4_uv1cm")
 script = ExtResource("2_6krtj")
 draggable_ore_scene = ExtResource("3_uv1cm")
 
-[node name="Cylinder" parent="." index="0" unique_id=427443857]
+[node name="Cylinder" parent="." index="0" unique_id=2087582509]
 material_override = SubResource("StandardMaterial3D_pmhv6")
 
-[node name="Cylinder_001" parent="." index="1" unique_id=1719523859]
+[node name="Cylinder_001" parent="." index="1" unique_id=223453722]
 material_override = ExtResource("8_2wo72")
 
-[node name="Plane" parent="." index="2" unique_id=646351591]
+[node name="Plane" parent="." index="2" unique_id=1802664005]
 material_override = ExtResource("9_n1ick")
 
 [node name="Button" parent="." index="3" unique_id=172103971 instance=ExtResource("11_uv1cm")]
@@ -73,18 +74,28 @@ mesh = SubResource("BoxMesh_uv1cm")
 
 [node name="PlopAudio" type="AudioStreamPlayer3D" parent="." index="7" unique_id=1889854792]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32151556, 1.2021981, 0)
 stream = ExtResource("14_x7yy3")
-volume_db = -18.0
+volume_db = -24.0
 pitch_scale = 0.75
 max_distance = 10.0
 max_polyphony = 16
-bus = &"Reverb"
+bus = &"Underwater"
 
 [node name="RattleAudio" type="AudioStreamPlayer3D" parent="." index="8" unique_id=705844633]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1892328, -0.65122366, 0)
 stream = ExtResource("15_ybm6x")
-volume_db = -24.0
-max_distance = 10.0
+volume_db = -20.0
+max_distance = 30.0
+bus = &"Reverb"
+
+[node name="ErrorAudio" type="AudioStreamPlayer3D" parent="." index="9" unique_id=354461930]
+unique_name_in_owner = true
+transform = Transform3D(1, -3.552714e-15, 0, 3.552714e-15, 1, 0, 0, 0, 1, -0.27328372, 1.2077829, 0)
+stream = ExtResource("16_73qgr")
+volume_db = -15.0
+pitch_scale = 1.25
 bus = &"Reverb"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

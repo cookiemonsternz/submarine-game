@@ -11,6 +11,7 @@ func _on_area_entered(area: Area3D) -> void:
 	#print(area.name)
 	#print("area entered")
 	if area.name == "MiniSubHitbox":
+		%DockUndockAudio.play(5.73);
 		#print("its the mini sub")
 		is_inside = false
 		area.get_parent_node_3d().global_position = other_pos.global_position

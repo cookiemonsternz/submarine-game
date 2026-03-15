@@ -3,10 +3,12 @@ extends RigidBody3D
 var mouse_since_moved := 0.0
 var mouse_stopped_move := 0.3
 
+@export var boat: RigidBody3D
+
 @onready var target_node: Node3D = self.get_parent_node_3d().get_parent_node_3d()  # The mesh or parent node
 var last_target_position: Vector3
 
-var look_sensitivity = 0.02
+var look_sensitivity = 0.08
 var look_sensitivity_vertical = 0.0028
 
 @onready var camera: Camera3D = $Camera3D
@@ -16,11 +18,13 @@ var awake = false
 
 var is_tracking: bool = true
 
+var transform_offset: Transform3D
+
 func _ready() -> void:
 	camera.current = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if target_node != null:
-		last_target_position = target_node.global_transform.origin
+	
+	transform_offset = get_parent().global_transform
 
 func _physics_process(delta: float) -> void:
 	
@@ -28,15 +32,13 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if is_tracking:
-		var current_position = target_node.global_transform.origin
-		var delta_position = current_position - last_target_position
-		global_translate(delta_position)
-		last_target_position = current_position
+		global_transform = boat.global_transform * transform_offset
 
 	if Input.is_action_just_pressed("mini_sub"):
 		#print("pressed T")//
 		awake = !awake
 		camera.current = awake
+		#is_tracking = !is_tracking
 		
 		if not awake:
 			%EngineLoopAudio.stop()
@@ -54,6 +56,9 @@ func _physics_process(delta: float) -> void:
 			
 			freeze = true
 		else:
+			if is_tracking:
+				is_tracking = false
+			
 			AudioServer.get_bus_effect(0, 0).cutoff_hz = 2000;
 			%AudioListener3D.make_current()
 			

@@ -1,0 +1,570 @@
+[gd_scene format=3 uid="uid://cl2j14j1nkoat"]
+
+[ext_resource type="PackedScene" uid="uid://8140x1b3amdd" path="res://scenes/world/submarine/components/dial/dial.tscn" id="1_hwlim"]
+[ext_resource type="PackedScene" uid="uid://7qgry4rw36cu" path="res://scenes/world/interactable/lever/lever.tscn" id="2_n2n5s"]
+[ext_resource type="PackedScene" uid="uid://dmjh272vvfge3" path="res://scenes/world/interactable/slider/slider.tscn" id="3_k3wkh"]
+[ext_resource type="PackedScene" uid="uid://ci138ltswilxq" path="res://scenes/world/submarine/components/aux_props_control/aux_props_control.tscn" id="4_gp6nv"]
+[ext_resource type="PackedScene" uid="uid://4muggwxyc8b8" path="res://scenes/world/interactable/wheel/wheel.tscn" id="5_7oi4m"]
+[ext_resource type="PackedScene" uid="uid://dms83r5ovibj8" path="res://scenes/world/submarine/components/compass/compass.tscn" id="6_ftjbp"]
+[ext_resource type="PackedScene" uid="uid://de6lvnrep2qyb" path="res://scenes/world/submarine/components/inclinometer/incinometer.tscn" id="7_nthxv"]
+[ext_resource type="PackedScene" uid="uid://buheyt3ufx4qf" path="res://scenes/world/interactable/switch/switch.tscn" id="8_xn7uf"]
+[ext_resource type="PackedScene" uid="uid://bfpg4t6ybcn7k" path="res://scenes/world/submarine/control_room_mesh.tscn" id="9_m5b6y"]
+[ext_resource type="Texture2D" uid="uid://b08dfoetx6qyd" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Color.jpg" id="10_dvoyl"]
+[ext_resource type="Texture2D" uid="uid://g826u1withno" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_AmbientOcclusion.jpg" id="11_q8sjk"]
+[ext_resource type="Texture2D" uid="uid://cl7xx7v36tldu" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Displacement.jpg" id="12_dkn5q"]
+[ext_resource type="Texture2D" uid="uid://i88o8l11eexv" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Metalness.jpg" id="13_31vi0"]
+[ext_resource type="Texture2D" uid="uid://c3h2kuuphpr8s" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_NormalGL.jpg" id="14_mdc6v"]
+[ext_resource type="Texture2D" uid="uid://djbrk2ew3ba0d" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Roughness.jpg" id="15_7lb60"]
+[ext_resource type="Texture2D" uid="uid://cl0pt0kjbtaol" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Color.jpg" id="16_h63bu"]
+[ext_resource type="Texture2D" uid="uid://bsy6b6v5exhiu" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Displacement.jpg" id="17_kek5w"]
+[ext_resource type="Texture2D" uid="uid://bbhijx4ot6ujh" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Metalness.jpg" id="18_lycob"]
+[ext_resource type="Texture2D" uid="uid://dp6dvly75e11a" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_NormalGL.jpg" id="19_ooon0"]
+[ext_resource type="Texture2D" uid="uid://cwc4cxuedw71k" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Roughness.jpg" id="20_rnxt8"]
+[ext_resource type="PackedScene" uid="uid://cwrf44o6g5pyt" path="res://scenes/world/submarine/control_room_roof.tscn" id="21_mr2g6"]
+[ext_resource type="Material" uid="uid://bv0j47itpn763" path="res://assets/shaders/water.tres" id="22_ieits"]
+[ext_resource type="Texture2D" uid="uid://yp1w3o2hkip" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Color.jpg" id="23_lb6ca"]
+[ext_resource type="Texture2D" uid="uid://c2fxdlc674ewl" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_AmbientOcclusion.jpg" id="24_vieba"]
+[ext_resource type="Texture2D" uid="uid://drafemraojdcd" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Displacement.jpg" id="25_nqci7"]
+[ext_resource type="Texture2D" uid="uid://02etn80dopch" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Metalness.jpg" id="26_w41ld"]
+[ext_resource type="Texture2D" uid="uid://btk7m7xrkkyhg" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_NormalGL.jpg" id="27_q3qqe"]
+[ext_resource type="Texture2D" uid="uid://b440vxa8lhcom" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Roughness.jpg" id="28_qryrs"]
+[ext_resource type="PackedScene" uid="uid://dodhynppdxb7w" path="res://scenes/world/submarine/cupboard_door.tscn" id="31_u6pjn"]
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="32_tkwlj"]
+[ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="33_fqe2n"]
+[ext_resource type="PackedScene" uid="uid://dt5r6gyyyku05" path="res://scenes/world/submarine/components/ladder/ladder.tscn" id="34_8omqy"]
+[ext_resource type="PackedScene" uid="uid://c8rmmqs7jqkr5" path="res://scenes/world/submarine/upper_room.tscn" id="35_11837"]
+[ext_resource type="PackedScene" uid="uid://wrghk2c41auh" path="res://scenes/world/submarine/components/furnace/furnace.tscn" id="36_vf045"]
+[ext_resource type="PackedScene" uid="uid://dlvfd0ddy2245" path="res://scenes/world/submarine/components/hydrolic_press/hydroulic_press.tscn" id="37_bxvpe"]
+[ext_resource type="FontFile" uid="uid://xofw3rvja4x7" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-800-normal.ttf" id="40_ymeke"]
+[ext_resource type="Texture2D" uid="uid://dnjqtv74astv" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Color.jpg" id="41_dnxm0"]
+[ext_resource type="Texture2D" uid="uid://b145oi2kgqg7t" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Displacement.jpg" id="42_72i7h"]
+[ext_resource type="Texture2D" uid="uid://bvknfdf0n0l14" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_NormalGL.jpg" id="43_ufh3f"]
+[ext_resource type="Texture2D" uid="uid://cxlsmwlmh1veo" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Roughness.jpg" id="44_0rrlm"]
+[ext_resource type="PackedScene" uid="uid://05gcvavnphvi" path="res://scenes/world/interactable/radar/radar.tscn" id="45_nud84"]
+[ext_resource type="PackedScene" uid="uid://c1w121mq6o6uh" path="res://scenes/world/submarine/components/control_room/rudder_label.tscn" id="46_qovdv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uf0n3"]
+radius = 0.025
+height = 0.15
+
+[sub_resource type="SphereMesh" id="SphereMesh_gfl3u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvf2q"]
+albedo_color = Color(0.69404453, 0.6426653, 0.6204094, 1)
+albedo_texture = ExtResource("10_dvoyl")
+metallic = 1.0
+metallic_texture = ExtResource("13_31vi0")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("15_7lb60")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("14_mdc6v")
+ao_enabled = true
+ao_texture = ExtResource("11_q8sjk")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 16.0
+heightmap_texture = ExtResource("12_dkn5q")
+uv1_scale = Vector3(0.3195, 0.3195, 0.3195)
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_75dkl"]
+size = Vector2(7, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_is48x"]
+albedo_texture = ExtResource("16_h63bu")
+metallic = 1.0
+metallic_texture = ExtResource("18_lycob")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("20_rnxt8")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("19_ooon0")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("17_kek5w")
+uv1_scale = Vector3(0.5037, 0.5037, 0.5037)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e854u"]
+size = Vector2(5.1329, 12.1398)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jv5ip"]
+size = Vector2(4, 3)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6gsif"]
+flip_faces = true
+size = Vector2(4, 3)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_08077"]
+flip_faces = true
+size = Vector2(4.6533, 3.3811)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e854u"]
+albedo_texture = ExtResource("16_h63bu")
+metallic = 1.0
+metallic_texture = ExtResource("18_lycob")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("20_rnxt8")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("19_ooon0")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("17_kek5w")
+uv1_scale = Vector3(0.5037, 0.5037, 0.5037)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o2jfx"]
+size = Vector2(12, 11.2729)
+orientation = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_6gsif"]
+size = Vector2(9.9, 6)
+subdivide_width = 16
+subdivide_depth = 64
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqxl2"]
+albedo_texture = ExtResource("23_lb6ca")
+metallic = 1.0
+metallic_texture = ExtResource("26_w41ld")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("28_qryrs")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("27_q3qqe")
+ao_enabled = true
+ao_texture = ExtResource("24_vieba")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("25_nqci7")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l5jvd"]
+flip_faces = true
+size = Vector2(15.9193, 4.5361)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5jvd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c2v2f"]
+size = Vector2(15, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_75dkl"]
+size = Vector3(1.6, 2.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl3t5"]
+albedo_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+albedo_texture = ExtResource("41_dnxm0")
+roughness_texture = ExtResource("44_0rrlm")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("43_ufh3f")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("42_72i7h")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4k7f"]
+size = Vector3(3.25, 0.75, 0.25)
+
+[node name="ControlRoom" type="Node3D" unique_id=957836708]
+process_mode = 4
+
+[node name="Controls" type="Node3D" parent="." unique_id=251038954]
+
+[node name="EngineRpmDial" parent="Controls" unique_id=78350822 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.8, 1.5006064, 2.8641415)
+script = null
+
+[node name="BatteryRemainingDial" parent="Controls" unique_id=260681569 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.59999996, 1.5006064, 2.8641415)
+script = null
+
+[node name="BatteryDrawDial" parent="Controls" unique_id=1722389638 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.5999999, 1.6934427, 3.0939548)
+script = null
+
+[node name="BallastPowerDrawDial" parent="Controls" unique_id=864433847 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.29999986, 1.6934427, 3.0939548)
+script = null
+
+[node name="PropRpmDial" parent="Controls" unique_id=728733975 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.42, 1.5006064, 2.8641415)
+script = null
+
+[node name="EngineCoolantDial" parent="Controls" unique_id=798528329 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.1199999, 1.6934427, 3.0939548)
+script = null
+
+[node name="EngineCoolantPowerDial" parent="Controls" unique_id=170566442 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.8599999, 1.6034524, 2.9867086)
+script = null
+
+[node name="TempDial" parent="Controls" unique_id=1978487299 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 1.6099999, 1.6136537, 3.0059037)
+script = null
+
+[node name="RudderAngleDial" parent="Controls" unique_id=1049871239 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, 0.2999999, 1.4991845, 2.8539276)
+script = null
+
+[node name="AuxPropsForceFLDial" parent="Controls" unique_id=373962133 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, -0.1900002, 1.6779324, 3.0825078)
+script = null
+
+[node name="AuxPropsForceFRDial" parent="Controls" unique_id=1136213191 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, -0.45000023, 1.6779324, 3.0825078)
+script = null
+
+[node name="AuxPropsForceRLDial" parent="Controls" unique_id=511266341 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, -0.19000018, 1.5325564, 2.878141)
+script = null
+
+[node name="AuxPropsForceRRDial" parent="Controls" unique_id=1941776276 instance=ExtResource("1_hwlim")]
+transform = Transform3D(-0.1, 6.5545405e-09, 1.1011294e-08, -2.0568531e-09, 0.07660444, -0.06427876, -1.2648319e-08, -0.06427875, -0.07660445, -0.4500002, 1.5325564, 2.878141)
+script = null
+
+[node name="ThrottleLever" parent="Controls" unique_id=424322314 instance=ExtResource("2_n2n5s")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.9, 0.6, 1.7)
+script = null
+
+[node name="RudderLever" parent="Controls" unique_id=322694500 instance=ExtResource("2_n2n5s")]
+transform = Transform3D(-1, 0, 8.742278e-08, -5.0143647e-08, 0.81915206, -0.57357645, -7.161255e-08, -0.57357645, -0.81915206, -0.100000024, 0.90000004, 3)
+script = null
+
+[node name="GearLever" parent="Controls" unique_id=551308029 instance=ExtResource("2_n2n5s")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.6, 0.6, 1.7)
+script = null
+
+[node name="Slider" parent="Controls" unique_id=1062975164 instance=ExtResource("3_k3wkh")]
+transform = Transform3D(-1, -5.619428e-08, -6.696973e-08, 0, 0.76604456, -0.6427876, 8.742278e-08, -0.64278764, -0.76604444, 1.75, 1.306, 2.695)
+script = null
+
+[node name="RigidBody3D" parent="Controls/Slider" index="0" unique_id=404819209]
+script = null
+
+[node name="MouseTarget" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="0" unique_id=532023496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
+script = null
+
+[node name="MouseTargetCollisionShape" parent="Controls/Slider/RigidBody3D/Components/MouseTarget" index="0" unique_id=1806052713]
+transform = Transform3D(1, 2.3092639e-14, -2.046363e-12, 2.6645353e-14, 0.9999994, -1.4901161e-08, -7.1054274e-15, 1.4901161e-08, 0.9999994, 0, 0.13749981, 2.3841858e-07)
+
+[node name="Draggable" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="1" unique_id=898455505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
+script = null
+
+[node name="Measureable" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="2" unique_id=1180068611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
+script = null
+
+[node name="HandleMesh" parent="Controls/Slider/RigidBody3D" index="1" unique_id=1409803162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+mesh = SubResource("CapsuleMesh_uf0n3")
+
+[node name="EndMesh" parent="Controls/Slider/RigidBody3D" index="2" unique_id=206053944]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 0)
+mesh = SubResource("SphereMesh_gfl3u")
+
+[node name="HandleCollisionShape" parent="Controls/Slider/RigidBody3D" index="3" unique_id=1858927460]
+transform = Transform3D(1, 2.3092639e-14, -2.3732127e-12, 2.6645353e-14, 0.9999994, -1.4901161e-08, -7.1054274e-15, 1.4901161e-08, 0.9999994, 0, 0.0750007, 7.1525574e-07)
+
+[node name="EndCollisionShape" parent="Controls/Slider/RigidBody3D" index="4" unique_id=51651539]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.14999996, 0)
+
+[node name="JoltSliderJoint3D" parent="Controls/Slider" index="1" unique_id=1404569318]
+limit_upper = 0.15
+limit_lower = -0.15
+
+[node name="AuxPropsControl" parent="Controls" unique_id=341946135 instance=ExtResource("4_gp6nv")]
+transform = Transform3D(1.3113416e-07, 0, 0.99999994, 0, 0.99999994, 0, -1, 0, 1.3113416e-07, -1.65, 1.21, 1.314)
+script = null
+
+[node name="WheelForwards" parent="Controls" unique_id=765100319 instance=ExtResource("5_7oi4m")]
+transform = Transform3D(1.0927848e-08, 0.25, 3.774895e-08, 0.25, -1.0927847e-08, -5.8873666e-09, -5.887365e-09, 3.774895e-08, -0.25, -1.92, 1.6005212, 1.9401274)
+script = null
+
+[node name="WheelRear" parent="Controls" unique_id=917075109 instance=ExtResource("5_7oi4m")]
+transform = Transform3D(1.0927848e-08, 0.25, 3.774895e-08, 0.25, -1.0927847e-08, -5.8873666e-09, -5.887365e-09, 3.774895e-08, -0.25, -1.92, 1.6005212, 0.9651274)
+script = null
+
+[node name="Compass" parent="Controls" unique_id=821894870 instance=ExtResource("6_ftjbp")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.65, 1.1927624, 2.6)
+script = null
+
+[node name="Inclinometer" parent="Controls" unique_id=1486642658 instance=ExtResource("7_nthxv")]
+transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -1.975, 1.45, 1.45)
+
+[node name="CoolantWheel" parent="Controls" unique_id=1067580951 instance=ExtResource("5_7oi4m")]
+transform = Transform3D(1.9106854e-16, 4.371139e-09, -0.10000001, 0.1, -4.371139e-09, 0, -4.371139e-09, -0.1, -4.371139e-09, 1.1228459, 1.4827691, 2.6609404)
+script = null
+
+[node name="Fuses" type="Node3D" parent="." unique_id=1840428445]
+
+[node name="EngineFuseSwitch" parent="Fuses" unique_id=1765839595 instance=ExtResource("8_xn7uf")]
+transform = Transform3D(3.2783543e-09, 0.075, -8.5980853e-16, 0.075, -3.2783543e-09, -1.9670125e-08, -1.9670125e-08, 0, -0.075, -1.6700001, 1.97, -2.2024996)
+script = null
+
+[node name="CoolantFuseSwitch" parent="Fuses" unique_id=631891455 instance=ExtResource("8_xn7uf")]
+transform = Transform3D(3.2783543e-09, 0.075, -8.5980853e-16, 0.075, -3.2783543e-09, -1.9670125e-08, -1.9670125e-08, 0, -0.075, -1.6700001, 1.97, -2.4049995)
+script = null
+
+[node name="AuxPropsFuseSwitch" parent="Fuses" unique_id=1398153128 instance=ExtResource("8_xn7uf")]
+transform = Transform3D(3.2783543e-09, 0.075, -8.5980853e-16, 0.075, -3.2783543e-09, -1.9670125e-08, -1.9670125e-08, 0, -0.075, -1.6700001, 1.97, -2.6074996)
+script = null
+
+[node name="BallastFuseSwitch" parent="Fuses" unique_id=545962359 instance=ExtResource("8_xn7uf")]
+transform = Transform3D(3.2783543e-09, 0.075, -8.5980853e-16, 0.075, -3.2783543e-09, -1.9670125e-08, -1.9670125e-08, 0, -0.075, -1.6700001, 1.97, -2.8074996)
+script = null
+
+[node name="InstrLightsSwitch" parent="Fuses" unique_id=654817452 instance=ExtResource("8_xn7uf")]
+transform = Transform3D(3.2783543e-09, 0.075, -2.8660284e-16, 0.075, -3.2783543e-09, -6.5567085e-09, -6.5567085e-09, 0, -0.075, -1.6700001, 2.4950001, -2.3974996)
+script = null
+
+[node name="SubInternalLightsSwitch" parent="Fuses" unique_id=564730294 instance=ExtResource("8_xn7uf")]
+transform = Transform3D(3.2783543e-09, 0.075, -2.8660284e-16, 0.075, -3.2783543e-09, -6.5567085e-09, -6.5567085e-09, 0, -0.075, -1.6700001, 2.4950001, -2.2024996)
+script = null
+
+[node name="BatteryFuseSwitch" parent="Fuses" unique_id=1684608767 instance=ExtResource("8_xn7uf")]
+transform = Transform3D(3.2783543e-09, 0.075, -2.8660284e-16, 0.075, -3.2783543e-09, -6.5567085e-09, -6.5567085e-09, 0, -0.075, -1.6700001, 3.17, -2.2024994)
+script = null
+
+[node name="control_room" parent="." unique_id=2046035202 instance=ExtResource("9_m5b6y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="control_room" unique_id=437602778]
+material_override = SubResource("StandardMaterial3D_tvf2q")
+mesh = SubResource("PlaneMesh_75dkl")
+
+[node name="ForwardWall" type="MeshInstance3D" parent="control_room" unique_id=97250688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9000001, 9.092636, 1.923301e-07)
+material_override = SubResource("StandardMaterial3D_is48x")
+mesh = SubResource("PlaneMesh_e854u")
+
+[node name="RearWall" type="MeshInstance3D" parent="control_room" unique_id=843294368]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.5, 1.5, 0)
+material_override = SubResource("StandardMaterial3D_is48x")
+mesh = SubResource("PlaneMesh_jv5ip")
+
+[node name="RearWall2" type="MeshInstance3D" parent="control_room" unique_id=1764022436]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 3.50656, 1.5, 2.8676084e-10)
+material_override = SubResource("StandardMaterial3D_is48x")
+mesh = SubResource("PlaneMesh_6gsif")
+
+[node name="RearWall4" type="MeshInstance3D" parent="control_room" unique_id=179931797]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -3.5, 1.5, -3.059797e-07)
+material_override = SubResource("StandardMaterial3D_is48x")
+mesh = SubResource("PlaneMesh_08077")
+
+[node name="RearWall3" type="MeshInstance3D" parent="control_room" unique_id=1985843490]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 13.5, 4.2990575, 4.371139e-07)
+material_override = SubResource("StandardMaterial3D_e854u")
+mesh = SubResource("PlaneMesh_e854u")
+
+[node name="RightWall" type="MeshInstance3D" parent="control_room" unique_id=97823868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7610679, -2)
+material_override = SubResource("StandardMaterial3D_is48x")
+mesh = SubResource("PlaneMesh_o2jfx")
+
+[node name="LeftWall" type="MeshInstance3D" parent="control_room" unique_id=876673010]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 0, 1.7936702, 2)
+material_override = SubResource("StandardMaterial3D_is48x")
+mesh = SubResource("PlaneMesh_o2jfx")
+
+[node name="RightWall2" type="MeshInstance3D" parent="control_room" unique_id=1712497280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.95825, 3.165515, -2.008953)
+material_override = SubResource("StandardMaterial3D_e854u")
+mesh = SubResource("PlaneMesh_o2jfx")
+
+[node name="LeftWall2" type="MeshInstance3D" parent="control_room" unique_id=445385829]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 11.92535, 4.0378494, 1.9854977)
+material_override = SubResource("StandardMaterial3D_e854u")
+mesh = SubResource("PlaneMesh_o2jfx")
+
+[node name="control_room_roof" parent="control_room" unique_id=1825596253 instance=ExtResource("21_mr2g6")]
+
+[node name="Water" type="MeshInstance3D" parent="control_room" unique_id=1344516987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.79999995, 3.715468e-07)
+material_override = ExtResource("22_ieits")
+mesh = SubResource("QuadMesh_6gsif")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="control_room" unique_id=223077582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 7.336851, 3.059797e-07)
+material_override = SubResource("StandardMaterial3D_hqxl2")
+mesh = SubResource("PlaneMesh_l5jvd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="control_room" unique_id=1621068655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1.5, 3.059797e-07)
+material_override = SubResource("StandardMaterial3D_l5jvd")
+mesh = SubResource("PlaneMesh_c2v2f")
+
+[node name="Lights" type="Node3D" parent="." unique_id=2041762675]
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=1130194925 groups=["sub_general_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1.6)
+light_color = Color(0.6669903, 0.824719, 0.8611875, 1)
+light_energy = 0.1
+light_size = 0.143
+shadow_enabled = true
+shadow_opacity = 0.75
+omni_range = 79.5
+omni_attenuation = 0.5
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=428101057 groups=["sub_instr_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, -0.7769263, 0.6295916, 0, -0.6295916, -0.7769263, 0, 3.3923109, -0.3186437)
+light_color = Color(0.8703462, 0.71655583, 0.74955726, 1)
+light_energy = 1.688
+spot_range = 9.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights" unique_id=1184700400 groups=["sub_general_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13313723, 3.2030485, 1.7271287)
+light_color = Color(0.6669903, 0.824719, 0.8611875, 1)
+light_energy = 0.1
+light_size = 0.143
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights" unique_id=1992603246 groups=["sub_general_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0467124, 7.732073, -7.6358976)
+light_color = Color(0.92797136, 0.7474256, 0.6596629, 1)
+light_energy = 0.25
+light_size = 0.143
+shadow_enabled = true
+shadow_opacity = 0.75
+omni_range = 8.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights" unique_id=1700013583 groups=["sub_general_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0467124, 7.732073, -2.3381824)
+light_color = Color(0.92797136, 0.7474256, 0.6596629, 1)
+light_energy = 0.25
+light_size = 0.143
+shadow_enabled = true
+shadow_opacity = 0.75
+omni_range = 8.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights" unique_id=896517328 groups=["sub_general_lights", "sub_lights"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0467124, 7.732073, -12.872537)
+light_color = Color(0.92797136, 0.7474256, 0.6596629, 1)
+light_energy = 0.25
+light_size = 0.143
+shadow_enabled = true
+shadow_opacity = 0.75
+omni_range = 8.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights" unique_id=1224211093 groups=["sub_instr_lights", "sub_lights"]]
+transform = Transform3D(0.7646423, -0.5438708, -0.34572643, 0.20080358, -0.30869016, 0.9297249, -0.6123725, -0.7803301, -0.12682636, 1.5081725, 2.0820694, 1.7)
+light_color = Color(0.89632446, 0.674943, 0.5316481, 1)
+light_energy = 3.0
+shadow_enabled = true
+shadow_opacity = 0.7
+spot_angle = 43.3
+spot_angle_attenuation = 2.219139
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" unique_id=2054112231 groups=["sub_instr_lights", "sub_lights"]]
+transform = Transform3D(-0.30121186, 0.31248817, 0.90090096, 0.67360175, -0.5989888, 0.43298176, 0.6749312, 0.73726773, -0.030070042, -0.9000001, 1.8, 1.3703113)
+light_color = Color(0.93427384, 0.9236926, 0.81056035, 1)
+shadow_enabled = true
+shadow_opacity = 0.7
+spot_angle = 46.78669
+spot_angle_attenuation = 4.756827
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" unique_id=872843611 groups=["sub_instr_lights", "sub_lights"]]
+transform = Transform3D(0.9597097, -0.08552002, -0.2676632, 0, -0.95256066, 0.30434892, -0.28099334, -0.29208663, -0.91418165, 1.0649331, 1.7971826, 1.934903)
+light_color = Color(0.9091302, 0.7257843, 0.7443376, 1)
+light_energy = 2.0
+spot_range = 2.831089
+spot_angle = 34.67
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights" unique_id=1738880242 groups=["sub_instr_lights", "sub_lights"]]
+transform = Transform3D(0.9231351, 0.117014796, 0.3662365, 7.275217e-09, -0.95256066, 0.30434892, 0.38447583, -0.2809552, -0.87934214, 1.0649331, 1.7971826, 1.934903)
+light_color = Color(0.95058745, 0.6592998, 0.580573, 1)
+light_energy = 2.0
+spot_range = 2.831089
+spot_angle = 34.67
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lights" unique_id=416293049]
+transform = Transform3D(1, 0, 0, 0, -0.8457055, 0.53364986, 0, -0.53364986, -0.8457055, 0, 6.153782, -2.7904282)
+light_color = Color(0.9654282, 0.56737703, 0.7455959, 1)
+light_energy = 3.0
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lights" unique_id=715752887]
+transform = Transform3D(1, 0, 0, 0, -0.02095288, 0.9997805, 0, -0.9997805, -0.02095288, -0.8103584, 7.385317, -11.873276)
+light_color = Color(0.90447205, 0.87466764, 0.6482178, 1)
+light_energy = 10.0
+spot_range = 7.9240904
+spot_attenuation = 0.0
+spot_angle = 18.319008
+
+[node name="CupboardDoor" type="RigidBody3D" parent="." unique_id=1151122810]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.55, 1.9854, -2.75)
+
+[node name="cupboard_door" parent="CupboardDoor" unique_id=66583398 instance=ExtResource("31_u6pjn")]
+
+[node name="MouseTarget" parent="CupboardDoor/cupboard_door" unique_id=1643940012 instance=ExtResource("32_tkwlj")]
+script = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CupboardDoor/cupboard_door/MouseTarget" unique_id=711004838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.00049996376)
+shape = SubResource("BoxShape3D_75dkl")
+
+[node name="Draggable" parent="CupboardDoor/cupboard_door" unique_id=218770503 instance=ExtResource("33_fqe2n")]
+script = null
+
+[node name="ladder" parent="." unique_id=1687273499 instance=ExtResource("34_8omqy")]
+transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0.75, 0.925, 0, -2.5)
+
+[node name="upper_room" parent="." unique_id=961274989 instance=ExtResource("35_11837")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5, 0)
+
+[node name="Upper" type="Node3D" parent="." unique_id=2057188181]
+
+[node name="Furnace" parent="Upper" unique_id=138935279 instance=ExtResource("36_vf045")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.8703811, 4.27388, -7.4579)
+script = null
+
+[node name="Draggable" parent="Upper/Furnace/RigidBody3D" parent_id_path=PackedInt32Array(138935279, 118882) index="2" unique_id=898455505]
+script = null
+
+[node name="MouseTarget" parent="Upper/Furnace/RigidBody3D" parent_id_path=PackedInt32Array(138935279, 118882) index="3" unique_id=532023496]
+script = null
+
+[node name="Measureable" parent="Upper/Furnace/RigidBody3D" parent_id_path=PackedInt32Array(138935279, 118882) index="4" unique_id=1180068611]
+script = null
+
+[node name="OmniLight3D" parent="Upper/Furnace" index="7" unique_id=1789751894]
+script = null
+
+[node name="HydroulicPress" parent="Upper" unique_id=1433679527 instance=ExtResource("37_bxvpe")]
+transform = Transform3D(6.556708e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.556708e-08, -0.8, 4.3144364, -4.8907814)
+script = null
+
+[node name="Cash" type="Label3D" parent="." unique_id=478705189 groups=["cash_label"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 5.1531, -1.0395)
+shaded = true
+text = "$0 / $4,000,000"
+font = ExtResource("40_ymeke")
+outline_size = 0
+
+[node name="CashMesh" type="MeshInstance3D" parent="." unique_id=935666199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1325216, -0.9)
+material_override = SubResource("StandardMaterial3D_nl3t5")
+mesh = SubResource("BoxMesh_c4k7f")
+
+[node name="Radar" parent="." unique_id=1572735103 instance=ExtResource("45_nud84")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.2336967, 0.50000036, -0.7017651)
+
+[node name="rudder_label" parent="." unique_id=1072215261 instance=ExtResource("46_qovdv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9906885e-10, 0.5419358, 0.006841898)
+
+[editable path="Controls/Slider"]
+[editable path="CupboardDoor/cupboard_door"]
+[editable path="Upper/Furnace"]
+[editable path="Upper/Furnace/RigidBody3D/furnace_gate"]

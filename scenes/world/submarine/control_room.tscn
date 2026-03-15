@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://cxlsmwlmh1veo" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Roughness.jpg" id="45_7ilxv"]
 [ext_resource type="PackedScene" uid="uid://05gcvavnphvi" path="res://scenes/world/interactable/radar/radar.tscn" id="46_3nqlc"]
 [ext_resource type="PackedScene" uid="uid://c1w121mq6o6uh" path="res://scenes/world/submarine/components/control_room/rudder_label.tscn" id="46_xudfs"]
+[ext_resource type="AudioStream" uid="uid://crvoy77gcuwdg" path="res://assets/sounds/sfx/dock_undock.mp3" id="47_xudfs"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uf0n3"]
 radius = 0.025
@@ -890,6 +891,12 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.2336967, 0.50000036,
 
 [node name="rudder_label" parent="." unique_id=1072215261 instance=ExtResource("46_xudfs")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9906885e-10, 0.5419358, 0.006841898)
+
+[node name="DockUndockAudio" type="AudioStreamPlayer" parent="." unique_id=1106233990]
+unique_name_in_owner = true
+stream = ExtResource("47_xudfs")
+pitch_scale = 2.0
+bus = &"Underwater"
 
 [connection signal="area_entered" from="Docking/MiniSubEntryArea" to="Docking/MiniSubEntryArea" method="_on_area_entered"]
 [connection signal="area_entered" from="Docking/MiniSubExitArea" to="Docking/MiniSubExitArea" method="_on_area_entered"]

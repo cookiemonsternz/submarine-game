@@ -46,6 +46,7 @@ func claw_sequence() -> void:
 func _on_claw_2_area_entered(area: Area3D) -> void:
 	if area.is_in_group("grabbable") and is_instance_valid(area) and area.get_parent().get_parent() != self:
 		#print(area.get_parent().get_parent().name, " : ", area.get_parent().name)
+		%GrabAudio.play()
 		
 		%"Storage".add_ore(area.name)
 		area.get_parent().reparent(self)

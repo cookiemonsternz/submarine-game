@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dcq3q4hiqfoxj"]
 
-[ext_resource type="Script" uid="uid://d3sikt8ep5y8v" path="res://scenes/world/submarine/submarine.gd" id="1_230i3"]
-[ext_resource type="Material" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
+[ext_resource type="Material" uid="uid://14it81xcr33l" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
 [ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="1_er88w"]
 [ext_resource type="PackedScene" uid="uid://byqs7yxjs0y64" path="res://scenes/interaction/power/power.tscn" id="2_mfyhc"]
 [ext_resource type="PackedScene" uid="uid://ddxlhji54j4mv" path="res://scenes/interaction/ballast/ballast.tscn" id="3_f8iv4"]
@@ -110,7 +109,6 @@ collision_mask = 128
 mass = 800000.0
 gravity_scale = 0.0
 can_sleep = false
-script = ExtResource("1_230i3")
 
 [node name="ExternalCollider" type="CollisionShape3D" parent="." unique_id=334731923]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
@@ -157,32 +155,32 @@ ratio = 0.5
 desired_ratio = 0.5
 metadata/_custom_type_script = "uid://b0tqvvoirkp63"
 
-[node name="AuxEngineRearLeft" parent="Components" unique_id=1965373193 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
+[node name="AuxEngineFR" parent="Components" unique_id=1965373193 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -10, 0, 15)
 boat = NodePath("../..")
 aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
-audio_player = NodePath("../AuxPropsRLAudio")
+audio_player = NodePath("../AuxPropsFRAudio")
 power = NodePath("../Power")
 
-[node name="AuxEngineRearRight" parent="Components" unique_id=1804078283 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
+[node name="AuxEngineFL" parent="Components" unique_id=1804078283 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15)
-boat = NodePath("../..")
-aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
-audio_player = NodePath("../AuxPropsRRAudio")
-power = NodePath("../Power")
-
-[node name="AuxEngineForwLeft" parent="Components" unique_id=491753843 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -15)
 boat = NodePath("../..")
 aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
 audio_player = NodePath("../AuxPropsFLAudio")
 power = NodePath("../Power")
 
-[node name="AuxEngineForwRight" parent="Components" unique_id=287101377 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
+[node name="AuxEngineRR" parent="Components" unique_id=491753843 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -15)
+boat = NodePath("../..")
+aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
+audio_player = NodePath("../AuxPropsRRAudio")
+power = NodePath("../Power")
+
+[node name="AuxEngineRL" parent="Components" unique_id=287101377 node_paths=PackedStringArray("boat", "aux_props_control", "audio_player", "power") instance=ExtResource("5_0snpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -15)
 boat = NodePath("../..")
 aux_props_control = NodePath("../../ControlRoom/Controls/AuxPropsControl")
-audio_player = NodePath("../AuxPropsFRAudio")
+audio_player = NodePath("../AuxPropsRLAudio")
 power = NodePath("../Power")
 
 [node name="Lights" parent="Components" unique_id=1347795887 node_paths=PackedStringArray("power") instance=ExtResource("6_r13nx")]
@@ -191,7 +189,7 @@ power = NodePath("../Power")
 [node name="Rudder" parent="Components" unique_id=1259838862 node_paths=PackedStringArray("boat") instance=ExtResource("7_r13nx")]
 boat = NodePath("../..")
 size = Vector2(4, 8)
-force_scale = 10000000.0
+force_scale = -10000.0
 
 [node name="PropertyRelay" type="Node3D" parent="Components" unique_id=1155343069 node_paths=PackedStringArray("node")]
 script = ExtResource("8_ceh3h")
@@ -276,16 +274,16 @@ min_value = 1.25
 max_value = -1.25
 
 [node name="AuxPropsForceFLDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="9" unique_id=373962133 node_paths=PackedStringArray("node")]
-node = NodePath("../../../Components/AuxEngineForwLeft")
+node = NodePath("../../../Components/AuxEngineRR")
 
 [node name="AuxPropsForceFRDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="10" unique_id=1136213191 node_paths=PackedStringArray("node")]
-node = NodePath("../../../Components/AuxEngineForwRight")
+node = NodePath("../../../Components/AuxEngineRL")
 
 [node name="AuxPropsForceRLDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="11" unique_id=511266341 node_paths=PackedStringArray("node")]
-node = NodePath("../../../Components/AuxEngineRearLeft")
+node = NodePath("../../../Components/AuxEngineFR")
 
 [node name="AuxPropsForceRRDial" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="12" unique_id=1941776276 node_paths=PackedStringArray("node")]
-node = NodePath("../../../Components/AuxEngineRearRight")
+node = NodePath("../../../Components/AuxEngineFL")
 
 [node name="ThrottleLever" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="13" unique_id=424322314 node_paths=PackedStringArray("node", "boat")]
 node = NodePath("../../../Components/Engine")
@@ -323,19 +321,19 @@ from = NodePath("../../../../../Components/Ballast/BallastTankRear")
 from = NodePath("../../../../../Components/Ballast/BallastTankForward")
 
 [node name="RightRearParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="0" unique_id=2134781917 node_paths=PackedStringArray("to_node")]
-to_node = NodePath("../../../../../../Components/AuxEngineRearRight")
+to_node = NodePath("../../../../../../Components/AuxEngineRR")
 property_scale = 1000000.0
 
 [node name="RightForwardParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="1" unique_id=802558758 node_paths=PackedStringArray("to_node")]
-to_node = NodePath("../../../../../../Components/AuxEngineForwRight")
+to_node = NodePath("../../../../../../Components/AuxPropsFRAudio")
 property_scale = 1000000.0
 
 [node name="LeftRearParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="2" unique_id=587701637 node_paths=PackedStringArray("to_node")]
-to_node = NodePath("../../../../../../Components/AuxEngineRearLeft")
+to_node = NodePath("../../../../../../Components/AuxEngineRL")
 property_scale = 1000000.0
 
 [node name="LeftForwardParticles" parent="ControlRoom/Controls/AuxPropsControl/SubViewport/Particles" parent_id_path=PackedInt32Array(957836708, 341946135, 463781613) index="3" unique_id=1779613706 node_paths=PackedStringArray("to_node")]
-to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
+to_node = NodePath("../../../../../../Components/AuxEngineFL")
 property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
@@ -480,8 +478,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0
 [node name="SliderJoint3D" parent="ControlRoom/Upper/Furnace" parent_id_path=PackedInt32Array(957836708, 138935279) index="2" unique_id=1424583203]
 node_a = NodePath("../../../..")
 
-[node name="HydroulicPress" parent="ControlRoom/Upper" parent_id_path=PackedInt32Array(957836708, 2057188181) index="1" unique_id=1433679527 node_paths=PackedStringArray("money")]
+[node name="HydroulicPress" parent="ControlRoom/Upper" parent_id_path=PackedInt32Array(957836708, 2057188181) index="1" unique_id=1433679527 node_paths=PackedStringArray("money", "power")]
 money = NodePath("../../../Components/Money")
+power = NodePath("../../../Components/Power")
 
 [node name="MiniSubDockPos" parent="ControlRoom/Docking" parent_id_path=PackedInt32Array(957836708, 1461747245) index="0" unique_id=781044557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6462512, 1.752871, -11.571983)
@@ -499,6 +498,9 @@ mesh = SubResource("QuadMesh_bmo5h")
 
 [node name="Main" parent="." unique_id=1222444474 instance=ExtResource("11_e662o")]
 transform = Transform3D(-0.99934304, 0, -0.036242552, 0, 1, 0, 0.036242552, 0, -0.99934304, -0.91911644, -3.8265924, -1.5759518)
+
+[node name="MiniSub" parent="Main" index="0" unique_id=1011879966 node_paths=PackedStringArray("boat")]
+boat = NodePath("../..")
 
 [node name="submarineassets2" parent="." unique_id=1681593821 instance=ExtResource("15_adir1")]
 transform = Transform3D(-9.507227e-08, 0, -2.175, 0, 2.175, 0, 2.175, 0, -9.507227e-08, -6.4868917, -4.15693, 12.862768)

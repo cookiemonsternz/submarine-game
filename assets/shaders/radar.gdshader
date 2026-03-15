@@ -182,6 +182,15 @@ void fragment() {
 
 	ALBEDO = final_sc * pow(vignette, 1.5) * modulate + vec3(texture(grid_lines, UV).a * 0.1);
 	//ALBEDO = vec3(texture(grid_lines, UV).a);
+	//ALBEDO = texture(camera_texture, UV).rgb;
+	
+	float dist = length(texture(camera_texture, UV).rgb - vec3(1.0, 0.5, 0.75));
+	
+	if (dist < 0.1) {
+		ALBEDO = vec3(1.0, 1.0, 1.0);
+	}
+	
+	
 }
 
 //void light() {

@@ -135,7 +135,7 @@ process_material = SubResource("ParticleProcessMaterial_sivmv")
 script = ExtResource("6_oo5ta")
 from_property = "amount_ratio"
 to_property = "force"
-property_scale = 800000.0
+property_scale = 8000000.0
 
 [node name="RightForwardParticles" type="GPUParticles2D" parent="SubViewport/Particles" unique_id=802558758]
 z_index = -1
@@ -148,7 +148,7 @@ process_material = SubResource("ParticleProcessMaterial_sivmv")
 script = ExtResource("6_oo5ta")
 from_property = "amount_ratio"
 to_property = "force"
-property_scale = 800000.0
+property_scale = 8000000.0
 
 [node name="LeftRearParticles" type="GPUParticles2D" parent="SubViewport/Particles" unique_id=587701637]
 z_index = -1
@@ -161,7 +161,7 @@ process_material = SubResource("ParticleProcessMaterial_oo5ta")
 script = ExtResource("6_oo5ta")
 from_property = "amount_ratio"
 to_property = "force"
-property_scale = 800000.0
+property_scale = 8000000.0
 
 [node name="LeftForwardParticles" type="GPUParticles2D" parent="SubViewport/Particles" unique_id=1779613706]
 z_index = -1
@@ -174,7 +174,7 @@ process_material = SubResource("ParticleProcessMaterial_oo5ta")
 script = ExtResource("6_oo5ta")
 from_property = "amount_ratio"
 to_property = "force"
-property_scale = 800000.0
+property_scale = 8000000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2145189923]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
