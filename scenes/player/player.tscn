@@ -135,5 +135,6 @@ stream = ExtResource("7_0owmy")
 bus = &"Reverb"
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=101189878]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7059617, 0)
 current = true

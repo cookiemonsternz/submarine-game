@@ -13,6 +13,8 @@
 [ext_resource type="Material" uid="uid://b2ql4v04t23ke" path="res://assets/images/Plastic006_1K-JPG/Plastic006_1K-JPG.tres" id="9_n1ick"]
 [ext_resource type="PackedScene" uid="uid://dsmcur2le7vut" path="res://scenes/world/interactable/button/button.tscn" id="11_uv1cm"]
 [ext_resource type="AudioStream" uid="uid://kvg72cqrxsmw" path="res://assets/fonts/ButtonClick.mp3" id="13_1h3y3"]
+[ext_resource type="AudioStream" uid="uid://dv7hvw8rx2tdj" path="res://assets/sounds/sfx/pop.mp3" id="14_x7yy3"]
+[ext_resource type="AudioStream" uid="uid://bdo5cvqnwwa1p" path="res://assets/sounds/sfx/metal_pipe.mp3" id="15_ybm6x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmhv6"]
 albedo_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
@@ -37,20 +39,21 @@ heightmap_texture = ExtResource("4_uv1cm")
 script = ExtResource("2_6krtj")
 draggable_ore_scene = ExtResource("3_uv1cm")
 
-[node name="Cylinder" parent="." index="0" unique_id=846865234]
+[node name="Cylinder" parent="." index="0" unique_id=427443857]
 material_override = SubResource("StandardMaterial3D_pmhv6")
 
-[node name="Cylinder_001" parent="." index="1" unique_id=1405112918]
+[node name="Cylinder_001" parent="." index="1" unique_id=1719523859]
 material_override = ExtResource("8_2wo72")
 
-[node name="Plane" parent="." index="2" unique_id=1434202996]
+[node name="Plane" parent="." index="2" unique_id=646351591]
 material_override = ExtResource("9_n1ick")
 
 [node name="Button" parent="." index="3" unique_id=172103971 instance=ExtResource("11_uv1cm")]
-transform = Transform3D(-6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0, 0.15, -0.18474609, 1.2305037, 0)
+transform = Transform3D(-6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0, 0.15, -0.1869502, 1.2305037, 0)
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Button" index="2" unique_id=157735733]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer3D" parent="Button" index="2" unique_id=1342167059]
 stream = ExtResource("13_1h3y3")
+max_distance = 5.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="4" unique_id=2119054364]
 transform = Transform3D(-0.50772154, -0.85054725, 0.1370706, 0.15132555, 0.06858447, 0.9861018, -0.848127, 0.5214074, 0.09388772, 0.3483827, 0.773991, 0)
@@ -67,5 +70,21 @@ spot_angle = 72.33674
 [node name="RockSpawnPos" type="MeshInstance3D" parent="." index="6" unique_id=157540998]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.34319437, 1.3270478, 0)
 mesh = SubResource("BoxMesh_uv1cm")
+
+[node name="PlopAudio" type="AudioStreamPlayer3D" parent="." index="7" unique_id=1889854792]
+unique_name_in_owner = true
+stream = ExtResource("14_x7yy3")
+volume_db = -18.0
+pitch_scale = 0.75
+max_distance = 10.0
+max_polyphony = 16
+bus = &"Reverb"
+
+[node name="RattleAudio" type="AudioStreamPlayer3D" parent="." index="8" unique_id=705844633]
+unique_name_in_owner = true
+stream = ExtResource("15_ybm6x")
+volume_db = -24.0
+max_distance = 10.0
+bus = &"Reverb"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

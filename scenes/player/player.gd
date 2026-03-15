@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 			awake = false
 			camera.current = false
 			$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.hide()
+			%FootstepsAudio.stop()
 			var mat: ShaderMaterial = $Camera3D/HighlightEffect.get_active_material(0)
 			mat.set_shader_parameter("highlight_enabled", false);
 			mat.set_shader_parameter("sobel_enabled", true);
@@ -35,6 +36,7 @@ func _physics_process(delta: float) -> void:
 			get_tree().get_first_node_in_group("kelp").show()
 			
 		elif awake == false:
+			%AudioListener3D.make_current()
 			awake = true
 			camera.current = true
 			var mat: ShaderMaterial = $Camera3D/HighlightEffect.get_active_material(0)
@@ -54,8 +56,9 @@ func _physics_process(delta: float) -> void:
 	var horizontal_vel = Input.get_vector("left", "right", "up", "down").normalized()
 	
 	if awake:
-		if horizontal_vel.length_squared() > 0 and !%FootstepsAudio.playing:
-			%FootstepsAudio.play()
+		if horizontal_vel.length_squared() > 0:
+			if !%FootstepsAudio.playing:
+				%FootstepsAudio.play()
 		else:
 			%FootstepsAudio.stop()
 		velocity = (horizontal_vel.x * global_transform.basis.x + horizontal_vel.y * global_transform.basis.z) * speed

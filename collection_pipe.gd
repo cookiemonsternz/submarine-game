@@ -9,22 +9,30 @@ var on_cooldown := false
 
 func _on_button_pressed() -> void:
 	if on_cooldown:
-		print("Button on cooldown")
+		#print("Button on cooldown")
 		return
 		
 	on_cooldown = true
+	#print("Button pressed")
+	
+	%RattleAudio.play()
+	
+	await get_tree().create_timer(1.0).timeout
+	
 	print("Button pressed")
 	if mini_sub_storage.current_stored > 0 and area_is_inside.is_inside:
 		for i in range(mini_sub_storage.current_stored):
-			print("spawn rock")
+			#print("spawn rock")
 			var draggable_ore = draggable_ore_scene.instantiate()
 			get_tree().root.add_child(draggable_ore)
 			draggable_ore.global_position = spawn_pos.global_position
+			%PlopAudio.play(0.1)
+			
 			await get_tree().create_timer(0.3).timeout
 		
 		mini_sub_storage.current_stored = 0
-	else:
-		print("nothing")
+	#else:
+		#print("nothing")
 	await get_tree().create_timer(10.0).timeout
 	on_cooldown = false
-	print("Cooldown finished")
+	#print("Cooldown finished")

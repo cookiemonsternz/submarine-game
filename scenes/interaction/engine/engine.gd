@@ -16,6 +16,7 @@ signal coolant_pump_fuse_blown
 @export var boat: RigidBody3D
 @export var power: Power
 @export var engine_pos: Marker3D
+@export var engine_audio_player: AudioStreamPlayer3D
 
 @export_category("Motor")
 
@@ -59,15 +60,20 @@ func _physics_process(delta: float) -> void:
 	var prop_load = current_gear.water_coefficient * (prop_rpm ** 2)
 	
 	var effective_prop_inertia = prop_mass * current_gear.gear_ratio ** 2
-	var engine_load = prop_load / current_gear.gear_ratio
+	var engine_load = prop_load / current_gear.gear_ratio if is_engine_good else 800
 	
 	if !is_engine_good: engine_load *= 500
-	if mode == 1: engine_load *= 0.05
+	if mode == 1 and is_engine_good: engine_load *= 0.05
+	
+	#print(engine_load)
 	
 	var net_inertia = engine_mass + effective_prop_inertia
 	var friction_torque = engine_friction_coefficient * engine_rpm if throttle < 0.1 else 0.0
 	var net_torque = engine_torque - engine_load - friction_torque
 	var alpha = net_torque / net_inertia
+	
+	print(alpha)
+	
 	engine_rpm += alpha * 60.0 / (2 * PI) * delta
 	engine_rpm = max(min_rpm, engine_rpm)
 	if mode == 1:
@@ -94,8 +100,11 @@ func _physics_process(delta: float) -> void:
 	if power.has_capacity() and is_coolant_good:
 		power.remaining_capacity -= coolant_power
 	
+	# ENGINE AUDIO
+	engine_audio_player.pitch_scale = engine_rpm / 800;
+	
 	if coolant_power > coolant_pump_max_power:
-		is_coolant_good = true
+		is_coolant_good = false
 		
 		coolant_pump_fuse_blown.emit()
 	

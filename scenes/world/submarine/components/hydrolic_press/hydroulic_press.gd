@@ -11,6 +11,9 @@ func _on_button_pressed() -> void:
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.finished.connect(reset)
 	tween.tween_property(%Piston, "position", end, 2.0)
+	%MovingAudio.pitch_scale = 1.0
+	%MovingAudio.play()
+	
 	tween.set_parallel()
 	
 	var light_tween = create_tween()
@@ -19,6 +22,8 @@ func _on_button_pressed() -> void:
 	get_tree().create_timer(1.5).timeout.connect(enable_collisions)
 
 func reset():
+	%MovingAudio.stop()
+	%PressHitAudio.play()
 	get_tree().create_timer(1.0).timeout.connect(redo_press)
 	
 
@@ -28,6 +33,11 @@ func redo_press():
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(%Piston, "position", start, 3.0)
 	tween.set_parallel()
+	%MovingAudio.pitch_scale = 0.5
+	%MovingAudio.play()
+	
+	tween.finished.connect(func ():
+		%MovingAudio.stop())
 	
 	var light_tween = create_tween()
 	light_tween.set_ease(Tween.EASE_IN)
@@ -41,11 +51,9 @@ func enable_collisions():
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is DraggableOre:
-		print("HI")
-		
-		if !body.cooked: return;
-		
+		if !body.cooked: return
 		money.money += money.money_per_ore
+		%RockCrushAudio.play()
 		
 		%GPUParticles3D.restart()
 		

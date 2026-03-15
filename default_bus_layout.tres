@@ -1,10 +1,39 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://c4u2sui5b0dah"]
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_g28q7"]
+resource_name = "LowPassFilter"
+
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
 resource_name = "Reverb"
 room_size = 0.5
 
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
+resource_name = "Chorus"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_g28q7"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
+resource_name = "LowPassFilter"
+cutoff_hz = 1000.0
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_j3pel"]
+resource_name = "EQ"
+band_db/32_hz = -2.5
+band_db/100_hz = 2.9
+band_db/320_hz = 4.8
+band_db/1000_hz = -3.2
+band_db/3200_hz = -10.5
+band_db/10000_hz = -15.0
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+mode = 3
+drive = 1.0
+
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_g28q7")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Reverb"
 bus/1/solo = false
 bus/1/mute = false
@@ -13,3 +42,19 @@ bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
 bus/1/effect/0/enabled = true
+bus/2/name = &"Underwater"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectChorus_j3pel")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectReverb_g28q7")
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectLowPassFilter_j3pel")
+bus/2/effect/2/enabled = true
+bus/2/effect/3/effect = SubResource("AudioEffectEQ_j3pel")
+bus/2/effect/3/enabled = true
+bus/2/effect/4/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/2/effect/4/enabled = true

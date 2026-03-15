@@ -38,7 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://wrghk2c41auh" path="res://scenes/world/submarine/components/furnace/furnace.tscn" id="36_ovkmw"]
 [ext_resource type="PackedScene" uid="uid://dlvfd0ddy2245" path="res://scenes/world/submarine/components/hydrolic_press/hydroulic_press.tscn" id="37_pqgsg"]
 [ext_resource type="Script" uid="uid://c0mcr3kf225kl" path="res://scenes/world/submarine/mini_sub_entry_area.gd" id="38_c4k7u"]
-[ext_resource type="PackedScene" uid="uid://cnv4b1uqn0bwt" path="res://scenes/world/interactable/draggable_ore/draggable_ore.tscn" id="38_hqxl2"]
 [ext_resource type="Script" uid="uid://cklxl28vhe283" path="res://scenes/world/submarine/mini_sub_exit_area.gd" id="39_hqxl2"]
 [ext_resource type="FontFile" uid="uid://xofw3rvja4x7" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-800-normal.ttf" id="41_6f8rf"]
 [ext_resource type="Texture2D" uid="uid://dnjqtv74astv" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Color.jpg" id="42_uglay"]
@@ -848,9 +847,6 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.8703811, 4.27388,
 
 [node name="HydroulicPress" parent="Upper" unique_id=1433679527 instance=ExtResource("37_pqgsg")]
 transform = Transform3D(6.556708e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.556708e-08, -0.8, 4.3144364, -4.8907814)
-
-[node name="DraggableOre" parent="Upper" unique_id=1541507272 instance=ExtResource("38_hqxl2")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1, 4, -7)
 
 [node name="Docking" type="Node3D" parent="." unique_id=1461747245]
 

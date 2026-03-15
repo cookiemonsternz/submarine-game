@@ -40,6 +40,10 @@ func _physics_process(delta: float) -> void:
 		camera.current = awake
 		
 		if not awake:
+			%EngineLoopAudio.stop()
+			%EngineStartAudio.stop()
+			%EngineStopAudio.stop()
+			AudioServer.get_bus_effect(0, 0).cutoff_hz = 20000;
 			linear_velocity = Vector3.ZERO
 			angular_velocity = Vector3.ZERO
 			var spot_tween = %SpotLight3D.create_tween()
@@ -49,6 +53,9 @@ func _physics_process(delta: float) -> void:
 			var omni_tween = %OmniLight3D.create_tween()
 			omni_tween.tween_property(%OmniLight3D, "light_energy", 0.0, 1.0)
 		else:
+			AudioServer.get_bus_effect(0, 0).cutoff_hz = 2000;
+			%AudioListener3D.make_current()
+			
 			var spot_tween = %SpotLight3D.create_tween()
 			spot_tween.tween_property(%SpotLight3D, "light_energy", 10.0, 3.0)
 			spot_tween.set_parallel()
@@ -64,6 +71,21 @@ func _physics_process(delta: float) -> void:
 	var directional_vel = Input.get_vector("left", "right", "up", "down")
 	var vertical_direction = Input.get_axis("lower", "rise")
 	var direction_vel_3 = Vector3(directional_vel.x, 0.0, directional_vel.y)
+
+	if directional_vel.length_squared() > 0.0 or abs(vertical_direction) > 0.0:
+		if not %EngineStartAudio.playing and not %EngineLoopAudio.playing:
+			print("Starting")
+			%EngineStopAudio.stop()
+			%EngineStartAudio.play()
+	else:
+		if %EngineLoopAudio.playing and not %EngineStopAudio.playing:
+			print("Stopping from loop")
+			%EngineLoopAudio.stop()
+			%EngineStopAudio.play()
+		elif %EngineStartAudio.playing and not %EngineStopAudio.playing and mouse_since_moved > mouse_stopped_move:
+			print("Stopping from start")
+			%EngineStartAudio.stop()
+			%EngineStopAudio.play()
 
 	var move_force = (to_global(direction_vel_3) - global_position) * speed
 	var vertical_force = Vector3(0.0, vertical_direction * speed, 0.0)
@@ -82,3 +104,14 @@ func _input(event: InputEvent) -> void:
 		apply_torque(Vector3.UP * -event.relative.x * look_sensitivity)
 		camera.rotate_x(-event.relative.y * look_sensitivity_vertical)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/3.5)
+		
+		if event.relative.length() > 0.0:
+			if not %EngineStartAudio.playing and not %EngineLoopAudio.playing:
+				print("Starting")
+				%EngineStopAudio.stop()
+				%EngineStartAudio.play()
+
+
+func _on_engine_start_audio_finished() -> void:
+	if not %EngineStopAudio.playing and not %EngineLoopAudio.playing:
+		%EngineLoopAudio.play()
