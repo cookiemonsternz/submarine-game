@@ -22,7 +22,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("mini_sub"):
-		print("pressed T")
 		if awake == true:
 			awake = false
 			camera.current = false

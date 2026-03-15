@@ -4,6 +4,34 @@
 [ext_resource type="PackedScene" uid="uid://bko2rv4g47q4k" path="res://scenes/world/submarine/components/hydrolic_press/hydrolicpresspiston.tscn" id="1_vc4bq"]
 [ext_resource type="PackedScene" uid="uid://b4jwxvehvmn36" path="res://assets/models/hydrolicpress.tscn" id="2_l11iw"]
 [ext_resource type="PackedScene" uid="uid://dsmcur2le7vut" path="res://scenes/world/interactable/button/button.tscn" id="3_l11iw"]
+[ext_resource type="Material" path="res://assets/images/Rock061_1K-JPG/Rock061_1K-JPG.tres" id="5_frm1w"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o5r01"]
+height = 0.50549316
+radius = 1.0527344
+
+[sub_resource type="Curve" id="Curve_k4qck"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2941989, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_61xtp"]
+curve = SubResource("Curve_k4qck")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_088bk"]
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 5.0
+scale_min = 0.099999994
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_61xtp")
+
+[sub_resource type="SphereMesh" id="SphereMesh_sbi7v"]
+material = ExtResource("5_frm1w")
+radius = 0.25
+height = 0.5
+radial_segments = 8
+rings = 4
 
 [node name="HydroulicPress" type="Node3D" unique_id=1433679527]
 script = ExtResource("1_o5r01")
@@ -11,6 +39,14 @@ script = ExtResource("1_o5r01")
 [node name="Piston" parent="." unique_id=1175917628 instance=ExtResource("1_vc4bq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 2.75, 0)
+
+[node name="Area3D" type="Area3D" parent="Piston" unique_id=1532059668]
+unique_name_in_owner = true
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piston/Area3D" unique_id=2040999706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008972164, -0.11260986, 0)
+shape = SubResource("CylinderShape3D_o5r01")
 
 [node name="Body" parent="." unique_id=198073424 instance=ExtResource("2_l11iw")]
 
@@ -21,7 +57,20 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.56
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -0.7003277, 0.7138216, 0, -0.7138216, -0.7003277, 0, 3.5110867, -2.1437614)
 light_color = Color(0.727162, 0.74143666, 0.73456573, 1)
+light_energy = 5.0
 shadow_enabled = true
 spot_range = 5.362651
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1347810486]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5267265, 0)
+emitting = false
+amount = 64
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.79
+process_material = SubResource("ParticleProcessMaterial_088bk")
+draw_pass_1 = SubResource("SphereMesh_sbi7v")
+
+[connection signal="body_entered" from="Piston/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
