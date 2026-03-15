@@ -1,11 +1,27 @@
 [gd_scene format=3 uid="uid://dlvfd0ddy2245"]
 
+[ext_resource type="Script" uid="uid://dwn01nqiltmkd" path="res://scenes/world/submarine/components/hydrolic_press/hydroulic_press.gd" id="1_o5r01"]
 [ext_resource type="PackedScene" uid="uid://bko2rv4g47q4k" path="res://scenes/world/submarine/components/hydrolic_press/hydrolicpresspiston.tscn" id="1_vc4bq"]
 [ext_resource type="PackedScene" uid="uid://b4jwxvehvmn36" path="res://assets/models/hydrolicpress.tscn" id="2_l11iw"]
+[ext_resource type="PackedScene" uid="uid://dsmcur2le7vut" path="res://scenes/world/interactable/button/button.tscn" id="3_l11iw"]
 
 [node name="HydroulicPress" type="Node3D" unique_id=1433679527]
+script = ExtResource("1_o5r01")
 
-[node name="hydrolicpresspiston" parent="." unique_id=1175917628 instance=ExtResource("1_vc4bq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06570709, 0.9400892, 0)
+[node name="Piston" parent="." unique_id=1175917628 instance=ExtResource("1_vc4bq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 2.75, 0)
 
-[node name="hydrolicpress" parent="." unique_id=198073424 instance=ExtResource("2_l11iw")]
+[node name="Body" parent="." unique_id=198073424 instance=ExtResource("2_l11iw")]
+
+[node name="Button" parent="." unique_id=172103971 instance=ExtResource("3_l11iw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.5643612, 1.5379963, 0.63950586)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=418860437]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -0.7003277, 0.7138216, 0, -0.7138216, -0.7003277, 0, 3.5110867, -2.1437614)
+light_color = Color(0.727162, 0.74143666, 0.73456573, 1)
+shadow_enabled = true
+spot_range = 5.362651
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
