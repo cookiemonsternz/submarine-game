@@ -37,9 +37,9 @@
 [ext_resource type="PackedScene" uid="uid://c8rmmqs7jqkr5" path="res://scenes/world/submarine/upper_room.tscn" id="28_e854u"]
 [ext_resource type="PackedScene" uid="uid://wrghk2c41auh" path="res://scenes/world/submarine/components/furnace/furnace.tscn" id="36_ovkmw"]
 [ext_resource type="PackedScene" uid="uid://dlvfd0ddy2245" path="res://scenes/world/submarine/components/hydrolic_press/hydroulic_press.tscn" id="37_pqgsg"]
-[ext_resource type="Script" path="res://scenes/world/submarine/mini_sub_entry_area.gd" id="38_c4k7u"]
+[ext_resource type="Script" uid="uid://c0mcr3kf225kl" path="res://scenes/world/submarine/mini_sub_entry_area.gd" id="38_c4k7u"]
 [ext_resource type="PackedScene" uid="uid://cnv4b1uqn0bwt" path="res://scenes/world/interactable/draggable_ore/draggable_ore.tscn" id="38_hqxl2"]
-[ext_resource type="Script" path="res://scenes/world/submarine/mini_sub_exit_area.gd" id="39_hqxl2"]
+[ext_resource type="Script" uid="uid://cklxl28vhe283" path="res://scenes/world/submarine/mini_sub_exit_area.gd" id="39_hqxl2"]
 [ext_resource type="FontFile" uid="uid://xofw3rvja4x7" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-800-normal.ttf" id="41_6f8rf"]
 [ext_resource type="Texture2D" uid="uid://dnjqtv74astv" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Color.jpg" id="42_uglay"]
 [ext_resource type="Texture2D" uid="uid://b145oi2kgqg7t" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Displacement.jpg" id="43_3nqlc"]
@@ -238,8 +238,6 @@ size = Vector3(1.6, 2.5, 0.1)
 [sub_resource type="BoxMesh" id="BoxMesh_6f8rf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yk2e0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_c4k7f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl3t5"]
 albedo_color = Color(0.288518, 0.28851798, 0.28851798, 1)
@@ -540,6 +538,11 @@ mesh = SubResource("PlaneMesh_l5jvd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1.5, 3.059797e-07)
 material_override = SubResource("StandardMaterial3D_l5jvd")
 mesh = SubResource("PlaneMesh_c2v2f")
+
+[node name="MiniSubCollisions" type="AnimatableBody3D" parent="." unique_id=729885598]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("11_vgbi5")
 
 [node name="Collisions" type="AnimatableBody3D" parent="." unique_id=1769083413]
 top_level = true
@@ -860,42 +863,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.0356846, -4.081985)
 shape = SubResource("BoxShape3D_yk2e0")
 
 [node name="MiniSubConstraints" type="Node3D" parent="Docking" unique_id=444283534]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=1598350265]
-transform = Transform3D(2.644116, 0, 0, 0, 1, 0, 0, 0, 2.708641, -0.9304592, 2.891292, -11.741261)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D" unique_id=2074566779]
-shape = SubResource("BoxShape3D_c4k7f")
-
-[node name="RigidBody3D2" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=1207293185]
-transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 2.708641, -0.08649129, 1.6144509, -14.603282)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D2" unique_id=1785240126]
-shape = SubResource("BoxShape3D_c4k7f")
-
-[node name="RigidBody3D3" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=2110078238]
-transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 12.171694, -3.8006518, 1.6144509, -9.069996)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D3" unique_id=1634909386]
-shape = SubResource("BoxShape3D_c4k7f")
-
-[node name="RigidBody3D4" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=578392309]
-transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 12.171694, 3.3017342, 1.6144509, -9.069996)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D4" unique_id=1301494360]
-shape = SubResource("BoxShape3D_c4k7f")
 
 [node name="Cash" type="Label3D" parent="." unique_id=478705189 groups=["cash_label"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 5.1531, -1.0395)

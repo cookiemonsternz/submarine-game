@@ -15,6 +15,8 @@ func rock_destroy() -> void:
 	print("rock destroying")
 	for fragment in fragments_first.get_children():
 		fragment.reparent(fragments_second)
+		fragment.find_child("Area3D").set_deferred("monitorable", true)
+		#fragment.find_child("Area3D").monitoring = true
 		fragment.freeze = false
 		fragment.apply_impulse(Vector3(randf_range(-randomness, randomness), randf_range(-randomness,randomness), randf_range(-randomness, randomness)))
 	fragments_first.queue_free()

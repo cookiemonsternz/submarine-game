@@ -83,6 +83,8 @@ size = Vector3(3.0048218, 2.6601563, 3.6469116)
 [node name="Main" type="Node3D" unique_id=1222444474]
 
 [node name="MiniSub" type="RigidBody3D" parent="." unique_id=1011879966]
+collision_layer = 2
+collision_mask = 2
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
