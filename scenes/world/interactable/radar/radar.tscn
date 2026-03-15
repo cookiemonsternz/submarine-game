@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://05gcvavnphvi"]
+
+[ext_resource type="PackedScene" uid="uid://ba5u7hayl2r1b" path="res://scenes/world/interactable/radar/radar_table.tscn" id="1_6kx68"]
+[ext_resource type="Shader" uid="uid://n56i6ciecknv" path="res://assets/shaders/radar.gdshader" id="2_71xcf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6kx68"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g2wo"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_71xcf")
+shader_parameter/camera_texture = SubResource("ViewportTexture_6kx68")
+shader_parameter/pixelation = 0.01
+shader_parameter/mix_amount = 0.0
+shader_parameter/modulate = Color(0, 1, 0, 1)
+shader_parameter/use_l = true
+shader_parameter/use_c = false
+shader_parameter/use_h = true
+shader_parameter/steps_l = 4.0
+shader_parameter/level_c = 5.0
+shader_parameter/level_h = 0.05
+
+[sub_resource type="QuadMesh" id="QuadMesh_0q56h"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_5g2wo")
+size = Vector2(1.875, 1.875)
+orientation = 1
+
+[node name="Radar" type="Node3D" unique_id=1572735103]
+
+[node name="radar_table" parent="." unique_id=1059055422 instance=ExtResource("1_6kx68")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=102740675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99513304, 0)
+mesh = SubResource("QuadMesh_0q56h")

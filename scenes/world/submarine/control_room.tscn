@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://b145oi2kgqg7t" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Displacement.jpg" id="43_3nqlc"]
 [ext_resource type="Texture2D" uid="uid://bvknfdf0n0l14" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_NormalGL.jpg" id="44_xudfs"]
 [ext_resource type="Texture2D" uid="uid://cxlsmwlmh1veo" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Roughness.jpg" id="45_7ilxv"]
+[ext_resource type="PackedScene" uid="uid://05gcvavnphvi" path="res://scenes/world/interactable/radar/radar.tscn" id="46_3nqlc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uf0n3"]
 radius = 0.025
@@ -228,6 +229,9 @@ height = 0.12500001
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3nqlc"]
 size = Vector3(4.6433716, 0.93896484, 10.590088)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ilxv"]
+size = Vector3(1.3842773, 0.7092285, 1.3110352)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xudfs"]
 size = Vector3(2.1115723, 3.5089111, 8.480347)
@@ -696,6 +700,10 @@ shape = SubResource("CylinderShape3D_3nqlc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26502073, 3.0247774, -8.808156)
 shape = SubResource("BoxShape3D_3nqlc")
 
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="Collisions" unique_id=426715123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2053835, 0.86472964, -0.704167)
+shape = SubResource("BoxShape3D_7ilxv")
+
 [node name="PlayerOnlyCollisions" type="AnimatableBody3D" parent="." unique_id=568558158]
 collision_layer = 4
 collision_mask = 16
@@ -878,6 +886,9 @@ outline_size = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1325216, -0.9)
 material_override = SubResource("StandardMaterial3D_nl3t5")
 mesh = SubResource("BoxMesh_c4k7f")
+
+[node name="Radar" parent="." unique_id=1572735103 instance=ExtResource("46_3nqlc")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.2336967, 0.50000036, -0.7017651)
 
 [connection signal="area_entered" from="Docking/MiniSubEntryArea" to="Docking/MiniSubEntryArea" method="_on_area_entered"]
 [connection signal="area_entered" from="Docking/MiniSubExitArea" to="Docking/MiniSubExitArea" method="_on_area_entered"]

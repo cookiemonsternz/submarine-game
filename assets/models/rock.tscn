@@ -5,5 +5,6 @@
 
 [node name="rock" unique_id=690362121 instance=ExtResource("1_2a0af")]
 
-[node name="Sphere" parent="." index="0" unique_id=1350744430]
+[node name="Sphere" parent="." index="0" unique_id=37809961]
+layers = 3
 material_override = ExtResource("2_oa5lr")

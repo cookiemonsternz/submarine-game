@@ -30,6 +30,9 @@ func _physics_process(delta: float) -> void:
 			mat.set_shader_parameter("highlight_enabled", false);
 			mat.set_shader_parameter("sobel_enabled", true);
 			mat.set_shader_parameter("pixelate_enabled", true);
+			mat.set_shader_parameter("steps_l", 36);
+			
+			get_tree().get_first_node_in_group("kelp").show()
 			
 		elif awake == false:
 			awake = true
@@ -38,7 +41,9 @@ func _physics_process(delta: float) -> void:
 			mat.set_shader_parameter("highlight_enabled", true);
 			mat.set_shader_parameter("sobel_enabled", false);
 			mat.set_shader_parameter("pixelate_enabled", false);
+			mat.set_shader_parameter("steps_l", 12);
 			$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.show()
+			get_tree().get_first_node_in_group("kelp").hide()
 			#$Camera3D/HighlightEffect.show()
 	
 	if Engine.is_editor_hint():
