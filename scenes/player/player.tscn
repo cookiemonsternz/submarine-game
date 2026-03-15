@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="2_hqtel"]
 [ext_resource type="Shader" uid="uid://csxoqjnur55gm" path="res://assets/shaders/highlight_effect_viewport.gdshader" id="3_sweqy"]
 [ext_resource type="Shader" uid="uid://bxul4v14bwvhu" path="res://assets/shaders/highlight_effect.gdshader" id="4_2hs0m"]
-[ext_resource type="Script" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
+[ext_resource type="Script" uid="uid://vbede7pon67t" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
 [ext_resource type="Shader" uid="uid://7vcv88koox1t" path="res://assets/shaders/invert_behind.gdshader" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcfqm"]
@@ -48,7 +48,7 @@ bg_color = Color(1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody3D" unique_id=108593082]
 collision_layer = 16
-collision_mask = 17
+collision_mask = 21
 floor_max_angle = 1.3962634
 script = ExtResource("1_xhfnw")
 

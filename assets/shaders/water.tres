@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://djmcguioeh0dm" path="res://assets/shaders/water.gdshader" id="1_fl0dn"]
 
 [resource]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("1_fl0dn")
 shader_parameter/wave_1 = Vector4(0.3, 4, 0.2, 0.6)
 shader_parameter/wave_2 = Vector4(-0.26, -0.19, 0.01, 0.47)

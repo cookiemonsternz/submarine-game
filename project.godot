@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SubmarineGame"
-run/main_scene="uid://dn2g4ouxj5jfc"
+run/main_scene="uid://dgluqms0hjy05"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -108,6 +108,7 @@ mini_sub={
 
 3d_physics/layer_1="Submarine Internal"
 3d_physics/layer_2="Submarine"
+3d_physics/layer_3="PlayerOnlyCollisions"
 3d_physics/layer_4="levers"
 3d_physics/layer_5="Player"
 3d_physics/layer_9="MouseTargets"

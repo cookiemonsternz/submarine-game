@@ -206,7 +206,7 @@ size = Vector3(0.3, 1.4, 4.147937)
 size = Vector3(0.3, 1.4, 9.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8bkb3"]
-size = Vector3(1.5, 1.4, 0.2)
+size = Vector3(3.4677734, 1.4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqgsg"]
 size = Vector3(1.4575195, 0.22253418, 2.4107819)
@@ -225,6 +225,12 @@ size = Vector3(1, 0.3, 1.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3nqlc"]
 height = 0.12500001
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3nqlc"]
+size = Vector3(4.6433716, 0.93896484, 10.590088)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xudfs"]
+size = Vector3(2.1115723, 3.5089111, 8.480347)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_75dkl"]
 size = Vector3(1.6, 2.5, 0.1)
@@ -629,7 +635,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5500001, 4.3, -8.15)
 shape = SubResource("BoxShape3D_c2v2f")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions" unique_id=1192241934]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95000005, 4.4, -12.599999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03388667, 4.4, -12.599999)
 shape = SubResource("BoxShape3D_8bkb3")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Collisions" unique_id=1679651641]
@@ -680,6 +686,19 @@ shape = SubResource("BoxShape3D_uglay")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8257812, 5.828149, -4.9152117)
 shape = SubResource("CylinderShape3D_3nqlc")
 
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="Collisions" unique_id=1426558510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26502073, 3.0247774, -8.808156)
+shape = SubResource("BoxShape3D_3nqlc")
+
+[node name="PlayerOnlyCollisions" type="AnimatableBody3D" parent="." unique_id=568558158]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("11_vgbi5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerOnlyCollisions" unique_id=280578305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.864624, 5.4373465, -7.761842)
+shape = SubResource("BoxShape3D_xudfs")
+
 [node name="Lights" type="Node3D" parent="." unique_id=2041762675]
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=1130194925 groups=["sub_general_lights", "sub_lights"]]
@@ -708,27 +727,30 @@ shadow_opacity = 0.75
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights" unique_id=1992603246 groups=["sub_general_lights", "sub_lights"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0467124, 7.732073, -7.6358976)
-light_color = Color(0.6669903, 0.824719, 0.8611875, 1)
-light_energy = 0.1
+light_color = Color(0.92797136, 0.7474256, 0.6596629, 1)
+light_energy = 0.25
 light_size = 0.143
 shadow_enabled = true
 shadow_opacity = 0.75
+omni_range = 8.0
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lights" unique_id=1700013583 groups=["sub_general_lights", "sub_lights"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0467124, 7.732073, -2.3381824)
-light_color = Color(0.6669903, 0.824719, 0.8611875, 1)
-light_energy = 0.1
+light_color = Color(0.92797136, 0.7474256, 0.6596629, 1)
+light_energy = 0.25
 light_size = 0.143
 shadow_enabled = true
 shadow_opacity = 0.75
+omni_range = 8.0
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lights" unique_id=896517328 groups=["sub_general_lights", "sub_lights"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0467124, 7.732073, -12.872537)
-light_color = Color(0.6669903, 0.824719, 0.8611875, 1)
-light_energy = 0.1
+light_color = Color(0.92797136, 0.7474256, 0.6596629, 1)
+light_energy = 0.25
 light_size = 0.143
 shadow_enabled = true
 shadow_opacity = 0.75
+omni_range = 8.0
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Lights" unique_id=1224211093 groups=["sub_instr_lights", "sub_lights"]]
 transform = Transform3D(0.7646423, -0.5438708, -0.34572643, 0.20080358, -0.30869016, 0.9297249, -0.6123725, -0.7803301, -0.12682636, 1.5081725, 2.0820694, 1.7)
@@ -765,6 +787,14 @@ spot_angle = 34.67
 transform = Transform3D(1, 0, 0, 0, -0.8457055, 0.53364986, 0, -0.53364986, -0.8457055, 0, 6.153782, -2.7904282)
 light_color = Color(0.9654282, 0.56737703, 0.7455959, 1)
 light_energy = 3.0
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lights" unique_id=715752887]
+transform = Transform3D(1, 0, 0, 0, -0.02095288, 0.9997805, 0, -0.9997805, -0.02095288, -0.8103584, 7.385317, -11.873276)
+light_color = Color(0.90447205, 0.87466764, 0.6482178, 1)
+light_energy = 10.0
+spot_range = 7.9240904
+spot_attenuation = 0.0
+spot_angle = 18.319008
 
 [node name="CupboardDoor" type="RigidBody3D" parent="." unique_id=1151122810]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.55, 1.9854, -2.75)
