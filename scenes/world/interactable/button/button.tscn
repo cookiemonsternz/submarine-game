@@ -46,6 +46,7 @@ shape = SubResource("CylinderShape3D_at8wy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1646657554]
 stream = ExtResource("7_fhixs")
+bus = &"Reverb"
 
 [connection signal="pressed" from="MouseTarget" to="." method="_on_mouse_target_pressed"]
 [connection signal="released" from="MouseTarget" to="." method="_on_mouse_target_released"]

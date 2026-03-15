@@ -52,7 +52,12 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var horizontal_vel = Input.get_vector("left", "right", "up", "down").normalized()
+	
 	if awake:
+		if horizontal_vel.length_squared() > 0 and !%FootstepsAudio.playing:
+			%FootstepsAudio.play()
+		else:
+			%FootstepsAudio.stop()
 		velocity = (horizontal_vel.x * global_transform.basis.x + horizontal_vel.y * global_transform.basis.z) * speed
 	else:
 		velocity = Vector3(0,0,0)

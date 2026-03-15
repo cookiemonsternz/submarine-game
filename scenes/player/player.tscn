@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://vbede7pon67t" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
 [ext_resource type="Shader" uid="uid://2gqeblfi7vhk" path="res://assets/shaders/mega_shader.gdshader" id="5_75vfm"]
 [ext_resource type="Shader" uid="uid://7vcv88koox1t" path="res://assets/shaders/invert_behind.gdshader" id="6_75vfm"]
+[ext_resource type="AudioStream" uid="uid://b5h7b0a74ytkk" path="res://assets/sounds/sfx/walking.mp3" id="7_0owmy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcfqm"]
 radius = 0.16601563
@@ -127,3 +128,12 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5gtgg")
+
+[node name="FootstepsAudio" type="AudioStreamPlayer3D" parent="." unique_id=2074783907]
+unique_name_in_owner = true
+stream = ExtResource("7_0owmy")
+bus = &"Reverb"
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=101189878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7059617, 0)
+current = true
