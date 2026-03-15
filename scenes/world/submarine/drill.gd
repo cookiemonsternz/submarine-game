@@ -14,7 +14,7 @@ func _ready():
 	drill_timer.timeout.connect(_on_drill_timer_timeout)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("jump") and not is_active:
+	if Input.is_action_just_pressed("jump") and not is_active and %MiniSub.awake:
 		animation_drill.play("clawScoop")
 		is_active = true
 		drill_hitbox.monitoring = true

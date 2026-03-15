@@ -12,6 +12,7 @@
 [ext_resource type="Material" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG.tres" id="8_2wo72"]
 [ext_resource type="Material" uid="uid://b2ql4v04t23ke" path="res://assets/images/Plastic006_1K-JPG/Plastic006_1K-JPG.tres" id="9_n1ick"]
 [ext_resource type="PackedScene" uid="uid://dsmcur2le7vut" path="res://scenes/world/interactable/button/button.tscn" id="11_uv1cm"]
+[ext_resource type="AudioStream" uid="uid://kvg72cqrxsmw" path="res://assets/fonts/ButtonClick.mp3" id="13_1h3y3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmhv6"]
 albedo_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
@@ -47,6 +48,9 @@ material_override = ExtResource("9_n1ick")
 
 [node name="Button" parent="." index="3" unique_id=172103971 instance=ExtResource("11_uv1cm")]
 transform = Transform3D(-6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0, 0.15, -0.18474609, 1.2305037, 0)
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Button" index="2" unique_id=157735733]
+stream = ExtResource("13_1h3y3")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="4" unique_id=2119054364]
 transform = Transform3D(-0.50772154, -0.85054725, 0.1370706, 0.15132555, 0.06858447, 0.9861018, -0.848127, 0.5214074, 0.09388772, 0.3483827, 0.773991, 0)

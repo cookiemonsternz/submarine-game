@@ -2,6 +2,7 @@ extends MeshInstance3D
 
 @onready var targetObj = $"../Camera3D/Target"
 
+
 var rigid_grab = false
 var start_position: Vector3
 var is_moving := false
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 			child.global_position = self.global_position
 	
 	
-	if Input.is_action_just_pressed("click") and not is_moving:
+	if Input.is_action_just_pressed("click") and not is_moving and %MiniSub.awake:
 		$Claw2.set_deferred("monitoring", true)
 		claw_sequence()
 
