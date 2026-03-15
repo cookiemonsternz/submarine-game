@@ -96,6 +96,7 @@ skeleton = NodePath("../..")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=395660298 groups=["player_camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7160988, 0)
 cull_mask = 1047551
+current = true
 script = ExtResource("4_p47bc")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D" unique_id=1017953178]
