@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dsmcur2le7vut"]
+
+[ext_resource type="Script" uid="uid://csyn878812sv1" path="res://scenes/world/interactable/button/button.gd" id="1_at8wy"]
+[ext_resource type="Texture2D" uid="uid://b24mcmgher63m" path="res://assets/images/plastic/Plastic007_1K-JPG/Plastic007_1K-JPG_Color.jpg" id="2_fhixs"]
+[ext_resource type="Texture2D" uid="uid://cnm0nxdy2214c" path="res://assets/images/plastic/Plastic007_1K-JPG/Plastic007_1K-JPG_Displacement.jpg" id="3_c654m"]
+[ext_resource type="Texture2D" uid="uid://c22o01hbht3ep" path="res://assets/images/plastic/Plastic007_1K-JPG/Plastic007_1K-JPG_NormalGL.jpg" id="4_33owh"]
+[ext_resource type="Texture2D" uid="uid://cgwe7smrug4jm" path="res://assets/images/plastic/Plastic007_1K-JPG/Plastic007_1K-JPG_Roughness.jpg" id="5_n248v"]
+[ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="6_lq8je"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28mqm"]
+albedo_texture = ExtResource("2_fhixs")
+roughness_texture = ExtResource("5_n248v")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_33owh")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_c654m")
+uv1_scale = Vector3(3.249, 3.249, 3.249)
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1rlj8"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.05
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_at8wy"]
+height = 0.1
+radius = 0.15
+
+[node name="Button" type="Node3D" unique_id=172103971]
+script = ExtResource("1_at8wy")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1592160488]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_28mqm")
+mesh = SubResource("CylinderMesh_1rlj8")
+
+[node name="MouseTarget" parent="." unique_id=532023496 node_paths=PackedStringArray("outline_objects") instance=ExtResource("6_lq8je")]
+outline_objects = [NodePath("../Mesh")]
+selectable = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseTarget" unique_id=935781037]
+shape = SubResource("CylinderShape3D_at8wy")
+
+[connection signal="pressed" from="MouseTarget" to="." method="_on_mouse_target_pressed"]
+[connection signal="released" from="MouseTarget" to="." method="_on_mouse_target_released"]

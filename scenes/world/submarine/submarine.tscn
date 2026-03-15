@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcq3q4hiqfoxj"]
 
-[ext_resource type="Material" uid="uid://14it81xcr33l" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
+[ext_resource type="Material" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
 [ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="1_er88w"]
 [ext_resource type="PackedScene" uid="uid://byqs7yxjs0y64" path="res://scenes/interaction/power/power.tscn" id="2_mfyhc"]
 [ext_resource type="PackedScene" uid="uid://ddxlhji54j4mv" path="res://scenes/interaction/ballast/ballast.tscn" id="3_f8iv4"]
@@ -10,10 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cku8ve432egue" path="res://scenes/interaction/lights/lights.tscn" id="6_r13nx"]
 [ext_resource type="PackedScene" uid="uid://dvgvi5656gbed" path="res://scenes/interaction/rudder/rudder.tscn" id="7_r13nx"]
 [ext_resource type="Script" uid="uid://ci0baspndls6j" path="res://scripts/property_relay.gd" id="8_ceh3h"]
-[ext_resource type="PackedScene" uid="uid://b4jwxvehvmn36" path="res://assets/models/hydrolicpress.tscn" id="10_ehoni"]
-[ext_resource type="Script" uid="uid://c0mcr3kf225kl" path="res://scenes/world/submarine/mini_sub_entry_area.gd" id="11_1ux3h"]
 [ext_resource type="PackedScene" uid="uid://bmpul1k5ewsat" path="res://scenes/world/submarine/mini_sub.tscn" id="11_e662o"]
-[ext_resource type="Script" uid="uid://cklxl28vhe283" path="res://scenes/world/submarine/mini_sub_exit_area.gd" id="12_h1uv2"]
 [ext_resource type="PackedScene" uid="uid://dd6l6hjcqam4g" path="res://assets/models/submarineassets_2.tscn" id="15_adir1"]
 [ext_resource type="PackedScene" uid="uid://baewwnqb66nky" path="res://assets/models/submarineassets.tscn" id="16_clx5a"]
 
@@ -31,19 +28,13 @@ size = Vector3(10, 10, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceh3h"]
 size = Vector3(10, 10, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_clx5a"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_h1uv2"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruyl3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_308b1"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_clx5a")
-
-[sub_resource type="BoxMesh" id="BoxMesh_ehoni"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e662o"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_clx5a"]
+albedo_texture = SubResource("ViewportTexture_h1uv2")
 
 [node name="Submarine" type="RigidBody3D" unique_id=1368706397]
 collision_layer = 2
@@ -233,7 +224,7 @@ to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
 property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
-material_override = SubResource("StandardMaterial3D_ruyl3")
+material_override = SubResource("StandardMaterial3D_308b1")
 
 [node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
@@ -326,9 +317,6 @@ power = NodePath("../../../Components/Power")
 [node name="BatteryFuseSwitch" parent="ControlRoom/Fuses" parent_id_path=PackedInt32Array(957836708, 1840428445) index="6" unique_id=1684608767 node_paths=PackedStringArray("node")]
 node = NodePath("../../../Components/Power")
 
-[node name="hydrolicpress" parent="ControlRoom/control_room/ForwardWall" parent_id_path=PackedInt32Array(957836708, 97250688) index="0" unique_id=1638094726 instance=ExtResource("10_ehoni")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.6996303, -4.862358, -0.7695182)
-
 [node name="RightWall2" parent="ControlRoom/control_room" parent_id_path=PackedInt32Array(957836708, 2046035202) index="25" unique_id=1712497280]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9573765, 3.165515, -2.009927)
 
@@ -343,66 +331,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0
 
 [node name="SliderJoint3D" parent="ControlRoom/Upper/Furnace" parent_id_path=PackedInt32Array(957836708, 138935279) index="2" unique_id=572925107]
 node_a = NodePath("../../../..")
-
-[node name="Docking" type="Node3D" parent="ControlRoom/Upper" parent_id_path=PackedInt32Array(957836708, 2057188181) index="1" unique_id=1313605687]
-
-[node name="MiniSubDockPos" type="MeshInstance3D" parent="ControlRoom/Upper/Docking" unique_id=1914102225]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6462512, 1.4984264, -11.571983)
-mesh = SubResource("BoxMesh_ehoni")
-
-[node name="MiniSubEntryArea" type="Area3D" parent="ControlRoom/Upper/Docking" unique_id=8388684]
-transform = Transform3D(2.4801688, 0, 0, 0, 1, 0, 0, 0, 7.0239015, -0.21918583, -3.865694, -12.508669)
-script = ExtResource("11_1ux3h")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlRoom/Upper/Docking/MiniSubEntryArea" unique_id=840349485]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.6385689, 0.91264653)
-shape = SubResource("BoxShape3D_e662o")
-
-[node name="MiniSubExitArea" type="Area3D" parent="ControlRoom/Upper/Docking" unique_id=261646063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64877987, -7.009347, -11.18936)
-script = ExtResource("12_h1uv2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlRoom/Upper/Docking/MiniSubExitArea" unique_id=813747435]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.0356846, -4.081985)
-shape = SubResource("BoxShape3D_e662o")
-
-[node name="MiniSubConstraints" type="Node3D" parent="ControlRoom/Upper/Docking" unique_id=989533862]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints" unique_id=1357154699]
-transform = Transform3D(2.644116, 0, 0, 0, 1, 0, 0, 0, 2.708641, -0.9304592, 2.891292, -11.741261)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints/RigidBody3D" unique_id=586892128]
-shape = SubResource("BoxShape3D_clx5a")
-
-[node name="RigidBody3D2" type="RigidBody3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints" unique_id=30907345]
-transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 2.708641, -0.08649129, 1.6144509, -14.603282)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints/RigidBody3D2" unique_id=830733869]
-shape = SubResource("BoxShape3D_clx5a")
-
-[node name="RigidBody3D3" type="RigidBody3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints" unique_id=2100433291]
-transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 12.171694, -3.8006518, 1.6144509, -9.069996)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints/RigidBody3D3" unique_id=1380521887]
-shape = SubResource("BoxShape3D_clx5a")
-
-[node name="RigidBody3D4" type="RigidBody3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints" unique_id=1844683632]
-transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 12.171694, 3.3017342, 1.6144509, -9.069996)
-gravity_scale = 0.0
-can_sleep = false
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ControlRoom/Upper/Docking/MiniSubConstraints/RigidBody3D4" unique_id=362921890]
-shape = SubResource("BoxShape3D_clx5a")
 
 [node name="Main" parent="." unique_id=1222444474 instance=ExtResource("11_e662o")]
 transform = Transform3D(-0.99934304, 0, -0.036242552, 0, 1, 0, 0.036242552, 0, -0.99934304, -0.91911644, -3.8265924, -1.5759518)
@@ -436,8 +364,6 @@ transform = Transform3D(-9.878774e-08, 0, -2.26, 0, 2.26, 0, 2.26, 0, -9.878774e
 [connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/BallastFuseSwitch" method="set_false"]
 [connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/InstrLightsSwitch" method="set_false"]
 [connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/SubInternalLightsSwitch" method="set_false"]
-[connection signal="area_entered" from="ControlRoom/Upper/Docking/MiniSubEntryArea" to="ControlRoom/Upper/Docking/MiniSubEntryArea" method="_on_area_entered"]
-[connection signal="area_entered" from="ControlRoom/Upper/Docking/MiniSubExitArea" to="ControlRoom/Upper/Docking/MiniSubExitArea" method="_on_area_entered"]
 
 [editable path="ControlRoom"]
 [editable path="ControlRoom/Controls/Slider"]

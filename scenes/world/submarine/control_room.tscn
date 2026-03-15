@@ -36,6 +36,9 @@
 [ext_resource type="Texture2D" uid="uid://b440vxa8lhcom" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Roughness.jpg" id="28_c4k7u"]
 [ext_resource type="PackedScene" uid="uid://c8rmmqs7jqkr5" path="res://scenes/world/submarine/upper_room.tscn" id="28_e854u"]
 [ext_resource type="PackedScene" uid="uid://wrghk2c41auh" path="res://scenes/world/submarine/components/furnace/furnace.tscn" id="36_ovkmw"]
+[ext_resource type="PackedScene" uid="uid://dlvfd0ddy2245" path="res://scenes/world/submarine/components/hydrolic_press/hydroulic_press.tscn" id="37_pqgsg"]
+[ext_resource type="Script" path="res://scenes/world/submarine/mini_sub_entry_area.gd" id="38_c4k7u"]
+[ext_resource type="Script" path="res://scenes/world/submarine/mini_sub_exit_area.gd" id="39_hqxl2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uf0n3"]
 radius = 0.025
@@ -207,6 +210,12 @@ size = Vector3(1.5087891, 1.5404663, 0.2322464)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_75dkl"]
 size = Vector3(1.6, 2.5, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6f8rf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yk2e0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4k7f"]
 
 [node name="ControlRoom" type="Node3D" unique_id=957836708]
 
@@ -725,6 +734,72 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="Furnace" parent="Upper" unique_id=138935279 instance=ExtResource("36_ovkmw")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.8703811, 4.27388, -7.4579)
+
+[node name="HydroulicPress" parent="Upper" unique_id=1433679527 instance=ExtResource("37_pqgsg")]
+transform = Transform3D(6.556708e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.556708e-08, -0.8, 4.3144364, -4.8907814)
+
+[node name="Docking" type="Node3D" parent="." unique_id=1461747245]
+
+[node name="MiniSubDockPos" type="MeshInstance3D" parent="Docking" unique_id=781044557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6462512, 1.4984264, -11.571983)
+mesh = SubResource("BoxMesh_6f8rf")
+
+[node name="MiniSubEntryArea" type="Area3D" parent="Docking" unique_id=480517650]
+transform = Transform3D(2.4801688, 0, 0, 0, 1, 0, 0, 0, 7.0239015, -0.21918583, -3.865694, -12.508669)
+script = ExtResource("38_c4k7u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubEntryArea" unique_id=1200411432]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.6385689, 0.91264653)
+shape = SubResource("BoxShape3D_yk2e0")
+
+[node name="MiniSubExitArea" type="Area3D" parent="Docking" unique_id=1672737941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64877987, -7.009347, -11.18936)
+script = ExtResource("39_hqxl2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubExitArea" unique_id=414219140]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.0356846, -4.081985)
+shape = SubResource("BoxShape3D_yk2e0")
+
+[node name="MiniSubConstraints" type="Node3D" parent="Docking" unique_id=444283534]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=1598350265]
+transform = Transform3D(2.644116, 0, 0, 0, 1, 0, 0, 0, 2.708641, -0.9304592, 2.891292, -11.741261)
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D" unique_id=2074566779]
+shape = SubResource("BoxShape3D_c4k7f")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=1207293185]
+transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 2.708641, -0.08649129, 1.6144509, -14.603282)
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D2" unique_id=1785240126]
+shape = SubResource("BoxShape3D_c4k7f")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=2110078238]
+transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 12.171694, -3.8006518, 1.6144509, -9.069996)
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D3" unique_id=1634909386]
+shape = SubResource("BoxShape3D_c4k7f")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="Docking/MiniSubConstraints" unique_id=578392309]
+transform = Transform3D(2.644116, 0, 0, 0, 3.7007415, 0, 0, 0, 12.171694, 3.3017342, 1.6144509, -9.069996)
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Docking/MiniSubConstraints/RigidBody3D4" unique_id=1301494360]
+shape = SubResource("BoxShape3D_c4k7f")
+
+[connection signal="area_entered" from="Docking/MiniSubEntryArea" to="Docking/MiniSubEntryArea" method="_on_area_entered"]
+[connection signal="area_entered" from="Docking/MiniSubExitArea" to="Docking/MiniSubExitArea" method="_on_area_entered"]
 
 [editable path="Controls/Slider"]
 [editable path="CupboardDoor/cupboard_door"]
