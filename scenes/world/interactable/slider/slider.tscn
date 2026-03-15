@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://4b3k3yda04fe" path="res://scenes/world/interactable/slider/rigid_body_3d.gd" id="2_vqis2"]
 [ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="3_vqis2"]
 [ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="4_vtbfk"]
+[ext_resource type="Material" uid="uid://b7nlxc3vteibv" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG.tres" id="6_vtbfk"]
+[ext_resource type="Material" path="res://assets/images/metals/Metal049B_1K-JPG/Metal049B_1K-JPG.tres" id="7_80h2x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsk"]
 radius = 0.25
@@ -62,11 +64,13 @@ joint = NodePath("../../../JoltSliderJoint3D")
 [node name="HandleMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=1409803162]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = ExtResource("6_vtbfk")
 mesh = SubResource("CapsuleMesh_5w5ri")
 
 [node name="EndMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=206053944]
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
+material_override = ExtResource("7_80h2x")
 mesh = SubResource("SphereMesh_5w5ri")
 
 [node name="HandleCollisionShape" type="CollisionShape3D" parent="RigidBody3D" unique_id=1858927460]

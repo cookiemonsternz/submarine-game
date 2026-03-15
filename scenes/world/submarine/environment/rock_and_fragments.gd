@@ -7,12 +7,12 @@ extends Node3D
 
 var randomness :float = 0.4
 
-func _on_rock_hit_box_area_entered(area: Area3D) -> void:
-	if area.name == "Claw2":
-		print("Test Complete")
+#func _on_rock_hit_box_area_entered(area: Area3D) -> void:
+	#if area.name == "Claw2":
+		#print("Test Complete")
 
 func rock_destroy() -> void:
-	print("rock destroying")
+	#print("rock destroying")
 	for fragment in fragments_first.get_children():
 		fragment.reparent(fragments_second)
 		fragment.find_child("Area3D").set_deferred("monitorable", true)

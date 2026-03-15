@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 			pass
 		else:
 			is_full = true
-			print("is full")
+			#print("is full")
 			
 
 func add_ore(other_ore: StringName) -> void:

@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://bvknfdf0n0l14" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_NormalGL.jpg" id="44_xudfs"]
 [ext_resource type="Texture2D" uid="uid://cxlsmwlmh1veo" path="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Roughness.jpg" id="45_7ilxv"]
 [ext_resource type="PackedScene" uid="uid://05gcvavnphvi" path="res://scenes/world/interactable/radar/radar.tscn" id="46_3nqlc"]
+[ext_resource type="PackedScene" uid="uid://c1w121mq6o6uh" path="res://scenes/world/submarine/components/control_room/rudder_label.tscn" id="46_xudfs"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uf0n3"]
 radius = 0.025
@@ -886,6 +887,9 @@ mesh = SubResource("BoxMesh_c4k7f")
 
 [node name="Radar" parent="." unique_id=1572735103 instance=ExtResource("46_3nqlc")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.2336967, 0.50000036, -0.7017651)
+
+[node name="rudder_label" parent="." unique_id=1072215261 instance=ExtResource("46_xudfs")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9906885e-10, 0.5419358, 0.006841898)
 
 [connection signal="area_entered" from="Docking/MiniSubEntryArea" to="Docking/MiniSubEntryArea" method="_on_area_entered"]
 [connection signal="area_entered" from="Docking/MiniSubExitArea" to="Docking/MiniSubExitArea" method="_on_area_entered"]

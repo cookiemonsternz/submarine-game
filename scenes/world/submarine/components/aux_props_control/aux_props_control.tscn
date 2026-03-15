@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="5_8w66p"]
 [ext_resource type="Script" uid="uid://bp0pxuclivp7k" path="res://scenes/world/submarine/components/aux_props_control/control_relay.gd" id="6_oo5ta"]
 [ext_resource type="Texture2D" uid="uid://mh1m47j1kgp6" path="res://assets/particle.svg" id="7_edwfs"]
+[ext_resource type="Material" uid="uid://bj3jnj71pbn3p" path="res://assets/images/painted_metal/PaintedMetal001_1K-JPG/PaintedMetal001_1K-JPG.tres" id="9_koh3p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kk7hw"]
 shader = ExtResource("2_iaxil")
@@ -189,6 +190,7 @@ linear_damp = 5.0
 script = ExtResource("4_8w66p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=208519438]
+material_override = ExtResource("9_koh3p")
 mesh = SubResource("CylinderMesh_edwfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Target" unique_id=425032789]

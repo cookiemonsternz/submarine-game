@@ -3,7 +3,6 @@ extends RigidBody3D
 var mouse_since_moved := 0.0
 var mouse_stopped_move := 0.3
 
-# Direct Node3D reference instead of NodePath
 @onready var target_node: Node3D = self.get_parent_node_3d().get_parent_node_3d()  # The mesh or parent node
 var last_target_position: Vector3
 
@@ -35,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		last_target_position = current_position
 
 	if Input.is_action_just_pressed("mini_sub"):
-		print("pressed T")
+		#print("pressed T")//
 		awake = !awake
 		camera.current = awake
 		
@@ -52,6 +51,8 @@ func _physics_process(delta: float) -> void:
 			
 			var omni_tween = %OmniLight3D.create_tween()
 			omni_tween.tween_property(%OmniLight3D, "light_energy", 0.0, 1.0)
+			
+			freeze = true
 		else:
 			AudioServer.get_bus_effect(0, 0).cutoff_hz = 2000;
 			%AudioListener3D.make_current()
@@ -62,6 +63,8 @@ func _physics_process(delta: float) -> void:
 			
 			var omni_tween = %OmniLight3D.create_tween()
 			omni_tween.tween_property(%OmniLight3D, "light_energy", 1.0, 3.0)
+			
+			freeze = false
 
 	mouse_since_moved += delta
 
@@ -74,16 +77,16 @@ func _physics_process(delta: float) -> void:
 
 	if directional_vel.length_squared() > 0.0 or abs(vertical_direction) > 0.0:
 		if not %EngineStartAudio.playing and not %EngineLoopAudio.playing:
-			print("Starting")
+			#print("Starting")
 			%EngineStopAudio.stop()
 			%EngineStartAudio.play()
 	else:
 		if %EngineLoopAudio.playing and not %EngineStopAudio.playing:
-			print("Stopping from loop")
+			#print("Stopping from loop")
 			%EngineLoopAudio.stop()
 			%EngineStopAudio.play()
 		elif %EngineStartAudio.playing and not %EngineStopAudio.playing and mouse_since_moved > mouse_stopped_move:
-			print("Stopping from start")
+			#print("Stopping from start")
 			%EngineStartAudio.stop()
 			%EngineStopAudio.play()
 
@@ -107,7 +110,7 @@ func _input(event: InputEvent) -> void:
 		
 		if event.relative.length() > 0.0:
 			if not %EngineStartAudio.playing and not %EngineLoopAudio.playing:
-				print("Starting")
+				#print("Starting")
 				%EngineStopAudio.stop()
 				%EngineStartAudio.play()
 

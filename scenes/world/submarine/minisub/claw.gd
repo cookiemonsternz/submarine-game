@@ -32,7 +32,7 @@ func claw_sequence() -> void:
 	tween.tween_property(self, "position", get_parent().to_local(targetObj.global_position), 0.9)
 	await tween.finished
 	
-	print("Reached")
+	#print("Reached")
 	
 	
 	var tween_back := create_tween()
@@ -45,7 +45,7 @@ func claw_sequence() -> void:
 	
 func _on_claw_2_area_entered(area: Area3D) -> void:
 	if area.is_in_group("grabbable") and is_instance_valid(area) and area.get_parent().get_parent() != self:
-		print(area.get_parent().get_parent().name, " : ", area.get_parent().name)
+		#print(area.get_parent().get_parent().name, " : ", area.get_parent().name)
 		
 		%"Storage".add_ore(area.name)
 		area.get_parent().reparent(self)

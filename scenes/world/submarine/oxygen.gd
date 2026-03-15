@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 
 func decrease_oxygen() -> void:
 	power_count -= 1
-	print(power_count)
+	#print(power_count)
 
 
 func _on_timer_timeout() -> void:

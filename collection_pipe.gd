@@ -18,8 +18,6 @@ func _on_button_pressed() -> void:
 	%RattleAudio.play()
 	
 	await get_tree().create_timer(1.0).timeout
-	
-	print("Button pressed")
 	if mini_sub_storage.current_stored > 0 and area_is_inside.is_inside:
 		for i in range(mini_sub_storage.current_stored):
 			#print("spawn rock")

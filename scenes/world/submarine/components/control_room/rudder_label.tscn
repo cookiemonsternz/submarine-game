@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c1w121mq6o6uh"]
+
+[ext_resource type="PackedScene" uid="uid://0jm5dl0gs60g" path="res://assets/models/rudder_label.fbx" id="1_0qeer"]
+[ext_resource type="Texture2D" uid="uid://cjbgmrivs7jhl" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Color.jpg" id="2_6r8dm"]
+[ext_resource type="Texture2D" uid="uid://n62vass3jkml" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Displacement.jpg" id="3_8a3bc"]
+[ext_resource type="Texture2D" uid="uid://b2g1gr6om7dxm" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Metalness.jpg" id="4_4ukid"]
+[ext_resource type="Texture2D" uid="uid://s4lli6b6d4cl" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_NormalGL.jpg" id="5_ow4os"]
+[ext_resource type="Texture2D" uid="uid://citxnbw2d1lyg" path="res://assets/images/metals/Metal046B_1K-JPG/Metal046B_1K-JPG_Roughness.jpg" id="6_ho4jo"]
+[ext_resource type="Texture2D" uid="uid://bpqgr7exvb1wj" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Color.jpg" id="7_wcvn0"]
+[ext_resource type="Texture2D" uid="uid://ce13xcon3f3m7" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Displacement.jpg" id="8_u6rmh"]
+[ext_resource type="Texture2D" uid="uid://bnau33ptrauwg" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Metalness.jpg" id="9_gbsgs"]
+[ext_resource type="Texture2D" uid="uid://t3jm2lp7qsqk" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_NormalGL.jpg" id="10_lpo8x"]
+[ext_resource type="Texture2D" uid="uid://dgt3nxsklnvd4" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Roughness.jpg" id="11_uqkks"]
+[ext_resource type="FontFile" uid="uid://ckk05ju3yjidm" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-300-normal.ttf" id="12_a8j0p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_350l5"]
+albedo_texture = ExtResource("2_6r8dm")
+metallic = 1.0
+metallic_texture = ExtResource("4_4ukid")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_ho4jo")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_ow4os")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_8a3bc")
+uv1_scale = Vector3(50, 50, 50)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4ko4"]
+albedo_color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+albedo_texture = ExtResource("7_wcvn0")
+metallic = 1.0
+metallic_texture = ExtResource("9_gbsgs")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("11_uqkks")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("10_lpo8x")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("8_u6rmh")
+uv1_scale = Vector3(200, 500, 500)
+uv1_triplanar = true
+
+[node name="rudder_label" unique_id=1072215261 instance=ExtResource("1_0qeer")]
+
+[node name="GearLeverChannel_002" parent="." index="0" unique_id=2142823412]
+material_override = SubResource("StandardMaterial3D_350l5")
+
+[node name="GearLeverPlate_001" parent="." index="1" unique_id=1337090864]
+material_override = SubResource("StandardMaterial3D_e4ko4")
+
+[node name="Label3D" type="Label3D" parent="." index="2" unique_id=399157739]
+transform = Transform3D(-6.5567085e-09, -0.106066026, 0.10606601, 0, 0.10606601, 0.106066026, -0.15, 4.636293e-09, -4.6362927e-09, -2.582748, 0.7766614, -0.1)
+shaded = true
+text = "Rudder"
+font = ExtResource("12_a8j0p")
+outline_size = 0

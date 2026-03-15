@@ -26,7 +26,7 @@ func start_cook_timer() -> void:
 
 func _on_timer_timeout() -> void:
 	cooked = true
-	print("Cooked")
+	#print("Cooked")
 	var mesh_instance: MeshInstance3D = mesh.get_child(0)
 	var mat: StandardMaterial3D = mesh_instance.get_active_material(0)
 	mat.albedo_color = mat.albedo_color.darkened(0.5)

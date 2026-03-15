@@ -72,8 +72,6 @@ func _physics_process(delta: float) -> void:
 	var net_torque = engine_torque - engine_load - friction_torque
 	var alpha = net_torque / net_inertia
 	
-	print(alpha)
-	
 	engine_rpm += alpha * 60.0 / (2 * PI) * delta
 	engine_rpm = max(min_rpm, engine_rpm)
 	if mode == 1:
