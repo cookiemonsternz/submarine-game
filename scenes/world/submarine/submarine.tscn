@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcq3q4hiqfoxj"]
 
-[ext_resource type="Material" uid="uid://14it81xcr33l" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
+[ext_resource type="Material" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
 [ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="1_er88w"]
 [ext_resource type="PackedScene" uid="uid://byqs7yxjs0y64" path="res://scenes/interaction/power/power.tscn" id="2_mfyhc"]
 [ext_resource type="PackedScene" uid="uid://ddxlhji54j4mv" path="res://scenes/interaction/ballast/ballast.tscn" id="3_f8iv4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cku8ve432egue" path="res://scenes/interaction/lights/lights.tscn" id="6_r13nx"]
 [ext_resource type="PackedScene" uid="uid://dvgvi5656gbed" path="res://scenes/interaction/rudder/rudder.tscn" id="7_r13nx"]
 [ext_resource type="Script" uid="uid://ci0baspndls6j" path="res://scripts/property_relay.gd" id="8_ceh3h"]
+[ext_resource type="PackedScene" uid="uid://djpcxd4es1b3x" path="res://scenes/interaction/money/money.tscn" id="10_adir1"]
 [ext_resource type="PackedScene" uid="uid://bmpul1k5ewsat" path="res://scenes/world/submarine/mini_sub.tscn" id="11_e662o"]
 [ext_resource type="PackedScene" uid="uid://dd6l6hjcqam4g" path="res://assets/models/submarineassets_2.tscn" id="15_adir1"]
 [ext_resource type="PackedScene" uid="uid://baewwnqb66nky" path="res://assets/models/submarineassets.tscn" id="16_clx5a"]
@@ -29,13 +30,13 @@ size = Vector3(10, 10, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceh3h"]
 size = Vector3(10, 10, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_308b1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_adir1"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adir1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clx5a"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_308b1")
+albedo_texture = SubResource("ViewportTexture_adir1")
 
 [node name="Submarine" type="RigidBody3D" unique_id=1368706397]
 collision_layer = 2
@@ -124,6 +125,9 @@ to_min = 1.0
 to_max = -1.0
 node = NodePath("../Rudder")
 property = "angle"
+
+[node name="Money" parent="Components" unique_id=720812995 node_paths=PackedStringArray("money_label") instance=ExtResource("10_adir1")]
+money_label = NodePath("../../ControlRoom/Cash")
 
 [node name="EnginePos" type="Marker3D" parent="." unique_id=1071058582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
@@ -225,7 +229,7 @@ to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
 property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
-material_override = SubResource("StandardMaterial3D_adir1")
+material_override = SubResource("StandardMaterial3D_clx5a")
 
 [node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
@@ -332,6 +336,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0
 
 [node name="SliderJoint3D" parent="ControlRoom/Upper/Furnace" parent_id_path=PackedInt32Array(957836708, 138935279) index="2" unique_id=572925107]
 node_a = NodePath("../../../..")
+
+[node name="HydroulicPress" parent="ControlRoom/Upper" parent_id_path=PackedInt32Array(957836708, 2057188181) index="1" unique_id=1433679527 node_paths=PackedStringArray("money")]
+money = NodePath("../../../Components/Money")
 
 [node name="Main" parent="." unique_id=1222444474 instance=ExtResource("11_e662o")]
 transform = Transform3D(-0.99934304, 0, -0.036242552, 0, 1, 0, 0.036242552, 0, -0.99934304, -0.91911644, -3.8265924, -1.5759518)

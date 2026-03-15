@@ -1,6 +1,7 @@
 class_name Money extends Node3D
 
 @export var money_label: Label3D
+@export var money_per_ore = 80_000
 
 var money = 0: 
 	get(): return money

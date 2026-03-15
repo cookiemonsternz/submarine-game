@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var money: Money
 
 var start = Vector3(0.05, 2.75, 0.0);
 var end = Vector3(0.05, 0.45, 0.0);
@@ -43,6 +44,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		print("HI")
 		
 		if !body.cooked: return;
+		
+		money.money += money.money_per_ore
 		
 		%GPUParticles3D.restart()
 		
