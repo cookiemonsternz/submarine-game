@@ -8,5 +8,5 @@ next_pass = ExtResource("2_yr6la")
 
 [node name="rock2" unique_id=1200663575 instance=ExtResource("1_sedn8")]
 
-[node name="Sphere" parent="." index="0" unique_id=1696620818]
+[node name="Sphere" parent="." index="0" unique_id=1142287370]
 material_override = SubResource("StandardMaterial3D_q33v8")

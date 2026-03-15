@@ -180,21 +180,29 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 [node name="Plane" type="MeshInstance3D" parent="." unique_id=336020542]
 transform = Transform3D(10000, 0, 0, 0, -0.0004371139, 10000, 0, -10000, -0.0004371139, 0, 0.17039347, 0)
 material_override = ExtResource("1_1ctdv")
+cast_shadow = 0
+extra_cull_margin = 500.0
 mesh = SubResource("ArrayMesh_knq2j")
 
 [node name="Plane2" type="MeshInstance3D" parent="." unique_id=1873828100]
 transform = Transform3D(-10000, 1.0481676, 4.5816858e-08, 0, -0.0004371139, 10000, 1.0481676, 10000, 0.0004371139, -200, 0.17, 200)
 material_override = ExtResource("1_1ctdv")
+cast_shadow = 0
+extra_cull_margin = 500.0
 mesh = SubResource("ArrayMesh_knq2j")
 
 [node name="PlaneCoral" type="MeshInstance3D" parent="." unique_id=1443051354]
 transform = Transform3D(-10000, 0, 0, 0, -0.0004371139, 10000, 0, -10000, -0.0004371139, -200, 0.17039347, 0)
 material_override = ExtResource("1_1ctdv")
+cast_shadow = 0
+extra_cull_margin = 500.0
 mesh = SubResource("ArrayMesh_knq2j")
 
 [node name="Plane4" type="MeshInstance3D" parent="." unique_id=1154610860]
 transform = Transform3D(10000, 1.0481676, 4.5816858e-08, 0, -0.0004371139, 10000, -1.0481676, 10000, 0.0004371139, 0, 0.17, 199.8115)
 material_override = ExtResource("1_1ctdv")
+cast_shadow = 0
+extra_cull_margin = 500.0
 mesh = SubResource("ArrayMesh_knq2j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1076442416]
@@ -223,7 +231,7 @@ transform = Transform3D(-0.16900545, 0, 0.9856151, 0, 1, 0, -0.9856151, 0, -0.16
 [node name="rock5" parent="Environment" unique_id=1924309625 instance=ExtResource("6_knq2j")]
 transform = Transform3D(-0.16900545, 0, 0.9856151, 0, 1, 0, -0.9856151, 0, -0.16900545, 9.824523, 1.3244252, -0.6393585)
 
-[node name="Sphere" parent="Environment/rock5" index="0" unique_id=1696620818]
+[node name="Sphere" parent="Environment/rock5" index="0" unique_id=1142287370]
 transform = Transform3D(100.00001, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -100, -1.192093e-05, 0, 4.0381713, 0)
 lod_bias = 0.682
 
@@ -286,7 +294,7 @@ multimesh = SubResource("MultiMesh_ugxh2")
 [node name="rocklessdetail3" parent="Environment" unique_id=189763372 instance=ExtResource("7_5mb7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.142502, 5.568413, -0.42530823)
 
-[node name="Sphere" parent="Environment/rocklessdetail3" index="0" unique_id=181861879]
+[node name="Sphere" parent="Environment/rocklessdetail3" index="0" unique_id=2071128219]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, -3.3983555, 37.366295)
 
 [node name="Sphere2" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=1076345525]
@@ -1036,29 +1044,29 @@ mesh = SubResource("BoxMesh_aqaab")
 [node name="Kelp" type="Node3D" parent="." unique_id=1441612779]
 transform = Transform3D(1, 0, 0, 0, 1.585, 0, 0, 0, 1, 0, 23.112467, 0)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Kelp" unique_id=617223192]
+[node name="KelpMultimesh" type="MultiMeshInstance3D" parent="Kelp" unique_id=617223192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.541091, 0)
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_5mb7u")
 
-[node name="MultiMeshInstance3D3" type="MultiMeshInstance3D" parent="Kelp" unique_id=1417456443]
+[node name="KelpMultimesh2" type="MultiMeshInstance3D" parent="Kelp" unique_id=1417456443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.146965, 199.41878)
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_gkagf")
 
-[node name="MultiMeshInstance3D4" type="MultiMeshInstance3D" parent="Kelp" unique_id=1963812221]
+[node name="KelpMultimesh3" type="MultiMeshInstance3D" parent="Kelp" unique_id=1963812221]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.97977, 19.841915, 199.41878)
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_gkagf")
 
-[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="Kelp" unique_id=1750727217]
+[node name="KelpMultimesh4" type="MultiMeshInstance3D" parent="Kelp" unique_id=1750727217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.28646, 0)
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_aqaab")
 
 [node name="KelpSmallArea" type="Node3D" parent="Kelp" unique_id=2078279715]
 
-[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="Kelp/KelpSmallArea" unique_id=114911389]
+[node name="KelpMultimesh5" type="MultiMeshInstance3D" parent="Kelp/KelpSmallArea" unique_id=114911389]
 transform = Transform3D(-0.20616597, 0.0012975631, 0, -0.0010039071, -0.2664722, 0, 0, 0, 0.16454989, -173.11517, -37.24155, -18.298458)
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_conim")

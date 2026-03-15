@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cfgadg7urxl7g" path="res://scenes/player/player.gd" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://dmmdva1abpn24" path="res://scenes/player/viewport_fitter.gd" id="2_hqtel"]
 [ext_resource type="Shader" uid="uid://csxoqjnur55gm" path="res://assets/shaders/highlight_effect_viewport.gdshader" id="3_sweqy"]
-[ext_resource type="Shader" uid="uid://bxul4v14bwvhu" path="res://assets/shaders/highlight_effect.gdshader" id="4_2hs0m"]
 [ext_resource type="Script" uid="uid://vbede7pon67t" path="res://scenes/player/mouse_target_manager.gd" id="4_p47bc"]
+[ext_resource type="Shader" uid="uid://2gqeblfi7vhk" path="res://assets/shaders/mega_shader.gdshader" id="5_75vfm"]
 [ext_resource type="Shader" uid="uid://7vcv88koox1t" path="res://assets/shaders/invert_behind.gdshader" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcfqm"]
@@ -27,14 +27,29 @@ viewport_path = NodePath("HighlightViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0owmy"]
 resource_local_to_scene = true
-render_priority = -10
-shader = ExtResource("4_2hs0m")
+render_priority = -5
+shader = ExtResource("5_75vfm")
+shader_parameter/highlight_enabled = true
 shader_parameter/depth_testing = true
 shader_parameter/width_outline = 1
 shader_parameter/d_max = 500.0
-shader_parameter/color_inner = Color(1, 1, 1, 0.142)
+shader_parameter/color_inner = Color(1, 1, 1, 0.21568628)
 shader_parameter/color_outline = Color(1, 1, 1, 1)
 shader_parameter/highlighted_depth_tex = SubResource("ViewportTexture_75vfm")
+shader_parameter/sobel_enabled = false
+shader_parameter/edge_threshold = 0.01
+shader_parameter/line_color = Color(0.6375294, 0.676141, 0.676076, 1)
+shader_parameter/line_alpha = 0.25
+shader_parameter/pixelate_enabled = false
+shader_parameter/pixelation = 0.0010000000475
+shader_parameter/posterize_enabled = true
+shader_parameter/mix_amount = 0.0
+shader_parameter/use_l = true
+shader_parameter/use_c = false
+shader_parameter/use_h = false
+shader_parameter/steps_l = 12.0
+shader_parameter/level_c = 5.0
+shader_parameter/level_h = 0.05
 
 [sub_resource type="QuadMesh" id="QuadMesh_qek5x"]
 flip_faces = true
@@ -73,7 +88,6 @@ cull_mask = 1024
 
 [node name="HighlightEffectDepth" type="MeshInstance3D" parent="HighlightViewport/HighlightCamera3D" unique_id=1278249440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
-visible = false
 layers = 1024
 material_override = SubResource("ShaderMaterial_lvxji")
 mesh = SubResource("QuadMesh_p47bc")
@@ -89,7 +103,6 @@ remote_path = NodePath("../../HighlightViewport/HighlightCamera3D")
 
 [node name="HighlightEffect" type="MeshInstance3D" parent="Camera3D" unique_id=1309437487]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
-visible = false
 material_override = SubResource("ShaderMaterial_0owmy")
 cast_shadow = 0
 extra_cull_margin = 16384.0

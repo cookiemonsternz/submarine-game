@@ -44,6 +44,19 @@ func _physics_process(delta: float) -> void:
 		if not awake:
 			linear_velocity = Vector3.ZERO
 			angular_velocity = Vector3.ZERO
+			var spot_tween = %SpotLight3D.create_tween()
+			spot_tween.tween_property(%SpotLight3D, "light_energy", 0.0, 1.0)
+			spot_tween.set_parallel()
+			
+			var omni_tween = %OmniLight3D.create_tween()
+			omni_tween.tween_property(%OmniLight3D, "light_energy", 0.0, 1.0)
+		else:
+			var spot_tween = %SpotLight3D.create_tween()
+			spot_tween.tween_property(%SpotLight3D, "light_energy", 10.0, 3.0)
+			spot_tween.set_parallel()
+			
+			var omni_tween = %OmniLight3D.create_tween()
+			omni_tween.tween_property(%OmniLight3D, "light_energy", 1.0, 3.0)
 
 	mouse_since_moved += delta
 

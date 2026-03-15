@@ -26,12 +26,20 @@ func _physics_process(delta: float) -> void:
 			awake = false
 			camera.current = false
 			$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.hide()
-			$Camera3D/HighlightEffect.hide()
+			var mat: ShaderMaterial = $Camera3D/HighlightEffect.get_active_material(0)
+			mat.set_shader_parameter("highlight_enabled", false);
+			mat.set_shader_parameter("sobel_enabled", true);
+			mat.set_shader_parameter("pixelate_enabled", true);
+			
 		elif awake == false:
 			awake = true
 			camera.current = true
+			var mat: ShaderMaterial = $Camera3D/HighlightEffect.get_active_material(0)
+			mat.set_shader_parameter("highlight_enabled", true);
+			mat.set_shader_parameter("sobel_enabled", false);
+			mat.set_shader_parameter("pixelate_enabled", false);
 			$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.show()
-			$Camera3D/HighlightEffect.show()
+			#$Camera3D/HighlightEffect.show()
 	
 	if Engine.is_editor_hint():
 		$HighlightViewport/HighlightCamera3D/HighlightEffectDepth.hide()
