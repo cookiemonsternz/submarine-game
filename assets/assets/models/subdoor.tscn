@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c763qsqcqwl14"]
+
+[ext_resource type="PackedScene" uid="uid://d4gaxxkgj0xvr" path="res://assets/models/subdoor.fbx" id="1_go7rj"]
+[ext_resource type="Texture2D" uid="uid://bqdab3vhpdj7p" path="res://assets/images/rust/Rust004_1K-JPG/Rust004_1K-JPG_Color.jpg" id="2_57u88"]
+[ext_resource type="Texture2D" uid="uid://63avc0weam4h" path="res://assets/images/rust/Rust004_1K-JPG/Rust004_1K-JPG_Displacement.jpg" id="3_wm6p0"]
+[ext_resource type="Texture2D" uid="uid://dq82m7dngofww" path="res://assets/images/rust/Rust004_1K-JPG/Rust004_1K-JPG_Metalness.jpg" id="4_rxa3a"]
+[ext_resource type="Texture2D" uid="uid://cv4xdtyxcyph4" path="res://assets/images/rust/Rust004_1K-JPG/Rust004_1K-JPG_NormalGL.jpg" id="5_bhu6i"]
+[ext_resource type="Texture2D" uid="uid://b2ar2bqjkv8ru" path="res://assets/images/rust/Rust004_1K-JPG/Rust004_1K-JPG_Roughness.jpg" id="6_mfone"]
+[ext_resource type="Texture2D" uid="uid://b0hhyojkg6l6q" path="res://assets/images/rust/Rust001_1K-JPG/Rust001_1K-JPG_Color.jpg" id="7_t13gm"]
+[ext_resource type="Texture2D" uid="uid://c1h12tw1qwra" path="res://assets/images/rust/Rust001_1K-JPG/Rust001_1K-JPG_AmbientOcclusion.jpg" id="8_k2fhm"]
+[ext_resource type="Texture2D" uid="uid://ddxkdg11roi87" path="res://assets/images/rust/Rust001_1K-JPG/Rust001_1K-JPG_Displacement.jpg" id="9_v3u6f"]
+[ext_resource type="Texture2D" uid="uid://d0r8raxqod5mq" path="res://assets/images/rust/Rust001_1K-JPG/Rust001_1K-JPG_NormalGL.jpg" id="10_ava87"]
+[ext_resource type="Texture2D" uid="uid://cvarjohjlo46v" path="res://assets/images/rust/Rust001_1K-JPG/Rust001_1K-JPG_Roughness.jpg" id="11_tpmiv"]
+[ext_resource type="Material" uid="uid://14it81xcr33l" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="12_34olr"]
+[ext_resource type="Texture2D" uid="uid://q8w1qo3j1cd4" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Color.jpg" id="13_cgblm"]
+[ext_resource type="Texture2D" uid="uid://bro5bentoicxv" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Displacement.jpg" id="14_kvtrq"]
+[ext_resource type="Texture2D" uid="uid://qpvpih2nrsqp" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Metalness.jpg" id="15_ksfdq"]
+[ext_resource type="Texture2D" uid="uid://cnusshm2no116" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_NormalGL.jpg" id="16_h8esw"]
+[ext_resource type="Texture2D" uid="uid://klljwf6p6ddr" path="res://assets/images/rust/Rust006_1K-JPG/Rust006_1K-JPG_Roughness.jpg" id="17_b7mly"]
+[ext_resource type="Material" path="res://assets/images/rust/Rust001_1K-JPG/Rust001_1K-JPG.tres" id="18_mdxqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qc2nj"]
+albedo_texture = ExtResource("2_57u88")
+metallic = 1.0
+metallic_texture = ExtResource("4_rxa3a")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("6_mfone")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_bhu6i")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("3_wm6p0")
+uv1_scale = Vector3(13.895, 13.895, 13.895)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1u38"]
+albedo_texture = ExtResource("7_t13gm")
+roughness_texture = ExtResource("11_tpmiv")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("10_ava87")
+ao_enabled = true
+ao_texture = ExtResource("8_k2fhm")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("9_v3u6f")
+uv1_scale = Vector3(50.96, 50.96, 50.96)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve2gp"]
+albedo_texture = ExtResource("13_cgblm")
+metallic = 1.0
+metallic_texture = ExtResource("15_ksfdq")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("17_b7mly")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("16_h8esw")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("14_kvtrq")
+uv1_scale = Vector3(4.11, 18.305, 4.11)
+uv1_triplanar = true
+
+[node name="subdoor" unique_id=229993782 instance=ExtResource("1_go7rj")]
+
+[node name="Cylinder" parent="." index="0" unique_id=657368917]
+material_override = SubResource("StandardMaterial3D_qc2nj")
+
+[node name="Cylinder_001" parent="." index="1" unique_id=831788029]
+material_override = SubResource("StandardMaterial3D_f1u38")
+
+[node name="Cylinder_002" parent="." index="2" unique_id=319315047]
+material_override = ExtResource("12_34olr")
+
+[node name="Cylinder_004" parent="." index="3" unique_id=359037209]
+material_override = ExtResource("12_34olr")
+
+[node name="Cylinder_009" parent="." index="4" unique_id=1138674254]
+material_override = SubResource("StandardMaterial3D_ve2gp")
+
+[node name="Cylinder_013" parent="." index="5" unique_id=20881319]
+material_override = ExtResource("18_mdxqe")

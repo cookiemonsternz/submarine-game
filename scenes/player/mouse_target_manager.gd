@@ -22,6 +22,8 @@ func _process(_delta: float) -> void:
 	var result = space_state.intersect_ray(query)
 	
 	if !result: 
+		if not hovered_target:
+			return
 		if hovered_target is MouseTarget:
 			if hovered_target.is_pressed: return
 			hovered_target._on_mouse_exited()

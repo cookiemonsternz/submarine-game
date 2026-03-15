@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c22o01hbht3ep" path="res://assets/images/plastic/Plastic007_1K-JPG/Plastic007_1K-JPG_NormalGL.jpg" id="4_33owh"]
 [ext_resource type="Texture2D" uid="uid://cgwe7smrug4jm" path="res://assets/images/plastic/Plastic007_1K-JPG/Plastic007_1K-JPG_Roughness.jpg" id="5_n248v"]
 [ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="6_lq8je"]
+[ext_resource type="AudioStream" uid="uid://kvg72cqrxsmw" path="res://assets/fonts/ButtonClick.mp3" id="7_fhixs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28mqm"]
 albedo_texture = ExtResource("2_fhixs")
@@ -42,6 +43,9 @@ selectable = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MouseTarget" unique_id=935781037]
 shape = SubResource("CylinderShape3D_at8wy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1646657554]
+stream = ExtResource("7_fhixs")
 
 [connection signal="pressed" from="MouseTarget" to="." method="_on_mouse_target_pressed"]
 [connection signal="released" from="MouseTarget" to="." method="_on_mouse_target_released"]

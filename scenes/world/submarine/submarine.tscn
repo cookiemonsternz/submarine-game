@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bmpul1k5ewsat" path="res://scenes/world/submarine/mini_sub.tscn" id="11_e662o"]
 [ext_resource type="PackedScene" uid="uid://dd6l6hjcqam4g" path="res://assets/models/submarineassets_2.tscn" id="15_adir1"]
 [ext_resource type="PackedScene" uid="uid://baewwnqb66nky" path="res://assets/models/submarineassets.tscn" id="16_clx5a"]
+[ext_resource type="PackedScene" uid="uid://c763qsqcqwl14" path="res://assets/assets/models/subdoor.tscn" id="16_ruyl3"]
 [ext_resource type="PackedScene" uid="uid://ctjmrdulds0x7" path="res://collection_pipe.tscn" id="17_ruyl3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gh8mv"]
@@ -30,17 +31,43 @@ size = Vector3(10, 10, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceh3h"]
 size = Vector3(10, 10, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_adir1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_clx5a"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clx5a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruyl3"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_adir1")
+albedo_texture = SubResource("ViewportTexture_clx5a")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_clx5a"]
-radius = 10.003906
+radius = 10.859375
 height = 49.97812
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clx5a"]
+size = Vector3(4.161921, 0.18214941, 5.7650757)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ruyl3"]
+size = Vector3(4.161921, 0.18214941, 5.7650757)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yivu5"]
+size = Vector3(4.161921, 10.162298, 0.4801941)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xa54s"]
+size = Vector3(0.42527175, 10.318441, 5.7650757)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_adir1"]
+size = Vector3(0.42527175, 10.318441, 5.7650757)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yivu5"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xa54s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clx5a"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ruyl3"]
 
 [node name="Submarine" type="RigidBody3D" unique_id=1368706397]
 collision_layer = 2
@@ -234,7 +261,7 @@ to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
 property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
-material_override = SubResource("StandardMaterial3D_clx5a")
+material_override = SubResource("StandardMaterial3D_ruyl3")
 
 [node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
@@ -331,12 +358,34 @@ node = NodePath("../../../Components/Power")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.953757, 3.165515, -2.009959)
 
 [node name="MiniSubCollisions" parent="ControlRoom" index="3" unique_id=729885598 node_paths=PackedStringArray("boat")]
+collision_layer = 32
+collision_mask = 32
 boat = NodePath("../..")
 
 [node name="Extereor" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="0" unique_id=1160800359]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.01149559, 5.9981236, -9.998539)
 shape = SubResource("CapsuleShape3D_clx5a")
 disabled = true
+
+[node name="Interior5" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="1" unique_id=341152224]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.15250838, 0.43864346, -3.3956766)
+shape = SubResource("BoxShape3D_clx5a")
+
+[node name="Interior8" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="2" unique_id=459963151]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.15250838, 0.43864346, -13.566833)
+shape = SubResource("BoxShape3D_ruyl3")
+
+[node name="Interior9" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="3" unique_id=1961952537]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.15250838, 3.0915594, -8.576757)
+shape = SubResource("BoxShape3D_yivu5")
+
+[node name="Interior6" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="4" unique_id=1719035667]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.1448283, 0.43864346, -8.66664)
+shape = SubResource("BoxShape3D_xa54s")
+
+[node name="Interior7" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="5" unique_id=983357476]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.9987822, 0.43864346, -8.66664)
+shape = SubResource("BoxShape3D_adir1")
 
 [node name="Collisions" parent="ControlRoom" index="4" unique_id=1769083413 node_paths=PackedStringArray("boat")]
 boat = NodePath("../..")
@@ -355,6 +404,17 @@ node_a = NodePath("../../../..")
 
 [node name="HydroulicPress" parent="ControlRoom/Upper" parent_id_path=PackedInt32Array(957836708, 2057188181) index="1" unique_id=1433679527 node_paths=PackedStringArray("money")]
 money = NodePath("../../../Components/Money")
+
+[node name="MiniSubDockPos" parent="ControlRoom/Docking" parent_id_path=PackedInt32Array(957836708, 1461747245) index="0" unique_id=781044557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6462512, 1.752871, -11.571983)
+material_override = SubResource("StandardMaterial3D_yivu5")
+mesh = SubResource("BoxMesh_xa54s")
+
+[node name="CollisionShape3D" parent="ControlRoom/Docking/MiniSubEntryArea" parent_id_path=PackedInt32Array(957836708, 480517650) index="0" unique_id=1200411432]
+transform = Transform3D(1.9999995, 0, 0, 0, 1.9999895, 0, 0, 0, 2, 0, 1.6385689, 0.6103089)
+
+[node name="CollisionShape3D" parent="ControlRoom/Docking/MiniSubExitArea" parent_id_path=PackedInt32Array(957836708, 1672737941) index="0" unique_id=414219140]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.6082156, 2.418253, -3.561355)
 
 [node name="Main" parent="." unique_id=1222444474 instance=ExtResource("11_e662o")]
 transform = Transform3D(-0.99934304, 0, -0.036242552, 0, 1, 0, 0.036242552, 0, -0.99934304, -0.91911644, -3.8265924, -1.5759518)
@@ -387,6 +447,14 @@ mini_sub_storage = NodePath("../Main/MiniSub/Storage")
 [node name="RadarCamera" type="Camera3D" parent="." unique_id=1594919138]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 248, 0)
 cull_mask = 2
+
+[node name="subdoor" parent="." unique_id=229993782 instance=ExtResource("16_ruyl3")]
+transform = Transform3D(1.5499997, 0, 0, 0, 1.0325, 1.1560464, 0, -1.1560464, 1.0325, 0.043217897, -11.218003, -7.4519773)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=412843725]
+transform = Transform3D(2.955, 0, 0, 0, 0.056, 0, 0, 0, 2.955, 0, -9.95173, -4.771632)
+material_override = SubResource("StandardMaterial3D_clx5a")
+mesh = SubResource("CylinderMesh_ruyl3")
 
 [connection signal="coolant_pump_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/CoolantFuseSwitch" method="set_true"]
 [connection signal="engine_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_true"]

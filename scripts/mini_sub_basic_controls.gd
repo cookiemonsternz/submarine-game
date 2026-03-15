@@ -28,14 +28,12 @@ func _physics_process(delta: float) -> void:
 	if target_node == null:
 		return
 	
-	# Only offset if is_tracking is true
 	if is_tracking:
 		var current_position = target_node.global_transform.origin
 		var delta_position = current_position - last_target_position
 		global_translate(delta_position)
 		last_target_position = current_position
 
-	# Toggle awake / camera
 	if Input.is_action_just_pressed("mini_sub"):
 		print("pressed T")
 		awake = !awake
@@ -63,7 +61,6 @@ func _physics_process(delta: float) -> void:
 	if mouse_since_moved > mouse_stopped_move:
 		angular_velocity = angular_velocity.lerp(Vector3.ZERO, 7.5 * delta)
 
-	# Movement input
 	var directional_vel = Input.get_vector("left", "right", "up", "down")
 	var vertical_direction = Input.get_axis("lower", "rise")
 	var direction_vel_3 = Vector3(directional_vel.x, 0.0, directional_vel.y)

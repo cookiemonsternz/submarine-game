@@ -47,7 +47,7 @@ shader_parameter/mix_amount = 0.0
 shader_parameter/use_l = true
 shader_parameter/use_c = false
 shader_parameter/use_h = false
-shader_parameter/steps_l = 12.0
+shader_parameter/steps_l = 24.0
 shader_parameter/level_c = 5.0
 shader_parameter/level_h = 0.05
 
@@ -88,6 +88,7 @@ cull_mask = 1024
 
 [node name="HighlightEffectDepth" type="MeshInstance3D" parent="HighlightViewport/HighlightCamera3D" unique_id=1278249440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
+visible = false
 layers = 1024
 material_override = SubResource("ShaderMaterial_lvxji")
 mesh = SubResource("QuadMesh_p47bc")
@@ -104,6 +105,7 @@ remote_path = NodePath("../../HighlightViewport/HighlightCamera3D")
 
 [node name="HighlightEffect" type="MeshInstance3D" parent="Camera3D" unique_id=1309437487]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11502)
+visible = false
 material_override = SubResource("ShaderMaterial_0owmy")
 cast_shadow = 0
 extra_cull_margin = 16384.0
