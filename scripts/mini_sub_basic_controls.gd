@@ -12,7 +12,7 @@ var look_sensitivity_vertical = 0.0028
 
 @onready var camera: Camera3D = $Camera3D
 
-@export var speed = 3
+@export var speed = 8
 var awake = false
 
 var is_tracking: bool = true

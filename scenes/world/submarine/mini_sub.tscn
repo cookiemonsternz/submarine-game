@@ -9,18 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dwklrdujulh67" path="res://assets/models/claw.tscn" id="7_scp5g"]
 [ext_resource type="PackedScene" uid="uid://wiod8uejtcku" path="res://scenes/world/submarine/minisub/clawsub.tscn" id="8_lmao8"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vmgfb"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_62bga"]
-sky_material = SubResource("ProceduralSkyMaterial_vmgfb")
-
-[sub_resource type="Environment" id="Environment_ydde0"]
-background_mode = 2
-sky = SubResource("Sky_62bga")
-tonemap_mode = 2
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_6gk7m"]
 size = Vector3(1, 1, 2)
 
@@ -93,13 +81,6 @@ _data = {
 size = Vector3(3.0048218, 2.6601563, 3.6469116)
 
 [node name="Main" type="Node3D" unique_id=1222444474]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=145308137]
-environment = SubResource("Environment_ydde0")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=587683527]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="MiniSub" type="RigidBody3D" parent="." unique_id=1011879966]
 axis_lock_angular_x = true

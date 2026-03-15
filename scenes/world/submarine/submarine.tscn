@@ -66,6 +66,7 @@ mesh = SubResource("CapsuleMesh_r48yj")
 boat = NodePath("../..")
 power = NodePath("../Power")
 engine_pos = NodePath("../../EnginePos")
+rpm_force_ratio = 500.0
 power_heat_scale = 0.6
 
 [node name="Power" parent="Components" unique_id=862768865 instance=ExtResource("2_mfyhc")]

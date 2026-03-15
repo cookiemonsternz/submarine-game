@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dgluqms0hjy05"]
+
+[ext_resource type="PackedScene" uid="uid://d4h6nlrrove66" path="res://scenes/world/submarine/environment/oceanfloodscene.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dcq3q4hiqfoxj" path="res://scenes/world/submarine/submarine.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="3_lquwl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0snpr"]
+sky_material = SubResource("ProceduralSkyMaterial_h2yge")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_0snpr")
+ambient_light_source = 2
+ambient_light_color = Color(0.30374652, 0.39570716, 0.37244323, 1)
+ambient_light_energy = 0.15
+ssao_enabled = true
+glow_intensity = 0.0
+fog_light_color = Color(0.6789437, 0.6789437, 0.6789436, 1)
+adjustment_enabled = true
+adjustment_contrast = 0.9
+
+[node name="Node3D" type="Node3D" unique_id=5902362]
+
+[node name="World" parent="." unique_id=2032235148 instance=ExtResource("1_h2yge")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -31.324017, 0)
+
+[node name="Submarine" parent="." unique_id=1368706397 instance=ExtResource("2_1bvp3")]
+
+[node name="Player" parent="." unique_id=108593082 instance=ExtResource("3_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06326089, -5.274741, 9.698428)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1917799240]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=530666407]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+editor_only = true
