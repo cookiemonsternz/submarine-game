@@ -3,6 +3,7 @@ extends Node3D
 @onready var spawn_pos = $RockSpawnPos
 @export var mini_sub_storage: MiniSubStorage
 @export var draggable_ore_scene: PackedScene
+@export var area_is_inside: Area3D
 
 var on_cooldown := false
 
@@ -13,7 +14,7 @@ func _on_button_pressed() -> void:
 		
 	on_cooldown = true
 	print("Button pressed")
-	if mini_sub_storage.current_stored > 0:
+	if mini_sub_storage.current_stored > 0 and area_is_inside.is_inside:
 		for i in range(mini_sub_storage.current_stored):
 			print("spawn rock")
 			var draggable_ore = draggable_ore_scene.instantiate()

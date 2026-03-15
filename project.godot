@@ -15,6 +15,10 @@ run/main_scene="uid://dgluqms0hjy05"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://c4u2sui5b0dah"
+
 [filesystem]
 
 import/blender/enabled=false
@@ -113,6 +117,7 @@ mini_sub={
 3d_physics/layer_3="PlayerOnlyCollisions"
 3d_physics/layer_4="levers"
 3d_physics/layer_5="Player"
+3d_physics/layer_8="rocks"
 3d_physics/layer_9="MouseTargets"
 
 [physics]

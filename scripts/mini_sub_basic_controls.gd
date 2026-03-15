@@ -69,8 +69,8 @@ func _physics_process(delta: float) -> void:
 	var vertical_force = Vector3(0.0, vertical_direction * speed, 0.0)
 
 	if awake:
-		apply_force(move_force)
-		apply_force(vertical_force)
+		apply_central_force(move_force)
+		apply_central_force(vertical_force)
 
 	# Mouse capture toggle
 	if Input.is_action_just_pressed("ui_cancel"):

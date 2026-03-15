@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcq3q4hiqfoxj"]
 
-[ext_resource type="Material" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
+[ext_resource type="Material" uid="uid://14it81xcr33l" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
 [ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="1_er88w"]
 [ext_resource type="PackedScene" uid="uid://byqs7yxjs0y64" path="res://scenes/interaction/power/power.tscn" id="2_mfyhc"]
 [ext_resource type="PackedScene" uid="uid://ddxlhji54j4mv" path="res://scenes/interaction/ballast/ballast.tscn" id="3_f8iv4"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://ci0baspndls6j" path="res://scripts/property_relay.gd" id="8_ceh3h"]
 [ext_resource type="PackedScene" uid="uid://djpcxd4es1b3x" path="res://scenes/interaction/money/money.tscn" id="10_adir1"]
 [ext_resource type="PackedScene" uid="uid://bmpul1k5ewsat" path="res://scenes/world/submarine/mini_sub.tscn" id="11_e662o"]
-[ext_resource type="Shader" uid="uid://n56i6ciecknv" path="res://assets/shaders/radar.gdshader" id="12_clx5a"]
+[ext_resource type="Shader" path="res://assets/shaders/radar.gdshader" id="12_clx5a"]
 [ext_resource type="Texture2D" uid="uid://bnuj42r5sj6gs" path="res://assets/images/radar_grid.png" id="13_ruyl3"]
 [ext_resource type="PackedScene" uid="uid://dd6l6hjcqam4g" path="res://assets/models/submarineassets_2.tscn" id="15_adir1"]
 [ext_resource type="PackedScene" uid="uid://baewwnqb66nky" path="res://assets/models/submarineassets.tscn" id="16_clx5a"]
@@ -33,13 +33,13 @@ size = Vector3(10, 10, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceh3h"]
 size = Vector3(10, 10, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_clx5a"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yivu5"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruyl3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa54s"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_clx5a")
+albedo_texture = SubResource("ViewportTexture_yivu5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_clx5a"]
 radius = 10.859375
@@ -66,19 +66,14 @@ albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xa54s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clx5a"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ruyl3"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_yivu5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_230i3"]
 viewport_path = NodePath("../../SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa54s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnuha"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("12_clx5a")
-shader_parameter/camera_texture = SubResource("ViewportTexture_yivu5")
+shader_parameter/camera_texture = SubResource("ViewportTexture_230i3")
 shader_parameter/grid_lines = ExtResource("13_ruyl3")
 shader_parameter/pixelation = 0.010000000475
 shader_parameter/mix_amount = 0.0
@@ -90,17 +85,22 @@ shader_parameter/steps_l = 8.0
 shader_parameter/level_c = 5.0
 shader_parameter/level_h = 0.05
 
-[sub_resource type="QuadMesh" id="QuadMesh_230i3"]
+[sub_resource type="QuadMesh" id="QuadMesh_tto3j"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_xa54s")
+material = SubResource("ShaderMaterial_bnuha")
 size = Vector2(1.875, 1.875)
 orientation = 1
 
 [sub_resource type="Environment" id="Environment_clx5a"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clx5a"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ruyl3"]
+
 [node name="Submarine" type="RigidBody3D" unique_id=1368706397]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 64
+collision_mask = 192
 mass = 800000.0
 gravity_scale = 0.0
 
@@ -291,7 +291,7 @@ to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
 property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
-material_override = SubResource("StandardMaterial3D_ruyl3")
+material_override = SubResource("StandardMaterial3D_xa54s")
 
 [node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
@@ -447,7 +447,7 @@ transform = Transform3D(1.9999995, 0, 0, 0, 1.9999895, 0, 0, 0, 2, 0, 1.6385689,
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.6082156, 2.418253, -3.561355)
 
 [node name="MeshInstance3D" parent="ControlRoom/Radar" parent_id_path=PackedInt32Array(957836708, 1572735103) index="1" unique_id=102740675]
-mesh = SubResource("QuadMesh_230i3")
+mesh = SubResource("QuadMesh_tto3j")
 
 [node name="Main" parent="." unique_id=1222444474 instance=ExtResource("11_e662o")]
 transform = Transform3D(-0.99934304, 0, -0.036242552, 0, 1, 0, 0.036242552, 0, -0.99934304, -0.91911644, -3.8265924, -1.5759518)
@@ -473,9 +473,10 @@ transform = Transform3D(-9.507227e-08, 0, 2.175, 0, 2.175, 0, -2.175, 0, -9.5072
 [node name="submarineassets" parent="." unique_id=1907917118 instance=ExtResource("16_clx5a")]
 transform = Transform3D(-9.878774e-08, 0, -2.26, 0, 2.26, 0, 2.26, 0, -9.878774e-08, 0.036536217, 8.234698, 7.7749195)
 
-[node name="CollectionPipe" parent="." unique_id=145364391 node_paths=PackedStringArray("mini_sub_storage") instance=ExtResource("17_ruyl3")]
+[node name="CollectionPipe" parent="." unique_id=145364391 node_paths=PackedStringArray("mini_sub_storage", "area_is_inside") instance=ExtResource("17_ruyl3")]
 transform = Transform3D(-1.2020632e-07, 0, -2.75, 0, 2.75, 0, 2.75, 0, -1.2020632e-07, 1.0785542, -3.5428622, -0.51050043)
 mini_sub_storage = NodePath("../Main/MiniSub/Storage")
+area_is_inside = NodePath("../ControlRoom/Docking/MiniSubEntryArea")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1833499047]
 
