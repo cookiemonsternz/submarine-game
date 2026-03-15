@@ -23,5 +23,6 @@ uv1_scale = Vector3(-3.265, -3.265, -3.265)
 
 [node name="rockspike" unique_id=2126040187 instance=ExtResource("1_xnoq2")]
 
-[node name="Cylinder" parent="." index="0" unique_id=1151809781]
+[node name="Cylinder" parent="." index="0" unique_id=1540885482]
+layers = 3
 material_override = SubResource("StandardMaterial3D_riup4")

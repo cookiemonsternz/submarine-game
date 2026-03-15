@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ba5u7hayl2r1b"]
+
+[ext_resource type="PackedScene" uid="uid://bwxeo8p1p6mis" path="res://assets/models/radar_table.fbx" id="1_5obok"]
+[ext_resource type="Material" path="res://assets/images/metals/Metal036_1K-JPG/Metal036_1K-JPG.tres" id="2_k03tf"]
+[ext_resource type="Material" path="res://assets/images/painted_metal/PaintedMetal016_1K-JPG/PaintedMetal016_1K-JPG.tres" id="3_35q62"]
+
+[node name="radar_table" unique_id=1059055422 instance=ExtResource("1_5obok")]
+
+[node name="Cube" parent="." index="0" unique_id=715405371]
+surface_material_override/0 = ExtResource("2_k03tf")
+surface_material_override/1 = ExtResource("3_35q62")

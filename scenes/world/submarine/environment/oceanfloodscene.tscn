@@ -179,6 +179,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="." unique_id=336020542]
 transform = Transform3D(10000, 0, 0, 0, -0.0004371139, 10000, 0, -10000, -0.0004371139, 0, 0.17039347, 0)
+layers = 3
 material_override = ExtResource("1_1ctdv")
 cast_shadow = 0
 extra_cull_margin = 500.0
@@ -186,6 +187,7 @@ mesh = SubResource("ArrayMesh_knq2j")
 
 [node name="Plane2" type="MeshInstance3D" parent="." unique_id=1873828100]
 transform = Transform3D(-10000, 1.0481676, 4.5816858e-08, 0, -0.0004371139, 10000, 1.0481676, 10000, 0.0004371139, -200, 0.17, 200)
+layers = 3
 material_override = ExtResource("1_1ctdv")
 cast_shadow = 0
 extra_cull_margin = 500.0
@@ -193,6 +195,7 @@ mesh = SubResource("ArrayMesh_knq2j")
 
 [node name="PlaneCoral" type="MeshInstance3D" parent="." unique_id=1443051354]
 transform = Transform3D(-10000, 0, 0, 0, -0.0004371139, 10000, 0, -10000, -0.0004371139, -200, 0.17039347, 0)
+layers = 3
 material_override = ExtResource("1_1ctdv")
 cast_shadow = 0
 extra_cull_margin = 500.0
@@ -200,6 +203,7 @@ mesh = SubResource("ArrayMesh_knq2j")
 
 [node name="Plane4" type="MeshInstance3D" parent="." unique_id=1154610860]
 transform = Transform3D(10000, 1.0481676, 4.5816858e-08, 0, -0.0004371139, 10000, -1.0481676, 10000, 0.0004371139, 0, 0.17, 199.8115)
+layers = 3
 material_override = ExtResource("1_1ctdv")
 cast_shadow = 0
 extra_cull_margin = 500.0
@@ -269,6 +273,7 @@ transform = Transform3D(-0.3723158, -0.77428585, 0.511725, -0.6081232, -0.212996
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Environment/SandRocks" unique_id=190740482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.895563, 0)
+layers = 3
 material_override = SubResource("StandardMaterial3D_q33v8")
 cast_shadow = 0
 lod_bias = 13.618
@@ -277,6 +282,7 @@ multimesh = SubResource("MultiMesh_njv6a")
 
 [node name="MultiMeshInstance3D3" type="MultiMeshInstance3D" parent="Environment/SandRocks" unique_id=1603806401]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -180.511, 9.042, 56.104)
+layers = 3
 material_override = SubResource("StandardMaterial3D_q33v8")
 cast_shadow = 0
 lod_bias = 13.618
@@ -285,6 +291,7 @@ multimesh = SubResource("MultiMesh_njv6a")
 
 [node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="Environment/SandRocks" unique_id=1425090200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.895563, 0)
+layers = 3
 material_override = SubResource("StandardMaterial3D_q33v8")
 cast_shadow = 0
 lod_bias = 13.618
@@ -296,69 +303,83 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.142502, 5.568413, -0.42530
 
 [node name="Sphere" parent="Environment/rocklessdetail3" index="0" unique_id=2071128219]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, -3.3983555, 37.366295)
+layers = 3
 
 [node name="Sphere2" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=1076345525]
 transform = Transform3D(86.34256, -49.614075, 9.132864, -10.518805, -1.1854797e-05, 99.445244, -49.338837, -86.82422, -5.2188177, -139.91945, -9.294796, 0)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere3" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=187369459]
 transform = Transform3D(31.809462, -94.746185, 3.3646283, 6.51571, 5.7253585, 99.623146, -94.58175, -31.470335, 7.9945927, -126.64323, -9.294796, -35.48403)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere4" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=590539407]
 transform = Transform3D(95.022484, 29.490774, 10.05099, 4.906475, -46.02112, 88.64526, 30.76775, -83.73978, -45.177372, -139.91945, -7.741394, -62.23783)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere5" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=1892266710]
 transform = Transform3D(-20.366007, -90.74452, -36.75137, 21.060837, -40.71996, 88.87256, -95.612076, 10.359652, 27.404583, -126.64323, -8.492722, -97.72186)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere6" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=722916341]
 transform = Transform3D(86.34256, -49.614075, 9.132864, -10.518805, -1.1854797e-05, 99.445244, -49.338837, -86.82422, -5.2188177, -251.42441, -1.383461, 0)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere7" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=1498420345]
 transform = Transform3D(31.809462, -94.746185, 3.3646283, 6.51571, 5.7253585, 99.623146, -94.58175, -31.470335, 7.9945927, -238.1482, -4.539667, -35.252968)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere10" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=507824713]
 transform = Transform3D(31.809462, -94.746185, 3.3646283, 6.51571, 5.7253585, 99.623146, -94.58175, -31.470335, 7.9945927, -285.74368, -6.6209755, -35.252968)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere11" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=1506784471]
 transform = Transform3D(-60.38322, -79.25621, 8.504149, 6.51571, 5.725359, 99.623146, -79.44441, 60.70975, 1.7069497, -285.74368, -6.6209755, -102.460556)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere12" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=1701463702]
 transform = Transform3D(-60.383217, -79.25621, 8.50415, -78.57375, 60.977745, 10.386639, -13.417687, -0.4102373, -99.09492, -285.74368, -9.013046, -154.15332)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere13" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=34940368]
 transform = Transform3D(-74.2049, -25.985727, -61.793022, -36.362236, 93.044014, 4.538341, 56.315403, 25.836992, -78.492226, -219.46387, -9.013046, -129.4824)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere14" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=1686279911]
 transform = Transform3D(-74.2049, -25.985727, -61.793022, -36.362236, 93.044014, 4.538341, 56.315403, 25.836992, -78.492226, -161.29893, -6.2002764, -129.4824)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere8" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=655147187]
 transform = Transform3D(95.022484, 29.490774, 10.05099, 4.906475, -46.02112, 88.64526, 30.76775, -83.73978, -45.177372, -251.42441, -7.741394, -62.23783)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
 [node name="Sphere9" type="MeshInstance3D" parent="Environment/rocklessdetail3" unique_id=668289486]
 transform = Transform3D(-20.366007, -90.74452, -36.75137, 21.060837, -40.71996, 88.87256, -95.612076, 10.359652, 27.404583, -238.1482, -8.492722, -97.72186)
+layers = 3
 material_override = ExtResource("7_lma03")
 mesh = SubResource("ArrayMesh_56740")
 
@@ -1041,26 +1062,31 @@ transform = Transform3D(-0.00021065366, 0.09872188, 0.97521895, 0.00063781213, 0
 material_override = SubResource("StandardMaterial3D_ugxh2")
 mesh = SubResource("BoxMesh_aqaab")
 
-[node name="Kelp" type="Node3D" parent="." unique_id=1441612779]
+[node name="Kelp" type="Node3D" parent="." unique_id=1441612779 groups=["kelp"]]
 transform = Transform3D(1, 0, 0, 0, 1.585, 0, 0, 0, 1, 0, 23.112467, 0)
+visible = false
 
 [node name="KelpMultimesh" type="MultiMeshInstance3D" parent="Kelp" unique_id=617223192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.541091, 0)
+layers = 3
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_5mb7u")
 
 [node name="KelpMultimesh2" type="MultiMeshInstance3D" parent="Kelp" unique_id=1417456443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.146965, 199.41878)
+layers = 3
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_gkagf")
 
 [node name="KelpMultimesh3" type="MultiMeshInstance3D" parent="Kelp" unique_id=1963812221]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.97977, 19.841915, 199.41878)
+layers = 3
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_gkagf")
 
 [node name="KelpMultimesh4" type="MultiMeshInstance3D" parent="Kelp" unique_id=1750727217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.28646, 0)
+layers = 3
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_aqaab")
 
@@ -1068,6 +1094,7 @@ multimesh = SubResource("MultiMesh_aqaab")
 
 [node name="KelpMultimesh5" type="MultiMeshInstance3D" parent="Kelp/KelpSmallArea" unique_id=114911389]
 transform = Transform3D(-0.20616597, 0.0012975631, 0, -0.0010039071, -0.2664722, 0, 0, 0, 0.16454989, -173.11517, -37.24155, -18.298458)
+layers = 3
 lod_bias = 0.001
 multimesh = SubResource("MultiMesh_conim")
 

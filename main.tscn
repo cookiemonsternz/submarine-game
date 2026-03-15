@@ -17,7 +17,7 @@ background_energy_multiplier = 0.0
 sky = SubResource("Sky_0snpr")
 ambient_light_source = 2
 ambient_light_color = Color(0.30374652, 0.39570716, 0.37244323, 1)
-ambient_light_energy = 9.32
+ambient_light_energy = 0.15
 ssao_enabled = true
 glow_intensity = 0.0
 fog_enabled = true
@@ -40,6 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06326089, -5.274741, 9.6984
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=530666407]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+layers = 3
 light_energy = 0.1
 shadow_enabled = true
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcq3q4hiqfoxj"]
 
-[ext_resource type="Material" uid="uid://14it81xcr33l" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
+[ext_resource type="Material" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
 [ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="1_er88w"]
 [ext_resource type="PackedScene" uid="uid://byqs7yxjs0y64" path="res://scenes/interaction/power/power.tscn" id="2_mfyhc"]
 [ext_resource type="PackedScene" uid="uid://ddxlhji54j4mv" path="res://scenes/interaction/ballast/ballast.tscn" id="3_f8iv4"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://ci0baspndls6j" path="res://scripts/property_relay.gd" id="8_ceh3h"]
 [ext_resource type="PackedScene" uid="uid://djpcxd4es1b3x" path="res://scenes/interaction/money/money.tscn" id="10_adir1"]
 [ext_resource type="PackedScene" uid="uid://bmpul1k5ewsat" path="res://scenes/world/submarine/mini_sub.tscn" id="11_e662o"]
+[ext_resource type="Shader" uid="uid://n56i6ciecknv" path="res://assets/shaders/radar.gdshader" id="12_clx5a"]
+[ext_resource type="Texture2D" uid="uid://bnuj42r5sj6gs" path="res://assets/images/radar_grid.png" id="13_ruyl3"]
 [ext_resource type="PackedScene" uid="uid://dd6l6hjcqam4g" path="res://assets/models/submarineassets_2.tscn" id="15_adir1"]
 [ext_resource type="PackedScene" uid="uid://baewwnqb66nky" path="res://assets/models/submarineassets.tscn" id="16_clx5a"]
 [ext_resource type="PackedScene" uid="uid://ctjmrdulds0x7" path="res://collection_pipe.tscn" id="17_ruyl3"]
@@ -30,17 +32,44 @@ size = Vector3(10, 10, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceh3h"]
 size = Vector3(10, 10, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_adir1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_clx5a"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clx5a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruyl3"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_adir1")
+albedo_texture = SubResource("ViewportTexture_clx5a")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_clx5a"]
 radius = 10.003906
 height = 49.97812
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yivu5"]
+viewport_path = NodePath("../../SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa54s"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("12_clx5a")
+shader_parameter/camera_texture = SubResource("ViewportTexture_yivu5")
+shader_parameter/grid_lines = ExtResource("13_ruyl3")
+shader_parameter/pixelation = 0.010000000475
+shader_parameter/mix_amount = 0.0
+shader_parameter/modulate = Color(0.22047386, 0.7955136, 0.50956184, 1)
+shader_parameter/use_l = true
+shader_parameter/use_c = false
+shader_parameter/use_h = false
+shader_parameter/steps_l = 8.0
+shader_parameter/level_c = 5.0
+shader_parameter/level_h = 0.05
+
+[sub_resource type="QuadMesh" id="QuadMesh_230i3"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_xa54s")
+size = Vector2(1.875, 1.875)
+orientation = 1
+
+[sub_resource type="Environment" id="Environment_clx5a"]
 
 [node name="Submarine" type="RigidBody3D" unique_id=1368706397]
 collision_layer = 2
@@ -54,6 +83,7 @@ shape = SubResource("CapsuleShape3D_gh8mv")
 
 [node name="ExternalMesh" type="MeshInstance3D" parent="." unique_id=1754426362]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.015656948, 1.1920929e-07, 0.004055023)
+layers = 3
 material_override = ExtResource("1_308b1")
 mesh = SubResource("CapsuleMesh_r48yj")
 metadata/_edit_lock_ = true
@@ -64,7 +94,7 @@ metadata/_edit_lock_ = true
 boat = NodePath("../..")
 power = NodePath("../Power")
 engine_pos = NodePath("../../EnginePos")
-rpm_force_ratio = 500.0
+rpm_force_ratio = 700.0
 power_heat_scale = 0.6
 
 [node name="Power" parent="Components" unique_id=862768865 instance=ExtResource("2_mfyhc")]
@@ -234,7 +264,7 @@ to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
 property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
-material_override = SubResource("StandardMaterial3D_clx5a")
+material_override = SubResource("StandardMaterial3D_ruyl3")
 
 [node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
@@ -356,6 +386,9 @@ node_a = NodePath("../../../..")
 [node name="HydroulicPress" parent="ControlRoom/Upper" parent_id_path=PackedInt32Array(957836708, 2057188181) index="1" unique_id=1433679527 node_paths=PackedStringArray("money")]
 money = NodePath("../../../Components/Money")
 
+[node name="MeshInstance3D" parent="ControlRoom/Radar" parent_id_path=PackedInt32Array(957836708, 1572735103) index="1" unique_id=102740675]
+mesh = SubResource("QuadMesh_230i3")
+
 [node name="Main" parent="." unique_id=1222444474 instance=ExtResource("11_e662o")]
 transform = Transform3D(-0.99934304, 0, -0.036242552, 0, 1, 0, 0.036242552, 0, -0.99934304, -0.91911644, -3.8265924, -1.5759518)
 
@@ -384,9 +417,13 @@ transform = Transform3D(-9.878774e-08, 0, -2.26, 0, 2.26, 0, 2.26, 0, -9.878774e
 transform = Transform3D(-1.2020632e-07, 0, -2.75, 0, 2.75, 0, 2.75, 0, -1.2020632e-07, 1.0785542, -3.5428622, -0.51050043)
 mini_sub_storage = NodePath("../Main/MiniSub/Storage")
 
-[node name="RadarCamera" type="Camera3D" parent="." unique_id=1594919138]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1833499047]
+
+[node name="RadarCamera" type="Camera3D" parent="SubViewport" unique_id=1594919138]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 248, 0)
 cull_mask = 2
+environment = SubResource("Environment_clx5a")
+far = 8000.0
 
 [connection signal="coolant_pump_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/CoolantFuseSwitch" method="set_true"]
 [connection signal="engine_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_true"]
@@ -411,4 +448,5 @@ cull_mask = 2
 [editable path="ControlRoom/CupboardDoor/cupboard_door"]
 [editable path="ControlRoom/Upper/Furnace"]
 [editable path="ControlRoom/Upper/Furnace/RigidBody3D/furnace_gate"]
+[editable path="ControlRoom/Radar"]
 [editable path="Main"]
