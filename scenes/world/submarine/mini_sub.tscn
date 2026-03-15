@@ -146,6 +146,12 @@ shape = SubResource("BoxShape3D_ymg54")
 unique_name_in_owner = true
 script = ExtResource("4_hqc16")
 
+[node name="Frag2323" type="Node3D" parent="MiniSub/Storage" unique_id=461959249]
+
+[node name="Frag2324" type="Node3D" parent="MiniSub/Storage" unique_id=338062105]
+
+[node name="Frag2325" type="Node3D" parent="MiniSub/Storage" unique_id=243824215]
+
 [node name="Power" type="Node3D" parent="MiniSub" unique_id=1337865420]
 script = ExtResource("6_scp5g")
 

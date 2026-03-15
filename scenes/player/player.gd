@@ -20,7 +20,6 @@ func _ready() -> void:
 	$Camera3D/HighlightEffect.show()
 
 func _physics_process(delta: float) -> void:
-	print(awake)
 	
 	if Input.is_action_just_pressed("mini_sub"):
 		print("pressed T")

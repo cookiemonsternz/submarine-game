@@ -24,6 +24,7 @@ func _ready() -> void:
 		last_target_position = target_node.global_transform.origin
 
 func _physics_process(delta: float) -> void:
+	
 	if target_node == null:
 		return
 	

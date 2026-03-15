@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ctjmrdulds0x7"]
+
+[ext_resource type="PackedScene" uid="uid://x0tymew7dtg3" path="res://assets/models/CollectionPipe.fbx" id="1_2wo72"]
+[ext_resource type="Script" uid="uid://cvh035vqfcfx0" path="res://collection_pipe.gd" id="2_6krtj"]
+[ext_resource type="Texture2D" uid="uid://blkyf6mc8jfao" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Color.jpg" id="2_8rqiu"]
+[ext_resource type="Texture2D" uid="uid://sjwqeyvxivoj" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_AmbientOcclusion.jpg" id="3_6krtj"]
+[ext_resource type="PackedScene" uid="uid://cnv4b1uqn0bwt" path="res://scenes/world/interactable/draggable_ore/draggable_ore.tscn" id="3_uv1cm"]
+[ext_resource type="Texture2D" uid="uid://2b53plp8s2kc" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Displacement.jpg" id="4_uv1cm"]
+[ext_resource type="Texture2D" uid="uid://cpivu71lr3xa8" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Metalness.jpg" id="5_1h3y3"]
+[ext_resource type="Texture2D" uid="uid://dap60qu3ejm36" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_NormalGL.jpg" id="6_x7yy3"]
+[ext_resource type="Texture2D" uid="uid://dwujmvjumofjh" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Roughness.jpg" id="7_ybm6x"]
+[ext_resource type="Material" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG.tres" id="8_2wo72"]
+[ext_resource type="Material" uid="uid://b2ql4v04t23ke" path="res://assets/images/Plastic006_1K-JPG/Plastic006_1K-JPG.tres" id="9_n1ick"]
+[ext_resource type="PackedScene" uid="uid://dsmcur2le7vut" path="res://scenes/world/interactable/button/button.tscn" id="11_uv1cm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmhv6"]
+albedo_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
+albedo_texture = ExtResource("2_8rqiu")
+metallic = 1.0
+metallic_texture = ExtResource("5_1h3y3")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("7_ybm6x")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("6_x7yy3")
+ao_enabled = true
+ao_texture = ExtResource("3_6krtj")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_uv1cm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_uv1cm"]
+
+[node name="CollectionPipe" unique_id=145364391 instance=ExtResource("1_2wo72")]
+script = ExtResource("2_6krtj")
+draggable_ore_scene = ExtResource("3_uv1cm")
+
+[node name="Cylinder" parent="." index="0" unique_id=846865234]
+material_override = SubResource("StandardMaterial3D_pmhv6")
+
+[node name="Cylinder_001" parent="." index="1" unique_id=1405112918]
+material_override = ExtResource("8_2wo72")
+
+[node name="Plane" parent="." index="2" unique_id=1434202996]
+material_override = ExtResource("9_n1ick")
+
+[node name="Button" parent="." index="3" unique_id=172103971 instance=ExtResource("11_uv1cm")]
+transform = Transform3D(-6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0, 0.15, -0.18474609, 1.2305037, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="4" unique_id=2119054364]
+transform = Transform3D(-0.50772154, -0.85054725, 0.1370706, 0.15132555, 0.06858447, 0.9861018, -0.848127, 0.5214074, 0.09388772, 0.3483827, 0.773991, 0)
+light_energy = 5.0
+spot_range = 2.4590516
+spot_angle = 72.33674
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="5" unique_id=2111946852]
+transform = Transform3D(0.11664983, 0.010917964, 0.9931131, 0.5167915, 0.853238, -0.0700819, -0.848127, 0.5214074, 0.09388775, 0.24780092, 1.2490766, 0)
+light_energy = 5.0
+spot_range = 2.4590516
+spot_angle = 72.33674
+
+[node name="RockSpawnPos" type="MeshInstance3D" parent="." index="6" unique_id=157540998]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.34319437, 1.3270478, 0)
+mesh = SubResource("BoxMesh_uv1cm")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

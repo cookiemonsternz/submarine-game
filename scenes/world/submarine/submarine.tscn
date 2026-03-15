@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcq3q4hiqfoxj"]
 
-[ext_resource type="Material" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
+[ext_resource type="Material" uid="uid://14it81xcr33l" path="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG.tres" id="1_308b1"]
 [ext_resource type="PackedScene" uid="uid://bdr74337u3qlu" path="res://scenes/interaction/engine/engine.tscn" id="1_er88w"]
 [ext_resource type="PackedScene" uid="uid://byqs7yxjs0y64" path="res://scenes/interaction/power/power.tscn" id="2_mfyhc"]
 [ext_resource type="PackedScene" uid="uid://ddxlhji54j4mv" path="res://scenes/interaction/ballast/ballast.tscn" id="3_f8iv4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bmpul1k5ewsat" path="res://scenes/world/submarine/mini_sub.tscn" id="11_e662o"]
 [ext_resource type="PackedScene" uid="uid://dd6l6hjcqam4g" path="res://assets/models/submarineassets_2.tscn" id="15_adir1"]
 [ext_resource type="PackedScene" uid="uid://baewwnqb66nky" path="res://assets/models/submarineassets.tscn" id="16_clx5a"]
+[ext_resource type="PackedScene" uid="uid://ctjmrdulds0x7" path="res://collection_pipe.tscn" id="17_ruyl3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gh8mv"]
 radius = 10.0
@@ -28,13 +29,13 @@ size = Vector3(10, 10, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ceh3h"]
 size = Vector3(10, 10, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h1uv2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_308b1"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_308b1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adir1"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_h1uv2")
+albedo_texture = SubResource("ViewportTexture_308b1")
 
 [node name="Submarine" type="RigidBody3D" unique_id=1368706397]
 collision_layer = 2
@@ -47,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 shape = SubResource("CapsuleShape3D_gh8mv")
 
 [node name="ExternalMesh" type="MeshInstance3D" parent="." unique_id=1754426362]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0077672005, 0, 0.0047097206)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.015656948, 1.1920929e-07, 0.004055023)
 material_override = ExtResource("1_308b1")
 mesh = SubResource("CapsuleMesh_r48yj")
 
@@ -224,7 +225,7 @@ to_node = NodePath("../../../../../../Components/AuxEngineForwLeft")
 property_scale = 1000000.0
 
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
-material_override = SubResource("StandardMaterial3D_308b1")
+material_override = SubResource("StandardMaterial3D_adir1")
 
 [node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
@@ -318,7 +319,7 @@ power = NodePath("../../../Components/Power")
 node = NodePath("../../../Components/Power")
 
 [node name="RightWall2" parent="ControlRoom/control_room" parent_id_path=PackedInt32Array(957836708, 2046035202) index="25" unique_id=1712497280]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9573765, 3.165515, -2.009927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.953757, 3.165515, -2.009959)
 
 [node name="Collisions" parent="ControlRoom" index="3" unique_id=1769083413 node_paths=PackedStringArray("boat")]
 boat = NodePath("../..")
@@ -356,6 +357,10 @@ transform = Transform3D(-9.507227e-08, 0, 2.175, 0, 2.175, 0, -2.175, 0, -9.5072
 [node name="submarineassets" parent="." unique_id=1907917118 instance=ExtResource("16_clx5a")]
 transform = Transform3D(-9.878774e-08, 0, -2.26, 0, 2.26, 0, 2.26, 0, -9.878774e-08, 0.036536217, 8.234698, 7.7749195)
 
+[node name="CollectionPipe" parent="." unique_id=145364391 node_paths=PackedStringArray("mini_sub_storage") instance=ExtResource("17_ruyl3")]
+transform = Transform3D(-1.2020632e-07, 0, -2.75, 0, 2.75, 0, 2.75, 0, -1.2020632e-07, 1.0785542, -3.5428622, -0.51050043)
+mini_sub_storage = NodePath("../Main/MiniSub/Storage")
+
 [connection signal="coolant_pump_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/CoolantFuseSwitch" method="set_true"]
 [connection signal="engine_fuse_blown" from="Components/Engine" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_true"]
 [connection signal="power_lost" from="Components/Power" to="ControlRoom/Fuses/EngineFuseSwitch" method="set_false"]
@@ -379,3 +384,4 @@ transform = Transform3D(-9.878774e-08, 0, -2.26, 0, 2.26, 0, 2.26, 0, -9.878774e
 [editable path="ControlRoom/CupboardDoor/cupboard_door"]
 [editable path="ControlRoom/Upper/Furnace"]
 [editable path="ControlRoom/Upper/Furnace/RigidBody3D/furnace_gate"]
+[editable path="Main"]
