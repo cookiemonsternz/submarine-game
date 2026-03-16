@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dg0rknkf0i40h" path="res://assets/fullscreen.svg" id="7_0o4t1"]
 [ext_resource type="AudioStream" uid="uid://v2schkfkn5as" path="res://assets/sounds/sfx/waves.mp3" id="7_qe12f"]
 [ext_resource type="Script" uid="uid://bg3jt60iqw5u1" path="res://scripts/ease_in_audio.gd" id="8_8qtwp"]
+[ext_resource type="AudioStream" uid="uid://bxgq2lm815oux" path="res://assets/sounds/oceanofrhodes.mp3" id="11_0k4wn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
 bg_color = Color(0.25202772, 0.25202763, 0.25202757, 0.8784314)
@@ -259,6 +260,14 @@ script = ExtResource("4_jix8l")
 stream = ExtResource("7_qe12f")
 volume_db = -80.0
 pitch_scale = 0.41
+autoplay = true
+bus = &"Reverb"
+script = ExtResource("8_8qtwp")
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1335628774]
+stream = ExtResource("11_0k4wn")
+volume_db = -3.0
+pitch_scale = 1.01
 autoplay = true
 bus = &"Reverb"
 script = ExtResource("8_8qtwp")

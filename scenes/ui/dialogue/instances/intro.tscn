@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://djrf1ie6uiwqu"]
+
+[ext_resource type="PackedScene" uid="uid://cvjtlb007wu4a" path="res://scenes/ui/dialogue/dialog_starter.tscn" id="1_8tqdx"]
+[ext_resource type="PackedScene" uid="uid://dy75tkoxwhbeq" path="res://scenes/ui/dialogue/dialog_popup.tscn" id="2_3m546"]
+
+[node name="DialogStarter" unique_id=996985472 node_paths=PackedStringArray("initial_dialogue") instance=ExtResource("1_8tqdx")]
+initial_dialogue = NodePath("First")
+
+[node name="First" parent="." index="0" unique_id=1988300162 instance=ExtResource("2_3m546")]
+dialog_name = "Nauta"
+dialog_text = "Welcome aboard the USS Escapade, 3813. You have been assigned the task of harvesting and processing minerals. "
+
+[node name="Second" parent="." index="1" unique_id=694989559 instance=ExtResource("2_3m546")]
+dialog_name = "Nauta"
+dialog_text = "In recent years, we have discovered a vital alloy that lurks at the lowest levels of ocean trenches that will be highly beneficial towards the success of this company’s further ventures."
+
+[node name="Third" parent="." index="2" unique_id=1059077986 instance=ExtResource("2_3m546")]
+dialog_name = "Nauta"
+dialog_text = "I’ve been instructed to teach you the ropes of the system—how to operate your vessel, how to park it over minerals—and finally, how to then collect and extract these minerals for containment within the submarine. 
+"
+
+[node name="Fourth" parent="." index="3" unique_id=74945414 instance=ExtResource("2_3m546")]
+dialog_name = "Nauta"
+dialog_text = "Firstly, press ‘T’ to toggle the mini-sub view. This allows you to view the camera from the mini-sub, useful for navigation. Pressing ‘E’ and ‘Q’ will make the mini-submarine rise, or lower. Pressing ‘W’ and ‘S’ will move you back and forwards."
+
+[node name="Fifth" parent="." index="4" unique_id=164483340 instance=ExtResource("2_3m546")]
+dialog_name = "Nauta"
+dialog_text = "To exit the submarine and monitor the ocean floor, simply lower down into the pool of water you are currently in. The rest will be explained once you find your first mineral—the sub’s camera automatically highlights these as you get close."
+
+[connection signal="finished" from="First" to="Second" method="play"]
+[connection signal="finished" from="Second" to="Third" method="play"]
+[connection signal="finished" from="Third" to="Fourth" method="play"]
+[connection signal="finished" from="Fourth" to="Fifth" method="play"]
+[connection signal="finished" from="Fifth" to="." method="end"]

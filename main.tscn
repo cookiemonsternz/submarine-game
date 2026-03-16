@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://dgluqms0hjy05"]
 
 [ext_resource type="PackedScene" uid="uid://d4h6nlrrove66" path="res://scenes/world/submarine/environment/oceanfloodscene.tscn" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://bw365jnso0bhf" path="res://world_manager.gd" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://dcq3q4hiqfoxj" path="res://scenes/world/submarine/submarine.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dcdfxqwqee6wc" path="res://scenes/player/player.tscn" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://bm237basgoe1q" path="res://scripts/multi_audio_stream_player.gd" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://bxgq2lm815oux" path="res://assets/sounds/oceanofrhodes.mp3" id="5_7mycd"]
+[ext_resource type="AudioStream" uid="uid://14veokv5301i" path="res://assets/sounds/A reflection of.mp3" id="6_272bh"]
+[ext_resource type="Script" uid="uid://x3oqkburie5a" path="res://dialog_manager.gd" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://djrf1ie6uiwqu" path="res://scenes/ui/dialogue/instances/intro.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://ot3q2m1l1r40" path="res://scenes/ui/dialogue/instances/found_first_mineral.tscn" id="10_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -28,7 +35,8 @@ fog_depth_begin = 0.0
 adjustment_enabled = true
 adjustment_contrast = 0.9
 
-[node name="Node3D" type="Node3D" unique_id=5902362]
+[node name="Main" type="Node3D" unique_id=5902362 groups=["main"]]
+script = ExtResource("1_kek77")
 
 [node name="World" parent="." unique_id=2032235148 instance=ExtResource("1_h2yge")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -31.324017, 0)
@@ -46,3 +54,18 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=374501068]
 environment = SubResource("Environment_1bvp3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=363779594]
+autoplay = true
+script = ExtResource("4_1bvp3")
+streams = Array[AudioStream]([ExtResource("5_7mycd"), ExtResource("6_272bh")])
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1751716781 groups=["story_target"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 109)
+
+[node name="DialogManager" type="Node" parent="." unique_id=2028588751]
+unique_name_in_owner = true
+script = ExtResource("7_272bh")
+dialogues = Array[PackedScene]([ExtResource("8_5vw27"), ExtResource("10_4c57u")])
+
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			mat.set_shader_parameter("steps_l", 36);
 			
 			get_tree().get_first_node_in_group("kelp").show()
+			AudioServer.get_bus_
 			
 		elif awake == false:
 			%AudioListener3D.make_current()
@@ -77,7 +78,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("ui_cancel"): 
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 func _input(event: InputEvent) -> void:
 	if Engine.is_editor_hint(): return

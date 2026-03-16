@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cvjtlb007wu4a"]
+
+[ext_resource type="Script" uid="uid://dxltqqfbuupnh" path="res://scenes/ui/dialogue/dialog_starter.gd" id="1_l75sh"]
+
+[node name="DialogStarter" type="Node3D" unique_id=996985472]
+script = ExtResource("1_l75sh")

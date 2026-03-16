@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 	if len(values) > 0:
 		var val = %Measureable.get_value()
 		val = clamp(round(val * len(values) - 0.5), 0, len(values) - 1)
+		if is_nan(val): val = 1
 		node.set(property_name, values[val])
 	else:
 		node.set(property_name, %Measureable.get_value())

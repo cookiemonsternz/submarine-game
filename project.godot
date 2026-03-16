@@ -39,6 +39,9 @@ sub_general_lights=""
 draggable_ore=""
 cash_label=""
 kelp=""
+submarine=""
+story_target=""
+main=""
 
 [importer_defaults]
 
@@ -152,6 +155,7 @@ mini_sub={
 3d_physics/layer_6="MiniSub"
 3d_physics/layer_8="rocks"
 3d_physics/layer_9="MouseTargets"
+3d_physics/layer_10="StoryAreas"
 
 [physics]
 

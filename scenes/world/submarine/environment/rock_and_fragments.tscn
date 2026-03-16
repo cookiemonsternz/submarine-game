@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5knlv4ssm6cb" path="res://assets/models/rock.tscn" id="1_bjtg8"]
 [ext_resource type="Script" uid="uid://b0dx33emjhyje" path="res://scenes/world/submarine/environment/rock_and_fragments.gd" id="1_dsng1"]
+[ext_resource type="Script" uid="uid://bwl4o8ae86nnk" path="res://scenes/world/submarine/environment/story_area.gd" id="3_hlm45"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjtg8"]
 radius = 1.4980469
@@ -12,6 +13,9 @@ radius = 1.5088522
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hlm45"]
 radius = 0.40457955
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vtf3t"]
+radius = 4.1100287
 
 [node name="RockAndFragments" type="Node3D" unique_id=343521588]
 transform = Transform3D(-0.87238514, 0, 0.48881915, 0, 1, 0, -0.48881915, 0, -0.87238514, 0, 0, 0)
@@ -100,4 +104,14 @@ shape = SubResource("SphereShape3D_dsng1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.09939164)
 shape = SubResource("SphereShape3D_hlm45")
 
+[node name="StoryArea3D" type="Area3D" parent="." unique_id=709520405]
+collision_layer = 512
+collision_mask = 32
+script = ExtResource("3_hlm45")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StoryArea3D" unique_id=1777935023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.965054, 0, 0.5407438)
+shape = SubResource("SphereShape3D_vtf3t")
+
 [connection signal="area_entered" from="RockHitBox" to="." method="_on_rock_hit_box_area_entered"]
+[connection signal="body_entered" from="StoryArea3D" to="StoryArea3D" method="_on_body_entered"]

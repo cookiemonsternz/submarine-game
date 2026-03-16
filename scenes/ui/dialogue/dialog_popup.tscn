@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dy75tkoxwhbeq"]
+
+[ext_resource type="Theme" uid="uid://chv0a5owt5qqb" path="res://scenes/ui/dialogue/dialog_theme.tres" id="1_pkw7w"]
+[ext_resource type="Script" uid="uid://b7bk84s7wv7hp" path="res://scenes/ui/dialogue/dialog_popup.gd" id="1_u56t8"]
+
+[node name="DialogPopup" type="Control" unique_id=1988300162]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_pkw7w")
+script = ExtResource("1_u56t8")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2116646947]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -133.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_right = 128
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=308349770]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1466733187]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=2013872832]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+
+[node name="NameLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2" unique_id=913661332]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Test Name"
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=32143988]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1383213418]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=666886831]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+text = "Test Dialog Test asdasdkjasdhjkasdhjkasdjhksadhjaksdasdasdasdasdasd"
+fit_content = true
+visible_characters_behavior = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=229478986]
+unique_name_in_owner = true

@@ -104,7 +104,7 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ruyl3"]
 
-[node name="Submarine" type="RigidBody3D" unique_id=1368706397]
+[node name="Submarine" type="RigidBody3D" unique_id=1368706397 groups=["story_target", "submarine"]]
 collision_layer = 64
 collision_mask = 128
 mass = 800000.0
@@ -340,11 +340,8 @@ property_scale = 1000000.0
 [node name="MeshInstance3D" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="1" unique_id=2145189923]
 material_override = SubResource("StandardMaterial3D_bnuha")
 
-[node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=1530466622 node_paths=PackedStringArray("boat")]
+[node name="Target" parent="ControlRoom/Controls/AuxPropsControl" parent_id_path=PackedInt32Array(957836708, 341946135) index="2" unique_id=686169687 node_paths=PackedStringArray("boat")]
 boat = NodePath("../../../..")
-
-[node name="Draggable" parent="ControlRoom/Controls/AuxPropsControl/Target" index="2" unique_id=898455505]
-drag_strength = 800.0
 
 [node name="WheelForwards" parent="ControlRoom/Controls" parent_id_path=PackedInt32Array(957836708, 251038954) index="18" unique_id=765100319 node_paths=PackedStringArray("node", "boat")]
 node = NodePath("../../../Components/Ballast/BallastTankForward")

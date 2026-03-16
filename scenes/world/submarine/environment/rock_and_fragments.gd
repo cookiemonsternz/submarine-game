@@ -18,7 +18,7 @@ func rock_destroy() -> void:
 		fragment.find_child("Area3D").set_deferred("monitorable", true)
 		#fragment.find_child("Area3D").monitoring = true
 		fragment.freeze = false
-		fragment.apply_impulse(Vector3(randf_range(-randomness, randomness), randf_range(-randomness,randomness), randf_range(-randomness, randomness)))
+		fragment.apply_impulse(Vector3(randf_range(-randomness, randomness), randf_range(-randomness,randomness) + 0.25, randf_range(-randomness, randomness)))
 	fragments_first.queue_free()
 	rock.queue_free()
 	rock_hitbox.queue_free()

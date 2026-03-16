@@ -189,8 +189,6 @@ void fragment() {
 	if (dist < 0.1) {
 		ALBEDO = vec3(1.0, 1.0, 1.0);
 	}
-	
-	
 }
 
 //void light() {

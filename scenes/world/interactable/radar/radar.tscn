@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ba5u7hayl2r1b" path="res://scenes/world/interactable/radar/radar_table.tscn" id="1_6kx68"]
 [ext_resource type="Shader" uid="uid://n56i6ciecknv" path="res://assets/shaders/radar.gdshader" id="2_71xcf"]
+[ext_resource type="Script" uid="uid://c2bcyp752rmtp" path="res://scenes/world/interactable/radar/target_direction.gd" id="4_5g2wo"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6kx68"]
 
@@ -26,6 +27,17 @@ material = SubResource("ShaderMaterial_5g2wo")
 size = Vector2(1.875, 1.875)
 orientation = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71xcf"]
+shading_mode = 0
+albedo_color = Color(0.39843014, 0.8339274, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5g2wo"]
+material = SubResource("StandardMaterial3D_71xcf")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.01
+radial_segments = 8
+
 [node name="Radar" type="Node3D" unique_id=1572735103]
 
 [node name="radar_table" parent="." unique_id=1059055422 instance=ExtResource("1_6kx68")]
@@ -33,3 +45,8 @@ orientation = 1
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=102740675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99513304, 0)
 mesh = SubResource("QuadMesh_0q56h")
+
+[node name="TargetDirection" type="MeshInstance3D" parent="." unique_id=415156106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_5g2wo")
+script = ExtResource("4_5g2wo")

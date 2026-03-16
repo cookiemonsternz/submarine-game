@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://chv0a5owt5qqb"]
+
+[ext_resource type="FontFile" uid="uid://bwp1lyxo6k43g" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-400-italic.ttf" id="1_eiq4i"]
+[ext_resource type="FontFile" uid="uid://blixwg4qh2n5c" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-700-normal.ttf" id="2_0h86x"]
+
+[resource]
+RichTextLabel/fonts/bold_font = ExtResource("1_eiq4i")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_eiq4i")
+RichTextLabel/fonts/italics_font = ExtResource("1_eiq4i")
+RichTextLabel/fonts/mono_font = ExtResource("1_eiq4i")
+RichTextLabel/fonts/normal_font = ExtResource("1_eiq4i")
+TitleLabel/base_type = &"RichTextLabel"
+TitleLabel/font_sizes/bold_font_size = 32
+TitleLabel/font_sizes/bold_italics_font_size = 32
+TitleLabel/font_sizes/italics_font_size = 32
+TitleLabel/font_sizes/mono_font_size = 32
+TitleLabel/font_sizes/normal_font_size = 32
+TitleLabel/fonts/bold_font = ExtResource("2_0h86x")
+TitleLabel/fonts/bold_italics_font = ExtResource("2_0h86x")
+TitleLabel/fonts/italics_font = ExtResource("2_0h86x")
+TitleLabel/fonts/mono_font = ExtResource("2_0h86x")
+TitleLabel/fonts/normal_font = ExtResource("2_0h86x")

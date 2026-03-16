@@ -376,8 +376,12 @@ values = Array[int]([0, 1, 2])
 
 [node name="Slider" parent="Controls" unique_id=1062975164 instance=ExtResource("6_uf0n3")]
 transform = Transform3D(-1, -5.619428e-08, -6.696973e-08, 0, 0.76604456, -0.6427876, 8.742278e-08, -0.64278764, -0.76604444, 1.75, 1.306, 2.695)
+drag_strength = 5000.0
 property_name = "mode"
 values = Array[int]([0, 1, 2])
+
+[node name="RigidBody3D" parent="Controls/Slider" index="0" unique_id=404819209]
+can_sleep = false
 
 [node name="MouseTarget" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="0" unique_id=532023496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
@@ -387,22 +391,23 @@ transform = Transform3D(1, 2.3092639e-14, -2.046363e-12, 2.6645353e-14, 0.999999
 
 [node name="Draggable" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="1" unique_id=898455505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
+drag_strength = 5000.0
 
 [node name="Measureable" parent="Controls/Slider/RigidBody3D/Components" parent_id_path=PackedInt32Array(1062975164, 1516316377) index="2" unique_id=1180068611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036839247, 0)
 
-[node name="HandleMesh" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="1" unique_id=1409803162]
+[node name="HandleMesh" parent="Controls/Slider/RigidBody3D" index="1" unique_id=1409803162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 mesh = SubResource("CapsuleMesh_uf0n3")
 
-[node name="EndMesh" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="2" unique_id=206053944]
+[node name="EndMesh" parent="Controls/Slider/RigidBody3D" index="2" unique_id=206053944]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 0)
 mesh = SubResource("SphereMesh_gfl3u")
 
-[node name="HandleCollisionShape" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="3" unique_id=1858927460]
+[node name="HandleCollisionShape" parent="Controls/Slider/RigidBody3D" index="3" unique_id=1858927460]
 transform = Transform3D(1, 2.3092639e-14, -2.3732127e-12, 2.6645353e-14, 0.9999994, -1.4901161e-08, -7.1054274e-15, 1.4901161e-08, 0.9999994, 0, 0.0750007, 7.1525574e-07)
 
-[node name="EndCollisionShape" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="4" unique_id=51651539]
+[node name="EndCollisionShape" parent="Controls/Slider/RigidBody3D" index="4" unique_id=51651539]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.14999996, 0)
 
 [node name="SliderJoint3D" parent="Controls/Slider" index="1" unique_id=1753674919]

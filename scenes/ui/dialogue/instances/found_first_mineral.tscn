@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ot3q2m1l1r40"]
+
+[ext_resource type="PackedScene" uid="uid://cvjtlb007wu4a" path="res://scenes/ui/dialogue/dialog_starter.tscn" id="1_uw85x"]
+[ext_resource type="PackedScene" uid="uid://dy75tkoxwhbeq" path="res://scenes/ui/dialogue/dialog_popup.tscn" id="2_0a6su"]
+
+[node name="DialogStarter" unique_id=996985472 node_paths=PackedStringArray("initial_dialogue") instance=ExtResource("1_uw85x")]
+initial_dialogue = NodePath("First")
+
+[node name="First" parent="." index="0" unique_id=1988300162 instance=ExtResource("2_0a6su")]
+dialog_name = "Nauta"
+dialog_text = "Ahh, we see you’ve found your first mineral—how exciting! Your mini-sub comes equipped with the most powerful excavation tools money offers, which makes the mining process simple and efficient."
+
+[node name="Second" parent="." index="1" unique_id=1130417460 instance=ExtResource("2_0a6su")]
+dialog_name = "Nauta"
+dialog_text = "To mine the mineral into smaller chunks, press the spacebar when close to activate your drill. After you’ve broken it into chunks you need to look at, then click, on the pieces to activate your claw. "
+
+[node name="Third" parent="." index="2" unique_id=1327428243 instance=ExtResource("2_0a6su")]
+dialog_name = "Nauta"
+dialog_text = "And that’s it! Feel free to make your way back to the main submarine—the hatch to enter is situated at the bottom. See you there."
+
+[connection signal="finished" from="First" to="Second" method="play"]
+[connection signal="finished" from="Second" to="Third" method="play"]
+[connection signal="finished" from="Third" to="." method="end"]
