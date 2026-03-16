@@ -15,3 +15,6 @@ func _on_area_entered(area: Area3D) -> void:
 		area.get_parent_node_3d().global_position = other_pos.global_position
 		area.get_parent_node_3d().rotation_degrees.y = 0
 		area.get_parent_node_3d().is_tracking = true
+		
+		var music_bus = AudioServer.get_bus_index("Music")
+		AudioServer.set_bus_send(music_bus, "UnderwaterMusic")

@@ -269,7 +269,7 @@ stream = ExtResource("11_0k4wn")
 volume_db = -3.0
 pitch_scale = 1.01
 autoplay = true
-bus = &"Reverb"
+bus = &"Music"
 script = ExtResource("8_8qtwp")
 
 [connection signal="pressed" from="Main/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

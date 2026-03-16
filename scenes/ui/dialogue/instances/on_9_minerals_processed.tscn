@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://wbk01eap4pm7"]
+
+[ext_resource type="PackedScene" uid="uid://cvjtlb007wu4a" path="res://scenes/ui/dialogue/dialog_starter.tscn" id="1_v5y8s"]
+[ext_resource type="PackedScene" uid="uid://dy75tkoxwhbeq" path="res://scenes/ui/dialogue/dialog_popup.tscn" id="2_gbn1y"]
+
+[node name="DialogStarter" unique_id=996985472 node_paths=PackedStringArray("initial_dialogue") instance=ExtResource("1_v5y8s")]
+initial_dialogue = NodePath("First")
+
+[node name="First" parent="." index="0" unique_id=1988300162 instance=ExtResource("2_gbn1y")]
+dialog_name = "Nauta"
+dialog_text = "Good work. Seems as though you’re getting the hang of this. Unfortunately, you’ll need to get a move along. These alloys are fairly hard to come by in any circumstance, and most in an area like this will be buried too deep underground to access."
+
+[node name="Second" parent="." index="1" unique_id=1561678254 instance=ExtResource("2_gbn1y")]
+dialog_name = "Nauta"
+dialog_text = "I would recommend moving [direction]. There’s a coral reef. You’ll have a better chance of securing more minerals because they tend to accumulate in more eutrophic waters."
+
+[node name="Third" parent="." index="2" unique_id=882625635 instance=ExtResource("2_gbn1y")]
+dialog_name = "Player"
+dialog_text = "Eutrophic waters? How does that—"
+
+[node name="Fourth" parent="." index="3" unique_id=2019596098 instance=ExtResource("2_gbn1y")]
+dialog_name = "Nauta"
+dialog_text = "I’m not your science teacher. Don't ask questions. You are here to work."
+
+[connection signal="finished" from="First" to="Second" method="play"]
+[connection signal="finished" from="Second" to="Third" method="play"]
+[connection signal="finished" from="Third" to="Fourth" method="play"]
+[connection signal="finished" from="Fourth" to="." method="end"]

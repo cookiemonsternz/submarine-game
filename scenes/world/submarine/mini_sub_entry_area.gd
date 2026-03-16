@@ -19,3 +19,6 @@ func _on_area_entered(area: Area3D) -> void:
 		extereor_hitbox.disabled = false
 		
 		get_tree().get_first_node_in_group("main").entered_main_sub();
+		
+		var music_bus = AudioServer.get_bus_index("Music")
+		AudioServer.set_bus_send(music_bus, "Master")

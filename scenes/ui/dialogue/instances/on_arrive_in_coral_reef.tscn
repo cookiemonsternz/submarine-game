@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b470d0it0g6gq"]
+
+[ext_resource type="PackedScene" uid="uid://cvjtlb007wu4a" path="res://scenes/ui/dialogue/dialog_starter.tscn" id="1_vhchi"]
+[ext_resource type="PackedScene" uid="uid://dy75tkoxwhbeq" path="res://scenes/ui/dialogue/dialog_popup.tscn" id="2_kbahv"]
+
+[node name="DialogStarter" unique_id=996985472 node_paths=PackedStringArray("initial_dialogue") instance=ExtResource("1_vhchi")]
+initial_dialogue = NodePath("DialogPopup")
+
+[node name="DialogPopup" parent="." index="0" unique_id=1988300162 instance=ExtResource("2_kbahv")]
+dialog_name = "Nauta"
+dialog_text = "I assume you don’t need me barking orders at you by now. I’ll keep quiet. If something concerning pops up, I’ll let you know."
+
+[connection signal="finished" from="DialogPopup" to="." method="end"]

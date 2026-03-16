@@ -67,8 +67,6 @@ collision_layer = 16
 collision_mask = 21
 floor_max_angle = 1.3962634
 script = ExtResource("1_xhfnw")
-speed = null
-jump_velocity = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1896404139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5056181, 0)

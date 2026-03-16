@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://uybiw6c6yl2j"]
+
+[ext_resource type="PackedScene" uid="uid://cvjtlb007wu4a" path="res://scenes/ui/dialogue/dialog_starter.tscn" id="1_go82o"]
+[ext_resource type="PackedScene" uid="uid://dy75tkoxwhbeq" path="res://scenes/ui/dialogue/dialog_popup.tscn" id="2_m1tej"]
+
+[node name="DialogStarter" unique_id=996985472 node_paths=PackedStringArray("initial_dialogue") instance=ExtResource("1_go82o")]
+initial_dialogue = NodePath("First")
+
+[node name="First" parent="." index="0" unique_id=1988300162 instance=ExtResource("2_m1tej")]
+dialog_name = "Nauta"
+dialog_text = "On behalf of Nauta, we would like to thank you, 3813, and commend you for your utmost cooperation within the industry and workplace, as well as for your bravery in helping our company embark on this journey."
+
+[node name="Second" parent="." index="1" unique_id=1601454174 instance=ExtResource("2_m1tej")]
+dialog_name = "Nauta"
+dialog_text = "Remember, we’re all in this together. Keep mining those ore. Let’s make this count."
+
+[connection signal="finished" from="First" to="Second" method="play"]
+[connection signal="finished" from="Second" to="." method="end"]

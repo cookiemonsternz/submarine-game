@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d3cb5mhufyy0e"]
+
+[ext_resource type="PackedScene" uid="uid://cvjtlb007wu4a" path="res://scenes/ui/dialogue/dialog_starter.tscn" id="1_30cj3"]
+[ext_resource type="PackedScene" uid="uid://dy75tkoxwhbeq" path="res://scenes/ui/dialogue/dialog_popup.tscn" id="2_enhpq"]
+
+[node name="DialogStarter" unique_id=996985472 node_paths=PackedStringArray("initial_dialogue") instance=ExtResource("1_30cj3")]
+initial_dialogue = NodePath("DialogPopup")
+
+[node name="DialogPopup" parent="." index="0" unique_id=1988300162 instance=ExtResource("2_enhpq")]
+dialog_name = "Nauta"
+dialog_text = "3813, this last part is all up to you. Our connection with you out here is unstable enough as is, and our enhanced broadcast and transmission services won’t be able to hold when you travel further out. We’ll cut ties from here on out. Good luck. The fate of Nauta is in your hands."
+
+[connection signal="finished" from="DialogPopup" to="." method="end"]

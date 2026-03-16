@@ -33,7 +33,6 @@ selectable = true
 shape = SubResource("SphereShape3D_73bf7")
 
 [node name="type-1" parent="." unique_id=878879872 instance=ExtResource("4_0vjwe")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=905111508]
 unique_name_in_owner = true
