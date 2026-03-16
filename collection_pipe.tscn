@@ -34,6 +34,10 @@ heightmap_enabled = true
 heightmap_scale = 1.0
 heightmap_texture = ExtResource("4_uv1cm")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1h3y3"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
 [sub_resource type="BoxMesh" id="BoxMesh_uv1cm"]
 
 [node name="CollectionPipe" unique_id=145364391 instance=ExtResource("1_2wo72")]
@@ -70,6 +74,7 @@ spot_angle = 72.33674
 
 [node name="RockSpawnPos" type="MeshInstance3D" parent="." index="6" unique_id=157540998]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.34319437, 1.3270478, 0)
+material_override = SubResource("StandardMaterial3D_1h3y3")
 mesh = SubResource("BoxMesh_uv1cm")
 
 [node name="PlopAudio" type="AudioStreamPlayer3D" parent="." index="7" unique_id=1889854792]

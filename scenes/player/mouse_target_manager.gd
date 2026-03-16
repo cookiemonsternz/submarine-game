@@ -36,6 +36,7 @@ func _process(_delta: float) -> void:
 	else:
 		if result is MouseTarget:
 			if hovered_target is MouseTarget:
+				
 				if hovered_target.is_pressed: return
 				hovered_target._on_mouse_exited()
 			result._on_mouse_entered()
