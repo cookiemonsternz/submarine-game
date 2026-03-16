@@ -54,6 +54,9 @@ height = 49.97812
 [sub_resource type="BoxShape3D" id="BoxShape3D_clx5a"]
 size = Vector3(4.161921, 0.18214941, 5.7650757)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_230i3"]
+size = Vector3(4.161921, 0.18214941, 1.1106834)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ruyl3"]
 size = Vector3(4.161921, 0.18214941, 5.7650757)
 
@@ -436,19 +439,23 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.15250838, 0.43864346, -3.3956766)
 shape = SubResource("BoxShape3D_clx5a")
 
-[node name="Interior8" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="2" unique_id=459963151]
+[node name="Interior10" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="2" unique_id=1088744119]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.15250838, 15.499615, -3.3956766)
+shape = SubResource("BoxShape3D_230i3")
+
+[node name="Interior8" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="3" unique_id=459963151]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.15250838, 0.43864346, -13.566833)
 shape = SubResource("BoxShape3D_ruyl3")
 
-[node name="Interior9" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="3" unique_id=1961952537]
+[node name="Interior9" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="4" unique_id=1961952537]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.15250838, 3.0915594, -8.576757)
 shape = SubResource("BoxShape3D_yivu5")
 
-[node name="Interior6" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="4" unique_id=1719035667]
+[node name="Interior6" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="5" unique_id=1719035667]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.1448283, 0.43864346, -8.66664)
 shape = SubResource("BoxShape3D_xa54s")
 
-[node name="Interior7" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="5" unique_id=983357476]
+[node name="Interior7" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="6" unique_id=983357476]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.9987822, 0.43864346, -8.66664)
 shape = SubResource("BoxShape3D_adir1")
 

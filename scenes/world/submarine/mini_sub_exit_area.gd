@@ -11,7 +11,7 @@ func _on_area_entered(area: Area3D) -> void:
 		$"../MiniSubEntryArea".is_inside = true
 		%DockUndockAudio.play(5.73);
 		#print("its the mini sub")
-		extereor_hitbox.disabled = true
+		extereor_hitbox.set_deferred("disabled", true)
 		area.get_parent_node_3d().global_position = other_pos.global_position
 		area.get_parent_node_3d().rotation_degrees.y = 0
 		area.get_parent_node_3d().is_tracking = true

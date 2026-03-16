@@ -16,7 +16,7 @@ func _on_area_entered(area: Area3D) -> void:
 		is_inside = false
 		area.get_parent_node_3d().global_position = other_pos.global_position
 		area.get_parent_node_3d().is_tracking = false
-		extereor_hitbox.disabled = false
+		extereor_hitbox.set_deferred("disabled", false)
 		
 		get_tree().get_first_node_in_group("main").entered_main_sub();
 		
