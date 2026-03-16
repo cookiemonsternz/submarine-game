@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bpo7che1vx2tn"]
+
+[ext_resource type="Texture2D" uid="uid://c8eomyrsny3fw" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_AmbientOcclusion.jpg" id="AmbientOcclusion"]
+[ext_resource type="Texture2D" uid="uid://pdif16naw4ud" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_Color.jpg" id="Color"]
+[ext_resource type="Texture2D" uid="uid://cwhexj6fi6ear" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_Displacement.jpg" id="Displacement"]
+[ext_resource type="Texture2D" uid="uid://dyw0m4mjogot1" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_NormalGL.jpg" id="NormalGL"]
+[ext_resource type="Texture2D" uid="uid://btr2vaxhoan3f" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_Roughness.jpg" id="Roughness"]
+
+[resource]
+albedo_color = Color(0.71273017, 0.59799445, 3.85046e-07, 1)
+albedo_texture = ExtResource("Color")
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("NormalGL")
+ao_enabled = true
+ao_texture = ExtResource("AmbientOcclusion")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("Displacement")
+uv1_scale = Vector3(-63.715, -63.715, -63.715)
+uv1_triplanar = true
+uv2_triplanar = true

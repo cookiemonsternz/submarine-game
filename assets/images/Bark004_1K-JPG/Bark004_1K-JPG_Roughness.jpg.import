@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dngqsj5nn6h6s"
-path.s3tc="res://.godot/imported/Rock061.png-89b5baa23906677e4c7969330038e5df.s3tc.ctex"
+uid="uid://btr2vaxhoan3f"
+path.s3tc="res://.godot/imported/Bark004_1K-JPG_Roughness.jpg-91e41233eceec24e686788ea445fbbcb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/rocks/Rock061_1K-JPG/Rock061.png"
-dest_files=["res://.godot/imported/Rock061.png-89b5baa23906677e4c7969330038e5df.s3tc.ctex"]
+source_file="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_Roughness.jpg"
+dest_files=["res://.godot/imported/Bark004_1K-JPG_Roughness.jpg-91e41233eceec24e686788ea445fbbcb.s3tc.ctex"]
 
 [params]
 

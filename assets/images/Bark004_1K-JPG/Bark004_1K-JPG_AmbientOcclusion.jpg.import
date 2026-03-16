@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dngqsj5nn6h6s"
-path.s3tc="res://.godot/imported/Rock061.png-89b5baa23906677e4c7969330038e5df.s3tc.ctex"
+uid="uid://c8eomyrsny3fw"
+path.s3tc="res://.godot/imported/Bark004_1K-JPG_AmbientOcclusion.jpg-702666b4b8683b560ec52aa120c32d02.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/rocks/Rock061_1K-JPG/Rock061.png"
-dest_files=["res://.godot/imported/Rock061.png-89b5baa23906677e4c7969330038e5df.s3tc.ctex"]
+source_file="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_AmbientOcclusion.jpg"
+dest_files=["res://.godot/imported/Bark004_1K-JPG_AmbientOcclusion.jpg-702666b4b8683b560ec52aa120c32d02.s3tc.ctex"]
 
 [params]
 
@@ -26,8 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=8
+roughness/src_normal="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_NormalGL.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

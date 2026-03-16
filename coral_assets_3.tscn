@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://clmimkmecvnad"]
+
+[ext_resource type="PackedScene" uid="uid://igm50qu68clg" path="res://assets/models/coral_assets3.fbx" id="1_ju3hd"]
+[ext_resource type="Texture2D" uid="uid://pdif16naw4ud" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_Color.jpg" id="2_2ggjy"]
+[ext_resource type="Texture2D" uid="uid://c8eomyrsny3fw" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_AmbientOcclusion.jpg" id="3_gcm6s"]
+[ext_resource type="Texture2D" uid="uid://cwhexj6fi6ear" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_Displacement.jpg" id="4_egjkl"]
+[ext_resource type="Texture2D" uid="uid://dyw0m4mjogot1" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_NormalGL.jpg" id="5_mkfyw"]
+[ext_resource type="Texture2D" uid="uid://btr2vaxhoan3f" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG_Roughness.jpg" id="6_mpxgl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg4b7"]
+albedo_color = Color(0.9999978, 0.37044644, 0, 1)
+albedo_texture = ExtResource("2_2ggjy")
+roughness_texture = ExtResource("6_mpxgl")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("5_mkfyw")
+ao_enabled = true
+ao_texture = ExtResource("3_gcm6s")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("4_egjkl")
+uv1_scale = Vector3(-63.715, -63.715, -63.715)
+uv1_triplanar = true
+uv2_triplanar = true
+
+[node name="coral_assets3" unique_id=1712309310 instance=ExtResource("1_ju3hd")]
+
+[node name="Plane_001" parent="." index="0" unique_id=504090634]
+material_override = SubResource("StandardMaterial3D_xg4b7")

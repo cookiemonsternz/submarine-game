@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://uxi65b7x1wps"]
+
+[ext_resource type="PackedScene" uid="uid://cf3vmfipk1aba" path="res://assets/models/coralAssets1.fbx" id="1_660iu"]
+[ext_resource type="Material" path="res://assets/images/Bark004_1K-JPG/Bark004_1K-JPG.tres" id="2_285fl"]
+
+[node name="coralAssets1" unique_id=1978073360 instance=ExtResource("1_660iu")]
+
+[node name="Plane" parent="." index="0" unique_id=68072240]
+material_override = ExtResource("2_285fl")
