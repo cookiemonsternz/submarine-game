@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/ship_map.jpg-1fa8eba091ce91b747160a061fe633d2
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

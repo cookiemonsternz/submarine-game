@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Rust006.png-0e9c78d3830fcf3bfa6b2a1120bf183f.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

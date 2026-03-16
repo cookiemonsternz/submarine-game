@@ -1,4 +1,4 @@
-extends RigidBody3D
+class_name SliderBody extends RigidBody3D
 
 @export var boat: RigidBody3D
 var dragging = false

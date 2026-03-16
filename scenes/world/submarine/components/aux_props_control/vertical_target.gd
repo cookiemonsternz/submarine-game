@@ -1,4 +1,4 @@
-class_name AuxPropControlTarget extends RigidBody3D
+class_name AuxPropControlTarget extends Node3D
 
 @export var boat: RigidBody3D
 
@@ -10,27 +10,26 @@ var prev_linear_velocity: Vector3
 func _ready() -> void:
 	last_set_point = global_position
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func get_value() -> Vector2:
 	var x = remap(self.position.x, -1, 1, 0, 1)
 	var z = remap(self.position.z, -0.25, 0.25, 0, 1)
 	return Vector2(x, z)
 
-func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+func _process(delta: float) -> void:
 	position.y = 0
-	
-	linear_velocity -= prev_linear_velocity
-	linear_velocity += boat.linear_velocity * 1.1
 	
 	position.x = clamp(position.x, -1, 1)
 	position.z = clamp(position.z, -0.25, 0.25)
 	
-	#if dragging:
-		#linear_velocity -= boat.linear_velocity
+	if dragging:
+		var camera: Camera3D = get_tree().get_first_node_in_group("player_camera")
+		var plane := Plane(global_basis.y, global_position)
+		var mouse_pos := get_viewport().get_mouse_position()
+		var from := camera.project_ray_origin(mouse_pos)
+		var pos = plane.intersects_ray(from, camera.project_ray_normal(mouse_pos) * 4096.0)
+		if pos is Vector3:
+			global_position = pos
+		
 	
 	if !dragging:
 		global_position = boat.to_global(last_set_point)

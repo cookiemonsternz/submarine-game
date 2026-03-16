@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4x73xo3x2pai"
-path.s3tc="res://.godot/imported/base_plate_rough.png-5c18dee0be6aa278abc0a97c27d7aa7f.s3tc.ctex"
+path="res://.godot/imported/base_plate_rough.png-5c18dee0be6aa278abc0a97c27d7aa7f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/dial/base_plate_texture/base_plate_rough.png"
-dest_files=["res://.godot/imported/base_plate_rough.png-5c18dee0be6aa278abc0a97c27d7aa7f.s3tc.ctex"]
+dest_files=["res://.godot/imported/base_plate_rough.png-5c18dee0be6aa278abc0a97c27d7aa7f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

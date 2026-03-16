@@ -19,9 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://cpivu71lr3xa8" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Metalness.jpg" id="17_eu4v0"]
 [ext_resource type="Texture2D" uid="uid://dap60qu3ejm36" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_NormalGL.jpg" id="18_4muuy"]
 [ext_resource type="Texture2D" uid="uid://dwujmvjumofjh" path="res://assets/images/painted_metal/PaintedMetal007_1K-JPG/PaintedMetal007_1K-JPG_Roughness.jpg" id="19_h3h8b"]
-[ext_resource type="Material" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG.tres" id="21_ugiup"]
+[ext_resource type="Material" uid="uid://du5ony7v4my4b" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG.tres" id="21_ugiup"]
 [ext_resource type="Material" uid="uid://bxdjoyiwti5ej" path="res://assets/images/painted_plastic/Plastic016A_1K-JPG/Plastic016A_1K-JPG.tres" id="24_7s362"]
-[ext_resource type="Material" uid="uid://crcy6fmi25n5m" path="res://assets/images/metal_walkways/MetalWalkway010_1K-JPG/MetalWalkway010_1K-JPG.tres" id="25_vpxmm"]
+[ext_resource type="Material" uid="uid://vo55a3ql64wh" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG.tres" id="25_vpxmm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdkcl"]
 albedo_color = Color(0.6542321, 0.6542321, 0.654232, 1)

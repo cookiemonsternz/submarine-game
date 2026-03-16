@@ -8,4 +8,5 @@ func _physics_process(delta: float) -> void:
 	#print(%AudioStreamPlayer3D.volume_linear)
 	
 	var value = $RigidBody3D/Measureable.get_value()
-	%AudioStreamPlayer3D.volume_linear = (value / 1.2) - 0.6
+	#print((value / 1.2) - 0.1)
+	%AudioStreamPlayer3D.volume_linear = (value / 1.2) - 0.1

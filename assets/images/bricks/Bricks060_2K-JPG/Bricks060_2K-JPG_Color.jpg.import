@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vgb1bryp6gnj"
-path.s3tc="res://.godot/imported/Bricks060_2K-JPG_Color.jpg-7f4f244c02d4a2a1fe8cd058f58ad273.s3tc.ctex"
+path="res://.godot/imported/Bricks060_2K-JPG_Color.jpg-7f4f244c02d4a2a1fe8cd058f58ad273.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/bricks/Bricks060_2K-JPG/Bricks060_2K-JPG_Color.jpg"
-dest_files=["res://.godot/imported/Bricks060_2K-JPG_Color.jpg-7f4f244c02d4a2a1fe8cd058f58ad273.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bricks060_2K-JPG_Color.jpg-7f4f244c02d4a2a1fe8cd058f58ad273.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

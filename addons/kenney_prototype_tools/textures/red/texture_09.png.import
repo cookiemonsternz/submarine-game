@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyjro1wpt6sna"
-path.s3tc="res://.godot/imported/texture_09.png-c1b4b9c185b0e5d1cf5d758d4d236f56.s3tc.ctex"
+path="res://.godot/imported/texture_09.png-c1b4b9c185b0e5d1cf5d758d4d236f56.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://addons/kenney_prototype_tools/textures/red/texture_09.png"
-dest_files=["res://.godot/imported/texture_09.png-c1b4b9c185b0e5d1cf5d758d4d236f56.s3tc.ctex"]
+dest_files=["res://.godot/imported/texture_09.png-c1b4b9c185b0e5d1cf5d758d4d236f56.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da72oy40lm0ui"
-path.s3tc="res://.godot/imported/Plastic016A_1K-JPG_Roughness.jpg-e70b3263f6a01f580182541059d0c6ee.s3tc.ctex"
+path="res://.godot/imported/Plastic016A_1K-JPG_Roughness.jpg-e70b3263f6a01f580182541059d0c6ee.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/painted_plastic/Plastic016A_1K-JPG/Plastic016A_1K-JPG_Roughness.jpg"
-dest_files=["res://.godot/imported/Plastic016A_1K-JPG_Roughness.jpg-e70b3263f6a01f580182541059d0c6ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/Plastic016A_1K-JPG_Roughness.jpg-e70b3263f6a01f580182541059d0c6ee.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

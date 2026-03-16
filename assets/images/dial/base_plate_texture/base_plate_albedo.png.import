@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://db7tje3jpej7a"
-path.s3tc="res://.godot/imported/base_plate_albedo.png-de20bd5beef1198322d94ca9ffccfcd2.s3tc.ctex"
+path="res://.godot/imported/base_plate_albedo.png-de20bd5beef1198322d94ca9ffccfcd2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/dial/base_plate_texture/base_plate_albedo.png"
-dest_files=["res://.godot/imported/base_plate_albedo.png-de20bd5beef1198322d94ca9ffccfcd2.s3tc.ctex"]
+dest_files=["res://.godot/imported/base_plate_albedo.png-de20bd5beef1198322d94ca9ffccfcd2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

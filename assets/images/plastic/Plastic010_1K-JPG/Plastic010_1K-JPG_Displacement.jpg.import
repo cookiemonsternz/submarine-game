@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b145oi2kgqg7t"
-path.s3tc="res://.godot/imported/Plastic010_1K-JPG_Displacement.jpg-8619301ab231d72f9826b5f82ea0b8aa.s3tc.ctex"
+path="res://.godot/imported/Plastic010_1K-JPG_Displacement.jpg-8619301ab231d72f9826b5f82ea0b8aa.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_Displacement.jpg"
-dest_files=["res://.godot/imported/Plastic010_1K-JPG_Displacement.jpg-8619301ab231d72f9826b5f82ea0b8aa.s3tc.ctex"]
+dest_files=["res://.godot/imported/Plastic010_1K-JPG_Displacement.jpg-8619301ab231d72f9826b5f82ea0b8aa.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

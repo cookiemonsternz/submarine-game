@@ -184,7 +184,7 @@ void fragment() {
 	//ALBEDO = vec3(texture(grid_lines, UV).a);
 	//ALBEDO = texture(camera_texture, UV).rgb;
 	
-	float dist = length(texture(camera_texture, UV).rgb - vec3(1.0, 0.5, 0.75));
+	float dist = length(texture(camera_texture, coord).rgb - vec3(1.0, 0.5, 0.75));
 	
 	if (dist < 0.1) {
 		ALBEDO = vec3(1.0, 1.0, 1.0);

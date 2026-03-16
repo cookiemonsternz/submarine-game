@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caig3gvuu1k5d"
-path.s3tc="res://.godot/imported/drill_1.png-ccd10ef9609dab494a4755828e2add4e.s3tc.ctex"
+path="res://.godot/imported/drill_1.png-ccd10ef9609dab494a4755828e2add4e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "42e7e03a2fa2b76e1fb49a348f70df01"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/drill_1.png"
-dest_files=["res://.godot/imported/drill_1.png-ccd10ef9609dab494a4755828e2add4e.s3tc.ctex"]
+dest_files=["res://.godot/imported/drill_1.png-ccd10ef9609dab494a4755828e2add4e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bbjf0fb3cnics" path="res://scenes/world/submarine/components/furnace/furnace_gate.tscn" id="2_tnnpj"]
 [ext_resource type="PackedScene" uid="uid://hrm6vrtd02ft" path="res://scenes/interaction/draggable/draggable.tscn" id="3_blfjb"]
 [ext_resource type="PackedScene" uid="uid://bhv8cjuyvan2e" path="res://scenes/interaction/mouse_target/mouse_target.tscn" id="4_pil3b"]
-[ext_resource type="Shader" path="res://assets/shaders/fire.gdshader" id="5_tnnpj"]
+[ext_resource type="Shader" uid="uid://ggp3ocpcdw63" path="res://assets/shaders/fire.gdshader" id="5_tnnpj"]
 [ext_resource type="Script" uid="uid://cfpfoyxtpy7on" path="res://scenes/world/submarine/components/furnace/omni_light_3d.gd" id="6_blfjb"]
 [ext_resource type="PackedScene" uid="uid://chpxdsgs08ep5" path="res://scenes/interaction/measureable/measureable.tscn" id="6_smtto"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smtto"]
-size = Vector3(0.2, 2, 3)
+size = Vector3(0.2, 1.6, 2.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oo0oq"]
 size = Vector3(0.6, 2.3, 3.4)
@@ -46,6 +46,7 @@ loop = true
 script = ExtResource("1_pil3b")
 
 [node name="furnace" parent="." unique_id=1431888982 instance=ExtResource("1_k8xap")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=118882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3.1, 0)
@@ -55,11 +56,14 @@ mass = 5.0
 linear_damp = 50.231
 
 [node name="furnace_gate" parent="RigidBody3D" unique_id=2031065400 instance=ExtResource("2_tnnpj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.25, -0.9000001, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1390665367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.9000001, 0)
 shape = SubResource("BoxShape3D_smtto")
 
 [node name="Draggable" parent="RigidBody3D" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("3_blfjb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 drag_strength = 10000.0
 rigidbody = NodePath("..")
 mouse_target = NodePath("../MouseTarget")
@@ -69,18 +73,22 @@ outline_objects = [NodePath("../furnace_gate/Cube_005")]
 selectable = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/MouseTarget" unique_id=1344245311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05000019, -5.9604645e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.9499998, -5.9604645e-08)
 shape = SubResource("BoxShape3D_oo0oq")
 
 [node name="Measureable" parent="RigidBody3D" unique_id=1180068611 node_paths=PackedStringArray("drag_body", "joint") instance=ExtResource("6_smtto")]
 drag_body = NodePath("..")
 joint = NodePath("../../SliderJoint3D")
 
-[node name="SliderJoint3D" type="JoltSliderJoint3D" parent="." unique_id=1424583203]
-limit_enabled = true
-limit_upper = 2.25
+[node name="SliderJoint3D" type="SliderJoint3D" parent="." unique_id=730991215]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1, 0, 0)
 node_b = NodePath("../RigidBody3D")
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1, -1.9, 0)
+linear_limit/upper_distance = 2.25
+linear_limit/lower_distance = 0.0
+linear_limit/restitution = 0.1
+angular_limit/upper_angle = 0.017453292
+angular_limit/lower_angle = -0.017453292
+angular_limit/restitution = 0.1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1120385124]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)

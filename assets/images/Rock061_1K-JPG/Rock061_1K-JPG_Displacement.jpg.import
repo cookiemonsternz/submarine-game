@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o8f8e3a2dgou"
-path.s3tc="res://.godot/imported/Rock061_1K-JPG_Displacement.jpg-13a9e099bee7eda91bed32a1e2ed21fd.s3tc.ctex"
+path="res://.godot/imported/Rock061_1K-JPG_Displacement.jpg-13a9e099bee7eda91bed32a1e2ed21fd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Rock061_1K-JPG/Rock061_1K-JPG_Displacement.jpg"
-dest_files=["res://.godot/imported/Rock061_1K-JPG_Displacement.jpg-13a9e099bee7eda91bed32a1e2ed21fd.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rock061_1K-JPG_Displacement.jpg-13a9e099bee7eda91bed32a1e2ed21fd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

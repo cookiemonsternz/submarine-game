@@ -37,12 +37,12 @@ func _ready() -> void:
 	detent_expression.parse(detent_equation, ["x"])
 	%Draggable.drag_strength = drag_strength
 	
-	%JoltHingeJoint3D.node_a = boat.get_path()
+	%HingeJoint3D.node_a = boat.get_path()
 	
 	selected_detent = default_detent
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint(): return
+	if Engine.is_editor_hint(): return	
 	do_detents()
 	if len(values) > 0:
 		var val = %Measureable.get_value()
@@ -62,7 +62,7 @@ func do_detents():
 	var difference = current_value - selected_detent
 	var factor = sign(difference) * detent_expression.execute([abs(difference)])
 	
-	%RigidBody3D.apply_central_force(%JoltHingeJoint3D.global_basis.y * factor)
+	%RigidBody3D.apply_central_force(%HingeJoint3D.global_basis.y * factor)
 
 func _input(event: InputEvent) -> void:
 	if !is_hovered: return

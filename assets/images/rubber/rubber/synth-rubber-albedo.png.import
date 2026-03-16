@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3ohol8u7yde6"
-path.s3tc="res://.godot/imported/synth-rubber-albedo.png-c8122aa5f04ba4eb4e2a7706f959dbc7.s3tc.ctex"
+path="res://.godot/imported/synth-rubber-albedo.png-c8122aa5f04ba4eb4e2a7706f959dbc7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/rubber/rubber/synth-rubber-albedo.png"
-dest_files=["res://.godot/imported/synth-rubber-albedo.png-c8122aa5f04ba4eb4e2a7706f959dbc7.s3tc.ctex"]
+dest_files=["res://.godot/imported/synth-rubber-albedo.png-c8122aa5f04ba4eb4e2a7706f959dbc7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

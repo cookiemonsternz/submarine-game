@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvknfdf0n0l14"
-path.s3tc="res://.godot/imported/Plastic010_1K-JPG_NormalGL.jpg-d41923b6aa03b11f114d46583a29988c.s3tc.ctex"
+path="res://.godot/imported/Plastic010_1K-JPG_NormalGL.jpg-d41923b6aa03b11f114d46583a29988c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/plastic/Plastic010_1K-JPG/Plastic010_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Plastic010_1K-JPG_NormalGL.jpg-d41923b6aa03b11f114d46583a29988c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Plastic010_1K-JPG_NormalGL.jpg-d41923b6aa03b11f114d46583a29988c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

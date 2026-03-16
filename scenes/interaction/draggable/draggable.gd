@@ -1,4 +1,4 @@
-class_name Draggable extends Node3D
+class_name WheelDraggable extends Node3D
 
 @export var drag_strength: float = 500.0
 @export var scroll_strength: float = 5.0
@@ -18,19 +18,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if dragging:
-		if rigidbody is AuxPropControlTarget:
-			var camera: Camera3D = get_tree().get_first_node_in_group("player_camera")
-			#var plane := Plane(camera.global_basis.z, rigidbody.global_position)
-			var plane := Plane(rigidbody.global_basis.y, rigidbody.global_position)
-			var mouse_pos := get_viewport().get_mouse_position()
-			var from := camera.project_ray_origin(mouse_pos)
-			var pos = plane.intersects_ray(from, camera.project_ray_normal(mouse_pos) * 4096.0)
-			if pos is Vector3:
-				var vec = (pos - rigidbody.global_position)
-				#var vec_len = vec.length()
-				vec = (vec) * drag_strength
-				rigidbody.apply_force(vec * delta, pos - rigidbody.global_position)
-		elif rigidbody is Wheel:
+		#if rigidbody is AuxPropControlTarget:
+			#var camera: Camera3D = get_tree().get_first_node_in_group("player_camera")
+			##var plane := Plane(camera.global_basis.z, rigidbody.global_position)
+			#var plane := Plane(rigidbody.global_basis.y, rigidbody.global_position)
+			#var mouse_pos := get_viewport().get_mouse_position()
+			#var from := camera.project_ray_origin(mouse_pos)
+			#var pos = plane.intersects_ray(from, camera.project_ray_normal(mouse_pos) * 4096.0)
+			#if pos is Vector3:
+				#var vec = (pos - rigidbody.global_position)
+				##var vec_len = vec.length()
+				#vec = (vec) * drag_strength
+				#rigidbody.apply_force(vec * delta, pos - rigidbody.global_position)
+		if rigidbody is Wheel:
 			var camera: Camera3D = get_tree().get_first_node_in_group("player_camera")
 			#var plane := Plane(camera.global_basis.z, rigidbody.global_position)
 			var plane := Plane(rigidbody.global_basis.y, rigidbody.global_position)
@@ -41,11 +41,24 @@ func _process(delta: float) -> void:
 				var vec = (pos - rigidbody.global_position)
 				var vec_len = vec.length()
 				vec = (vec / vec_len) * drag_strength
-				rigidbody.apply_force(vec * delta, pos - rigidbody.global_position)
+				print(vec)
+				rigidbody.apply_torque(vec * delta * 100000.0)
 		elif rigidbody is CupboardDoor:
 			var camera: Camera3D = get_tree().get_first_node_in_group("player_camera")
 			#var plane := Plane(camera.global_basis.z, rigidbody.global_position)
 			var plane := Plane(rigidbody.global_basis.x, rigidbody.global_position)
+			var mouse_pos := get_viewport().get_mouse_position()
+			var from := camera.project_ray_origin(mouse_pos)
+			var pos = plane.intersects_ray(from, camera.project_ray_normal(mouse_pos) * 4096.0)
+			if pos is Vector3:
+				var vec = (pos - rigidbody.global_position)
+				var vec_len = vec.length()
+				vec = (vec / vec_len) * drag_strength
+				rigidbody.apply_force(vec * delta, pos - rigidbody.global_position)
+		elif rigidbody is SliderBody:
+			var camera: Camera3D = get_tree().get_first_node_in_group("player_camera")
+			#var plane := Plane(camera.global_basis.z, rigidbody.global_position)
+			var plane := Plane(camera.global_basis.z, rigidbody.global_position)
 			var mouse_pos := get_viewport().get_mouse_position()
 			var from := camera.project_ray_origin(mouse_pos)
 			var pos = plane.intersects_ray(from, camera.project_ray_normal(mouse_pos) * 4096.0)

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd6f8g7jf31gv"
-path.s3tc="res://.godot/imported/ConsoleNormal.png-320b1c2d3fb45d638c51e5572ee0de07.s3tc.ctex"
+path="res://.godot/imported/ConsoleNormal.png-320b1c2d3fb45d638c51e5572ee0de07.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/control_room/console/ConsoleNormal.png"
-dest_files=["res://.godot/imported/ConsoleNormal.png-320b1c2d3fb45d638c51e5572ee0de07.s3tc.ctex"]
+dest_files=["res://.godot/imported/ConsoleNormal.png-320b1c2d3fb45d638c51e5572ee0de07.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

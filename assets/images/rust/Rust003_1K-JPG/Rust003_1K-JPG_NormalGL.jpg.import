@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chsilw1830ccv"
-path.s3tc="res://.godot/imported/Rust003_1K-JPG_NormalGL.jpg-543ffc15e4d8d15e20c678434214c998.s3tc.ctex"
+path="res://.godot/imported/Rust003_1K-JPG_NormalGL.jpg-543ffc15e4d8d15e20c678434214c998.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/rust/Rust003_1K-JPG/Rust003_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Rust003_1K-JPG_NormalGL.jpg-543ffc15e4d8d15e20c678434214c998.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rust003_1K-JPG_NormalGL.jpg-543ffc15e4d8d15e20c678434214c998.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

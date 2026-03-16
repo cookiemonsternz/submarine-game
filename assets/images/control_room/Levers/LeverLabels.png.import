@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ch0f06ldgxpcy"
-path.s3tc="res://.godot/imported/LeverLabels.png-64cbef421cb03e891037825b6a47c4ef.s3tc.ctex"
+path="res://.godot/imported/LeverLabels.png-64cbef421cb03e891037825b6a47c4ef.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/control_room/Levers/LeverLabels.png"
-dest_files=["res://.godot/imported/LeverLabels.png-64cbef421cb03e891037825b6a47c4ef.s3tc.ctex"]
+dest_files=["res://.godot/imported/LeverLabels.png-64cbef421cb03e891037825b6a47c4ef.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

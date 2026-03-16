@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2mu3av32l2be"
-path.s3tc="res://.godot/imported/Metal062C_1K-JPG_Metalness.jpg-7fe96e9b788141a42476901634e63d30.s3tc.ctex"
+path="res://.godot/imported/Metal062C_1K-JPG_Metalness.jpg-7fe96e9b788141a42476901634e63d30.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/metals/Metal062C_1K-JPG/Metal062C_1K-JPG_Metalness.jpg"
-dest_files=["res://.godot/imported/Metal062C_1K-JPG_Metalness.jpg-7fe96e9b788141a42476901634e63d30.s3tc.ctex"]
+dest_files=["res://.godot/imported/Metal062C_1K-JPG_Metalness.jpg-7fe96e9b788141a42476901634e63d30.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

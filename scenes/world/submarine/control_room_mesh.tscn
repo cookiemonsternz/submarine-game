@@ -26,23 +26,23 @@
 [ext_resource type="Texture2D" uid="uid://t3jm2lp7qsqk" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_NormalGL.jpg" id="11_a4iyk"]
 [ext_resource type="Texture2D" uid="uid://bys0wkvier35w" path="res://assets/images/metals/Leaking012C_1K-JPG/Leaking012C_1K-JPG_Roughness.jpg" id="11_phe3f"]
 [ext_resource type="Texture2D" uid="uid://kesjp5xx8lcv" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG_Color.png" id="12_6fo8l"]
-[ext_resource type="Texture2D" uid="uid://c188h5ndl4ave" path="res://assets/images/control_room/console/ConsoleDiffuse.png" id="12_a7s51"]
 [ext_resource type="Texture2D" uid="uid://dgt3nxsklnvd4" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Roughness.jpg" id="12_nd1fh"]
 [ext_resource type="Texture2D" uid="uid://yp1w3o2hkip" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Color.jpg" id="12_xwds1"]
-[ext_resource type="Texture2D" uid="uid://dxmtvo5eiy1jr" path="res://assets/images/control_room/console/ConsoleMetal.png" id="13_mfkcd"]
 [ext_resource type="Texture2D" uid="uid://c2fxdlc674ewl" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_AmbientOcclusion.jpg" id="13_my6jd"]
 [ext_resource type="Texture2D" uid="uid://cuhrh4v1ucqdn" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG_Displacement.png" id="13_n2541"]
 [ext_resource type="Texture2D" uid="uid://drafemraojdcd" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Displacement.jpg" id="14_bwb8r"]
-[ext_resource type="Texture2D" uid="uid://dd6f8g7jf31gv" path="res://assets/images/control_room/console/ConsoleNormal.png" id="14_pq4i1"]
 [ext_resource type="Texture2D" uid="uid://bnau1bpi776gq" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG_Metalness.png" id="14_vhuae"]
 [ext_resource type="Texture2D" uid="uid://02etn80dopch" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Metalness.jpg" id="15_2vwb0"]
 [ext_resource type="Texture2D" uid="uid://cbds0qsxh6qtb" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG_NormalGL.png" id="15_m0rrc"]
-[ext_resource type="Texture2D" uid="uid://75lhpuqkacc2" path="res://assets/images/control_room/console/ConsoleRoughness.png" id="15_yltw6"]
 [ext_resource type="Texture2D" uid="uid://btk7m7xrkkyhg" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_NormalGL.jpg" id="16_65i0o"]
 [ext_resource type="Texture2D" uid="uid://dk1yuvavao61t" path="res://assets/images/Metal053B_1K-PNG/Metal053B_1K-PNG_Roughness.png" id="16_q7tfe"]
 [ext_resource type="Texture2D" uid="uid://b440vxa8lhcom" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Roughness.jpg" id="17_gedsl"]
 [ext_resource type="FontFile" uid="uid://ckk05ju3yjidm" path="res://assets/fonts/jetbrains_mono/jetbrains-mono-latin-300-normal.ttf" id="22_0ktp0"]
 [ext_resource type="Texture2D" uid="uid://ch0f06ldgxpcy" path="res://assets/images/control_room/Levers/LeverLabels.png" id="22_qb1p1"]
+[ext_resource type="Texture2D" uid="uid://bh7sk1qa06atd" path="res://assets/images/control_room/console/ConsoleDiffuse.jpg" id="39_b0842"]
+[ext_resource type="Texture2D" uid="uid://c8tq0fbsk1fe5" path="res://assets/images/control_room/console/ConsoleMetal.jpg" id="40_6n2du"]
+[ext_resource type="Texture2D" uid="uid://bsvgid6u6ppyx" path="res://assets/images/control_room/console/ConsoleNormal.jpg" id="41_4gel2"]
+[ext_resource type="Texture2D" uid="uid://b3jfrxkox45gm" path="res://assets/images/control_room/console/ConsoleRoughness.jpg" id="42_1f4p8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7obn"]
 albedo_texture = ExtResource("3_v2p18")
@@ -167,12 +167,12 @@ uv1_scale = Vector3(79.7866, 100, 79.7866)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awllc"]
-albedo_texture = ExtResource("12_a7s51")
+albedo_texture = ExtResource("39_b0842")
 metallic = 1.0
-metallic_texture = ExtResource("13_mfkcd")
-roughness_texture = ExtResource("15_yltw6")
+metallic_texture = ExtResource("40_6n2du")
+roughness_texture = ExtResource("42_1f4p8")
 normal_enabled = true
-normal_texture = ExtResource("14_pq4i1")
+normal_texture = ExtResource("41_4gel2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g4ji"]
 transparency = 1

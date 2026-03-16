@@ -8,7 +8,6 @@ var last_set_point: Vector3
 func _ready() -> void:
 	last_set_point = global_position
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

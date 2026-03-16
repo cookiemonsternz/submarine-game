@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwf7n1724165q"
-path.s3tc="res://.godot/imported/synth-rubber-normal.png-c28f023c0466cba0704f758838a16ab5.s3tc.ctex"
+path="res://.godot/imported/synth-rubber-normal.png-c28f023c0466cba0704f758838a16ab5.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/rubber/rubber/synth-rubber-normal.png"
-dest_files=["res://.godot/imported/synth-rubber-normal.png-c28f023c0466cba0704f758838a16ab5.s3tc.ctex"]
+dest_files=["res://.godot/imported/synth-rubber-normal.png-c28f023c0466cba0704f758838a16ab5.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

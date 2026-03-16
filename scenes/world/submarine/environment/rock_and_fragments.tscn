@@ -38,6 +38,7 @@ shape = SubResource("CapsuleShape3D_bjtg8")
 [node name="FragmentsFirst" type="Node3D" parent="." unique_id=1976802443]
 
 [node name="Frag1" type="RigidBody3D" parent="FragmentsFirst" unique_id=1849970828 groups=["rock_ore"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13356593, 0, 0.36471456)
 gravity_scale = 0.0
 freeze = true
 
@@ -58,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.0
 shape = SubResource("SphereShape3D_hlm45")
 
 [node name="Frag2" type="RigidBody3D" parent="FragmentsFirst" unique_id=534254474 groups=["rock_ore"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6920435, 0, 0.45887962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.027786, 5.9604645e-08, 0.31291658)
 gravity_scale = 0.0
 freeze = true
 
@@ -79,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12475005, 0.29629916, -0.0
 shape = SubResource("SphereShape3D_hlm45")
 
 [node name="Frag3" type="RigidBody3D" parent="FragmentsFirst" unique_id=440824975 groups=["rock_ore"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.688549, 0.1823658, 0.8001895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8088349, 0.0903441, 0.5855178)
 gravity_scale = 0.0
 freeze = true
 

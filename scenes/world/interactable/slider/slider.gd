@@ -21,7 +21,7 @@ extends Node3D
 
 var dragging = false
 var is_hovered = false
-var selected_detent = 0.0
+var selected_detent = 0.5
 var detent_expression = Expression.new()
 
 func try_set_draggable(value):
@@ -35,10 +35,13 @@ func _ready() -> void:
 	detent_expression.parse(detent_equation, ["x"])
 	%Draggable.drag_strength = drag_strength
 	
-	%JoltSliderJoint3D.node_a = boat.get_path()
+	%SliderJoint3D.node_a = boat.get_path()
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
+	
+	#print(%Measureable.get_value(), " : ", selected_detent)
+	
 	do_detents()
 	if len(values) > 0:
 		var val = %Measureable.get_value()

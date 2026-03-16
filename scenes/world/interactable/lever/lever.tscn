@@ -51,7 +51,7 @@ mouse_target = NodePath("../MouseTarget")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
 drag_body = NodePath("../..")
-joint = NodePath("../../../JoltHingeJoint3D")
+joint = NodePath("../../../HingeJoint3D")
 
 [node name="lever" parent="RigidBody3D" unique_id=1216858430 instance=ExtResource("5_5w5ri")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
@@ -66,16 +66,17 @@ unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 1, 0.06820599)
 shape = SubResource("CylinderShape3D_tk2tp")
 
-[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="." unique_id=1628645323]
-limit_enabled = true
-limit_upper = 0.6981317007977318
-limit_lower = -0.6108652381980153
-limit_spring_enabled = true
-limit_spring_frequency = 10.0
-limit_spring_damping = 0.1
-node_b = NodePath("../RigidBody3D")
+[node name="ForcePos" type="Marker3D" parent="RigidBody3D" unique_id=931725160]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91393125, 0)
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1898540989]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+node_b = NodePath("../RigidBody3D")
+angular_limit/enable = true
+angular_limit/upper = 0.6981317
+angular_limit/lower = -0.6981317
 
 [connection signal="hovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_hovered"]
 [connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]

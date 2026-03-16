@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmfg6p70ttk8x"
-path.s3tc="res://.godot/imported/Rock035_2K-JPG_Roughness.jpg-e89d428fba43274882c312e98122d404.s3tc.ctex"
+path="res://.godot/imported/Rock035_2K-JPG_Roughness.jpg-e89d428fba43274882c312e98122d404.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Rock035_2K-JPG/Rock035_2K-JPG_Roughness.jpg"
-dest_files=["res://.godot/imported/Rock035_2K-JPG_Roughness.jpg-e89d428fba43274882c312e98122d404.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rock035_2K-JPG_Roughness.jpg-e89d428fba43274882c312e98122d404.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

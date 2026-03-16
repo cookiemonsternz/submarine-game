@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cglmsdry00q5c"
-path.s3tc="res://.godot/imported/Fingerprints005_1K-JPG_Displacement.jpg-502e6d908ddbd81852e8b58d9099b13a.s3tc.ctex"
+path="res://.godot/imported/Fingerprints005_1K-JPG_Displacement.jpg-502e6d908ddbd81852e8b58d9099b13a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/fingerprints/Fingerprints005_1K-JPG/Fingerprints005_1K-JPG_Displacement.jpg"
-dest_files=["res://.godot/imported/Fingerprints005_1K-JPG_Displacement.jpg-502e6d908ddbd81852e8b58d9099b13a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Fingerprints005_1K-JPG_Displacement.jpg-502e6d908ddbd81852e8b58d9099b13a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

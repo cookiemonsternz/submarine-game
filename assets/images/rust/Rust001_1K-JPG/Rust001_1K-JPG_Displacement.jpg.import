@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddxkdg11roi87"
-path.s3tc="res://.godot/imported/Rust001_1K-JPG_Displacement.jpg-9b7b793fae25e8a0217378e45e87e474.s3tc.ctex"
+path="res://.godot/imported/Rust001_1K-JPG_Displacement.jpg-9b7b793fae25e8a0217378e45e87e474.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/rust/Rust001_1K-JPG/Rust001_1K-JPG_Displacement.jpg"
-dest_files=["res://.godot/imported/Rust001_1K-JPG_Displacement.jpg-9b7b793fae25e8a0217378e45e87e474.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rust001_1K-JPG_Displacement.jpg-9b7b793fae25e8a0217378e45e87e474.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

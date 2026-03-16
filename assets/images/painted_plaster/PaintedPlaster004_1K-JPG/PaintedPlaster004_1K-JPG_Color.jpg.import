@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6lli6c6rw1os"
-path.s3tc="res://.godot/imported/PaintedPlaster004_1K-JPG_Color.jpg-c4e19fc11781e499f4998c9e12a41b7b.s3tc.ctex"
+path="res://.godot/imported/PaintedPlaster004_1K-JPG_Color.jpg-c4e19fc11781e499f4998c9e12a41b7b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/painted_plaster/PaintedPlaster004_1K-JPG/PaintedPlaster004_1K-JPG_Color.jpg"
-dest_files=["res://.godot/imported/PaintedPlaster004_1K-JPG_Color.jpg-c4e19fc11781e499f4998c9e12a41b7b.s3tc.ctex"]
+dest_files=["res://.godot/imported/PaintedPlaster004_1K-JPG_Color.jpg-c4e19fc11781e499f4998c9e12a41b7b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

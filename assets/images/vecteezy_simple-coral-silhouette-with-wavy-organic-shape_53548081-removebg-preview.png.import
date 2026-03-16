@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://t85pwkjcqilk"
-path.s3tc="res://.godot/imported/vecteezy_simple-coral-silhouette-with-wavy-organic-shape_53548081-removebg-preview.png-e36db19e2b147efce3b0893f93320016.s3tc.ctex"
+path="res://.godot/imported/vecteezy_simple-coral-silhouette-with-wavy-organic-shape_53548081-removebg-preview.png-e36db19e2b147efce3b0893f93320016.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/vecteezy_simple-coral-silhouette-with-wavy-organic-shape_53548081-removebg-preview.png"
-dest_files=["res://.godot/imported/vecteezy_simple-coral-silhouette-with-wavy-organic-shape_53548081-removebg-preview.png-e36db19e2b147efce3b0893f93320016.s3tc.ctex"]
+dest_files=["res://.godot/imported/vecteezy_simple-coral-silhouette-with-wavy-organic-shape_53548081-removebg-preview.png-e36db19e2b147efce3b0893f93320016.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

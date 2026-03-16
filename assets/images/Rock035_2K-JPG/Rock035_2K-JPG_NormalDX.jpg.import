@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Rock035_2K-JPG_NormalDX.jpg-aacc4fe427f7d3ba1
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4diel4xmm62t"
-path.s3tc="res://.godot/imported/Metal056B_1K-JPG_NormalGL.jpg-4146a7fb9663776671fdf4a5ee962162.s3tc.ctex"
+path="res://.godot/imported/Metal056B_1K-JPG_NormalGL.jpg-4146a7fb9663776671fdf4a5ee962162.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/metals/Metal056B_1K-JPG/Metal056B_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Metal056B_1K-JPG_NormalGL.jpg-4146a7fb9663776671fdf4a5ee962162.s3tc.ctex"]
+dest_files=["res://.godot/imported/Metal056B_1K-JPG_NormalGL.jpg-4146a7fb9663776671fdf4a5ee962162.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

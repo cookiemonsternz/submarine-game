@@ -3,25 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://7qgry4rw36cu" path="res://scenes/world/interactable/lever/lever.tscn" id="5_uf0n3"]
 [ext_resource type="PackedScene" uid="uid://dmjh272vvfge3" path="res://scenes/world/interactable/slider/slider.tscn" id="6_uf0n3"]
 [ext_resource type="PackedScene" uid="uid://ci138ltswilxq" path="res://scenes/world/submarine/components/aux_props_control/aux_props_control.tscn" id="7_gfl3u"]
+[ext_resource type="PackedScene" uid="uid://dla3mubt6d5y7" path="res://scenes/world/interactable/wheel/wheel_small.tscn" id="8_7ilxv"]
 [ext_resource type="PackedScene" uid="uid://4muggwxyc8b8" path="res://scenes/world/interactable/wheel/wheel.tscn" id="8_defw0"]
 [ext_resource type="PackedScene" uid="uid://dms83r5ovibj8" path="res://scenes/world/submarine/components/compass/compass.tscn" id="9_7qicd"]
 [ext_resource type="PackedScene" uid="uid://8140x1b3amdd" path="res://scenes/world/submarine/components/dial/dial.tscn" id="9_vgbi5"]
 [ext_resource type="PackedScene" uid="uid://de6lvnrep2qyb" path="res://scenes/world/submarine/components/inclinometer/incinometer.tscn" id="10_toyfb"]
-[ext_resource type="Texture2D" uid="uid://b08dfoetx6qyd" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Color.jpg" id="11_5x5qo"]
+[ext_resource type="Texture2D" uid="uid://bxb8de6nascko" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Color.jpg" id="11_5x5qo"]
 [ext_resource type="Script" uid="uid://bc610b6em1miu" path="res://scenes/world/submarine/components/control_room/move_collisions.gd" id="11_vgbi5"]
-[ext_resource type="Texture2D" uid="uid://g826u1withno" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_AmbientOcclusion.jpg" id="12_ug5bh"]
-[ext_resource type="Texture2D" uid="uid://cl7xx7v36tldu" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Displacement.jpg" id="13_onnld"]
-[ext_resource type="Texture2D" uid="uid://i88o8l11eexv" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Metalness.jpg" id="14_al0vc"]
+[ext_resource type="Texture2D" uid="uid://c6123gc78gnq5" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_AmbientOcclusion.jpg" id="12_ug5bh"]
+[ext_resource type="Texture2D" uid="uid://b316ckupwwmxq" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Displacement.jpg" id="13_onnld"]
+[ext_resource type="Texture2D" uid="uid://df6vf6d3oa2eh" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Metalness.jpg" id="14_al0vc"]
 [ext_resource type="PackedScene" uid="uid://buheyt3ufx4qf" path="res://scenes/world/interactable/switch/switch.tscn" id="14_ky6vx"]
-[ext_resource type="Texture2D" uid="uid://c3h2kuuphpr8s" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_NormalGL.jpg" id="15_oktkd"]
-[ext_resource type="Texture2D" uid="uid://djbrk2ew3ba0d" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Roughness.jpg" id="16_5huat"]
+[ext_resource type="Texture2D" uid="uid://icn5k8tnt3rs" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_NormalGL.jpg" id="15_oktkd"]
+[ext_resource type="Texture2D" uid="uid://jg0a126lw4tt" path="res://assets/images/diamond_plates/DiamondPlate007C_1K-JPG/DiamondPlate007C_1K-JPG_Roughness.jpg" id="16_5huat"]
 [ext_resource type="PackedScene" uid="uid://bfpg4t6ybcn7k" path="res://scenes/world/submarine/control_room_mesh.tscn" id="16_8s8hk"]
-[ext_resource type="Texture2D" uid="uid://cl0pt0kjbtaol" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Color.jpg" id="17_5huat"]
-[ext_resource type="Texture2D" uid="uid://bsy6b6v5exhiu" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Displacement.jpg" id="18_tvf2q"]
-[ext_resource type="Texture2D" uid="uid://bbhijx4ot6ujh" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Metalness.jpg" id="19_75dkl"]
-[ext_resource type="Texture2D" uid="uid://dp6dvly75e11a" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_NormalGL.jpg" id="20_flt20"]
+[ext_resource type="Texture2D" uid="uid://c7ps2q2vslgvi" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Color.jpg" id="17_5huat"]
+[ext_resource type="Texture2D" uid="uid://bi1iui4i6wh30" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Displacement.jpg" id="18_tvf2q"]
+[ext_resource type="Texture2D" uid="uid://dbppp7h32uo1w" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Metalness.jpg" id="19_75dkl"]
+[ext_resource type="Texture2D" uid="uid://be03pi0bf16xs" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_NormalGL.jpg" id="20_flt20"]
 [ext_resource type="PackedScene" uid="uid://cwrf44o6g5pyt" path="res://scenes/world/submarine/control_room_roof.tscn" id="21_is48x"]
-[ext_resource type="Texture2D" uid="uid://cwc4cxuedw71k" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Roughness.jpg" id="21_wobjh"]
+[ext_resource type="Texture2D" uid="uid://cj1ajjm608wj2" path="res://assets/images/metal_plates/MetalPlates003_1K-JPG/MetalPlates003_1K-JPG_Roughness.jpg" id="21_wobjh"]
 [ext_resource type="Script" uid="uid://buab2hsh803el" path="res://scenes/world/submarine/cupboard_door.gd" id="22_flt20"]
 [ext_resource type="Material" uid="uid://bv0j47itpn763" path="res://assets/shaders/water.tres" id="22_o2jfx"]
 [ext_resource type="Texture2D" uid="uid://yp1w3o2hkip" path="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_Color.jpg" id="23_8bkb3"]
@@ -404,21 +405,21 @@ transform = Transform3D(1, 2.3092639e-14, -2.3732127e-12, 2.6645353e-14, 0.99999
 [node name="EndCollisionShape" parent="Controls/Slider/RigidBody3D" parent_id_path=PackedInt32Array(1062975164, 404819209) index="4" unique_id=51651539]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.14999996, 0)
 
-[node name="JoltSliderJoint3D" parent="Controls/Slider" index="1" unique_id=1404569318]
-limit_upper = 0.15
-limit_lower = -0.15
+[node name="SliderJoint3D" parent="Controls/Slider" index="1" unique_id=1753674919]
+linear_limit/upper_distance = 0.15
+linear_limit/lower_distance = -0.15
 
 [node name="AuxPropsControl" parent="Controls" unique_id=341946135 instance=ExtResource("7_gfl3u")]
 transform = Transform3D(1.3113416e-07, 0, 0.99999994, 0, 0.99999994, 0, -1, 0, 1.3113416e-07, -1.65, 1.21, 1.314)
 
 [node name="WheelForwards" parent="Controls" unique_id=765100319 instance=ExtResource("8_defw0")]
-transform = Transform3D(1.0927848e-08, 0.25, 3.774895e-08, 0.25, -1.0927847e-08, -5.8873666e-09, -5.887365e-09, 3.774895e-08, -0.25, -1.92, 1.6005212, 1.9401274)
+transform = Transform3D(4.3711392e-08, 1, 1.509958e-07, 1, -4.371139e-08, -2.3549466e-08, -2.354946e-08, 1.509958e-07, -1, -1.92, 1.6005212, 1.9401274)
 drag_strength = 100.0
 detents = 5
 property_name = "ratio"
 
 [node name="WheelRear" parent="Controls" unique_id=917075109 instance=ExtResource("8_defw0")]
-transform = Transform3D(1.0927848e-08, 0.25, 3.774895e-08, 0.25, -1.0927847e-08, -5.8873666e-09, -5.887365e-09, 3.774895e-08, -0.25, -1.92, 1.6005212, 0.9651274)
+transform = Transform3D(4.3711392e-08, 1, 1.509958e-07, 1, -4.371139e-08, -2.3549466e-08, -2.354946e-08, 1.509958e-07, -1, -1.92, 1.6005212, 0.9651274)
 drag_strength = 100.0
 detents = 5
 property_name = "ratio"
@@ -429,10 +430,9 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.65, 1.1927624, 2.6)
 [node name="Inclinometer" parent="Controls" unique_id=1486642658 instance=ExtResource("10_toyfb")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -1.975, 1.45, 1.45)
 
-[node name="CoolantWheel" parent="Controls" unique_id=1067580951 instance=ExtResource("8_defw0")]
-transform = Transform3D(1.9106854e-16, 4.371139e-09, -0.10000001, 0.1, -4.371139e-09, 0, -4.371139e-09, -0.1, -4.371139e-09, 1.1228459, 1.4827691, 2.6609404)
+[node name="CoolantWheel" parent="Controls" unique_id=1635746483 instance=ExtResource("8_7ilxv")]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, 1.1228459, 1.4827691, 2.6609404)
 drag_strength = 100.0
-detents = 5
 property_name = "desired_coolant_scale"
 value_min = 1.75
 value_max = 0.25
@@ -830,11 +830,12 @@ shape = SubResource("BoxShape3D_75dkl")
 rigidbody = NodePath("../..")
 mouse_target = NodePath("../MouseTarget")
 
-[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="." unique_id=313285124]
-limit_enabled = true
-limit_lower = -1.9198621771937625
-node_b = NodePath("../CupboardDoor")
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1228341450]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -1.55, 2.2, -2)
+node_b = NodePath("../CupboardDoor")
+angular_limit/enable = true
+angular_limit/upper = 0.0
+angular_limit/lower = -1.9198622
 
 [node name="ladder" parent="." unique_id=1687273499 instance=ExtResource("26_wobjh")]
 transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0.75, 0.925, 0, -2.5)
@@ -845,7 +846,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="Upper" type="Node3D" parent="." unique_id=2057188181]
 
 [node name="Furnace" parent="Upper" unique_id=138935279 instance=ExtResource("36_ovkmw")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.8703811, 4.27388, -7.4579)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8703811, 4.27388, -7.4579)
 
 [node name="HydroulicPress" parent="Upper" unique_id=1433679527 instance=ExtResource("37_pqgsg")]
 transform = Transform3D(6.556708e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.556708e-08, -0.8, 4.3144364, -4.8907814)

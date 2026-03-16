@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btk7m7xrkkyhg"
-path.s3tc="res://.godot/imported/DiamondPlate007D_1K-JPG_NormalGL.jpg-45b50d9ffb053698cddc20fc80b30bfb.s3tc.ctex"
+path="res://.godot/imported/DiamondPlate007D_1K-JPG_NormalGL.jpg-45b50d9ffb053698cddc20fc80b30bfb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/diamond_plates/DiamondPlate007D_1K-JPG/DiamondPlate007D_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/DiamondPlate007D_1K-JPG_NormalGL.jpg-45b50d9ffb053698cddc20fc80b30bfb.s3tc.ctex"]
+dest_files=["res://.godot/imported/DiamondPlate007D_1K-JPG_NormalGL.jpg-45b50d9ffb053698cddc20fc80b30bfb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

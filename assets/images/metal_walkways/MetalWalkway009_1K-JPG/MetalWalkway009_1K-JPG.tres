@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://vo55a3ql64wh"]
 
-[ext_resource type="Texture2D" uid="uid://du41k0dgk2jeu" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Color_Opacity.png" id="1_vlpx0"]
+[ext_resource type="Texture2D" uid="uid://3v1r5t5mr35c" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Color_Opacity.png" id="1_vlpx0"]
 [ext_resource type="Texture2D" uid="uid://ce13xcon3f3m7" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Displacement.jpg" id="Displacement"]
 [ext_resource type="Texture2D" uid="uid://bnau33ptrauwg" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_Metalness.jpg" id="Metalness"]
 [ext_resource type="Texture2D" uid="uid://t3jm2lp7qsqk" path="res://assets/images/metal_walkways/MetalWalkway009_1K-JPG/MetalWalkway009_1K-JPG_NormalGL.jpg" id="NormalGL"]

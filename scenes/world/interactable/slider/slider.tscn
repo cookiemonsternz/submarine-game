@@ -9,8 +9,8 @@
 [ext_resource type="Material" path="res://assets/images/metals/Metal049B_1K-JPG/Metal049B_1K-JPG.tres" id="7_80h2x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kitsk"]
-radius = 0.25
-height = 1.25
+radius = 0.10888672
+height = 1.1005859
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5w5ri"]
 radius = 0.025
@@ -33,6 +33,7 @@ detents = 3
 unique_name_in_owner = true
 collision_layer = 8
 collision_mask = 0
+axis_lock_angular_x = true
 gravity_scale = 0.1
 linear_damp = 5.0
 script = ExtResource("2_vqis2")
@@ -45,7 +46,7 @@ outline_objects = [NodePath("../../HandleMesh"), NodePath("../../EndMesh")]
 selectable = true
 
 [node name="MouseTargetCollisionShape" type="CollisionShape3D" parent="RigidBody3D/Components/MouseTarget" unique_id=1806052713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44970703, 0)
 shape = SubResource("CapsuleShape3D_kitsk")
 
 [node name="Draggable" parent="RigidBody3D/Components" unique_id=898455505 node_paths=PackedStringArray("rigidbody", "mouse_target") instance=ExtResource("3_vqis2")]
@@ -59,7 +60,7 @@ mouse_target = NodePath("../MouseTarget")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0036839, 0)
 drag_body = NodePath("../..")
-joint = NodePath("../../../JoltSliderJoint3D")
+joint = NodePath("../../../SliderJoint3D")
 
 [node name="HandleMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=1409803162]
 unique_name_in_owner = true
@@ -83,15 +84,9 @@ unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
 shape = SubResource("SphereShape3D_tk2tp")
 
-[node name="JoltSliderJoint3D" type="JoltSliderJoint3D" parent="." unique_id=1404569318]
-limit_enabled = true
-limit_upper = 1.0
-limit_lower = -1.0
-limit_spring_enabled = true
-limit_spring_frequency = 10.0
-limit_spring_damping = 0.1
-node_b = NodePath("../RigidBody3D")
+[node name="SliderJoint3D" type="SliderJoint3D" parent="." unique_id=1753674919]
 unique_name_in_owner = true
+node_b = NodePath("../RigidBody3D")
 
 [connection signal="hovered" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_hovered"]
 [connection signal="pressed" from="RigidBody3D/Components/MouseTarget" to="." method="_on_mouse_target_pressed"]
