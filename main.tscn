@@ -10,6 +10,11 @@
 [ext_resource type="Script" uid="uid://x3oqkburie5a" path="res://dialog_manager.gd" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://djrf1ie6uiwqu" path="res://scenes/ui/dialogue/instances/intro.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ot3q2m1l1r40" path="res://scenes/ui/dialogue/instances/found_first_mineral.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://uybiw6c6yl2j" path="res://scenes/ui/dialogue/instances/processed_first_mineral.tscn" id="11_vivmo"]
+[ext_resource type="PackedScene" uid="uid://wbk01eap4pm7" path="res://scenes/ui/dialogue/instances/on_9_minerals_processed.tscn" id="12_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://b470d0it0g6gq" path="res://scenes/ui/dialogue/instances/on_arrive_in_coral_reef.tscn" id="13_yaehf"]
+[ext_resource type="PackedScene" uid="uid://dbce5gcot7qcv" path="res://scenes/ui/dialogue/instances/on_more_minerals_processed.tscn" id="14_074og"]
+[ext_resource type="PackedScene" uid="uid://d3cb5mhufyy0e" path="res://scenes/ui/dialogue/instances/on_arrive_in_pit.tscn" id="15_cegan"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,6 +62,7 @@ environment = SubResource("Environment_1bvp3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=363779594]
 autoplay = true
+bus = &"Music"
 script = ExtResource("4_1bvp3")
 streams = Array[AudioStream]([ExtResource("5_7mycd"), ExtResource("6_272bh")])
 
@@ -66,6 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 109)
 [node name="DialogManager" type="Node" parent="." unique_id=2028588751]
 unique_name_in_owner = true
 script = ExtResource("7_272bh")
-dialogues = Array[PackedScene]([ExtResource("8_5vw27"), ExtResource("10_4c57u")])
+dialogues = Array[PackedScene]([ExtResource("8_5vw27"), ExtResource("10_4c57u"), ExtResource("11_vivmo"), ExtResource("12_2cqfq"), ExtResource("13_yaehf"), ExtResource("14_074og"), ExtResource("15_cegan")])
 
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

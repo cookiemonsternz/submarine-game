@@ -6,4 +6,5 @@
 [node name="type-2" unique_id=1686117550 instance=ExtResource("1_n1vj5")]
 
 [node name="Type 2" parent="." index="0" unique_id=1254523997]
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0, 0, 0)
 material_override = ExtResource("2_g4fwk")

@@ -34,7 +34,6 @@ func _physics_process(delta: float) -> void:
 			mat.set_shader_parameter("steps_l", 36);
 			
 			get_tree().get_first_node_in_group("kelp").show()
-			AudioServer.get_bus_
 			
 		elif awake == false:
 			%AudioListener3D.make_current()

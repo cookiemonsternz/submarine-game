@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dbce5gcot7qcv"]
+
+[ext_resource type="PackedScene" uid="uid://cvjtlb007wu4a" path="res://scenes/ui/dialogue/dialog_starter.tscn" id="1_g6bth"]
+[ext_resource type="PackedScene" uid="uid://dy75tkoxwhbeq" path="res://scenes/ui/dialogue/dialog_popup.tscn" id="2_jkiok"]
+
+[node name="DialogStarter" unique_id=996985472 node_paths=PackedStringArray("initial_dialogue") instance=ExtResource("1_g6bth")]
+initial_dialogue = NodePath("First")
+
+[node name="First" parent="." index="0" unique_id=1988300162 instance=ExtResource("2_jkiok")]
+dialog_name = "Nauta"
+dialog_text = "Good. Now, our sensors are picking up on low levels of seismic activity beneath the rock. And because we care about the quality of our minerals—after all, we wouldn’t want them to suffer physical weathering from the shaking of the submarine, would we"
+
+[node name="Second" parent="." index="1" unique_id=730925810 instance=ExtResource("2_jkiok")]
+dialog_name = "Nauta"
+dialog_text = "Your order is to move to K-47, a pit located just [direction] of you. You’ll have to pilot your submarine right the way down to the bottom, so proceed with caution. Try not to bump into any jagged rocks along the way."
+
+[connection signal="finished" from="First" to="Second" method="play"]
+[connection signal="finished" from="Second" to="." method="end"]

@@ -7,3 +7,4 @@ func play():
 
 func end():
 	queue_free()
+	

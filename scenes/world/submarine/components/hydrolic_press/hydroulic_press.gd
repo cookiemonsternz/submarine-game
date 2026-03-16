@@ -6,6 +6,8 @@ extends Node3D
 var start = Vector3(0.05, 2.75, 0.0);
 var end = Vector3(0.05, 0.45, 0.0);
 
+var num_processed = 0
+
 func _on_button_pressed() -> void:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
@@ -54,7 +56,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is DraggableOre:
 		if !body.cooked: return
 		money.money += money.money_per_ore
+		num_processed += 1
 		power.remaining_capacity += 5;
+		
+		get_tree().get_first_node_in_group("main").processed_first_mineral()
+		if num_processed == 9:
+			get_tree().get_first_node_in_group("main").processed_nine_minerals()
+		elif num_processed == 18:
+			get_tree().get_first_node_in_group("main").processed_more_minerals()
 		
 		%RockCrushAudio.play()
 		
