@@ -18,5 +18,4 @@ ao_texture_channel = 4
 heightmap_enabled = true
 heightmap_scale = 1.0
 heightmap_texture = ExtResource("Displacement")
-uv1_scale = Vector3(-11.065, -17.525, 6.44)
-uv1_triplanar = true
+uv1_scale = Vector3(-11.065, -17.525, -29.54)

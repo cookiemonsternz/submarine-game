@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://djpcxd4es1b3x" path="res://scenes/interaction/money/money.tscn" id="10_adir1"]
 [ext_resource type="PackedScene" uid="uid://bmpul1k5ewsat" path="res://scenes/world/submarine/mini_sub.tscn" id="11_e662o"]
 [ext_resource type="AudioStream" uid="uid://cytdnq4o4hurs" path="res://assets/sounds/sfx/aux_props_engine.mp3" id="11_xa54s"]
-[ext_resource type="Shader" path="res://assets/shaders/radar.gdshader" id="12_clx5a"]
+[ext_resource type="Shader" uid="uid://n56i6ciecknv" path="res://assets/shaders/radar.gdshader" id="12_clx5a"]
 [ext_resource type="Texture2D" uid="uid://bnuj42r5sj6gs" path="res://assets/images/radar_grid.png" id="13_ruyl3"]
 [ext_resource type="PackedScene" uid="uid://dd6l6hjcqam4g" path="res://assets/models/submarineassets_2.tscn" id="15_adir1"]
 [ext_resource type="PackedScene" uid="uid://baewwnqb66nky" path="res://assets/models/submarineassets.tscn" id="16_clx5a"]
@@ -424,7 +424,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.953757, 3.165515, -2.00995
 
 [node name="MiniSubCollisions" parent="ControlRoom" index="3" unique_id=729885598 node_paths=PackedStringArray("boat")]
 collision_layer = 32
-collision_mask = 96
+collision_mask = 99
 boat = NodePath("../..")
 
 [node name="Extereor" type="CollisionShape3D" parent="ControlRoom/MiniSubCollisions" index="0" unique_id=1160800359]

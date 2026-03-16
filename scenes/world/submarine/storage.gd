@@ -1,6 +1,6 @@
 class_name MiniSubStorage extends Node3D
 
-@export var storage: int = 20
+@export var storage: int = 2000
 var current_stored: int = 0
 var is_full: bool = false
 
